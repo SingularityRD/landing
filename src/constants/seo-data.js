@@ -106,6 +106,19 @@ export default {
     keywords: 'security training, skill verification, penetration testing training, coding challenges, SOC 2 training, security certification',
     pathname: '/reps',
   },
+  ai: {
+    title: 'AI Security — AI Applications & Agent Security | Singularity',
+    description:
+      'Secure AI applications and agents with Singularity. AI database management, vector store security, and intelligent agent protection.',
+    keywords: 'AI security, AI agents, vector database, pgvector, AI applications, machine learning security, LLM security',
+    pathname: '/ai',
+  },
+  enterprise: {
+    title: 'Enterprise — Singularity Security Platform',
+    description: 'Enterprise-grade autonomous security. Scale to millions of endpoints with dedicated support and SLAs.',
+    keywords: 'enterprise security, enterprise compliance, dedicated support, SLA, large-scale security',
+    pathname: '/enterprise',
+  },
   // Error Pages
   error: {
     title: 'System Error — Singularity',

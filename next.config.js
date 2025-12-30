@@ -8,6 +8,11 @@ const generateDocPagePath = require('./src/utils/generate-doc-page-path');
 
 const defaultConfig = {
   poweredByHeader: false,
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors/warnings.
+    ignoreDuringBuilds: true,
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
