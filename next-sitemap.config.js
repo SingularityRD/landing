@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_DEFAULT_SITE_URL || 'https://neon.com',
+  siteUrl: process.env.NEXT_PUBLIC_DEFAULT_SITE_URL || 'https://singularityrd.com',
   exclude: [
     // API routes
     '/api/*',
@@ -7,36 +7,12 @@ module.exports = {
     // XML routes (RSS feeds and sitemaps)
     '**/*.xml',
 
-    // Blog pages (handled by blog-sitemap.xml)
+    // Blog and Postgres sitemaps (handled separately if needed)
     '/blog/*',
-
-    // PostgreSQL Tutorial (handled by sitemap-postgres.xml)
     '/postgresql/*',
-
-    // Home page variants
-    '/home',
-    '/all-things-open-2023',
-    '/cfe',
-    '/devs',
-    '/education',
-    '/fireship',
-    '/github',
-    '/last-week-in-aws',
-    '/ping-thing',
-    '/pgt',
-    '/radio',
-    '/stackoverflow',
-    '/youtube',
 
     // Other pages
     '/thank-you',
-
-    // Legacy docs (deprecated)
-    '/docs/auth/legacy/*',
-
-    // Deprecated guides
-    '/docs/guides/neosync-anonymize',
-    '/docs/guides/neosync-generate',
   ],
   generateRobotsTxt: true,
   additionalPaths: async (config) => [await config.transform(config, '/')],
@@ -45,36 +21,12 @@ module.exports = {
       {
         userAgent: '*',
         disallow: [
-          // Home page variants
-          '/home$',
-          '/all-things-open-2023$',
-          '/cfe$',
-          '/devs$',
-          '/education$',
-          '/fireship$',
-          '/github$',
-          '/last-week-in-aws$',
-          '/ping-thing$',
-          '/pgt$',
-          '/radio$',
-          '/stackoverflow$',
-          '/youtube$',
-
-          // Other pages
           '/thank-you$',
-
-          // Legacy docs (deprecated)
-          '/docs/auth/legacy/',
-
-          // Deprecated guides
-          '/docs/guides/neosync-anonymize$',
-          '/docs/guides/neosync-generate$',
         ],
       },
     ],
     additionalSitemaps: [
-      `${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/blog-sitemap.xml`,
-      `${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/sitemap-postgres.xml`,
+      `${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/sitemap.xml`,
     ],
   },
 };

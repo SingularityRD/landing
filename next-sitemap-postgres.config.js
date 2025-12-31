@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_DEFAULT_SITE_URL || 'https://neon.com',
+  siteUrl: process.env.NEXT_PUBLIC_DEFAULT_SITE_URL || 'https://singularityrd.com',
   exclude: ['/*', '!/postgresql/*'],
   sitemapBaseFileName: 'sitemap-postgres',
   generateIndexSitemap: false,

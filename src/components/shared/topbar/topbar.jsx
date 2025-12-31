@@ -2,7 +2,7 @@ import { PropTypes } from 'prop-types';
 
 import TopbarClient from './topbar-client';
 
-const TOPBAR_API_URL = `${process.env.NEXT_PUBLIC_DEFAULT_SITE_URL}/api/topbar`;
+
 
 const Topbar = async ({ isDarkTheme }) => {
   // Skip topbar fetch during static generation (build time)
@@ -12,6 +12,9 @@ const Topbar = async ({ isDarkTheme }) => {
   if (isBuildTime) {
     return null;
   }
+
+  const siteUrl = process.env.NEXT_PUBLIC_DEFAULT_SITE_URL || 'https://singularityrd.com';
+  const TOPBAR_API_URL = `${siteUrl}/api/topbar`;
 
   try {
     const response = await fetch(TOPBAR_API_URL, {

@@ -2,8 +2,10 @@ import { ImageResponse } from 'next/og';
 
 import { image1, image3, image4 } from 'constants/og-images';
 
+// Node.js runtime is used here to accommodate large image constants (774KB) 
+// that exceed the Vercel Hobby Edge Function size limit (1MB).
 export const config = {
-  runtime: 'edge',
+  runtime: 'nodejs',
 };
 
 const colorSchemeMap = {
