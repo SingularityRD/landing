@@ -21,8 +21,8 @@ export default function getMetadata({
   const SITE_URL =
     process.env.VERCEL_ENV === 'preview'
       ? `https://${process.env.VERCEL_BRANCH_URL}`
-      : process.env.NEXT_PUBLIC_DEFAULT_SITE_URL;
-  const canonicalUrl = SITE_URL + pathname;
+      : process.env.NEXT_PUBLIC_DEFAULT_SITE_URL || 'https://singularityrd.com';
+  const canonicalUrl = SITE_URL + (pathname || '');
   const imageUrl = imagePath?.startsWith('http') ? imagePath : SITE_URL + imagePath;
 
   const metaImageUrl = imagePath ? imageUrl : `${SITE_URL}${DEFAULT_IMAGE_PATH}`;

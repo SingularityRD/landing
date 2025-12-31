@@ -20,8 +20,8 @@ getMetadata({
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'Neon Postgres',
-  url: 'https://neon.com/',
+  name: 'Singularity',
+  url: 'https://singularityrd.com/',
 };
 
 const Homepage = () => (
