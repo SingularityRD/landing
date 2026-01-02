@@ -10,7 +10,7 @@ import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 import LINKS from 'constants/links';
 
-import plans from './data/plans';
+import plans from '../plans/data/plans';
 import Features from './features';
 
 const scaleCardBorderVariants = {
