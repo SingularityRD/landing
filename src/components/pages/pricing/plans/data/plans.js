@@ -5,457 +5,265 @@ export default {
     feature: '',
     starter: {
       label: 'Starter',
-      price: '<span>$35</span>/user/month',
+      price: '<span>$8</span>/device/mo',
       buttonUrl: LINKS.contactSales,
       buttonText: 'Get Started',
+      subtitle: 'No minimum • Unlimited users',
     },
     professional: {
-      label: 'Professional',
-      price: '<span>$65</span>/user/month',
+      label: 'Growth',
+      price: '<span>$12</span>/device/mo',
       buttonUrl: LINKS.contactSales,
       buttonText: 'Get Started',
+      subtitle: 'No minimum • Unlimited users',
     },
     enterprise: {
       label: 'Enterprise',
-      price: '<span>Custom</span> pricing',
+      price: '<span>Custom</span>',
       buttonUrl: LINKS.contactSales,
       buttonText: 'Contact Sales',
+      subtitle: 'Volume discounts from 100+',
     },
   },
   cols: [
-    // ============= COST COMPARISON (PROMINENT) =============
+    // ============= PRICING MODEL =============
     {
       rows: '1',
-      feature: '💰 Cost Comparison vs Competitors',
+      feature: 'Pricing Model',
     },
     {
       rows: '2',
       feature: {
-        title: '✅ Singularity (All-in-One)',
-        subtitle: 'Everything included'
+        title: 'Per-Device Billing',
+        subtitle: 'All features included — no add-on modules'
       },
-      starter: '<span class="text-green-45 text-lg font-semibold">$35/user/mo</span>',
-      professional: '<span class="text-green-45 text-lg font-semibold">$65/user/mo</span>',
-      enterprise: '<span class="text-green-45 text-lg font-semibold">Custom</span>',
-    },
-    {
-      rows: '2',
-      feature: {
-        title: 'Jamf (MDM only)',
-        subtitle: 'Device management'
-      },
-      starter: '<span class="text-gray-new-50">$10-15/user/mo</span>',
-      professional: '<span class="text-gray-new-50">$10-15/user/mo</span>',
-      enterprise: '<span class="text-gray-new-50">$10-15/user/mo</span>',
-    },
-    {
-      rows: '2',
-      feature: {
-        title: 'CrowdStrike (EDR only)',
-        subtitle: 'Threat detection'
-      },
-      starter: '<span class="text-gray-new-50">$35-50/user/mo</span>',
-      professional: '<span class="text-gray-new-50">$35-50/user/mo</span>',
-      enterprise: '<span class="text-gray-new-50">$35-50/user/mo</span>',
-    },
-    {
-      rows: '2',
-      feature: {
-        title: 'Okta (IAM only)',
-        subtitle: 'Identity management'
-      },
-      starter: '<span class="text-gray-new-50">$15-20/user/mo</span>',
-      professional: '<span class="text-gray-new-50">$15-20/user/mo</span>',
-      enterprise: '<span class="text-gray-new-50">$15-20/user/mo</span>',
-    },
-    {
-      rows: '2',
-      feature: {
-        title: 'Vanta (Compliance only)',
-        subtitle: 'SOC 2, HIPAA, GDPR'
-      },
-      starter: '<span class="text-gray-new-50">$800+/mo base</span>',
-      professional: '<span class="text-gray-new-50">$800+/mo base</span>',
-      enterprise: '<span class="text-gray-new-50">$800+/mo base</span>',
-    },
-    {
-      rows: '2',
-      feature: {
-        title: 'Penetration Test (Annual)',
-        subtitle: 'External vendor'
-      },
-      starter: '<span class="text-gray-new-50">$4,000-15,000/yr</span>',
-      professional: '<span class="text-green-45">Included ✓</span>',
-      enterprise: '<span class="text-green-45">Continuous ✓</span>',
-    },
-    {
-      rows: '2',
-      feature: {
-        title: '❌ Total Competitor Stack',
-        subtitle: 'Jamf + CrowdStrike + Okta + Vanta'
-      },
-      starter: '<span class="line-through text-gray-new-50">$100+/user/mo</span>',
-      professional: '<span class="line-through text-gray-new-50">$120+/user/mo</span>',
-      enterprise: '<span class="line-through text-gray-new-50">$150+/user/mo</span>',
-    },
-    {
-      rows: '2',
-      feature: {
-        title: '🎯 Your Savings',
-      },
-      starter: '<span class="text-green-45 font-semibold">Save 65%</span><span>$65+/user saved</span>',
-      professional: '<span class="text-green-45 font-semibold">Save 46%</span><span>$55+/user saved</span>',
-      enterprise: '<span class="text-green-45 font-semibold">Custom ROI</span><span>Contact sales</span>',
-    },
-    // ============= AutoSecOps / MDM =============
-    {
-      rows: '1',
-      feature: 'AutoSecOps / MDM',
-    },
-    {
-      rows: '2',
-      feature: {
-        title: 'Endpoints managed',
-        subtitle: 'Jamf charges $10-15/user extra'
-      },
-      starter: 'Up to 100<span>Included</span>',
-      professional: 'Up to 1,000<span>Included</span>',
-      enterprise: 'Unlimited<span>Included</span>',
+      starter: '<span class="text-green-45 font-semibold">$8/device</span>',
+      professional: '<span class="text-green-45 font-semibold">$12/device</span>',
+      enterprise: '<span class="text-green-45 font-semibold">Custom</span>',
     },
     {
       rows: '1',
-      feature: { title: 'Cross-platform MDM (Win/Mac/Linux/iOS/Android)' },
+      feature: {
+        title: 'Minimum Endpoint Requirement',
+        subtitle: 'Tanium, CrowdStrike require 2,000+ endpoints'
+      },
+      starter: '<span class="text-green-45">No minimum</span>',
+      professional: '<span class="text-green-45">No minimum</span>',
+      enterprise: '100+ recommended',
+    },
+    {
+      rows: '1',
+      feature: {
+        title: 'Identity Management (SSO/SCIM)',
+        subtitle: 'Competitors charge Okta separately: $15-20/user'
+      },
+      starter: false,
+      professional: '<span class="text-green-45">Included</span>',
+      enterprise: '<span class="text-green-45">Included</span>',
+    },
+    // ============= DEVICE MANAGEMENT =============
+    {
+      rows: '1',
+      feature: 'Device Management',
+    },
+    {
+      rows: '1',
+      feature: {
+        title: 'Cross-Platform MDM',
+        subtitle: 'Windows, macOS, Linux, iOS, Android'
+      },
       starter: true,
       professional: true,
       enterprise: true,
     },
     {
       rows: '1',
-      feature: { title: 'Zero-touch deployment' },
-      starter: false,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'BYOD enrollment & work profiles' },
-      starter: true,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'Device inventory & search' },
-      starter: true,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'Remote lock, wipe & remediation' },
-      starter: true,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'Application deployment & management' },
-      starter: false,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'OS update & disk encryption enforcement' },
-      starter: false,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'Script execution & maintenance windows' },
-      starter: true,
-      professional: true,
-      enterprise: true,
-    },
-    // ============= Security =============
-    {
-      rows: '1',
-      feature: 'Threat Detection & Response',
-    },
-    {
-      rows: '2',
       feature: {
-        title: 'AI threat response',
-        subtitle: 'CrowdStrike charges $35-50/user'
+        title: 'Zero-Touch Deployment',
+        subtitle: 'Tanium charges extra: $2.65/device'
       },
-      starter: '<5 min<span>Manual response</span>',
-      professional: '<100ms<span>Autonomous AI</span>',
-      enterprise: '<100ms<span>Autonomous AI</span>',
+      starter: '<span class="text-green-45">Included</span>',
+      professional: '<span class="text-green-45">Included</span>',
+      enterprise: '<span class="text-green-45">Included</span>',
     },
     {
       rows: '1',
-      feature: { title: 'File integrity monitoring (FIM)' },
-      starter: true,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'Malware detection (YARA/custom IoCs)' },
-      starter: true,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'Continuous vulnerability scanning' },
-      starter: true,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'CISA KEV & vulnerability scores' },
-      starter: false,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'Dark web credential monitoring' },
-      starter: false,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'Threat intelligence feeds' },
-      starter: false,
-      professional: '10 CTI feeds',
-      enterprise: '50+ CTI feeds',
-    },
-    {
-      rows: '1',
-      feature: { title: 'Custom threat hunting' },
-      starter: false,
-      professional: false,
-      enterprise: true,
-    },
-    // ============= Compliance =============
-    {
-      rows: '1',
-      feature: 'Compliance Automation',
-    },
-    {
-      rows: '2',
       feature: {
-        title: 'Compliance frameworks',
-        subtitle: 'Vanta charges $10,000+/year base'
+        title: 'BYOD Enrollment & Work Profiles'
       },
-      starter: 'SOC 2 toolkit<span>Included</span>',
-      professional: 'Unlimited<span>SOC 2, HIPAA, GDPR, ISO 27001</span>',
-      enterprise: 'Unlimited<span>All frameworks + custom</span>',
-    },
-    {
-      rows: '1',
-      feature: { title: 'Automated evidence collection' },
-      starter: false,
+      starter: true,
       professional: true,
       enterprise: true,
     },
     {
       rows: '1',
-      feature: { title: 'Audit-ready documentation' },
-      starter: 'Basic',
-      professional: 'Full',
-      enterprise: 'Custom',
+      feature: {
+        title: 'Device Inventory & Search'
+      },
+      starter: true,
+      professional: true,
+      enterprise: true,
     },
     {
-      rows: '2',
+      rows: '1',
       feature: {
-        title: 'Penetration testing',
-        subtitle: 'Typically $4,000-15,000 extra'
+        title: 'Application Deployment & Management',
+        subtitle: 'Tanium charges extra: $7.25/device'
       },
       starter: false,
-      professional: 'Annual<span>Included</span>',
-      enterprise: 'Continuous<span>Monthly assessments</span>',
+      professional: '<span class="text-green-45">Included</span>',
+      enterprise: '<span class="text-green-45">Included</span>',
     },
     {
       rows: '1',
-      feature: { title: 'SOC 2 certification timeline' },
-      starter: 'Self-guided',
-      professional: '14 days Type I',
-      enterprise: 'White-glove support',
-    },
-    // ============= IAM =============
-    {
-      rows: '1',
-      feature: 'Identity & Access Management',
-    },
-    {
-      rows: '2',
       feature: {
-        title: 'SSO & SCIM',
-        subtitle: 'Okta charges $15-20/user'
+        title: 'OS Updates & Patch Management',
+        subtitle: 'Tanium charges extra: $7.25/device'
       },
       starter: false,
-      professional: 'Included<span>Unlimited apps</span>',
-      enterprise: 'Included<span>Unlimited apps</span>',
+      professional: '<span class="text-green-45">Included</span>',
+      enterprise: '<span class="text-green-45">Included</span>',
     },
     {
       rows: '1',
-      feature: { title: 'Role-based access control (RBAC)' },
-      starter: false,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'Two-factor authentication (2FA)' },
-      starter: false,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'Just-in-time (JIT) access provisioning' },
-      starter: false,
-      professional: false,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'Immutable audit trail' },
-      starter: false,
-      professional: true,
-      enterprise: true,
-    },
-    // ============= vCISO =============
-    {
-      rows: '1',
-      feature: 'vCISO & Advisory',
-    },
-    {
-      rows: '2',
-      feature: {
-        title: 'Security advisory',
-        subtitle: 'Typical vCISO: $3,000-10,000/month'
-      },
-      starter: 'Quarterly reports',
-      professional: 'AI vCISO<span>24/7 guidance</span>',
-      enterprise: 'Dedicated engineer<span>+ AI vCISO</span>',
-    },
-    {
-      rows: '1',
-      feature: { title: 'Weekly threat briefings' },
-      starter: false,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'Board-ready reporting' },
-      starter: false,
-      professional: true,
-      enterprise: true,
-    },
-    // ============= Predictive Maintenance =============
-    {
-      rows: '1',
-      feature: 'Predictive Maintenance AI',
-    },
-    {
-      rows: '1',
-      feature: { title: 'Device health monitoring' },
+      feature: { title: 'Remote Lock & Wipe' },
       starter: true,
       professional: true,
       enterprise: true,
     },
+    // ============= SECURITY =============
     {
       rows: '1',
-      feature: { title: 'Failure prediction' },
-      starter: false,
-      professional: false,
-      enterprise: '14-day advance warning',
+      feature: 'Endpoint Security',
     },
     {
       rows: '1',
-      feature: { title: 'Performance analytics' },
-      starter: 'Basic',
+      feature: {
+        title: 'AutoSecOps (AI Threat Response)',
+        subtitle: 'Sub-100ms autonomous response'
+      },
+      starter: 'Core',
       professional: 'Advanced',
-      enterprise: 'Custom dashboards',
-    },
-    // ============= REPS =============
-    {
-      rows: '1',
-      feature: 'REPS Training Platform',
+      enterprise: 'Advanced + Custom Rules',
     },
     {
       rows: '1',
-      feature: { title: 'Security training modules' },
-      starter: 'Basic',
-      professional: 'Full library',
-      enterprise: 'Custom + full library',
-    },
-    {
-      rows: '1',
-      feature: { title: 'Skill verification challenges' },
-      starter: false,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'Compliance certification tracking' },
-      starter: false,
-      professional: true,
-      enterprise: true,
-    },
-    // ============= Support & Deployment =============
-    {
-      rows: '1',
-      feature: 'Support & Deployment',
-    },
-    {
-      rows: '1',
-      feature: { title: 'Managed cloud' },
+      feature: {
+        title: 'Malware Detection (YARA/IoCs)'
+      },
       starter: true,
       professional: true,
       enterprise: true,
     },
     {
       rows: '1',
-      feature: { title: 'Self-hosted / on-prem option' },
+      feature: {
+        title: 'File Integrity Monitoring',
+        subtitle: 'Tanium charges extra: $7.25/device'
+      },
+      starter: '<span class="text-green-45">Included</span>',
+      professional: '<span class="text-green-45">Included</span>',
+      enterprise: '<span class="text-green-45">Included</span>',
+    },
+    {
+      rows: '1',
+      feature: {
+        title: 'Vulnerability Scanning & Scoring',
+        subtitle: 'CISA KEV integration'
+      },
       starter: false,
-      professional: false,
+      professional: true,
       enterprise: true,
     },
     {
       rows: '1',
-      feature: { title: 'Multi-tenancy' },
+      feature: {
+        title: 'Dark Web Monitoring'
+      },
       starter: false,
-      professional: false,
+      professional: true,
       enterprise: true,
     },
     {
       rows: '1',
-      feature: { title: 'Support channel' },
-      starter: 'Email',
-      professional: 'Dedicated Slack',
-      enterprise: '24/7 Phone + Slack',
+      feature: {
+        title: 'Threat Intelligence Feeds'
+      },
+      starter: false,
+      professional: '10 feeds',
+      enterprise: '50+ feeds',
     },
     {
       rows: '1',
-      feature: { title: 'Uptime SLA' },
-      starter: '99.5%',
-      professional: '99.9%',
-      enterprise: '99.99%',
+      feature: {
+        title: 'Predictive Maintenance AI',
+        subtitle: 'Singularity exclusive — no competitor offers this'
+      },
+      starter: false,
+      professional: false,
+      enterprise: '<span class="text-green-45">Included</span>',
     },
-    // ============= Integrations =============
+    // ============= COMPLIANCE =============
     {
       rows: '1',
-      feature: 'Integrations & API',
+      feature: 'Compliance & Governance',
+    },
+    {
+      rows: '1',
+      feature: {
+        title: 'Compliance Frameworks',
+        subtitle: 'Competitors charge Vanta separately: $800+/mo'
+      },
+      starter: 'SOC 2',
+      professional: 'SOC 2, HIPAA, GDPR, ISO',
+      enterprise: 'All + Custom',
+    },
+    {
+      rows: '1',
+      feature: {
+        title: 'Virtual CISO Assistant'
+      },
+      starter: false,
+      professional: 'Basic',
+      enterprise: 'Full',
+    },
+    {
+      rows: '1',
+      feature: {
+        title: 'Penetration Testing',
+        subtitle: 'Market rate: $4,000-15,000/year'
+      },
+      starter: false,
+      professional: '<span class="text-green-45">Annual (Included)</span>',
+      enterprise: '<span class="text-green-45">Continuous (Included)</span>',
+    },
+    {
+      rows: '1',
+      feature: {
+        title: 'Audit Logging & Reporting'
+      },
+      starter: false,
+      professional: true,
+      enterprise: true,
+    },
+    // ============= DEPLOYMENT =============
+    {
+      rows: '1',
+      feature: 'Deployment & Integration',
+    },
+    {
+      rows: '1',
+      feature: { title: 'Managed Cloud' },
+      starter: true,
+      professional: true,
+      enterprise: true,
+    },
+    {
+      rows: '1',
+      feature: { title: 'Self-Hosted / Air-Gapped' },
+      starter: false,
+      professional: false,
+      enterprise: true,
     },
     {
       rows: '1',
@@ -466,17 +274,48 @@ export default {
     },
     {
       rows: '1',
-      feature: { title: 'CLI tools & GitOps' },
-      starter: true,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      rows: '1',
-      feature: { title: 'SIEM/SOAR integrations' },
+      feature: { title: 'GitOps & CI/CD Integration' },
       starter: false,
       professional: true,
       enterprise: true,
+    },
+    // ============= SUPPORT =============
+    {
+      rows: '1',
+      feature: 'Support',
+    },
+    {
+      rows: '1',
+      feature: { title: 'Support SLA' },
+      starter: 'Email',
+      professional: 'Slack (8×5)',
+      enterprise: '24/7 Phone (99.99%)',
+    },
+    {
+      rows: '1',
+      feature: { title: 'Dedicated Security Engineer' },
+      starter: false,
+      professional: false,
+      enterprise: true,
+    },
+    // ============= COMMITMENT =============
+    {
+      rows: '1',
+      feature: 'Commitment Discounts',
+    },
+    {
+      rows: '1',
+      feature: { title: 'Annual Billing' },
+      starter: '17% off',
+      professional: '17% off',
+      enterprise: '17% off',
+    },
+    {
+      rows: '1',
+      feature: { title: '2-Year Agreement' },
+      starter: '—',
+      professional: '—',
+      enterprise: '25% off',
     },
   ],
 };

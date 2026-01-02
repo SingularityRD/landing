@@ -8,11 +8,13 @@ import Logos from 'components/shared/logos';
 import LINKS from 'constants/links';
 import SEO_DATA from 'constants/seo-data';
 import getMetadata from 'utils/get-metadata';
+import Container from 'components/shared/container';
+import Button from 'components/shared/button';
 
 export const metadata = getMetadata({
   title: 'Pricing — Singularity Security Platform',
-  description: 'Transparent pricing for autonomous security. AutoSecOps, vCISO, compliance automation, and threat intelligence. Scale from startup to enterprise.',
-  keywords: 'security pricing, AutoSecOps cost, vCISO pricing, SOC 2 compliance cost, enterprise security pricing, MDM pricing',
+  description: 'Flexible pricing for hyper-growth companies and global enterprises. AutoSecOps, vCISO, and compliance at scale.',
+  keywords: 'security pricing, enterprise security cost, startup security discount, AutoSecOps pricing',
   pathname: '/pricing',
 });
 
@@ -27,75 +29,39 @@ const logos = [
 
 const faqItems = [
   {
-    question: 'What is included in each plan?',
-    id: 'whats-included',
+    question: 'Why do you charge per device instead of per user?',
+    id: 'per-device-pricing',
     initialState: 'open',
     answer: `
-      <p><strong>Starter ($35/user/mo):</strong> AutoSecOps Core, Basic MDM (up to 100 endpoints), SOC 2 toolkit, device inventory, remote lock/wipe, quarterly security reports.</p>
-      <p><strong>Professional ($65/user/mo):</strong> Everything in Starter + Advanced AutoSecOps (up to 1,000 endpoints), full compliance suite (SOC 2, HIPAA, GDPR, ISO 27001), vCISO AI assistant, annual pen test, IAM with SSO/SCIM, dark web monitoring, dedicated Slack support.</p>
-      <p><strong>Enterprise (Custom):</strong> Everything in Professional + unlimited endpoints, predictive maintenance AI, AppSec integration, continuous pen testing, 50+ CTI feeds, dedicated security engineer, 24/7 phone support, 99.99% SLA.</p>
+      <p>Security runs on endpoints. Every device—laptop, phone, server—is an attack surface that requires protection. By charging per device, we include unlimited users and identity management at no additional cost. This eliminates the need for separate Okta or Azure AD Premium licenses.</p>
     `,
   },
   {
-    question: 'How does Singularity compare to competitors?',
-    id: 'competitor-comparison',
+    question: 'How does Singularity compare to Tanium?',
+    id: 'tanium-comparison',
     answer: `
-      <p>A typical security stack costs significantly more when you add up individual tools:</p>
-      <ul>
-        <li><strong>Jamf (MDM):</strong> $10-15/user/month</li>
-        <li><strong>Okta (IAM):</strong> $15-20/user/month</li>
-        <li><strong>CrowdStrike (EDR):</strong> $25-50/user/month</li>
-        <li><strong>Vanta (Compliance):</strong> $10,000+/year</li>
-        <li><strong>Annual Pen Test:</strong> $4,000-15,000/year</li>
-      </ul>
-      <p>That's <strong>$60-100+/user/month</strong> for a fragmented stack. Singularity provides all of this in one platform starting at <strong>$35/user/month</strong>.</p>
+      <p>Tanium requires a <strong>2,000 endpoint minimum</strong> and charges separately for each module: Core Platform ($24/device), Patch ($7.25/device), Deploy ($7.25/device), Threat Response ($13.50/device), and more. A comparable Tanium stack costs <strong>$50+/device/month</strong>. Singularity provides the complete stack—MDM, EDR, compliance, identity, and pen testing—for <strong>$12/device</strong> with no minimum purchase requirement.</p>
     `,
   },
   {
-    question: 'What is the minimum commitment?',
-    id: 'minimum-commitment',
+    question: 'What is the minimum purchase requirement?',
+    id: 'minimum-purchase',
     answer: `
-      <p><strong>Starter:</strong> Minimum 5 users ($175/month, $2,100/year billed annually)</p>
-      <p><strong>Professional:</strong> Minimum 10 users ($650/month, $7,800/year billed annually)</p>
-      <p><strong>Enterprise:</strong> Custom minimums based on your organization's needs</p>
+      <p><strong>None.</strong> Unlike Tanium (2,000 endpoints), CrowdStrike (250 endpoints), and other enterprise vendors, we have no minimum. Start with 10 devices or 10,000—same straightforward per-device pricing. Volume discounts begin at 100+ devices.</p>
     `,
   },
   {
-    question: 'How fast can we get SOC 2 certified?',
-    id: 'soc2-timeline',
+    question: 'What does "All-in-One" include?',
+    id: 'all-in-one',
     answer: `
-      <p>Most organizations achieve SOC 2 Type I certification within <strong>14 days</strong> using Singularity's automated evidence collection and pre-built policies. SOC 2 Type II takes approximately 3-4 months including the observation period.</p>
+      <p>One price, complete coverage: Cross-platform MDM, endpoint detection & response (EDR), patch management, application deployment, file integrity monitoring, vulnerability scanning, compliance automation (SOC 2, HIPAA, GDPR, ISO 27001), identity management (SSO/SCIM), dark web monitoring, and annual penetration testing. No modules. No add-ons. No surprises.</p>
     `,
   },
   {
-    question: 'What is included in the penetration test?',
-    id: 'pentest-details',
+    question: 'Do you offer startup pricing?',
+    id: 'startup-details',
     answer: `
-      <p><strong>Professional plan:</strong> Annual expert-led penetration test covering web applications, APIs, and infrastructure. Includes remediation guidance and one free retest.</p>
-      <p><strong>Enterprise plan:</strong> Continuous penetration testing with monthly assessments, red team exercises, and dedicated security researchers.</p>
-    `,
-  },
-  {
-    question: 'Do you offer discounts for startups?',
-    id: 'startup-discounts',
-    answer: `
-      <p>Yes! Early-stage startups (Seed to Series B) may qualify for up to <strong>50% off</strong> for the first year. <a href="/contact-sales">Contact our team</a> to learn more about our startup program.</p>
-    `,
-  },
-  {
-    question: 'What support is included?',
-    id: 'support-details',
-    answer: `
-      <p><strong>Starter:</strong> Email support, community forums, quarterly security reports</p>
-      <p><strong>Professional:</strong> Dedicated Slack channel, weekly threat briefings, priority email support</p>
-      <p><strong>Enterprise:</strong> 24/7 phone support, dedicated security engineer, on-site training available</p>
-    `,
-  },
-  {
-    question: 'Can I try before I buy?',
-    id: 'free-trial',
-    answer: `
-      <p>Yes! We offer a <strong>14-day free trial</strong> of the Professional plan. No credit card required. <a href="/contact-sales">Schedule a demo</a> to get started.</p>
+      <p>Yes. Early-stage startups (Pre-Seed to Series A, fewer than 100 employees) qualify for <strong>50% off for 12 months</strong>. This includes full access to compliance automation to help close enterprise deals faster. Contact sales to apply.</p>
     `,
   },
 ];
@@ -104,14 +70,64 @@ const PricingPage = () => (
   <Layout>
     <Hero />
     <Logos className="lg:mt-30 mt-[136px] xl:mt-[128px] lg:pt-0 md:mt-20" logos={logos} />
+
     <Plans className="mt-[184px] scroll-mt-5 px-safe xl:mt-[176px] lg:mt-[168px] md:mt-32" />
+
+    {/* Startup Program Section */}
+    <section className="mt-[150px] bg-gray-new-8 py-20 border-y border-gray-new-15">
+      <Container size="1100">
+        <div className="flex flex-col items-center text-center">
+          <h2 className="font-title text-[48px] font-medium leading-none text-white sm:text-[32px]">
+            Startup Program
+          </h2>
+          <p className="mt-6 max-w-2xl text-xl text-gray-new-80 sm:text-lg">
+            Early-stage startups get <strong>50% off for 12 months.</strong>
+            <br />
+            <span className="text-base text-gray-new-50">Eligibility: Pre-Seed to Series A, &lt;100 employees</span>
+          </p>
+          <Button
+            className="mt-10 !px-10"
+            theme="primary"
+            size="md-new"
+            to={LINKS.contactSales}
+          >
+            Apply Now →
+          </Button>
+        </div>
+      </Container>
+    </section>
+
+    {/* Custom Quote Section */}
+    <section className="mt-[100px]">
+      <Container size="1100">
+        <div className="rounded-2xl border border-dashed border-gray-new-30 p-12 text-center bg-gray-new-8/50">
+          <h3 className="font-title text-[32px] font-medium text-white">Need a Custom Quote?</h3>
+          <p className="mt-4 text-lg text-gray-new-70">
+            Large deployment? We'll build a pricing model that works.
+          </p>
+          <p className="mt-6 font-mono text-green-45 text-xl">
+            info@singularityrd.com
+          </p>
+          <Button
+            className="mt-8 transition-transform hover:scale-105"
+            theme="white"
+            to="mailto:info@singularityrd.com"
+          >
+            Contact Sales
+          </Button>
+        </div>
+      </Container>
+    </section>
+
     <Features />
+
     <Faq items={faqItems} className="mt-[200px] xl:mt-[192px] lg:mt-[184px] md:mt-[104px]" />
+
     <CTA
-      className="pb-[350px] pt-[445px] xl:pb-[200px] xl:pt-[260px] lg:pb-[150px] lg:pt-[220px] sm:pb-[100px] sm:pt-[160px]"
-      title="Ready to Secure Your Organization?"
-      description="Schedule a demo to see Singularity in action."
-      buttonText="Schedule Demo"
+      className="pb-[350px] pt-[200px] xl:pb-[200px] xl:pt-[160px] lg:pb-[150px] lg:pt-[120px] sm:pb-[100px] sm:pt-[100px]"
+      title="Ready to Scale Sustainably?"
+      description="Join the world's most secure hyper-growth companies."
+      buttonText="Get Started"
       buttonUrl={LINKS.contactSales}
     />
   </Layout>
