@@ -70,7 +70,7 @@ const Logo = ({
   return (
     <div className="relative shrink-0">
       <Link to="/" onContextMenu={isHeader ? handleContextMenu : undefined}>
-        <span className="sr-only">Neon</span>
+        <span className="sr-only">Singularity</span>
         {isDarkTheme ? (
           <Image
             className={clsx(className)}

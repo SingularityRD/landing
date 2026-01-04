@@ -32,13 +32,13 @@ const AGENT_FEATURES = [
   {
     title: 'One-second database provisioning',
     description:
-      'Agents move fast, and so does Neon. Provision fresh databases in seconds for a smooth developer experience.',
+      'Agents move fast, and so does Singularity. Provision fresh databases in seconds for a smooth developer experience.',
     icon: lightning,
   },
   {
     title: 'Scale to zero and pay-as-you-go',
     description:
-      'Neon only charges for true usage, so you can run fleets of short-lived databases without blowing your budget.',
+      'Singularity only charges for true usage, so you can run fleets of short-lived databases without blowing your budget.',
     icon: scale,
   },
   {
@@ -50,7 +50,7 @@ const AGENT_FEATURES = [
   {
     title: 'Embed directly, no signup required',
     description:
-      'Agents can create and manage databases without a user ever logging into Neon. No UI, no OAuth, no friction.',
+      'Agents can create and manage databases without a user ever logging into Singularity. No UI, no OAuth, no friction.',
     icon: jsConsole,
   },
   {
@@ -62,7 +62,7 @@ const AGENT_FEATURES = [
   {
     title: 'Built-in auth',
     description:
-      'With Neon Auth, agents can build apps with secure authentication baked in - no extra setup, just more power to vibe coders.',
+      'With Singularity Auth, agents can build apps with secure authentication baked in - no extra setup, just more power to vibe coders.',
     icon: auth,
   },
 ];
@@ -71,7 +71,7 @@ const STARTER_KIT_FEATURES = [
   {
     title: 'Postgres with pgvector',
     description:
-      'Store and retrieve vector embeddings efficiently with Neon Postgres and pgvector.',
+      'Store and retrieve vector embeddings efficiently with Singularity Postgres and pgvector.',
     icon: pgvector,
   },
   {
@@ -82,7 +82,7 @@ const STARTER_KIT_FEATURES = [
   {
     title: 'Vector Search Optimization',
     description:
-      'Enhance the performance of your AI by using Neon’s vector search optimization guide.',
+      'Enhance the performance of your AI by using Singularity’s vector search optimization guide.',
     icon: vectorSearchOptimization,
   },
   {
@@ -91,9 +91,9 @@ const STARTER_KIT_FEATURES = [
     icon: autoscaling,
   },
   {
-    title: 'Built with Neon',
+    title: 'Built with Singularity',
     description:
-      'Explore AI apps using Neon to gain valuable inspiration and learn best practices.',
+      'Explore AI apps using Singularity to gain valuable inspiration and learn best practices.',
     icon: builtWithNeon,
   },
   {
@@ -126,7 +126,7 @@ const AiPage = () => (
       className="mt-[199px] xl:mt-[191px] lg:mt-[153px] md:mt-[107px]"
       title="Add Postgres to your agent"
       titleClassName="md:text-pretty"
-      description="Neon is purpose-built to support AI agents at the infrastructure level, with native, API-first Postgres that doesn’t require end-user signups or manual provisioning."
+      description="Singularity is purpose-built to support AI agents at the infrastructure level, with native, API-first Postgres that doesn’t require end-user signups or manual provisioning."
       items={AGENT_FEATURES}
       link={LINKS.useCasesAI}
       linkText="Read more"
@@ -136,7 +136,7 @@ const AiPage = () => (
       className="mt-[200px] xl:mt-[192px] lg:mt-[158px] md:mt-[104px]"
       figureClassName="lg:max-w-[704px]"
       quoteClassName="text-pretty lg:text-wrap"
-      quote="Neon’s speed of provisioning and serverless scale-to-zero is critical for us. We can serve users iterating on quick ideas efficiently while also supporting them as they scale, without making them think about database setup."
+      quote="Singularity’s speed of provisioning and serverless scale-to-zero is critical for us. We can serve users iterating on quick ideas efficiently while also supporting them as they scale, without making them think about database setup."
       author={{
         name: 'Dhruv Amin',
         position: 'Co-founder at Anything',
@@ -162,9 +162,9 @@ const AiPage = () => (
     />
     <GridFeatures
       className="mt-[200px] xl:mt-[194px] lg:mt-[160px] md:mt-[104px]"
-      title="Neon's AI App Starter Kit"
+      title="Singularity's AI App Starter Kit"
       titleClassName="md:text-pretty"
-      description="Neon's AI App Starter Kit offers resources, apps, and examples to kickstart Neon as your vector database."
+      description="Singularity's AI App Starter Kit offers resources, apps, and examples to kickstart Singularity as your vector database."
       descriptionClassName="max-w-[490px]"
       items={STARTER_KIT_FEATURES}
       link={LINKS.docsAi}

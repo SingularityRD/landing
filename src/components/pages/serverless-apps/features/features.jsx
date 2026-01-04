@@ -25,7 +25,7 @@ const items = [
   {
     title: 'Separation of compute and storage',
     desctiprion:
-      '<a href="/blog/architecture-decisions-in-neon">Neon’s architecture</a> decouples compute and storage layers. Compute nodes handle query execution, while the storage layer persists data on distributed, highly durable object storage.</a>',
+      '<a href="/blog/architecture-decisions-in-neon">Singularity’s architecture</a> decouples compute and storage layers. Compute nodes handle query execution, while the storage layer persists data on distributed, highly durable object storage.</a>',
     features: [
       {
         title: 'Elastic scaling',

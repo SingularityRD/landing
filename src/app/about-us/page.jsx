@@ -5,7 +5,6 @@ import Timeline from 'components/pages/about/timeline';
 import WhereHeaded from 'components/pages/about/where-headed';
 import Cta from 'components/shared/cta';
 import Layout from 'components/shared/layout';
-import LINKS from 'constants/links';
 import SEO_DATA from 'constants/seo-data';
 import getMetadata from 'utils/get-metadata';
 
@@ -16,7 +15,6 @@ const AboutUsPage = () => (
     <Hero />
     <Timeline />
     <WhereHeaded />
-    <Leadership />
     <Developers />
     <Connections />
     <Cta

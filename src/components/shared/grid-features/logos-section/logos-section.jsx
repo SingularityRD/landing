@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { LogosWall } from 'components/shared/logos';
 
-const LogosSection = ({ logos, logosTitle = 'Powered by Neon.', containerClassName }) => {
+const LogosSection = ({ logos, logosTitle = 'Powered by Singularity.', containerClassName }) => {
   if (!logos) return null;
 
   return (

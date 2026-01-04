@@ -13,7 +13,7 @@ const InkeepAIButton = ({ className, handleClick }) => (
       className
     )}
     type="button"
-    aria-label="Open Neon AI"
+    aria-label="Open Singularity AI"
     onClick={() => handleClick('AI_CHAT')}
   >
     <SparksIcon />

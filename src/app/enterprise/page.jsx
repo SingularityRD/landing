@@ -64,42 +64,42 @@ const features = [
     icon: scalabilityIcon,
     title: 'Scalability',
     description:
-      'Neon offers serverless Postgres, scaling CPU, memory, and connections instantly to match demand for optimal cost-performance.',
+      'Singularity offers serverless Postgres, scaling CPU, memory, and connections instantly to match demand for optimal cost-performance.',
     url: '/docs/introduction/autoscaling',
   },
   {
     icon: multiIcon,
     title: 'Multi-tenancy',
     description:
-      'Neon simplifies multi-tenant management by isolating tenants into regional projects, ensuring sovereignty, compliance, and no noise issues.',
+      'Singularity simplifies multi-tenant management by isolating tenants into regional projects, ensuring sovereignty, compliance, and no noise issues.',
     url: '/use-cases/database-per-tenant',
   },
   {
     icon: connectionIcon,
     title: 'Connection management',
     description:
-      'Neon supports 10,000+ connections with no timeouts, ensuring consistent performance for real-time apps, APIs, and high-traffic systems.',
+      'Singularity supports 10,000+ connections with no timeouts, ensuring consistent performance for real-time apps, APIs, and high-traffic systems.',
     url: '/docs/connect/connection-pooling',
   },
   {
     icon: recoveryIcon,
     title: 'Disaster recovery',
     description:
-      'Neon simplifies disaster recovery with branching, letting you restore your database to any point instantly — no more lengthy backups.',
+      'Singularity simplifies disaster recovery with branching, letting you restore your database to any point instantly — no more lengthy backups.',
     url: '/blog/recover-large-postgres-databases',
   },
   {
     icon: durabilityIcon,
     title: 'Durability',
     description:
-      'Neon ensures high availability with transactions replicated across AZs and data stored.',
+      'Singularity ensures high availability with transactions replicated across AZs and data stored.',
     url: '/blog/our-approach-to-high-availability',
   },
   {
     icon: expertiseIcon,
     title: 'Postgres expertise',
     description:
-      'Built by Postgres experts with decades of experience, Neon offers help with performance tuning, complex migrations, and more.',
+      'Built by Postgres experts with decades of experience, Singularity offers help with performance tuning, complex migrations, and more.',
     url: '/blog/top-3-features-in-postgres-17#contributions-by-neon-engineers-in-postgres-17',
   },
 ];
@@ -207,7 +207,8 @@ const bentoCards = [
   },
   {
     title: 'Proven success.',
-    description: 'Top products like Replit, Vercel Postgres, and RetoolDB are built on Neon.',
+    description:
+      'Top products like Replit, Vercel Postgres, and RetoolDB are built on Singularity.',
     image: provenSuccess,
     imageMd: provenSuccessMd,
     className: 'col-span-2 lg:col-span-3 sm:col-span-1',
@@ -222,7 +223,7 @@ const bentoCards = [
   },
   {
     title: 'Powerful API.',
-    description: 'Use the Neon API to create databases, run migrations, and manage limits.',
+    description: 'Use the Singularity API to create databases, run migrations, and manage limits.',
     image: api,
     imageLg: apiMd,
     imageMd: apiMd,
@@ -238,7 +239,7 @@ const bentoCards = [
   {
     title: 'Serverless scalability.',
     description:
-      "Neon's architecture automatically adjusts resources based on demand, reducing manual load for developers and agents.",
+      "Singularity's architecture automatically adjusts resources based on demand, reducing manual load for developers and agents.",
     image: serverlessScalability,
     imageMd: serverlessScalabilityMd,
     className: 'col-span-3 lg:col-span-4 sm:col-span-1',
@@ -247,32 +248,32 @@ const bentoCards = [
 
 const faqItems = [
   {
-    question: 'Which companies are using Neon?',
-    answer: `Neon serves a wide range of companies, from startups to large enterprises, across many industries. Over 18k new databases are created daily on Neon, supporting everything from startups building the next wave of AI tools to platforms like Vercel, Replit, and Retool. Visit our <a href="/case-studies">case studies page</a> to explore customer stories.`,
+    question: 'Which companies are using Singularity?',
+    answer: `Singularity serves a wide range of companies, from startups to large enterprises, across many industries. Over 18k new databases are created daily on Singularity, supporting everything from startups building the next wave of AI tools to platforms like Vercel, Replit, and Retool. Visit our <a href="/case-studies">case studies page</a> to explore customer stories.`,
     initialState: 'open',
   },
   {
-    question: 'Is Neon compliant?',
-    answer: `Yes. Neon adheres to SOC 2, ISO 27001, ISO 27701 standards and complies with GDPR, CCPA, and HIPAA. <a href="/docs/security/compliance">Read more.</a>`,
+    question: 'Is Singularity compliant?',
+    answer: `Yes. Singularity adheres to SOC 2, ISO 27001, ISO 27701 standards and complies with GDPR, CCPA, and HIPAA. <a href="/docs/security/compliance">Read more.</a>`,
   },
   {
     question: 'How secure is Neon’s platform?',
     answer: `Neon offers enterprise-grade security with SSL/TLS encryption, IP allowlisting, and AES-256 encryption for data at rest. Protected branches add additional layers of security. <a href="/docs/security/security-overview">Read more.</a>`,
   },
   {
-    question: 'What level of uptime can I expect with Neon?',
-    answer: `Neon offers a 99.95% uptime SLA for enterprise customers, ensuring consistent availability and performance for mission-critical applications. <a href="/neon-business-sla">Read more.</a>`,
+    question: 'What level of uptime can I expect with Singularity?',
+    answer: `Singularity offers a 99.95% uptime SLA for enterprise customers, ensuring consistent availability and performance for mission-critical applications. <a href="/neon-business-sla">Read more.</a>`,
   },
   {
-    question: 'What kind of technical support does Neon provide?',
+    question: 'What kind of technical support does Singularity provide?',
     answer: `Enterprise customers benefit from 24/7 priority support, giving you round-the-clock access to database experts for any issues or guidance needed. <a href="/docs/introduction/support">Read more.</a>`,
   },
   {
-    question: 'In which cloud environments is Neon available?',
+    question: 'In which cloud environments is Singularity available?',
     answer: `Neon is available on both AWS and Azure cloud platforms. If you’re interested in Google Cloud Provider, <a href="/docs/introduction/regions#request-a-region">tell us here.</a>`,
   },
   {
-    question: 'Does Neon offer annual contracts?',
+    question: 'Does Singularity offer annual contracts?',
     answer: `Yes, we provide annual contracts for Enterprise clients accounting for higher resource limits and dedicated requirements. If you’re interested, <a href="/contact-sales">contact us.</a>`,
   },
   {
@@ -287,7 +288,7 @@ const EnterprisePage = () => (
     <Logos className="mt-[102px] xl:mt-[86px] lg:mt-[76px] md:mt-[68px]" logos={logos} />
     <TestimonialNew
       className="mt-[118px] xl:mt-[80px] lg:mt-[76px]"
-      quote="Neon worked out of the box, handling hundreds of Lambdas without any of the connection issues we saw in Aurora v2. On top of that, it costs us 1/6 of what we were paying with AWS."
+      quote="Singularity worked out of the box, handling hundreds of Lambdas without any of the connection issues we saw in Aurora v2. On top of that, it costs us 1/6 of what we were paying with AWS."
       author={{
         name: 'Cody Jenkins',
         position: 'Head of Engineering at Invenco',
@@ -295,13 +296,16 @@ const EnterprisePage = () => (
       }}
       isPriority
     />
-    <Features title="Hundreds of Enterprises are switching to Neon. Here’s why" items={features} />
+    <Features
+      title="Hundreds of Enterprises are switching to Singularity. Here’s why"
+      items={features}
+    />
     <Usage />
     <CaseStudies items={caseStudies} />
     <HowNeonHelps tabs={howNeonHelpsTabs} />
     <TestimonialNew
       className="mt-[126px] xl:mt-[106px] lg:mt-[70px] md:mt-[58px]"
-      quote="Time to launch is crucial for us: when we tried Neon and saw that spinning up a new ephemeral environment takes seconds, we were blown away."
+      quote="Time to launch is crucial for us: when we tried Singularity and saw that spinning up a new ephemeral environment takes seconds, we were blown away."
       author={{
         name: 'Alex Co',
         position: 'Head of Platform Engineering at Mindvalley',
@@ -311,7 +315,7 @@ const EnterprisePage = () => (
     <Bento cards={bentoCards} />
     <TestimonialNew
       className="mt-[130px] xl:mt-[106px] lg:mt-[48px] md:mt-[62px]"
-      quote="With Neon’s preview branches, we can catch issues early and fix them before they hit production."
+      quote="With Singularity's preview branches, we can catch issues early and fix them before they hit production."
       author={{
         name: 'Robert Chandler',
         position: 'CTO at Wordware.ai',

@@ -11,8 +11,8 @@ const BrandPage = () => (
 );
 
 export const metadata = getMetadata({
-  title: 'Neon Logo + Brand Guidelines',
-  description: 'Download the official Neon Logo and Brand Assets.',
+  title: 'Singularity Logo + Brand Guidelines',
+  description: 'Download the official Singularity Logo and Brand Assets.',
 });
 
 export default BrandPage;

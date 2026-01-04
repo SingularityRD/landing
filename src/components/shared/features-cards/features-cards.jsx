@@ -12,7 +12,7 @@ const ITEMS = [
   {
     title: 'Integrate with Cursor and other AI-first IDEs',
     description:
-      'Spin up a Neon database, create branches, inspect query plans, and reset data all from inside the editor.',
+      'Spin up a Singularity database, create branches, inspect query plans, and reset data all from inside the editor.',
     link: '/docs/ai/ai-agents-tools#integrate-neon-in-your-ide',
     linkText: 'Add Neon to your editor',
     icon: iconCursor,

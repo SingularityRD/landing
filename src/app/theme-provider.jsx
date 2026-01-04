@@ -51,7 +51,7 @@ const ThemeProvider = ({ children }) => {
     <PreferredProvider
       attribute="class"
       forcedTheme={hasThemesSupport ? null : forcedTheme}
-      storageKey="neon-theme"
+      storageKey="singularity-theme"
       disableTransitionOnChange
     >
       <ThemeColorUpdater />

@@ -31,7 +31,7 @@ const ITEMS = [
   },
   {
     title: 'Fully managed',
-    description: 'Neon handles all database tasks — backups, updates, failovers.  ',
+    description: 'Singularity handles all database tasks — backups, updates, failovers.  ',
     icon: fullyManaged,
   },
   {
@@ -47,7 +47,7 @@ const ITEMS = [
 ];
 
 const GridFeatures = ({
-  title = 'Why teams migrate to Neon',
+  title = 'Why teams migrate to Singularity',
   description = 'Neon provides a serverless, fully managed Postgres built for modern development — fast, reliable, and cost-effective.',
   link,
   linkText,

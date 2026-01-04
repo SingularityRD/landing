@@ -18,8 +18,8 @@ const Autoscaling = () => (
             '[&_a:hover]:border-gray-new-70 [&_a]:border-b [&_a]:border-gray-new-70/40 [&_a]:transition-colors [&_a]:duration-300'
           )}
         >
-          Neon autoscales CPU and memory in real time based on your workload. Our{' '}
-          <a href={`${LINKS.blog}/architecture-decisions-in-neon`}>autoscaling algorithm</a>{' '}
+          Singularity autoscales CPU and memory in real time based on your workload. Our{' '}
+          <a href={`${LINKS.blog}/architecture-decisions-in-neon`}>autoscaling algorithm</a> ,{}
           dynamically allocates compute resources, reducing your bill — you no longer need to
           provision for peak — while ensuring good performance.
         </p>

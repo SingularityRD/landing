@@ -23,7 +23,7 @@ const RootLayout = ({ children }) => (
   <html lang="en" className={`${inter.variable} ${esbuild.variable} dark`}>
     <head>
       {process.env.NODE_ENV === 'production' && (
-        <Script strategy="afterInteractive" src="https://neonapi.io/cb.js" />
+        <Script strategy="afterInteractive" src="https://singularityapi.io/cb.js" />
       )}
       <link rel="preconnect" href={LINKS.console} />
     </head>

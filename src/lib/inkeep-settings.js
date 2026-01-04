@@ -5,7 +5,7 @@ const baseSettings = {
   integrationId: process.env.INKEEP_INTEGRATION_ID,
   organizationId: process.env.INKEEP_ORGANIZATION_ID,
   primaryBrandColor: '#00E599',
-  organizationDisplayName: 'Neon',
+  organizationDisplayName: 'Singularity',
   customIcons: {
     close: { custom: closeIcon },
   },
@@ -29,7 +29,7 @@ const baseSettings = {
           },
         ],
       },
-      searchTabLabel: 'Neon Docs',
+      searchTabLabel: 'Singularity Docs',
     },
     {
       filters: {
@@ -53,15 +53,15 @@ const baseSettings = {
 };
 
 const aiChatSettings = {
-  botName: 'Neon AI',
+  botName: 'Singularity AI',
   placeholder: 'How do I get started?',
   introMessage:
-    "<p>Hi!<br>I'm an AI assistant trained on documentation, help articles, and other content.</p><p>Ask me anything about Neon.</p>",
+    "<p>Hi!<br>I'm an AI assistant trained on documentation, help articles, and other content.</p><p>Ask me anything about Singularity.</p>",
   quickQuestions: [
-    'What’s Neon?',
-    'How do I sign up for Neon?',
+    'What’s Singularity?',
+    'How do I sign up for Singularity?',
     'How to create a project?',
-    'How to get started with the Neon API?',
+    'How to get started with the Singularity API?',
   ],
   botAvatarSrcUrl: '/inkeep/images/bot.svg',
   botAvatarDarkSrcUrl: '/inkeep/images/bot-dark.svg',

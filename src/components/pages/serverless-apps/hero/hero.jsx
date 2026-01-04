@@ -32,7 +32,7 @@ const Hero = () => (
         <div className="relative z-10 flex w-full gap-5 lg:gap-0 md:flex-col md:gap-8">
           <div className="flex-1">
             <h2 className="text-balance text-2xl font-medium leading-snug tracking-tighter">
-              Why use Neon for serverless architectures:
+              Why use Singularity for serverless architectures:
             </h2>
             <ul className="lg:gap-x-4s mt-[18px] grid grid-cols-2 gap-x-10 gap-y-[18px] lg:gap-x-4 sm:grid-cols-1">
               {features.map((feature, index) => (
