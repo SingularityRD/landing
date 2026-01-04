@@ -21,7 +21,7 @@ const AutoSecOpsPage = () => (
             title="Deploy AutoSecOps.<br />Take Complete Control."
             titleClassName="max-w-[745px] lg:max-w-[600px] md:max-w-[400px] md:leading-none"
             buttonText="Schedule Demo"
-            buttonUrl="/contact-sales"
+            buttonUrl="mailto:info@singularityrd.com"
         />
     </Layout>
 );

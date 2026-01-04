@@ -43,7 +43,7 @@ const Developers = () => (
       </Heading>
       <ul className="mt-14 grid grid-cols-4 gap-x-10 gap-y-9 xl:mt-12 lg:mt-11 lg:grid-cols-2 md:mt-9 md:flex md:flex-col md:gap-y-7">
         {ITEMS.map(({ icon, title, description }, index) => (
-          <li key={index}>
+          <li key={index} className="flex flex-col items-center text-center">
             <Image className="w-[22px] sm:w-5" src={icon} alt={title} width={22} height={22} />
             <h3 className="mt-4 text-xl font-semibold leading-dense tracking-tighter xl:mt-4 lg:mt-[14px] md:mt-[10px]">
               {title}

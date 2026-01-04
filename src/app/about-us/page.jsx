@@ -1,7 +1,6 @@
 import Connections from 'components/pages/about/connections';
 import Developers from 'components/pages/about/developers';
 import Hero from 'components/pages/about/hero';
-import Leadership from 'components/pages/about/leadership';
 import Timeline from 'components/pages/about/timeline';
 import WhereHeaded from 'components/pages/about/where-headed';
 import Cta from 'components/shared/cta';

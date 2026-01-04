@@ -9,8 +9,8 @@ const plans = [
         priceFrom: false,
         description: 'Essential protection for small teams. All the core features you need to secure your devices.',
         features: [
-            'Cross-Platform MDM',
-            'Zero-Touch Deployment',
+            { title: 'Cross-Platform MDM', tag: 'Essential' },
+            { title: 'Zero-Touch Deployment', tag: 'Important' },
             'BYOD Enrollment',
             'AutoSecOps Core',
             'Malware Detection',
@@ -34,7 +34,7 @@ const plans = [
         description: 'Complete security for growing organizations. Everything in Starter plus advanced features.',
         features: [
             'Everything in Starter',
-            'Identity Management (SSO/SCIM)',
+            { title: 'Identity Management (SSO/SCIM)', tag: 'Important' },
             'Application Deployment',
             'OS Updates & Patch Management',
             'AutoSecOps Advanced',
@@ -70,8 +70,8 @@ const plans = [
             'AutoSecOps + Custom Rules',
             'Predictive Maintenance AI',
             '50+ Threat Intelligence Feeds',
-            'All Compliance Frameworks',
-            'Full Virtual CISO',
+            { title: 'All Compliance Frameworks', tag: 'Enterprise' },
+            { title: 'Full Virtual CISO', tag: 'Enterprise' },
             'Continuous Penetration Testing',
         ],
         otherFeatures: {

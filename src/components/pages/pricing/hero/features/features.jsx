@@ -13,7 +13,7 @@ const icons = {
 };
 
 const Feature = ({ icon, title, info, type, highlighted, index, subtitle, moreLink, tag }) => (
-  <li className="flex gap-x-2">
+  <li className="flex gap-x-3">
     <span
       className={clsx(
         icon ? icons[icon] : 'pricing-check-icon',
@@ -81,15 +81,21 @@ const Features = ({ title, features, type, highlighted }) => (
   <div
     className={clsx(
       'mt-5 space-y-4 border-t border-dashed border-gray-new-20 pt-5',
-      'text-[15px] leading-none tracking-extra-tight',
+      'text-[15px] leading-normal tracking-extra-tight',
       highlighted ? 'text-white' : 'text-gray-new-80'
     )}
   >
-    {title && <p className="text-[15px] font-medium leading-none tracking-extra-tight">{title}</p>}
+    {title && <p className="text-[15px] font-medium leading-normal tracking-extra-tight">{title}</p>}
 
-    <ul className="space-y-3">
+    <ul className="space-y-4">
       {features.map((feature, index) => (
-        <Feature {...feature} type={type} highlighted={highlighted} index={index} key={index} />
+        <Feature
+          {...(typeof feature === 'string' ? { title: feature } : feature)}
+          type={type}
+          highlighted={highlighted}
+          index={index}
+          key={index}
+        />
       ))}
     </ul>
   </div>
