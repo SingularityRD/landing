@@ -258,7 +258,7 @@ const faqItems = [
   },
   {
     question: 'How secure is Neon’s platform?',
-    answer: `Neon offers enterprise-grade security with SSL/TLS encryption, IP allowlisting, and AES-256 encryption for data at rest. Protected branches add additional layers of security. <a href="/docs/security/security-overview">Read more.</a>`,
+    answer: `Singularity offers enterprise-grade security with SSL/TLS encryption, IP allowlisting, and AES-256 encryption for data at rest. Protected branches add additional layers of security. <a href="/docs/security/security-overview">Read more.</a>`,
   },
   {
     question: 'What level of uptime can I expect with Singularity?',
@@ -270,7 +270,7 @@ const faqItems = [
   },
   {
     question: 'In which cloud environments is Singularity available?',
-    answer: `Neon is available on both AWS and Azure cloud platforms. If you’re interested in Google Cloud Provider, <a href="/docs/introduction/regions#request-a-region">tell us here.</a>`,
+    answer: `Singularity is available on both AWS and Azure cloud platforms. If you’re interested in Google Cloud Provider, <a href="/docs/introduction/regions#request-a-region">tell us here.</a>`,
   },
   {
     question: 'Does Singularity offer annual contracts?',

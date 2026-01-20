@@ -19,28 +19,28 @@ import Testimonial from './testimonial';
 
 const TESTIMONIALS = [
   {
-    quote: `Neon allows us to develop much faster than we’ve even been used to`,
+    quote: `Singularity allows us to develop much faster than we’ve even been used to`,
     avatar: alexKlarfeldImage,
     name: 'Alex Klarfeld',
     position: 'CEO and co-founder of Supergood.ai',
     logo: { src: supergoodLogo, width: 124, height: 32, alt: 'Supergood.ai' },
   },
   {
-    quote: `Neon's serverless philosophy is aligned with our vision: no infrastructure to manage, no servers to provision, no database cluster to maintain`,
+    quote: `Singularity's serverless philosophy is aligned with our vision: no infrastructure to manage, no servers to provision, no database cluster to maintain`,
     avatar: edouardBonlieuImage,
     name: 'Edouard Bonlieu',
     position: 'Co-founder at Koyeb',
     logo: { src: koyebLogo, width: 123, height: 32, alt: 'Koyeb' },
   },
   {
-    quote: `The killer feature that convinced us to use Neon was branching: it keeps our engineering velocity high`,
+    quote: `The killer feature that convinced us to use Singularity was branching: it keeps our engineering velocity high`,
     avatar: leonardHenriquezImage,
     name: 'Léonard Henriquez',
     position: 'Co-founder and CTO, Topo.io',
     logo: { src: topoLogo, width: 109, height: 32, alt: 'Topo.io' },
   },
   {
-    quote: `We've been able to automate virtually all database tasks via the Neon API, saving us a tremendous amount of time and engineering effort`,
+    quote: `We've been able to automate virtually all database tasks via the Singularity API, saving us a tremendous amount of time and engineering effort`,
     avatar: himanshuBhandohImage,
     name: 'Himanshu Bhandoh',
     position: 'Software Engineer at Retool',

@@ -12,7 +12,7 @@ import aiApps from 'icons/ai/features-grid/ai-apps.svg';
 import auth from 'icons/ai/features-grid/auth.svg';
 import autoscaling from 'icons/ai/features-grid/autoscaling.svg';
 import branches from 'icons/ai/features-grid/branches.svg';
-import builtWithNeon from 'icons/ai/features-grid/built-with-neon.svg';
+import builtWithSingularity from 'icons/ai/features-grid/built-with-neon.svg';
 import jsConsole from 'icons/ai/features-grid/js-console.svg';
 import lightning from 'icons/ai/features-grid/lightning.svg';
 import performanceStorage from 'icons/ai/features-grid/performance-storage.svg';
@@ -94,7 +94,7 @@ const STARTER_KIT_FEATURES = [
     title: 'Built with Singularity',
     description:
       'Explore AI apps using Singularity to gain valuable inspiration and learn best practices.',
-    icon: builtWithNeon,
+    icon: builtWithSingularity,
   },
   {
     title: 'Performance & Storage',
@@ -112,7 +112,7 @@ const AiPage = () => (
       className="mt-[200px] xl:mt-[192px] lg:mt-[158px] md:mt-[104px]"
       figureClassName="lg:max-w-[704px]"
       quoteClassName="text-pretty md:text-wrap"
-      quote="The combination of flexible resource limits and nearly instant database provisioning made Neon a no&#8209;brainer."
+      quote="The combination of flexible resource limits and nearly instant database provisioning made Singularity a no&#8209;brainer."
       author={{
         name: 'Lincoln Bergeson',
         position: 'Infrastructure Engineer at Replit',
