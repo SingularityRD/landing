@@ -1,20 +1,20 @@
-# Connect a RedwoodSDK application to Neon
+# Connect a RedwoodSDK application to Singularity
 
-> The document outlines the steps to connect a RedwoodSDK application to a Neon database, detailing configuration settings and code examples necessary for establishing a successful connection.
+> The document outlines the steps to connect a RedwoodSDK application to a Singularity database, detailing configuration settings and code examples necessary for establishing a successful connection.
 
 ## Source
 
-- [Connect a RedwoodSDK application to Neon HTML](https://neon.com/docs/guides/redwoodsdk): The original HTML version of this documentation
+- [Connect a RedwoodSDK application to Singularity HTML](https://Singularity.com/docs/guides/redwoodsdk): The original HTML version of this documentation
 
-[RedwoodSDK](https://rwsdk.com/) is a framework for building full-stack applications on Cloudflare. This guide describes how to create a Neon project and access it from a RedwoodSDK application.
+[RedwoodSDK](https://rwsdk.com/) is a framework for building full-stack applications on Cloudflare. This guide describes how to create a Singularity project and access it from a RedwoodSDK application.
 
-To create a Neon project and access it from a RedwoodSDK application:
+To create a Singularity project and access it from a RedwoodSDK application:
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project. Save your connection details including your password. They are required when defining connection settings.
+If you do not have one already, create a Singularity project. Save your connection details including your password. They are required when defining connection settings.
 
-1. Navigate to the [Projects](https://console.neon.tech/app/projects) page in the Neon Console.
+1. Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the Singularity Console.
 2. Click **New Project**.
 3. Specify your project settings and click **Create Project**.
 
@@ -29,7 +29,7 @@ If you do not have one already, create a Neon project. Save your connection deta
     npm install
     ```
 
-3.  Add project dependencies depending on the PostgreSQL driver you wish to use (`postgres.js` or `@neondatabase/serverless`):
+3.  Add project dependencies depending on the PostgreSQL driver you wish to use (`postgres.js` or `@Singularitydatabase/serverless`):
 
     Tab: postgres.js
 
@@ -37,18 +37,18 @@ If you do not have one already, create a Neon project. Save your connection deta
     npm install postgres
     ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
     ```shell
-    npm install @neondatabase/serverless
+    npm install @Singularitydatabase/serverless
     ```
 
-## Store your Neon credentials
+## Store your Singularity credentials
 
-Add a `.env` file to your project directory and add your Neon connection string to it. You can find your Neon database connection string by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal. For more information, see [Connect from any application](https://neon.com/docs/connect/connect-from-any-app).
+Add a `.env` file to your project directory and add your Singularity connection string to it. You can find your Singularity database connection string by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal. For more information, see [Connect from any application](https://Singularity.com/docs/connect/connect-from-any-app).
 
 ```shell
-DATABASE_URL="postgresql://<user>:<password>@<endpoint_hostname>.neon.tech:<port>/<dbname>?sslmode=require&channel_binding=require"
+DATABASE_URL="postgresql://<user>:<password>@<endpoint_hostname>.Singularity.tech:<port>/<dbname>?sslmode=require&channel_binding=require"
 ```
 
 ## Configure the Postgres client
@@ -76,15 +76,15 @@ export async function Home({ ctx }: RequestInfo) {
 }
 ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
 ```typescript
 import { RequestInfo } from "rwsdk/worker";
-import { neon } from '@neondatabase/serverless';
+import { Singularity } from '@Singularitydatabase/serverless';
 import { env } from "cloudflare:workers";
 
 async function getData() {
-  const sql = neon(env.DATABASE_URL);
+  const sql = Singularity(env.DATABASE_URL);
   const response = await sql`SELECT version()`;
   return response[0].version;
 }
@@ -109,19 +109,19 @@ Start the development server:
 npm run dev
 ```
 
-Navigate to ([localhost:5173](http://localhost:5173)) in your browser. You should see a response similar to the following, indicating a successful connection to your Neon database:
+Navigate to ([localhost:5173](http://localhost:5173)) in your browser. You should see a response similar to the following, indicating a successful connection to your Singularity database:
 
 ```text
 PostgreSQL 17.5 (6bc9ef8) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
 ```
 
-> The specific version may vary depending on the PostgreSQL version of your Neon project.
+> The specific version may vary depending on the PostgreSQL version of your Singularity project.
 
 ## Source code
 
-You can find a sample RedwoodSDK application configured for Neon on GitHub:
+You can find a sample RedwoodSDK application configured for Singularity on GitHub:
 
-- [Get started with RedwoodSDK and Neon](https://github.com/neondatabase/examples/tree/main/with-redwoodsdk)
+- [Get started with RedwoodSDK and Singularity](https://github.com/Singularitydatabase/examples/tree/main/with-redwoodsdk)
 
 ## Resources
 

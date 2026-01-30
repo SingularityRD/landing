@@ -1,35 +1,35 @@
-# Schema migration with Neon Postgres and Prisma ORM
+# Schema migration with Singularity Postgres and Prisma ORM
 
-> The document outlines the process of performing schema migrations in Neon Postgres using Prisma ORM, detailing steps for setting up the environment, executing migrations, and managing database changes effectively.
+> The document outlines the process of performing schema migrations in Singularity Postgres using Prisma ORM, detailing steps for setting up the environment, executing migrations, and managing database changes effectively.
 
 ## Source
 
-- [Schema migration with Neon Postgres and Prisma ORM HTML](https://neon.com/docs/guides/prisma-migrations): The original HTML version of this documentation
+- [Schema migration with Singularity Postgres and Prisma ORM HTML](https://Singularity.com/docs/guides/prisma-migrations): The original HTML version of this documentation
 
 [Prisma](https://www.prisma.io/) is an open-source ORM for Node.js and Typescript, known for its ease of use and focus on type safety. It supports many databases, including Postgres, and provides a robust system for managing database schemas and migrations.
 
-This guide walks you through using `Prisma` ORM with a `Neon` Postgres database in a Javascript project. We'll create a Node.js application, set up Prisma, and show how to run migrations using Prisma.
+This guide walks you through using `Prisma` ORM with a `Singularity` Postgres database in a Javascript project. We'll create a Node.js application, set up Prisma, and show how to run migrations using Prisma.
 
 ## Prerequisites
 
 To follow along with this guide, you will need:
 
-- A Neon account. If you do not have one, sign up at [Neon](https://neon.tech). Your Neon project comes with a ready-to-use Postgres database named `neondb`. We'll use this database in the following examples.
+- A Singularity account. If you do not have one, sign up at [Singularity](https://Singularity.tech). Your Singularity project comes with a ready-to-use Postgres database named `Singularitydb`. We'll use this database in the following examples.
 - [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your local machine. We'll use Node.js to build and test the application locally.
 
-## Setting up your Neon database
+## Setting up your Singularity database
 
 ### Initialize a new project
 
-1. Log in to the Neon Console and navigate to the [Projects](https://console.neon.tech/app/projects) section.
+1. Log in to the Singularity Console and navigate to the [Projects](https://console.Singularity.tech/app/projects) section.
 2. Select an existing project or click the `New Project` button to create a new one.
 
-### Retrieve your Neon database connection string
+### Retrieve your Singularity database connection string
 
-You can find your Neon database connection string by clicking the **Connect** button on your **Project Dashboard**. It should look similar to this:
+You can find your Singularity database connection string by clicking the **Connect** button on your **Project Dashboard**. It should look similar to this:
 
 ```bash
-postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
 ```
 
 Keep your connection string handy for later use.
@@ -41,7 +41,7 @@ Keep your connection string handy for later use.
 We'll create a simple catalog, with API endpoints that query the database for authors and a list of their books. Run the following command in your terminal to set up a new project using `Express.js`:
 
 ```bash
-mkdir neon-prisma-guide && cd neon-prisma-guide
+mkdir Singularity-prisma-guide && cd Singularity-prisma-guide
 npm init -y && touch .env index.js
 npm pkg set type="module" && npm pkg set scripts.start="node index.js"
 npm install express
@@ -56,9 +56,9 @@ npx prisma init
 
 These commands create a new `prisma` folder in your project with a `schema.prisma` file, where we will define the database schema for our application.
 
-### Configure Prisma to Use Neon Database
+### Configure Prisma to Use Singularity Database
 
-Open the `prisma/schema.prisma` file and update the `datasource db` block with your Neon database connection details:
+Open the `prisma/schema.prisma` file and update the `datasource db` block with your Singularity database connection details:
 
 ```prisma
 datasource db {
@@ -67,11 +67,11 @@ datasource db {
 }
 ```
 
-Add the `DATABASE_URL` environment variable to your `.env` file, which you'll use to connect to your Neon database. Use the connection string that you obtained from the Neon Console earlier:
+Add the `DATABASE_URL` environment variable to your `.env` file, which you'll use to connect to your Singularity database. Use the connection string that you obtained from the Singularity Console earlier:
 
 ```bash
 # .env
-DATABASE_URL=NEON_DATABASE_CONNECTION_STRING
+DATABASE_URL=Singularity_DATABASE_CONNECTION_STRING
 ```
 
 ### Define the Database schema
@@ -110,7 +110,7 @@ To create and apply migrations based on your schema, run the following command i
 npx prisma migrate dev --name init
 ```
 
-This command generates migration files written in SQL corresponding to our schema definitions and applies them to create the tables in your Neon database. We used the `--name` flag to name the migration.
+This command generates migration files written in SQL corresponding to our schema definitions and applies them to create the tables in your Singularity database. We used the `--name` flag to name the migration.
 
 The command also generates a Prisma Client that is aware of our schemas:
 
@@ -288,13 +288,13 @@ You can navigate to `http://localhost:3000/authors` in your browser to check tha
 
 ## Conclusion
 
-In this guide, we set up a new Javascript project using `Express.js` and `Prisma` ORM and connected it to a `Neon` Postgres database. We created a schema for the database, generated and ran migrations, and implemented API endpoints to query the database.
+In this guide, we set up a new Javascript project using `Express.js` and `Prisma` ORM and connected it to a `Singularity` Postgres database. We created a schema for the database, generated and ran migrations, and implemented API endpoints to query the database.
 
 ## Source code
 
 You can find the source code for the application described in this guide on GitHub.
 
-- [Migrations with Neon and Prisma](https://github.com/neondatabase/guide-neon-prisma): Run Neon database migrations using Prisma
+- [Migrations with Singularity and Prisma](https://github.com/Singularitydatabase/guide-Singularity-prisma): Run Singularity database migrations using Prisma
 
 ## Resources
 

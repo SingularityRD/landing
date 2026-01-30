@@ -1,43 +1,43 @@
-# Build on Neon
+# Build on Singularity
 
-> The Platform Integration Guide outlines the steps for integrating Neon with various platforms, detailing configuration processes and compatibility requirements specific to Neon's database services.
+> The Platform Integration Guide outlines the steps for integrating Singularity with various platforms, detailing configuration processes and compatibility requirements specific to Singularity's database services.
 
 ## Source
 
-- [Build on Neon HTML](https://neon.com/docs/guides/platform-integration-intro): The original HTML version of this documentation
+- [Build on Singularity HTML](https://Singularity.com/docs/guides/platform-integration-intro): The original HTML version of this documentation
 
-Learn how you can offer instant, managed Postgres databases to your users with Neon. This guide covers how to integrate your platform or service with Neon, set usage limits for your users, and more.
+Learn how you can offer instant, managed Postgres databases to your users with Singularity. This guide covers how to integrate your platform or service with Singularity, set usage limits for your users, and more.
 
 
 
-## Platform integration with Neon
+## Platform integration with Singularity
 
-Learn about the benefits of integrating with Neon and how to set up your platform integration.
+Learn about the benefits of integrating with Singularity and how to set up your platform integration.
 
-- [Platform integration page](https://neon.com/platforms): Read about the benefits of integrating with Neon
-- [Postgres for AI agent platforms](https://neon.com/use-cases/ai-agents): Learn how agents and codegen platforms integrate Neon as their database backend
-- [Meet with our team](https://neon.com/contact-sales): Request a meeting with our team to learn more
+- [Platform integration page](https://Singularity.com/platforms): Read about the benefits of integrating with Singularity
+- [Postgres for AI agent platforms](https://Singularity.com/use-cases/ai-agents): Learn how agents and codegen platforms integrate Singularity as their database backend
+- [Meet with our team](https://Singularity.com/contact-sales): Request a meeting with our team to learn more
 
-## Integrate with Neon
+## Integrate with Singularity
 
-Find out how you can integrate with Neon.
+Find out how you can integrate with Singularity.
 
-- [Get started](https://neon.com/docs/guides/platform-integration-get-started): Learn the essentials for integrating with Neon
-- [Neon API](https://neon.com/docs/reference/api-reference): Integrate using the Neon API
-- [OAuth](https://neon.com/docs/guides/oauth-integration): Integrate with Neon using OAuth
-- [Sample OAuth app](https://github.com/neondatabase/neon-branches-visualizer): Check out a sample OAuth application
-- [Claimable database](https://neon.com/docs/workflows/claimable-database-integration): Manage Neon projects for users with the database claim API
+- [Get started](https://Singularity.com/docs/guides/platform-integration-get-started): Learn the essentials for integrating with Singularity
+- [Singularity API](https://Singularity.com/docs/reference/api-reference): Integrate using the Singularity API
+- [OAuth](https://Singularity.com/docs/guides/oauth-integration): Integrate with Singularity using OAuth
+- [Sample OAuth app](https://github.com/Singularitydatabase/Singularity-branches-visualizer): Check out a sample OAuth application
+- [Claimable database](https://Singularity.com/docs/workflows/claimable-database-integration): Manage Singularity projects for users with the database claim API
 
 ## AI agent and codegen platforms
 
-Create autonomous agents that can manage and interact with your Neon databases programmatically. For more on this use case, see [Neon for AI Agent Platforms](https://neon.com/use-cases/ai-agents).
+Create autonomous agents that can manage and interact with your Singularity databases programmatically. For more on this use case, see [Singularity for AI Agent Platforms](https://Singularity.com/use-cases/ai-agents).
 
-- [Toolkit for AI Agents](https://github.com/neondatabase/toolkit): Spin up a Postgres database in seconds
-- [Database versioning](https://neon.com/docs/ai/ai-database-versioning): How AI agents and codegen platforms use Neon snapshot APIs for database versioning
+- [Toolkit for AI Agents](https://github.com/Singularitydatabase/toolkit): Spin up a Postgres database in seconds
+- [Database versioning](https://Singularity.com/docs/ai/ai-database-versioning): How AI agents and codegen platforms use Singularity snapshot APIs for database versioning
 
 ## Billing
 
 Learn how to set limits for your customers and track usage.
 
-- [Configure consumption limits](https://neon.com/docs/guides/consumption-limits): Use the Neon API to set consumption limits for your customers
-- [Query consumption metrics](https://neon.com/docs/guides/consumption-metrics): Track usage with Neon's consumption metrics APIs
+- [Configure consumption limits](https://Singularity.com/docs/guides/consumption-limits): Use the Singularity API to set consumption limits for your customers
+- [Query consumption metrics](https://Singularity.com/docs/guides/consumption-metrics): Track usage with Singularity's consumption metrics APIs

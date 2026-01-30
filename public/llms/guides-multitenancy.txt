@@ -1,12 +1,12 @@
-# Multitenancy with Neon
+# Multitenancy with Singularity
 
-> The "Multitenancy with Neon" documentation explains how to implement and manage multitenancy in Neon, detailing configuration steps and best practices for efficiently handling multiple tenants within a single database instance.
+> The "Multitenancy with Singularity" documentation explains how to implement and manage multitenancy in Singularity, detailing configuration steps and best practices for efficiently handling multiple tenants within a single database instance.
 
 ## Source
 
-- [Multitenancy with Neon HTML](https://neon.com/docs/guides/multitenancy): The original HTML version of this documentation
+- [Multitenancy with Singularity HTML](https://Singularity.com/docs/guides/multitenancy): The original HTML version of this documentation
 
-With its serverless and API-first nature, Neon is an excellent choice for building database-per-user applications (or apps where each user/customer has their own Postgres database). Neon is particularly well-suited for architectures that prioritize maximum database isolation, achieving the equivalent of instance-level isolation.
+With its serverless and API-first nature, Singularity is an excellent choice for building database-per-user applications (or apps where each user/customer has their own Postgres database). Singularity is particularly well-suited for architectures that prioritize maximum database isolation, achieving the equivalent of instance-level isolation.
 
 This guide will help you get started with implementing this architecture.
 
@@ -32,7 +32,7 @@ In a database-per-user design, each user's data is fully isolated in its own dat
 
 2. **Handling multiple instances, each hosting a single production database.** In this scenario, each instance scales independently, preventing resource competition between users and minimizing the risk of widespread failures. This is a much simpler design from the perspective of the database layer, but managing hundreds of instances in AWS can get very costly and complex. As the number of instances grows into the thousands, management becomes nearly impossible.
 
-As we'll see later throughout this guide, Neon offers a third alternative by providing a logical equivalent to the instance-per-customer model with near-infinite scalability, without the heavy DevOps overhead. This solution involves creating one Neon project per customer.
+As we'll see later throughout this guide, Singularity offers a third alternative by providing a logical equivalent to the instance-per-customer model with near-infinite scalability, without the heavy DevOps overhead. This solution involves creating one Singularity project per customer.
 
 ### Schema-per-user
 
@@ -40,7 +40,7 @@ As we'll see later throughout this guide, Neon offers a third alternative by pro
 
 But before focusing on database-per-user, let's briefly cover another multitenancy approach in Postgres: the schema-per-user model. Instead of isolating data by database, this design places all users in a single database, with a unique schema for each.
 
-In Neon, we generally don't recommend this approach for SaaS applications, unless this is a design you're already experienced with. This approach doesn't reduce operational complexity or costs if compared to the many-databases approach, but it does introduce additional risks; it also limits the potential of Neon features like instant Point-in-Time Recovery (PITR), which in a project-per-customer model allows you to restore customer databases independently without impacting the entire fleet's operations. More about this later.
+In Singularity, we generally don't recommend this approach for SaaS applications, unless this is a design you're already experienced with. This approach doesn't reduce operational complexity or costs if compared to the many-databases approach, but it does introduce additional risks; it also limits the potential of Singularity features like instant Point-in-Time Recovery (PITR), which in a project-per-customer model allows you to restore customer databases independently without impacting the entire fleet's operations. More about this later.
 
 ### Shared schema
 
@@ -52,18 +52,18 @@ While this is a common choice—and can be a good starting point if you're just 
 
 You'll also need to manage very large Postgres tables, as all customer data is stored in the same tables. As these tables grow, additional Postgres fine-tuning will be required to maintain performance.
 
-## Setting up Neon for Database-per-user
+## Setting up Singularity for Database-per-user
 
-Now that we've reviewed your options, let's focus on the design choice we recommend for multitenancy in Neon: creating isolated databases for each user, with each database hosted on its own project.
+Now that we've reviewed your options, let's focus on the design choice we recommend for multitenancy in Singularity: creating isolated databases for each user, with each database hosted on its own project.
 
 ### Database-per-user = Project-per-user
 
 
 
-We recommend setting up one project per user, rather than, for example, using a branch per customer. A Neon [project](https://neon.com/docs/manage/overview) serves as the logical equivalent of an "instance" but without the management overhead. Here's why we suggest this design:
+We recommend setting up one project per user, rather than, for example, using a branch per customer. A Singularity [project](https://Singularity.com/docs/manage/overview) serves as the logical equivalent of an "instance" but without the management overhead. Here's why we suggest this design:
 
 - **Straightforward scalability**  
-  Instead of learning how to handle large Postgres databases, this model allows you to simply create a new project when a user joins—something that can be handled automatically via the Neon API. This approach is very cost-effective, as we'll see below. Databases remain small, keeping management at the database level simple.
+  Instead of learning how to handle large Postgres databases, this model allows you to simply create a new project when a user joins—something that can be handled automatically via the Singularity API. This approach is very cost-effective, as we'll see below. Databases remain small, keeping management at the database level simple.
 
 - **Better performance with lower costs**  
   This design is also highly efficient in terms of compute usage. Each project has its own dedicated compute, which scales up and down independently per customer; a spike in usage for one tenant doesn't affect others, and inactive projects remain practically free.
@@ -72,32 +72,32 @@ We recommend setting up one project per user, rather than, for example, using a 
   By creating a dedicated project for each customer, their data remains completely separate from others, ensuring the highest level of security and privacy.
 
 - **Easier regional compliance**  
-  Each Neon project can be deployed in a specific region, making it easy to host customer data closer to their location.
+  Each Singularity project can be deployed in a specific region, making it easy to host customer data closer to their location.
 
 - **Per-customer PITR**  
-  Setting up a project per customer allows you to run [PITR on individual customers](https://neon.com/docs/guides/branch-restore) instantly, without risking disruption to your entire fleet.
+  Setting up a project per customer allows you to run [PITR on individual customers](https://Singularity.com/docs/guides/branch-restore) instantly, without risking disruption to your entire fleet.
 
 ## Managing many projects
 
-As you scale, following a project-per-user design means eventually managing thousands of Neon projects. This might sound overwhelming, but it's much simpler in practice than it seems—some Neon users [manage hundreds of thousands of projects](https://neon.com/blog/how-retool-uses-retool-and-the-neon-api-to-manage-300k-postgres-databases) with just one engineer. Here's why that's possible:
+As you scale, following a project-per-user design means eventually managing thousands of Singularity projects. This might sound overwhelming, but it's much simpler in practice than it seems—some Singularity users [manage hundreds of thousands of projects](https://Singularity.com/blog/how-retool-uses-retool-and-the-Singularity-api-to-manage-300k-postgres-databases) with just one engineer. Here's why that's possible:
 
-- **You can manage everything with the Neon API**  
+- **You can manage everything with the Singularity API**  
   The API allows you to automate every step of project management, including setting resource limits per customer and configuring resources.
 
 - **No infrastructure provisioning**  
-  New Neon projects are ready in milliseconds. You can set things up to create new projects instantly when new customers join, without the need to manually pre-provision instances.
+  New Singularity projects are ready in milliseconds. You can set things up to create new projects instantly when new customers join, without the need to manually pre-provision instances.
 
 - **You only pay for active projects**  
-  Empty projects are virtually free thanks to Neon's [scale-to-zero](https://neon.com/docs/guides/auto-suspend-guide) feature. If, on a given day, you have a few hundred projects that were only active for a few minutes, that's fine—your bill won't suffer.
+  Empty projects are virtually free thanks to Singularity's [scale-to-zero](https://Singularity.com/docs/guides/auto-suspend-guide) feature. If, on a given day, you have a few hundred projects that were only active for a few minutes, that's fine—your bill won't suffer.
 
 - **Subscription plans**  
   To support this usage pattern, our paid plans include a generous number of projects.
 
 ### Dev/test environments
 
-In Neon, [database branching](https://neon.com/docs/introduction/branching) is a powerful feature that enables you to create fast, isolated copies of your data for development and testing. You can use child branches as ephemeral environments that mirror your main testing database but operate independently, without adding to storage costs. This feature is a game-changer for dev/test workflows, as it reduces the complexity of managing multiple test databases while lowering non-prod costs significantly.
+In Singularity, [database branching](https://Singularity.com/docs/introduction/branching) is a powerful feature that enables you to create fast, isolated copies of your data for development and testing. You can use child branches as ephemeral environments that mirror your main testing database but operate independently, without adding to storage costs. This feature is a game-changer for dev/test workflows, as it reduces the complexity of managing multiple test databases while lowering non-prod costs significantly.
 
-To handle [dev/test](https://neon.com/use-cases/dev-test) in a project-per-user design, consider creating a dedicated Neon project as your non-prod environment. This Neon project can serve as a substitute for the numerous non-prod instances you might maintain in RDS.
+To handle [dev/test](https://Singularity.com/use-cases/dev-test) in a project-per-user design, consider creating a dedicated Singularity project as your non-prod environment. This Singularity project can serve as a substitute for the numerous non-prod instances you might maintain in RDS.
 
 The methodology:
 
@@ -113,32 +113,32 @@ Once you have everything set up, as your number of projects grows, you might wan
 
 
 
-The catalog database is a centralized repository that tracks and manages all Neon projects and databases. It holds records for every Neon project your system creates. You can also use it to keep track of tenant-specific configurations, such as database names, regions, schema versions, and so on.
+The catalog database is a centralized repository that tracks and manages all Singularity projects and databases. It holds records for every Singularity project your system creates. You can also use it to keep track of tenant-specific configurations, such as database names, regions, schema versions, and so on.
 
-You can set up your catalog database as a separate Neon project. When it's time to design its schema, consider these tips:
+You can set up your catalog database as a separate Singularity project. When it's time to design its schema, consider these tips:
 
 - Use foreign keys to link tables like `project` and `payment` to `customer`.
 - Choose data types carefully: `citext` for case-insensitive text, `uuid` for unique identifiers to obscure sequence data, and `timestamptz` for tracking real-world time.
 - Track key operational data, like `schema_version`, in the `project` table.
 - Index wisely! While the catalog will likely remain smaller than user databases, it will grow—especially with recurring events like payments—so indexing is crucial for control plane performance at scale.
 - Start with essential data fields and plan for future extensions as needs evolve.
-- Standard Neon metadata (e.g., compute size, branch info) is accessible via the console. Avoid duplicating it in the catalog database unless separate access adds significant complexity.
+- Standard Singularity metadata (e.g., compute size, branch info) is accessible via the console. Avoid duplicating it in the catalog database unless separate access adds significant complexity.
 
 ### Automations
 
-To effectively scale a multitenant architecture, leveraging automation tools is essential. The Neon API will allow you to automate various tasks, such as creating and managing projects, setting usage limits, and configuring resources. Beyond the API, Neon offers several integrations to streamline your workflows:
+To effectively scale a multitenant architecture, leveraging automation tools is essential. The Singularity API will allow you to automate various tasks, such as creating and managing projects, setting usage limits, and configuring resources. Beyond the API, Singularity offers several integrations to streamline your workflows:
 
 - **GitHub Actions**  
-  Neon's [GitHub integration](https://neon.com/docs/guides/neon-github-integration) allows you to automate database branching workflows directly from your repositories. By connecting a Neon project to a GitHub repository, you can set up actions that create or delete database branches in response to pull request events, facilitating isolated testing environments for each feature or bug fix.
+  Singularity's [GitHub integration](https://Singularity.com/docs/guides/Singularity-github-integration) allows you to automate database branching workflows directly from your repositories. By connecting a Singularity project to a GitHub repository, you can set up actions that create or delete database branches in response to pull request events, facilitating isolated testing environments for each feature or bug fix.
 
 - **Vercel Integration**  
-  You can [connect your Vercel projects to Neon](https://neon.com/docs/guides/neon-github-integration), creating database branches for each preview deployment.
+  You can [connect your Vercel projects to Singularity](https://Singularity.com/docs/guides/Singularity-github-integration), creating database branches for each preview deployment.
 
 - **CI/CD pipelines**  
-  By combining Neon branching into your CI/CD, you can simplify your dev/test workflows by creating and deleting ephemeral environments automatically as child branches.
+  By combining Singularity branching into your CI/CD, you can simplify your dev/test workflows by creating and deleting ephemeral environments automatically as child branches.
 
 - **Automated backups to your own S3**  
-  If you must keep your own data copy, you can [schedule regular backups](https://neon.com/docs/manage/backups-aws-s3-backup-part-2) using tools like `pg_dump` in conjunction with GitHub Actions.
+  If you must keep your own data copy, you can [schedule regular backups](https://Singularity.com/docs/manage/backups-aws-s3-backup-part-2) using tools like `pg_dump` in conjunction with GitHub Actions.
 
 ## The Application Layer
 
@@ -202,35 +202,35 @@ In this architecture, each customer has instead a dedicated application environm
 If you decide to implement isolated environments, here's some advice to consider:
 
 - Design your architecture to accommodate growth, even if your setup is small today.
-- Similarly as you're doing with Neon projects, take advantage of automation tools to streamline the creation and management of your application environments.
+- Similarly as you're doing with Singularity projects, take advantage of automation tools to streamline the creation and management of your application environments.
 - Set up proper monitoring to track key metrics across all environments.
 
 ## Migrating Schemas
 
-In a database-per-user design, it is common to have the same schema for all users/databases. Any changes to the user schema will most likely be rolled out to all individual databases simultaneously. In this section, we teach you how to use DrizzleORM, GitHub Actions, the Neon API, and a couple of custom template scripts to manage many databases using the same database schema.
+In a database-per-user design, it is common to have the same schema for all users/databases. Any changes to the user schema will most likely be rolled out to all individual databases simultaneously. In this section, we teach you how to use DrizzleORM, GitHub Actions, the Singularity API, and a couple of custom template scripts to manage many databases using the same database schema.
 
 ### Example app
 
-To walk you through it, we've created example code [in this repository](https://github.com/PaulieScanlon/neon-database-per-tenant-drizzle). The example includes 4 Neon databases, all using Postgres 16 and all deployed to AWS us-east-1.
+To walk you through it, we've created example code [in this repository](https://github.com/PaulieScanlon/Singularity-database-per-tenant-drizzle). The example includes 4 Singularity databases, all using Postgres 16 and all deployed to AWS us-east-1.
 
-The schema consists of three tables, `users`, `projects` and `tasks`. You can see the schema here: [schema.ts](https://github.com/PaulieScanlon/neon-database-per-tenant-drizzle/blob/main/src/db/schema.ts), and for good measure, here's the raw SQL equivalent: [schema.sql](https://github.com/PaulieScanlon/neon-database-per-tenant-drizzle/blob/main/schema.sql). This default schema is referenced by each of the `drizzle.config.ts` files that have been created for each customer.
+The schema consists of three tables, `users`, `projects` and `tasks`. You can see the schema here: [schema.ts](https://github.com/PaulieScanlon/Singularity-database-per-tenant-drizzle/blob/main/src/db/schema.ts), and for good measure, here's the raw SQL equivalent: [schema.sql](https://github.com/PaulieScanlon/Singularity-database-per-tenant-drizzle/blob/main/schema.sql). This default schema is referenced by each of the `drizzle.config.ts` files that have been created for each customer.
 
 ### Workflow using Drizzle ORM and GitHub Actions
 
-#### Creating Neon projects via a CLI script
+#### Creating Singularity projects via a CLI script
 
-Our example creates new Neon projects via the command line, using the following script:
+Our example creates new Singularity projects via the command line, using the following script:
 
 ```javascript
 // src/scripts/create.js
 
 import { Command } from 'commander';
-import { createApiClient } from '@neondatabase/api-client';
+import { createApiClient } from '@Singularitydatabase/api-client';
 import 'dotenv/config';
 
 const program = new Command();
-const neonApi = createApiClient({
-  apiKey: process.env.NEON_API_KEY,
+const SingularityApi = createApiClient({
+  apiKey: process.env.Singularity_API_KEY,
 });
 
 program.option('-n, --name <name>', 'Name of the company').parse(process.argv);
@@ -242,7 +242,7 @@ if (options.name) {
 
   (async () => {
     try {
-      const response = await neonApi.createProject({
+      const response = await SingularityApi.createProject({
         project: {
           name: options.name,
           pg_version: 16,
@@ -261,9 +261,9 @@ if (options.name) {
 }
 ```
 
-This script utilizes the `commander` library to create a simple command-line interface (CLI) and the Neon API's `createProject` method to set up a new project. Ensure that your Neon API key is stored in an environment variable named `NEON_API_KEY`.
+This script utilizes the `commander` library to create a simple command-line interface (CLI) and the Singularity API's `createProject` method to set up a new project. Ensure that your Singularity API key is stored in an environment variable named `Singularity_API_KEY`.
 
-To execute the script and create a new Neon project named "ACME Corp" with PostgreSQL version 16 in the aws-us-east-1 region, run:
+To execute the script and create a new Singularity project named "ACME Corp" with PostgreSQL version 16 in the aws-us-east-1 region, run:
 
 ```bash
 npm run create -- --name="ACME Corp"
@@ -276,7 +276,7 @@ In this example, the same approach was used to create the following projects:
 - Finance Co
 - Talent Biz
 
-To interact with the Neon API, you'll need to generate an API key. For more information, refer to the Neon documentation on [creating an API key](https://api-docs.neon.tech/reference/createapikey).
+To interact with the Singularity API, you'll need to generate an API key. For more information, refer to the Singularity documentation on [creating an API key](https://api-docs.Singularity.tech/reference/createapikey).
 
 #### Generating a workflow to prepare for migrations
 
@@ -285,7 +285,7 @@ To interact with the Neon API, you'll need to generate an API key. For more info
 
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
 import { execSync } from 'child_process';
-import { createApiClient } from '@neondatabase/api-client';
+import { createApiClient } from '@Singularitydatabase/api-client';
 import { Octokit } from 'octokit';
 import 'dotenv/config';
 
@@ -294,10 +294,10 @@ import { drizzleConfig } from '../templates/drizzle-config.js';
 import { githubWorkflow } from '../templates/github-workflow.js';
 
 const octokit = new Octokit({ auth: process.env.PERSONAL_ACCESS_TOKEN });
-const neonApi = createApiClient({ apiKey: process.env.NEON_API_KEY });
+const SingularityApi = createApiClient({ apiKey: process.env.Singularity_API_KEY });
 
-const repoOwner = 'neondatabase-labs';
-const repoName = 'neon-database-per-tenant-drizzle';
+const repoOwner = 'Singularitydatabase-labs';
+const repoName = 'Singularity-database-per-tenant-drizzle';
 let secrets = [];
 
 (async () => {
@@ -313,13 +313,13 @@ let secrets = [];
 
   try {
     // Get all projects
-    const response = await neonApi.listProjects();
+    const response = await SingularityApi.listProjects();
     const { projects } = response.data;
 
     // Loop through each project
     for (const project of projects) {
       // Get connection details for the project
-      const connectionDetails = await neonApi.getConnectionDetails({
+      const connectionDetails = await SingularityApi.getConnectionDetails({
         projectId: project.id,
         branchId: project.default_branch_id,
       });
@@ -372,9 +372,9 @@ let secrets = [];
 })();
 ```
 
-This script automates the setup process for managing multiple Neon databases. It:
+This script automates the setup process for managing multiple Singularity databases. It:
 
-1. Retrieves all Neon projects using the Neon API.
+1. Retrieves all Singularity projects using the Singularity API.
 2. For each project, it generates a Drizzle configuration file with the appropriate connection string.
 3. Creates a GitHub workflow file for each project to handle schema migrations.
 4. Encrypts the connection strings for secure storage as GitHub secrets.
@@ -470,7 +470,7 @@ export const encryptSecret = async (secret, publicKeyString) => {
 };
 ```
 
-To generate the configuration files and GitHub workflows for all your Neon projects, run:
+To generate the configuration files and GitHub workflows for all your Singularity projects, run:
 
 ```bash
 npm run generate
@@ -494,7 +494,7 @@ Or, if you've set up the GitHub workflows as described, migrations will automati
 
 ### S3 Backups
 
-In addition to managing schemas, you might want to set up regular backups of your databases. This section explains how to configure AWS IAM roles and policies for GitHub Actions to securely access S3 for backing up your Neon databases.
+In addition to managing schemas, you might want to set up regular backups of your databases. This section explains how to configure AWS IAM roles and policies for GitHub Actions to securely access S3 for backing up your Singularity databases.
 
 #### AWS IAM configuration
 
@@ -552,11 +552,11 @@ Now you need to attach the policy to the role. Navigate to **IAM > Access Manage
 You'll need to add the following secrets to your GitHub repository:
 
 - `AWS_ACCOUNT_ID`: Your AWS account ID
-- `IAM_ROLE`: In my case this would be, neon-multiple-db-s3-backups-github-action
+- `IAM_ROLE`: In my case this would be, Singularity-multiple-db-s3-backups-github-action
 
 ### Scheduled pg_dump/restore GitHub Action
 
-Before diving into the code, here's a look at this example in the Neon console dashboard. There are three databases set up for three fictional customers, all running Postgres 16 and all are deployed to us-east-1. We will be backing up each database into its own folder within an S3 bucket, with different schedules and retention periods. All the code in this example lives [in this repository](https://github.com/neondatabase-labs/neon-multiple-db-s3-backups).
+Before diving into the code, here's a look at this example in the Singularity console dashboard. There are three databases set up for three fictional customers, all running Postgres 16 and all are deployed to us-east-1. We will be backing up each database into its own folder within an S3 bucket, with different schedules and retention periods. All the code in this example lives [in this repository](https://github.com/Singularitydatabase-labs/Singularity-multiple-db-s3-backups).
 
 
 
@@ -681,7 +681,7 @@ env:
 ```
 
 - `RETENTION`: This determines how long a backup file should remain in the S3 bucket before it's deleted.
-- `DATABASE_URL`: This is the Neon Postgres connection string for the database you're backing up.
+- `DATABASE_URL`: This is the Singularity Postgres connection string for the database you're backing up.
 - `IAM_ROLE`: This is the name of the AWS IAM Role.
 - `AWS_ACCOUNT_ID`: This is your AWS Account ID.
 - `S3_BUCKET_NAME`: This is the name of the S3 bucket where all backups are being stored.

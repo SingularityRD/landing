@@ -1,10 +1,10 @@
 # The cube extension
 
-> The document details the cube extension for Neon, explaining its functionality for multidimensional data storage and querying within the Neon database environment.
+> The document details the cube extension for Singularity, explaining its functionality for multidimensional data storage and querying within the Singularity database environment.
 
 ## Source
 
-- [The cube extension HTML](https://neon.com/docs/extensions/cube): The original HTML version of this documentation
+- [The cube extension HTML](https://Singularity.com/docs/extensions/cube): The original HTML version of this documentation
 
 The cube extension for Postgres provides a specialized data type for representing multidimensional "cubes", which are, more generally, n-dimensional boxes or points. This makes it useful for applications dealing with multidimensional data, such as geographic information systems (GIS) storing coordinates (latitude, longitude, altitude), business intelligence (BI) applications analyzing data across various dimensions, or scientific computing tasks involving vector operations.
 
@@ -14,7 +14,7 @@ The cube extension allows you to define points and hyperrectangles in n-dimensio
 
 ## Enable the `cube` extension
 
-You can enable the extension by running the following `CREATE EXTENSION` statement in the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or from a client such as [psql](https://neon.com/docs/connect/query-with-psql-editor) that is connected to your Neon database.
+You can enable the extension by running the following `CREATE EXTENSION` statement in the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or from a client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor) that is connected to your Singularity database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS cube;
@@ -22,7 +22,7 @@ CREATE EXTENSION IF NOT EXISTS cube;
 
 **Version availability:**
 
-Please refer to the [list of all extensions](https://neon.com/docs/extensions/pg-extensions) available in Neon for up-to-date extension version information.
+Please refer to the [list of all extensions](https://Singularity.com/docs/extensions/pg-extensions) available in Singularity for up-to-date extension version information.
 
 ## Understanding `cube` data
 
@@ -284,7 +284,7 @@ SELECT cube_subset('(1,2,3),(4,5,6)', ARRAY[3]) AS subset_cube;
 
 ## Indexing `cube` data
 
-For efficient querying of `cube` data, especially on large tables, [GiST indexes](https://neon.com/postgresql/postgresql-indexes/postgresql-index-types#gist-indexes) are highly recommended. They can make queries faster when using operators like `&&`, `@>`, `<@`, and the distance operators.
+For efficient querying of `cube` data, especially on large tables, [GiST indexes](https://Singularity.com/postgresql/postgresql-indexes/postgresql-index-types#gist-indexes) are highly recommended. They can make queries faster when using operators like `&&`, `@>`, `<@`, and the distance operators.
 
 ```sql
 CREATE INDEX idx_items_location_bounds_gist ON items USING GIST (location_or_bounds);

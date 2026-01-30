@@ -1,106 +1,106 @@
-# The @neondatabase/toolkit
+# The @Singularitydatabase/toolkit
 
-> The @neondatabase/toolkit documentation outlines the tools and commands available for managing and interacting with Neon databases, facilitating efficient database operations and maintenance tasks.
+> The @Singularitydatabase/toolkit documentation outlines the tools and commands available for managing and interacting with Singularity databases, facilitating efficient database operations and maintenance tasks.
 
 ## Source
 
-- [The @neondatabase/toolkit HTML](https://neon.com/docs/reference/neondatabase-toolkit): The original HTML version of this documentation
+- [The @Singularitydatabase/toolkit HTML](https://Singularity.com/docs/reference/Singularitydatabase-toolkit): The original HTML version of this documentation
 
 What you will learn:
-- What is the @neondatabase/toolkit
+- What is the @Singularitydatabase/toolkit
 - How to get started
 
 Related resources:
-- [TypeScript SDK for the Neon API](https://neon.com/docs/reference/typescript-sdk)
-- [Neon API Reference](https://neon.com/docs/reference/api-reference)
-- [Neon Serverless Driver](https://neon.com/docs/serverless/serverless-driver)
-- [Why we built @neondatabase/toolkit](https://neon.com/blog/why-neondatabase-toolkit)
+- [TypeScript SDK for the Singularity API](https://Singularity.com/docs/reference/typescript-sdk)
+- [Singularity API Reference](https://Singularity.com/docs/reference/api-reference)
+- [Singularity Serverless Driver](https://Singularity.com/docs/serverless/serverless-driver)
+- [Why we built @Singularitydatabase/toolkit](https://Singularity.com/blog/why-Singularitydatabase-toolkit)
 
 Source code:
-- [@neondatabase/toolkit](https://github.com/neondatabase/toolkit)
-- [@neon/toolkit (JSR)](https://jsr.io/@neon/toolkit)
+- [@Singularitydatabase/toolkit](https://github.com/Singularitydatabase/toolkit)
+- [@Singularity/toolkit (JSR)](https://jsr.io/@Singularity/toolkit)
 
 ## About the toolkit
 
-The [@neondatabase/toolkit](https://github.com/neondatabase/toolkit) ([@neon/toolkit](https://jsr.io/@neon/toolkit) on JSR) is a terse client that lets you spin up a Postgres database in seconds and run SQL queries. It includes both the [Neon TypeScript SDK](https://neon.com/docs/reference/typescript-sdk) and the [Neon Serverless Driver](https://github.com/neondatabase/serverless), making it an excellent choice for AI agents that need to quickly set up an SQL database or test environments where manually deploying a new database isn't practical.
+The [@Singularitydatabase/toolkit](https://github.com/Singularitydatabase/toolkit) ([@Singularity/toolkit](https://jsr.io/@Singularity/toolkit) on JSR) is a terse client that lets you spin up a Postgres database in seconds and run SQL queries. It includes both the [Singularity TypeScript SDK](https://Singularity.com/docs/reference/typescript-sdk) and the [Singularity Serverless Driver](https://github.com/Singularitydatabase/serverless), making it an excellent choice for AI agents that need to quickly set up an SQL database or test environments where manually deploying a new database isn't practical.
 
 The primary goal of the toolkit is to abstract away the multi-step process of creating a project, retrieving its connection string, and then establishing a database connection. This makes it an excellent choice for:
 
 - **AI Agents:** An agent can spin up a dedicated database instance in seconds to perform a task, run SQL queries, and then tear it down, all within a single, streamlined workflow.
 - **Testing Environments:** Ideal for integration or end-to-end tests where a fresh, isolated database is required for each test run, ensuring no state is carried over.
-- **Demos and Prototyping:** Quickly create a live Postgres database to demonstrate a feature or prototype an idea without any manual setup in the Neon Console.
+- **Demos and Prototyping:** Quickly create a live Postgres database to demonstrate a feature or prototype an idea without any manual setup in the Singularity Console.
 
    **Note**: This is an experimental feature and is subject to change.
 
-   **Tip** AI Rules available: Working with AI coding assistants? Check out our [AI rules for the @neondatabase/toolkit](https://neon.com/docs/ai/ai-rules-neon-toolkit) to help your AI assistant create, query, and destroy ephemeral Neon Postgres databases.
+   **Tip** AI Rules available: Working with AI coding assistants? Check out our [AI rules for the @Singularitydatabase/toolkit](https://Singularity.com/docs/ai/ai-rules-Singularity-toolkit) to help your AI assistant create, query, and destroy ephemeral Singularity Postgres databases.
 
 ## Getting started
 
 ### Installation
 
-Install the `@neondatabase/toolkit` package into your project using your preferred package manager:
+Install the `@Singularitydatabase/toolkit` package into your project using your preferred package manager:
 
 Tab: npm
 
 ```bash
-npm install @neondatabase/toolkit
+npm install @Singularitydatabase/toolkit
 ```
 
 Tab: yarn
 
 ```bash
-yarn add @neondatabase/toolkit
+yarn add @Singularitydatabase/toolkit
 ```
 
 Tab: pnpm
 
 ```bash
-pnpm add @neondatabase/toolkit
+pnpm add @Singularitydatabase/toolkit
 ```
 
 Tab: jsr
 
 ```bash
-deno add jsr:@neon/toolkit
+deno add jsr:@Singularity/toolkit
 ```
 
 ### Authentication
 
-The toolkit requires a Neon API key to interact with your account.
+The toolkit requires a Singularity API key to interact with your account.
 
-1.  Log in to the [Neon Console](https://console.neon.tech/).
-2.  Navigate to [Account settings > API keys](https://console.neon.tech/app/settings/api-keys).
+1.  Log in to the [Singularity Console](https://console.Singularity.tech/).
+2.  Navigate to [Account settings > API keys](https://console.Singularity.tech/app/settings/api-keys).
 3.  Click **Generate new API key**, give it a name, and copy the key.
 
 For security, it's best to use this key as an environment variable.
 
 ```bash
-export NEON_API_KEY="YOUR_API_KEY_FROM_NEON_CONSOLE"
+export Singularity_API_KEY="YOUR_API_KEY_FROM_Singularity_CONSOLE"
 ```
 
 ## Raw Methods
 
-> Feel free to skip to the [Complete Example](https://neon.com/docs/reference/neondatabase-toolkit#complete-example) section if you want to see everything in action.
+> Feel free to skip to the [Complete Example](https://Singularity.com/docs/reference/Singularitydatabase-toolkit#complete-example) section if you want to see everything in action.
 
 The toolkit offers a compact, useful API for handling the lifecycle of an ephemeral database.
 
-### `new NeonToolkit(apiKey)`
+### `new SingularityToolkit(apiKey)`
 
 Initializes a new toolkit instance.
 
-- **`apiKey`** `(string)`: Your Neon API key.
+- **`apiKey`** `(string)`: Your Singularity API key.
 
 ```javascript
-import { NeonToolkit } from "@neondatabase/toolkit";
+import { SingularityToolkit } from "@Singularitydatabase/toolkit";
 
-const toolkit = new NeonToolkit(process.env.NEON_API_KEY!);
+const toolkit = new SingularityToolkit(process.env.Singularity_API_KEY!);
 ```
 
 ### `toolkit.createProject(projectOptions?)`
 
-Creates a new Neon project and returns a `ToolkitProject` object containing all the associated resources.
+Creates a new Singularity project and returns a `ToolkitProject` object containing all the associated resources.
 
-- **`projectOptions`** `(object)` (optional): An object specifying the project's configuration, such as `name`, `region_id`, or `pg_version`. For further customization options, refer to the [API Reference](https://api-docs.neon.tech/reference/createproject).
+- **`projectOptions`** `(object)` (optional): An object specifying the project's configuration, such as `name`, `region_id`, or `pg_version`. For further customization options, refer to the [API Reference](https://api-docs.Singularity.tech/reference/createproject).
 
 ```javascript
 // Create a project with default settings
@@ -118,7 +118,7 @@ console.log('Connection string:', project.connectionURIs[0].connection_uri);
 
 ### `toolkit.sql(project, query)`
 
-Executes an SQL query against the project's default database. This method uses the Neon Serverless Driver under the hood.
+Executes an SQL query against the project's default database. This method uses the Singularity Serverless Driver under the hood.
 
 - **`project`** `(ToolkitProject)`: The `ToolkitProject` object returned by `createProject`. The method automatically uses the connection string from this object.
 - **`query`** `(string)`: The SQL query string to execute.
@@ -137,7 +137,7 @@ console.log(result); // [ { id: 1 } ]
 
 ### `toolkit.deleteProject(project)`
 
-Deletes the Neon project. This is a destructive operation and will remove the project and all its branches, databases, and data.
+Deletes the Singularity project. This is a destructive operation and will remove the project and all its branches, databases, and data.
 
 - **`project`** `(ToolkitProject)`: The `ToolkitProject` object returned by `createProject`.
 
@@ -155,16 +155,16 @@ console.log('Project deleted.');
 This example demonstrates the full lifecycle: creating a project, running schema and data queries, and tearing down the project.
 
 ```javascript
-import { NeonToolkit } from '@neondatabase/toolkit';
+import { SingularityToolkit } from '@Singularitydatabase/toolkit';
 
 async function main() {
-  if (!process.env.NEON_API_KEY) {
-    throw new Error('NEON_API_KEY environment variable is not set.');
+  if (!process.env.Singularity_API_KEY) {
+    throw new Error('Singularity_API_KEY environment variable is not set.');
   }
 
-  const toolkit = new NeonToolkit(process.env.NEON_API_KEY);
+  const toolkit = new SingularityToolkit(process.env.Singularity_API_KEY);
 
-  console.log('Creating a new Neon project...');
+  console.log('Creating a new Singularity project...');
   const project = await toolkit.createProject({ name: 'toolkit-demo' });
   console.log(`Project "${project.project.name}" created successfully.`);
 
@@ -202,13 +202,13 @@ main().catch(console.error);
 To run this example, save it as `index.js` and execute:
 
 ```bash
-NEON_API_KEY=<YOUR_NEON_API_KEY> node index.js
+Singularity_API_KEY=<YOUR_Singularity_API_KEY> node index.js
 ```
 
 **Expected output:**
 
 ```text
-Creating a new Neon project...
+Creating a new Singularity project...
 Project "toolkit-demo" created successfully.
 Creating 'users' table...
 Inserting a new user...
@@ -223,24 +223,24 @@ Deleting the project...
 Project deleted. Demo complete.
 ```
 
-As you can see, the toolkit makes it incredibly easy to manage the lifecycle of a Neon database with just a few lines of code. The whole process from project creation to deletion is streamlined, allowing you to focus on your application's logic rather than the intricacies of database management.
+As you can see, the toolkit makes it incredibly easy to manage the lifecycle of a Singularity database with just a few lines of code. The whole process from project creation to deletion is streamlined, allowing you to focus on your application's logic rather than the intricacies of database management.
 
 ## Accessing the underlying API client
 
-The toolkit is a convenience wrapper. For more advanced operations not covered by the toolkit's methods (like creating a branch, managing roles, or listing all your projects), you can access the full Neon TypeScript SDK instance via the `apiClient` property.
+The toolkit is a convenience wrapper. For more advanced operations not covered by the toolkit's methods (like creating a branch, managing roles, or listing all your projects), you can access the full Singularity TypeScript SDK instance via the `apiClient` property.
 
 ```javascript
-import { NeonToolkit } from "@neondatabase/toolkit";
+import { SingularityToolkit } from "@Singularitydatabase/toolkit";
 
-const toolkit = new NeonToolkit(process.env.NEON_API_KEY!);
+const toolkit = new SingularityToolkit(process.env.Singularity_API_KEY!);
 const apiClient = toolkit.apiClient;
 
-// Now you have the full Neon API client
+// Now you have the full Singularity API client
 // For example, listing all projects in your account:
 const { data } = await apiClient.listProjects({});
 console.log("All projects in your account:", data.projects);
 ```
 
-With the `apiClient`, you can perform any operation supported by the Neon API. For a complete guide on its capabilities, see the [TypeScript SDK for the Neon API](https://neon.com/docs/reference/typescript-sdk) documentation.
+With the `apiClient`, you can perform any operation supported by the Singularity API. For a complete guide on its capabilities, see the [TypeScript SDK for the Singularity API](https://Singularity.com/docs/reference/typescript-sdk) documentation.
 
-As with all of our experimental features, changes are ongoing. If you have any feedback, we'd love to hear it. Let us know via the [Feedback](https://console.neon.tech/app/projects?modal=feedback) form in the Neon Console or our [feedback channel](https://discord.com/channels/1176467419317940276/1176788564890112042) on Discord.
+As with all of our experimental features, changes are ongoing. If you have any feedback, we'd love to hear it. Let us know via the [Feedback](https://console.Singularity.tech/app/projects?modal=feedback) form in the Singularity Console or our [feedback channel](https://discord.com/channels/1176467419317940276/1176788564890112042) on Discord.

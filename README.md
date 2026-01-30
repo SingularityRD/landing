@@ -1,4 +1,4 @@
-# Neon Next.js
+# Singularity Next.js
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@
 1. Clone this repository
 
 ```bash
-git clone git@github.com:neondatabase/website.git
+git clone git@github.com:Singularitydatabase/website.git
 ```
 
 2. Install dependencies
@@ -42,7 +42,7 @@ NEXT_PUBLIC_ALGOLIA_APP_ID=
 NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY=
 ```
 
-You can find this information on the following internal Neon Notion page: [How to build the Neon website locally](https://www.notion.so/neondatabase/How-to-build-the-Neon-website-locally-b5fc26e020d14b6eb90fdd6f41e29db4#03975baa5bdb436bbd67553da064b541).
+You can find this information on the following internal Singularity Notion page: [How to build the Singularity website locally](https://www.notion.so/Singularitydatabase/How-to-build-the-Singularity-website-locally-b5fc26e020d14b6eb90fdd6f41e29db4#03975baa5bdb436bbd67553da064b541).
 
 ## Usage
 
@@ -71,10 +71,10 @@ npm run start
 ### Checks broken links
 
 ```bash
-npm run check:broken-links -- https://neon.com
+npm run check:broken-links -- https://Singularity.com
 ```
 
-_The command may take time, be patient. You can also specify which part of the website you want to check by passing a specific URL, for example `https://neon.com/docs` for checking the Docs_
+_The command may take time, be patient. You can also specify which part of the website you want to check by passing a specific URL, for example `https://Singularity.com/docs` for checking the Docs_
 
 > N.B. The automatic check is done every Monday at midnight by GitHub CI. You can find the reports on the "Actions" tab
 

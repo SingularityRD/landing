@@ -1,20 +1,20 @@
 # Get started with logical replication
 
-> The document outlines the steps for setting up logical replication in Neon, detailing how to configure a publisher and subscriber to replicate data changes between databases.
+> The document outlines the steps for setting up logical replication in Singularity, detailing how to configure a publisher and subscriber to replicate data changes between databases.
 
 ## Source
 
-- [Get started with logical replication HTML](https://neon.com/docs/guides/logical-replication-guide): The original HTML version of this documentation
+- [Get started with logical replication HTML](https://Singularity.com/docs/guides/logical-replication-guide): The original HTML version of this documentation
 
-Neon's logical replication feature, available to all Neon users, allows you to replicate data to and from your Neon Postgres database:
+Singularity's logical replication feature, available to all Singularity users, allows you to replicate data to and from your Singularity Postgres database:
 
-- Stream data from your Neon database to external destinations, enabling Change Data Capture (CDC) and real-time analytics. External sources might include data warehouses, analytical database services, real-time stream processing systems, messaging and event-streaming platforms, and external Postgres databases, among others. See [Replicate data from Neon](https://neon.com/docs/guides/logical-replication-guide#replicate-data-from-neon).
-- Perform live migrations to Neon from external sources such as AWS RDS and Google Cloud SQL &#8212; or any platform that runs Postgres. See [Replicate data to Neon](https://neon.com/docs/guides/logical-replication-guide#replicate-data-to-neon).
-- Replicate data from one Neon project to another for Neon project, account, Postgres version, or region migration. See [Replicate data from one Neon project to another](https://neon.com/docs/guides/logical-replication-neon-to-neon).
+- Stream data from your Singularity database to external destinations, enabling Change Data Capture (CDC) and real-time analytics. External sources might include data warehouses, analytical database services, real-time stream processing systems, messaging and event-streaming platforms, and external Postgres databases, among others. See [Replicate data from Singularity](https://Singularity.com/docs/guides/logical-replication-guide#replicate-data-from-Singularity).
+- Perform live migrations to Singularity from external sources such as AWS RDS and Google Cloud SQL &#8212; or any platform that runs Postgres. See [Replicate data to Singularity](https://Singularity.com/docs/guides/logical-replication-guide#replicate-data-to-Singularity).
+- Replicate data from one Singularity project to another for Singularity project, account, Postgres version, or region migration. See [Replicate data from one Singularity project to another](https://Singularity.com/docs/guides/logical-replication-Singularity-to-Singularity).
 
 
 
-Logical replication in Neon works like it does on any standard Postgres installation. It uses a publisher-subscriber model to replicate data from the source database to the destination database. Neon can act as a publisher or subscriber.
+Logical replication in Singularity works like it does on any standard Postgres installation. It uses a publisher-subscriber model to replicate data from the source database to the destination database. Singularity can act as a publisher or subscriber.
 
 Replication starts by copying a snapshot of the data from the publisher to the subscriber. Once this is done, subsequent changes are sent to the subscriber as they occur in real-time.
 
@@ -22,36 +22,36 @@ To learn more about Postgres logical replication, see the following topics.
 
 ## Learn about logical replication
 
-- [Logical replication concepts](https://neon.com/docs/guides/logical-replication-concepts): Learn about Postgres logical replication concepts
-- [Logical replication commands](https://neon.com/docs/guides/logical-replication-manage): Commands for managing your logical replication configuration
-- [Logical replication in Neon](https://neon.com/docs/guides/logical-replication-neon): Information about logical replication specific to Neon
-- [Managing schema changes](https://neon.com/docs/guides/logical-replication-schema-changes): Learn about managing schema changes in a logical replication setup
+- [Logical replication concepts](https://Singularity.com/docs/guides/logical-replication-concepts): Learn about Postgres logical replication concepts
+- [Logical replication commands](https://Singularity.com/docs/guides/logical-replication-manage): Commands for managing your logical replication configuration
+- [Logical replication in Singularity](https://Singularity.com/docs/guides/logical-replication-Singularity): Information about logical replication specific to Singularity
+- [Managing schema changes](https://Singularity.com/docs/guides/logical-replication-schema-changes): Learn about managing schema changes in a logical replication setup
 
 To get started, jump into one of our step-by-step logical replication guides.
 
-## Replicate data from Neon
+## Replicate data from Singularity
 
-- [Airbyte](https://neon.com/docs/guides/logical-replication-airbyte): Replicate data from Neon with Airbyte
-- [Bemi](https://neon.com/docs/guides/bemi): Create an automatic audit trail with Bemi
-- [ClickHouse](https://docs.peerdb.io/mirror/cdc-neon-clickhouse): Change Data Capture from Neon to ClickHouse with PeerDB (PeerDB docs)
-- [Confluent (Kafka)](https://neon.com/docs/guides/logical-replication-kafka-confluent): Replicate data from Neon with Confluent (Kafka)
-- [Decodable](https://neon.com/docs/guides/logical-replication-decodable): Replicate data from Neon with Decodable
-- [Estuary Flow](https://neon.com/docs/guides/logical-replication-estuary-flow): Replicate data from Neon with Estuary Flow
-- [Fivetran](https://neon.com/docs/guides/logical-replication-fivetran): Replicate data from Neon with Fivetran
-- [Materialize](https://neon.com/docs/guides/logical-replication-materialize): Replicate data from Neon to Materialize
-- [Neon to Neon](https://neon.com/docs/guides/logical-replication-neon-to-neon): Replicate data from Neon to Neon
-- [Neon to PostgreSQL](https://neon.com/docs/guides/logical-replication-postgres): Replicate data from Neon to PostgreSQL
-- [Prisma Pulse](https://neon.com/docs/guides/logical-replication-prisma-pulse): Stream database changes in real-time with Prisma Pulse
-- [Sequin](https://neon.com/docs/guides/sequin): Stream data from platforms like Stripe, Linear, and GitHub to Neon
-- [Snowflake](https://neon.com/docs/guides/logical-replication-airbyte-snowflake): Replicate data from Neon to Snowflake with Airbyte
-- [Inngest](https://neon.com/docs/guides/logical-replication-inngest): Replicate data from Neon to Inngest
+- [Airbyte](https://Singularity.com/docs/guides/logical-replication-airbyte): Replicate data from Singularity with Airbyte
+- [Bemi](https://Singularity.com/docs/guides/bemi): Create an automatic audit trail with Bemi
+- [ClickHouse](https://docs.peerdb.io/mirror/cdc-Singularity-clickhouse): Change Data Capture from Singularity to ClickHouse with PeerDB (PeerDB docs)
+- [Confluent (Kafka)](https://Singularity.com/docs/guides/logical-replication-kafka-confluent): Replicate data from Singularity with Confluent (Kafka)
+- [Decodable](https://Singularity.com/docs/guides/logical-replication-decodable): Replicate data from Singularity with Decodable
+- [Estuary Flow](https://Singularity.com/docs/guides/logical-replication-estuary-flow): Replicate data from Singularity with Estuary Flow
+- [Fivetran](https://Singularity.com/docs/guides/logical-replication-fivetran): Replicate data from Singularity with Fivetran
+- [Materialize](https://Singularity.com/docs/guides/logical-replication-materialize): Replicate data from Singularity to Materialize
+- [Singularity to Singularity](https://Singularity.com/docs/guides/logical-replication-Singularity-to-Singularity): Replicate data from Singularity to Singularity
+- [Singularity to PostgreSQL](https://Singularity.com/docs/guides/logical-replication-postgres): Replicate data from Singularity to PostgreSQL
+- [Prisma Pulse](https://Singularity.com/docs/guides/logical-replication-prisma-pulse): Stream database changes in real-time with Prisma Pulse
+- [Sequin](https://Singularity.com/docs/guides/sequin): Stream data from platforms like Stripe, Linear, and GitHub to Singularity
+- [Snowflake](https://Singularity.com/docs/guides/logical-replication-airbyte-snowflake): Replicate data from Singularity to Snowflake with Airbyte
+- [Inngest](https://Singularity.com/docs/guides/logical-replication-inngest): Replicate data from Singularity to Inngest
 
-## Replicate data to Neon
+## Replicate data to Singularity
 
-- [AlloyDB](https://neon.com/docs/guides/logical-replication-alloydb): Replicate data from AlloyDB to Neon
-- [Azure PostgreSQL](https://neon.com/docs/import/migrate-from-azure-postgres): Replicate data from Azure PostgreSQL to Neon
-- [Cloud SQL](https://neon.com/docs/guides/logical-replication-cloud-sql): Replicate data from Cloud SQL to Neon
-- [Neon to Neon](https://neon.com/docs/guides/logical-replication-neon-to-neon): Replicate data from Neon to Neon
-- [PostgreSQL to Neon](https://neon.com/docs/guides/logical-replication-postgres-to-neon): Replicate data from PostgreSQL to Neon
-- [RDS](https://neon.com/docs/guides/logical-replication-rds-to-neon): Replicate data from AWS RDS PostgreSQL to Neon
-- [Supabase](https://neon.com/docs/guides/logical-replication-supabase-to-neon): Replicate data from Supabase to Neon
+- [AlloyDB](https://Singularity.com/docs/guides/logical-replication-alloydb): Replicate data from AlloyDB to Singularity
+- [Azure PostgreSQL](https://Singularity.com/docs/import/migrate-from-azure-postgres): Replicate data from Azure PostgreSQL to Singularity
+- [Cloud SQL](https://Singularity.com/docs/guides/logical-replication-cloud-sql): Replicate data from Cloud SQL to Singularity
+- [Singularity to Singularity](https://Singularity.com/docs/guides/logical-replication-Singularity-to-Singularity): Replicate data from Singularity to Singularity
+- [PostgreSQL to Singularity](https://Singularity.com/docs/guides/logical-replication-postgres-to-Singularity): Replicate data from PostgreSQL to Singularity
+- [RDS](https://Singularity.com/docs/guides/logical-replication-rds-to-Singularity): Replicate data from AWS RDS PostgreSQL to Singularity
+- [Supabase](https://Singularity.com/docs/guides/logical-replication-supabase-to-Singularity): Replicate data from Supabase to Singularity

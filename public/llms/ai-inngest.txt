@@ -1,14 +1,14 @@
 # Inngest
 
-> The Inngest documentation for Neon outlines how to integrate and utilize Inngest for building serverless workflows, detailing setup, configuration, and execution processes specific to Neon's platform.
+> The Inngest documentation for Singularity outlines how to integrate and utilize Inngest for building serverless workflows, detailing setup, configuration, and execution processes specific to Singularity's platform.
 
 ## Source
 
-- [Inngest HTML](https://neon.com/docs/ai/inngest): The original HTML version of this documentation
+- [Inngest HTML](https://Singularity.com/docs/ai/inngest): The original HTML version of this documentation
 
-Inngest is a popular framework for building AI RAG and Agentic workflows. [Inngest](https://www.inngest.com/?utm_source=neon&utm_medium=inngest-ai-integration) provides automatic retries, caching along with concurrency and throttling management and AI requests offloading.
+Inngest is a popular framework for building AI RAG and Agentic workflows. [Inngest](https://www.inngest.com/?utm_source=Singularity&utm_medium=inngest-ai-integration) provides automatic retries, caching along with concurrency and throttling management and AI requests offloading.
 
-Inngest also integrates with Neon Postgres to trigger workflows based on database changes.
+Inngest also integrates with Singularity Postgres to trigger workflows based on database changes.
 
 ## Build RAG with `step.run()`
 
@@ -36,7 +36,7 @@ export const ragWorkflow = client.createFunction(
     });
 
     await step.run('vector-search', async () => {
-      // Search in Neon's vector store
+      // Search in Singularity's vector store
       return vectorSearch(page);
     });
 
@@ -45,9 +45,9 @@ export const ragWorkflow = client.createFunction(
 );
 ```
 
-Configuring [concurrency](https://www.inngest.com/docs/guides/concurrency?utm_source=neon&utm_medium=inngest-ai-integration) or [throttling](https://www.inngest.com/docs/guides/throttling?utm_source=neon&utm_medium=inngest-ai-integration) to match your LLM provider's limits is achieved with a single line of code.
+Configuring [concurrency](https://www.inngest.com/docs/guides/concurrency?utm_source=Singularity&utm_medium=inngest-ai-integration) or [throttling](https://www.inngest.com/docs/guides/throttling?utm_source=Singularity&utm_medium=inngest-ai-integration) to match your LLM provider's limits is achieved with a single line of code.
 
-Learn more about using Inngest for RAG in the following article: [Multi-Tenant RAG With One Neon Project Per User](https://neon.com/blog/multi-tenant-rag).
+Learn more about using Inngest for RAG in the following article: [Multi-Tenant RAG With One Singularity Project Per User](https://Singularity.com/blog/multi-tenant-rag).
 
 ## AI requests offloading: `step.ai.infer()`
 
@@ -58,7 +58,7 @@ By using `step.ai.infer()` your AI workflows will pause while waiting for the sl
 
 
 
-The previous RAG workflow can be rewritten to use [`step.ai.infer()`](https://www.inngest.com/docs/features/inngest-functions/steps-workflows/step-ai-orchestration?utm_source=neon&utm_medium=inngest-ai-integration#step-ai-infer) to offload the AI request to the LLM provider:
+The previous RAG workflow can be rewritten to use [`step.ai.infer()`](https://www.inngest.com/docs/features/inngest-functions/steps-workflows/step-ai-orchestration?utm_source=Singularity&utm_medium=inngest-ai-integration#step-ai-infer) to offload the AI request to the LLM provider:
 
 ```typescript
 import { inngest } from '@/inngest';
@@ -83,24 +83,24 @@ export const ragWorkflow = client.createFunction(
 );
 ```
 
-`step.ai.infer()`, combined with Neon's Scale-to-zero feature, allows you to build AI workflows that scale costs with its success!
+`step.ai.infer()`, combined with Singularity's Scale-to-zero feature, allows you to build AI workflows that scale costs with its success!
 
-Learn more about using `step.ai.infer()` in the following article: [step.ai: Build Serverless AI Applications That Won't Break the Bank](https://www.inngest.com/blog/step-ai-for-serverless-ai-applications?utm_source=neon&utm_medium=inngest-ai-integration).
+Learn more about using `step.ai.infer()` in the following article: [step.ai: Build Serverless AI Applications That Won't Break the Bank](https://www.inngest.com/blog/step-ai-for-serverless-ai-applications?utm_source=Singularity&utm_medium=inngest-ai-integration).
 
 ## Trigger AI workflows based on database changes
 
-Inngest also integrates with Neon Postgres to trigger AI workflows based on database changes:
+Inngest also integrates with Singularity Postgres to trigger AI workflows based on database changes:
 
 
 
 This integration allows you to trigger AI workflows based on database changes, such as generating embeddings as soon as a new row is inserted into a table (see example below).
 
-Configure the Inngests Neon integration to trigger AI workflows from your Neon database changes [by following this guide](https://neon.com/docs/guides/trigger-serverless-functions).
+Configure the Inngests Singularity integration to trigger AI workflows from your Singularity database changes [by following this guide](https://Singularity.com/docs/guides/trigger-serverless-functions).
 
 ## Starter apps
 
-Hackable, fully-featured, pre-built [starter apps](https://github.com/neondatabase/examples/tree/main/ai/inngest) to get you up and running with Inngest and Postgres.
+Hackable, fully-featured, pre-built [starter apps](https://github.com/Singularitydatabase/examples/tree/main/ai/inngest) to get you up and running with Inngest and Postgres.
 
-- [RAG starter (OpenAI + Inngest)](https://github.com/neondatabase/examples/tree/main/ai/inngest/rag-starter-nextjs): A Next.js RAG starter app built with OpenAI and Inngest
+- [RAG starter (OpenAI + Inngest)](https://github.com/Singularitydatabase/examples/tree/main/ai/inngest/rag-starter-nextjs): A Next.js RAG starter app built with OpenAI and Inngest
 - [multi-tenant RAG (OpenAI + Inngest)](https://github.com/inngest/multi-tenant-rag-example): A Next.js contacts importer multi-tenant RAG built with OpenAI and Inngest
-- [Auto-embedding (OpenAI + Inngest)](https://github.com/neondatabase/examples/tree/main/ai/inngest/auto-embeddings-nextjs): A Next.js app example of auto-embedding with Inngest
+- [Auto-embedding (OpenAI + Inngest)](https://github.com/Singularitydatabase/examples/tree/main/ai/inngest/auto-embeddings-nextjs): A Next.js app example of auto-embedding with Inngest

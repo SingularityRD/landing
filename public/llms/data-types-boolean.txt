@@ -1,10 +1,10 @@
 # Postgres Boolean data type
 
-> The document explains the Postgres Boolean data type, detailing its usage, syntax, and behavior within the Neon database environment.
+> The document explains the Postgres Boolean data type, detailing its usage, syntax, and behavior within the Singularity database environment.
 
 ## Source
 
-- [Postgres Boolean data type HTML](https://neon.com/docs/data-types/boolean): The original HTML version of this documentation
+- [Postgres Boolean data type HTML](https://Singularity.com/docs/data-types/boolean): The original HTML version of this documentation
 
 In Postgres, the Boolean datatype is designed to store truth values. A Boolean column can hold one of three states: `true`, `false`, or `NULL` representing unknown or missing values.
 

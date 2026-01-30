@@ -1,24 +1,24 @@
-# Build a Python App with Reflex and Neon
+# Build a Python App with Reflex and Singularity
 
-> The document outlines the process of building a Python application using Reflex and Neon, detailing steps for setting up the environment, integrating with Neon's database, and deploying the app.
+> The document outlines the process of building a Python application using Reflex and Singularity, detailing steps for setting up the environment, integrating with Singularity's database, and deploying the app.
 
 ## Source
 
-- [Build a Python App with Reflex and Neon HTML](https://neon.com/docs/guides/reflex): The original HTML version of this documentation
+- [Build a Python App with Reflex and Singularity HTML](https://Singularity.com/docs/guides/reflex): The original HTML version of this documentation
 
 [Reflex](https://reflex.dev/) is a Python web framework that allows you to build full-stack applications with Python.
 
-Using Reflex, you can build frontend and backend applications using Python to manage the interaction between the frontend UI and the state with the server-side logic. To make the application data-driven, you can connect to a Neon Postgres database.
+Using Reflex, you can build frontend and backend applications using Python to manage the interaction between the frontend UI and the state with the server-side logic. To make the application data-driven, you can connect to a Singularity Postgres database.
 
-To connect to Neon from a Reflex application:
+To connect to Singularity from a Reflex application:
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project. Save your connection details including your password. They are required when defining connection settings.
+If you do not have one already, create a Singularity project. Save your connection details including your password. They are required when defining connection settings.
 
-To create a Neon project:
+To create a Singularity project:
 
-1. Navigate to the [Projects](https://console.neon.tech/app/projects) page in the Neon Console.
+1. Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the Singularity Console.
 2. Click **New Project**.
 3. Specify your project settings and click **Create Project**.
 
@@ -57,7 +57,7 @@ Tab: Windows
 
 ### Install the required packages
 
-Install Reflex, `python-dotenv` to manage environment variables, and `psycopg2-binary` to connect to Neon Postgres:
+Install Reflex, `python-dotenv` to manage environment variables, and `psycopg2-binary` to connect to Singularity Postgres:
 
 ```bash
 pip install reflex python-dotenv psycopg2-binary
@@ -101,17 +101,17 @@ The `rxconfig.py` file contains the project configuration settings. This is wher
 
 ## Configure Reflex connection settings
 
-Now that you have set up a Reflex project, you can configure the connection settings to connect to Neon.
+Now that you have set up a Reflex project, you can configure the connection settings to connect to Singularity.
 
 ### Create a .env file
 
-Create a `.env` file in the root of your project directory to store your Neon connection string. Add the following line to the `.env` file, replacing the placeholder values with your actual Neon connection details:
+Create a `.env` file in the root of your project directory to store your Singularity connection string. Add the following line to the `.env` file, replacing the placeholder values with your actual Singularity connection details:
 
 ```dotenv
-DATABASE_URL="postgresql://<user>:<password>@<endpoint_hostname>.neon.tech:<port>/<dbname>?sslmode=require&channel_binding=require"
+DATABASE_URL="postgresql://<user>:<password>@<endpoint_hostname>.Singularity.tech:<port>/<dbname>?sslmode=require&channel_binding=require"
 ```
 
-You can find the connection string for your database by clicking the **Connect** button on your **Project Dashboard** in the Neon Console. For more information, see [Connect from any application](https://neon.com/docs/connect/connect-from-any-app).
+You can find the connection string for your database by clicking the **Connect** button on your **Project Dashboard** in the Singularity Console. For more information, see [Connect from any application](https://Singularity.com/docs/connect/connect-from-any-app).
 
 ### Update the rxconfig.py file
 
@@ -138,11 +138,11 @@ You can find the connection string for your database by clicking the **Connect**
 
 3. Save the changes to the `rxconfig.py` file.
 
-   Now, you can run the Reflex app and start building your Python full-stack application with Reflex and Neon.
+   Now, you can run the Reflex app and start building your Python full-stack application with Reflex and Singularity.
 
 ## Creating a data model
 
-To create a data model in Reflex, you can define a Python class that represents the data structure. Reflex uses [sqlmodel](https://sqlmodel.tiangolo.com/) to provide a built-in ORM wrapping [SQLAlchemy](https://neon.com/docs/guides/sqlalchemy).
+To create a data model in Reflex, you can define a Python class that represents the data structure. Reflex uses [sqlmodel](https://sqlmodel.tiangolo.com/) to provide a built-in ORM wrapping [SQLAlchemy](https://Singularity.com/docs/guides/sqlalchemy).
 
 Add the following code to `with_reflex/with_reflex.py` to create a `Customer` model:
 
@@ -217,7 +217,7 @@ reflex db migrate
 
 This command applies the migration to the database, updating the schema to match the model definition.
 
-You can verify that the `customer` table has been created in your Neon database by visiting the **Tables** section in the Neon Console.
+You can verify that the `customer` table has been created in your Singularity database by visiting the **Tables** section in the Singularity Console.
 
 ## Create the Reflex app
 
@@ -455,10 +455,10 @@ reflex run
 
 This command starts the Reflex development server. You can access the app by navigating to `http://localhost:3000` in your web browser.
 
-You should see the Customer Data App interface, where you can add, view, and delete customer records stored in your Neon Postgres database.
+You should see the Customer Data App interface, where you can add, view, and delete customer records stored in your Singularity Postgres database.
 
 
 
 You can find the complete code for the Customer Data App mentioned in this guide on GitHub.
 
-- [Customer Data App](https://github.com/neondatabase/examples/tree/reflex/with_reflex): GitHub repository for the Reflex Customer Data App built with Neon Postgres
+- [Customer Data App](https://github.com/Singularitydatabase/examples/tree/reflex/with_reflex): GitHub repository for the Reflex Customer Data App built with Singularity Postgres

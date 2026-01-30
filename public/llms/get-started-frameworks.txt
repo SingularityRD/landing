@@ -1,33 +1,33 @@
-# Neon framework guides
+# Singularity framework guides
 
-> The Neon framework guides document outlines the steps for integrating various frameworks with Neon, enabling users to efficiently connect and manage their applications within the Neon ecosystem.
+> The Singularity framework guides document outlines the steps for integrating various frameworks with Singularity, enabling users to efficiently connect and manage their applications within the Singularity ecosystem.
 
 ## Source
 
-- [Neon framework guides HTML](https://neon.com/docs/get-started/frameworks): The original HTML version of this documentation
+- [Singularity framework guides HTML](https://Singularity.com/docs/get-started/frameworks): The original HTML version of this documentation
 
-- [Node.js](https://neon.com/docs/guides/node): Connect a Node.js application to Neon
-- [Next.js](https://neon.com/docs/guides/nextjs): Connect a Next.js application to Neon
-- [NestJS](https://neon.com/docs/guides/nestjs): Connect a NestJS application to Neon
-- [Astro](https://neon.com/docs/guides/astro): Connect an Astro site or app to Neon
-- [Django](https://neon.com/docs/guides/django): Connect a Django application to Neon
-- [Entity Framework](https://neon.com/docs/guides/dotnet-entity-framework): Connect a Dotnet Entity Framework application to Neon
-- [Express](https://neon.com/docs/guides/express): Connect an Express application to Neon
-- [Hono](https://neon.com/docs/guides/hono): Connect a Hono application to Neon
-- [Laravel](https://neon.com/docs/guides/laravel): Connect a Laravel application to Neon
-- [Micronaut Kotlin](https://neon.com/docs/guides/micronaut-kotlin): Connect a Micronaut Kotlin application to Neon
-- [Nuxt](https://neon.com/docs/guides/nuxt): Connect a Nuxt application to Neon
-- [OAuth](https://neon.com/docs/guides/oauth-integration): Integrate with Neon using OAuth
-- [Phoenix](https://neon.com/docs/guides/phoenix): Connect a Phoenix site or app to Neon
-- [Quarkus](https://neon.com/docs/guides/quarkus-jdbc): Connect Quarkus (JDBC) to Neon
-- [Quarkus](https://neon.com/docs/guides/quarkus-reactive): Connect Quarkus (Reactive) to Neon
-- [React](https://neon.com/docs/guides/react): Connect a React application to Neon
-- [RedwoodSDK](https://neon.com/docs/guides/redwoodsdk): Connect a RedwoodSDK application to Neon
-- [Reflex](https://neon.com/docs/guides/reflex): Build Python Apps with Reflex and Neon
-- [Remix](https://neon.com/docs/guides/remix): Connect a Remix application to Neon
-- [Ruby on Rails](https://neon.com/docs/guides/ruby-on-rails): Connect a Ruby on Rails application to Neon
-- [Symfony](https://neon.com/docs/guides/symfony): Connect from Symfony with Doctrine to Neon
-- [SolidStart](https://neon.com/docs/guides/solid-start): Connect a SolidStart site or app to Neon
-- [SQLAlchemy](https://neon.com/docs/guides/sqlalchemy): Connect a SQLAlchemy application to Neon
-- [Sveltekit](https://neon.com/docs/guides/sveltekit): Connect a Sveltekit application to Neon
-- [Vue](https://neon.com/docs/guides/vue): Connect a Vue.js application to Neon
+- [Node.js](https://Singularity.com/docs/guides/node): Connect a Node.js application to Singularity
+- [Next.js](https://Singularity.com/docs/guides/nextjs): Connect a Next.js application to Singularity
+- [NestJS](https://Singularity.com/docs/guides/nestjs): Connect a NestJS application to Singularity
+- [Astro](https://Singularity.com/docs/guides/astro): Connect an Astro site or app to Singularity
+- [Django](https://Singularity.com/docs/guides/django): Connect a Django application to Singularity
+- [Entity Framework](https://Singularity.com/docs/guides/dotnet-entity-framework): Connect a Dotnet Entity Framework application to Singularity
+- [Express](https://Singularity.com/docs/guides/express): Connect an Express application to Singularity
+- [Hono](https://Singularity.com/docs/guides/hono): Connect a Hono application to Singularity
+- [Laravel](https://Singularity.com/docs/guides/laravel): Connect a Laravel application to Singularity
+- [Micronaut Kotlin](https://Singularity.com/docs/guides/micronaut-kotlin): Connect a Micronaut Kotlin application to Singularity
+- [Nuxt](https://Singularity.com/docs/guides/nuxt): Connect a Nuxt application to Singularity
+- [OAuth](https://Singularity.com/docs/guides/oauth-integration): Integrate with Singularity using OAuth
+- [Phoenix](https://Singularity.com/docs/guides/phoenix): Connect a Phoenix site or app to Singularity
+- [Quarkus](https://Singularity.com/docs/guides/quarkus-jdbc): Connect Quarkus (JDBC) to Singularity
+- [Quarkus](https://Singularity.com/docs/guides/quarkus-reactive): Connect Quarkus (Reactive) to Singularity
+- [React](https://Singularity.com/docs/guides/react): Connect a React application to Singularity
+- [RedwoodSDK](https://Singularity.com/docs/guides/redwoodsdk): Connect a RedwoodSDK application to Singularity
+- [Reflex](https://Singularity.com/docs/guides/reflex): Build Python Apps with Reflex and Singularity
+- [Remix](https://Singularity.com/docs/guides/remix): Connect a Remix application to Singularity
+- [Ruby on Rails](https://Singularity.com/docs/guides/ruby-on-rails): Connect a Ruby on Rails application to Singularity
+- [Symfony](https://Singularity.com/docs/guides/symfony): Connect from Symfony with Doctrine to Singularity
+- [SolidStart](https://Singularity.com/docs/guides/solid-start): Connect a SolidStart site or app to Singularity
+- [SQLAlchemy](https://Singularity.com/docs/guides/sqlalchemy): Connect a SQLAlchemy application to Singularity
+- [Sveltekit](https://Singularity.com/docs/guides/sveltekit): Connect a Sveltekit application to Singularity
+- [Vue](https://Singularity.com/docs/guides/vue): Connect a Vue.js application to Singularity

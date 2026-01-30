@@ -1,10 +1,10 @@
 # Postgres json() Function
 
-> The document details the usage of the Postgres `json()` function within Neon, explaining how to store, query, and manipulate JSON data in a PostgreSQL database environment.
+> The document details the usage of the Postgres `json()` function within Singularity, explaining how to store, query, and manipulate JSON data in a PostgreSQL database environment.
 
 ## Source
 
-- [Postgres json() Function HTML](https://neon.com/docs/functions/json): The original HTML version of this documentation
+- [Postgres json() Function HTML](https://Singularity.com/docs/functions/json): The original HTML version of this documentation
 
 The `json()` function provides a robust way to convert text or binary data into `JSON` values. This new function offers enhanced control over `JSON` parsing, including options for handling duplicate keys and encoding specifications.
 

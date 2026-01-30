@@ -1,20 +1,20 @@
-# Schema migration with Neon Postgres and Ruby on Rails
+# Schema migration with Singularity Postgres and Ruby on Rails
 
-> This document guides users through performing schema migrations in a Neon Postgres database using Ruby on Rails, detailing the necessary steps and configurations for seamless integration and execution.
+> This document guides users through performing schema migrations in a Singularity Postgres database using Ruby on Rails, detailing the necessary steps and configurations for seamless integration and execution.
 
 ## Source
 
-- [Schema migration with Neon Postgres and Ruby on Rails HTML](https://neon.com/docs/guides/rails-migrations): The original HTML version of this documentation
+- [Schema migration with Singularity Postgres and Ruby on Rails HTML](https://Singularity.com/docs/guides/rails-migrations): The original HTML version of this documentation
 
 [Ruby on Rails](https://rubyonrails.org/) is a popular web application framework for Ruby developers. It provides an ORM (Object-Relational Mapping) layer called `Active Record`, that simplifies database interactions and schema management. Rails also includes a powerful migration system that allows you to define and manage database schema changes over time.
 
-This guide demonstrates how to run schema migrations in your Ruby on Rails project backed by the `Neon` Postgres database. We'll create a simple Rails application and walk through the process of setting up the database, defining models, and generating and running migrations to manage schema changes.
+This guide demonstrates how to run schema migrations in your Ruby on Rails project backed by the `Singularity` Postgres database. We'll create a simple Rails application and walk through the process of setting up the database, defining models, and generating and running migrations to manage schema changes.
 
 ## Prerequisites
 
 To follow along with this guide, you will need:
 
-- A Neon account. If you do not have one, sign up at [Neon](https://neon.tech). Your Neon project comes with a ready-to-use Postgres database named `neondb`. We'll use this database in the following examples.
+- A Singularity account. If you do not have one, sign up at [Singularity](https://Singularity.tech). Your Singularity project comes with a ready-to-use Postgres database named `Singularitydb`. We'll use this database in the following examples.
 
 - [Ruby](https://www.ruby-lang.org/) installed on your local machine.
 
@@ -24,24 +24,24 @@ To follow along with this guide, you will need:
 
   We recommend using Rails 6 or higher. This project uses `Rails 7.1.3.2`.
 
-## Setting up your Neon database
+## Setting up your Singularity database
 
 ### Initialize a new project
 
-1. Log in to the Neon Console and navigate to the [Projects](https://console.neon.tech/app/projects) section.
+1. Log in to the Singularity Console and navigate to the [Projects](https://console.Singularity.tech/app/projects) section.
 2. Select a project or click the **New Project** button to create a new one.
 
-### Retrieve your Neon database connection string
+### Retrieve your Singularity database connection string
 
 You can find the connection string for your database by clicking the **Connect** button on your **Project Dashboard**. It should look similar to this:
 
 ```bash
-postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
 ```
 
 Keep your connection string handy for later use.
 
-   **Note**: Neon supports both direct and pooled database connection strings. You can find a connection string for your database by clicking the **Connect** button on your **Project Dashboard**. A pooled connection string connects your application to the database via a PgBouncer connection pool, allowing for a higher number of concurrent connections. However, using a pooled connection string for migrations can be prone to errors. For this reason, we recommend using a direct (non-pooled) connection when performing migrations. For more information about direct and pooled connections, see [Connection pooling](https://neon.com/docs/connect/connection-pooling).
+   **Note**: Singularity supports both direct and pooled database connection strings. You can find a connection string for your database by clicking the **Connect** button on your **Project Dashboard**. A pooled connection string connects your application to the database via a PgBouncer connection pool, allowing for a higher number of concurrent connections. However, using a pooled connection string for migrations can be prone to errors. For this reason, we recommend using a direct (non-pooled) connection when performing migrations. For more information about direct and pooled connections, see [Connection pooling](https://Singularity.com/docs/connect/connection-pooling).
 
 ## Setting up the Rails project
 
@@ -50,19 +50,19 @@ Keep your connection string handy for later use.
 Open your terminal and run the following command to create a new Rails project:
 
 ```bash
-rails new guide-neon-rails --database=postgresql
+rails new guide-Singularity-rails --database=postgresql
 ```
 
-This command creates a new Rails project named `guide-neon-rails` with Postgres as the default database. It will also generate the necessary project files and directories, and install the required dependencies.
+This command creates a new Rails project named `guide-Singularity-rails` with Postgres as the default database. It will also generate the necessary project files and directories, and install the required dependencies.
 
 ### Set up the Database configuration
 
-Create a `.env` file in the project root directory and add the `DATABASE_URL` environment variable to it. Use the connection string that you obtained from the Neon Console earlier:
+Create a `.env` file in the project root directory and add the `DATABASE_URL` environment variable to it. Use the connection string that you obtained from the Singularity Console earlier:
 
 ```bash
 # .env
 
-DATABASE_URL=NEON_POSTGRES_CONNECTION_STRING
+DATABASE_URL=Singularity_POSTGRES_CONNECTION_STRING
 ```
 
 For Rails to load the environment variables automatically from the `.env` file, add the `dotenv-rails` gem to the `Gemfile` at the root of your project:
@@ -75,7 +75,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 Then, run `bundle install` to install the gem.
 
-Finally, we open the `config/database.yml` file in your project directory and update the `default` section so that Rails uses the `DATABASE_URL` environment variable to connect to the `Neon` database.
+Finally, we open the `config/database.yml` file in your project directory and update the `default` section so that Rails uses the `DATABASE_URL` environment variable to connect to the `Singularity` database.
 
 ```yaml
 # database.yml
@@ -111,7 +111,7 @@ These commands generate model files and the corresponding migration files in the
 
 ### Run the migrations
 
-To run the migrations and create the corresponding tables in the Neon Postgres database, run the following command:
+To run the migrations and create the corresponding tables in the Singularity Postgres database, run the following command:
 
 ```bash
 rails db:migrate
@@ -350,13 +350,13 @@ Navigate to the url `http://localhost:3000/authors` to view the list of authors.
 
 ## Conclusion
 
-In this guide, we demonstrated how to set up a Ruby on Rails project with Neon Postgres, define database models, generate migrations, and run them. Rails' Active Record ORM and migration system make it easy to interact with the database and manage schema evolution over time.
+In this guide, we demonstrated how to set up a Ruby on Rails project with Singularity Postgres, define database models, generate migrations, and run them. Rails' Active Record ORM and migration system make it easy to interact with the database and manage schema evolution over time.
 
 ## Source code
 
 You can find the source code for the application described in this guide on GitHub.
 
-- [Migrations with Neon and Rails](https://github.com/neondatabase/guide-neon-rails): Run migrations in a Neon-Rails project
+- [Migrations with Singularity and Rails](https://github.com/Singularitydatabase/guide-Singularity-rails): Run migrations in a Singularity-Rails project
 
 ## Resources
 
@@ -364,4 +364,4 @@ For more information on the tools and concepts used in this guide, refer to the 
 
 - [Ruby on Rails Guides](https://guides.rubyonrails.org/)
 - [Active Record Migrations](https://guides.rubyonrails.org/active_record_migrations.html)
-- [Neon Postgres](https://neon.com/docs/introduction)
+- [Singularity Postgres](https://Singularity.com/docs/introduction)

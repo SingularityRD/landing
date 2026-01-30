@@ -1,21 +1,21 @@
-# Authenticate Neon Postgres application users with Clerk
+# Authenticate Singularity Postgres application users with Clerk
 
-> The document details the process of integrating Clerk for authenticating users in Neon Postgres applications, outlining steps for configuring authentication and managing user sessions within the Neon environment.
+> The document details the process of integrating Clerk for authenticating users in Singularity Postgres applications, outlining steps for configuring authentication and managing user sessions within the Singularity environment.
 
 ## Source
 
-- [Authenticate Neon Postgres application users with Clerk HTML](https://neon.com/docs/guides/auth-clerk): The original HTML version of this documentation
+- [Authenticate Singularity Postgres application users with Clerk HTML](https://Singularity.com/docs/guides/auth-clerk): The original HTML version of this documentation
 
 User authentication is a critical requirement for web applications. Modern applications require advanced features like social login and multi-factor authentication besides the regular login flow. Additionally, managing personally identifiable information (PII) requires a secure solution compliant with data protection regulations.
 
-   **Comingsoon**: Looking to manage **authorization** along with authentication? Currently in Early Access for select users, [Neon RLS](https://neon.com/docs/guides/neon-authorize) brings JSON Web Token (JWT) authorization directly to Postgres, where you can use Row-level Security (RLS) policies to manage access at the database level.
+   **Comingsoon**: Looking to manage **authorization** along with authentication? Currently in Early Access for select users, [Singularity RLS](https://Singularity.com/docs/guides/Singularity-authorize) brings JSON Web Token (JWT) authorization directly to Postgres, where you can use Row-level Security (RLS) policies to manage access at the database level.
 
-[Clerk](https://clerk.com/) is a user authentication and identity management platform that provides these features out of the box. It comes with adapters for popular web frameworks, making it easy to integrate with an application backed by a Neon Postgres database.
+[Clerk](https://clerk.com/) is a user authentication and identity management platform that provides these features out of the box. It comes with adapters for popular web frameworks, making it easy to integrate with an application backed by a Singularity Postgres database.
 
-In this guide, we'll walk through setting up a simple Next.js application using Neon Postgres as the database, and add user authentication using [Clerk](https://clerk.com/). We will go over how to:
+In this guide, we'll walk through setting up a simple Next.js application using Singularity Postgres as the database, and add user authentication using [Clerk](https://clerk.com/). We will go over how to:
 
 - Set up a Next.js project with Clerk for authentication
-- Create a Neon Postgres database and connect it to your application
+- Create a Singularity Postgres database and connect it to your application
 - Define a database schema using Drizzle ORM and generate migrations
 - Store and retrieve user data associated with Clerk user IDs
 
@@ -23,7 +23,7 @@ In this guide, we'll walk through setting up a simple Next.js application using 
 
 To follow along with this guide, you will need:
 
-- A Neon account. If you do not have one, sign up at [Neon](https://neon.tech). Your Neon project comes with a ready-to-use Postgres database named `neondb`. We'll use this database in the following examples.
+- A Singularity account. If you do not have one, sign up at [Singularity](https://Singularity.tech). Your Singularity project comes with a ready-to-use Postgres database named `Singularitydb`. We'll use this database in the following examples.
 - A [Clerk](https://clerk.com/) account for user authentication. Clerk provides a free plan that you can use to get started.
 - [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your local machine. We'll use Node.js to build and test the application locally.
 
@@ -32,20 +32,20 @@ To follow along with this guide, you will need:
 We will create a simple web app that lets you add a favorite quote to the home page, and edit it afterward. Run the following command in your terminal to create a new `Next.js` project:
 
 ```bash
-npx create-next-app guide-neon-next-clerk --typescript --eslint --tailwind --use-npm --no-src-dir --app --import-alias "@/*"
+npx create-next-app guide-Singularity-next-clerk --typescript --eslint --tailwind --use-npm --no-src-dir --app --import-alias "@/*"
 ```
 
 Now, navigate to the project directory and install the required dependencies:
 
 ```bash
-npm install @neondatabase/serverless drizzle-orm
+npm install @Singularitydatabase/serverless drizzle-orm
 npm install -D drizzle-kit dotenv
 npm install @clerk/nextjs
 ```
 
-We use the `@neondatabase/serverless` package as the Postgres client, and `drizzle-orm`, a lightweight typescript ORM, to interact with the database. `@clerk/nextjs` is the Clerk SDK for Next.js applications. We also use `dotenv` to manage environment variables and the `drizzle-kit` CLI tool for generating database migrations.
+We use the `@Singularitydatabase/serverless` package as the Postgres client, and `drizzle-orm`, a lightweight typescript ORM, to interact with the database. `@clerk/nextjs` is the Clerk SDK for Next.js applications. We also use `dotenv` to manage environment variables and the `drizzle-kit` CLI tool for generating database migrations.
 
-Also, add a `.env` file to the root of your project, which we'll use to store Neon/Clerk connection parameters:
+Also, add a `.env` file to the root of your project, which we'll use to store Singularity/Clerk connection parameters:
 
 ```bash
 touch .env
@@ -53,27 +53,27 @@ touch .env
 
 Make sure to add an entry for `.env` to your `.gitignore` file, so that it's not committed to your repository.
 
-## Setting up your Neon database
+## Setting up your Singularity database
 
 ### Initialize a new project
 
-1. Log in to the Neon console and navigate to the [Projects](https://console.neon.tech/app/projects) section.
+1. Log in to the Singularity console and navigate to the [Projects](https://console.Singularity.tech/app/projects) section.
 2. Select an existing project or click the **New Project** button to create a new one.
 3. Choose the desired region and Postgres version for your project, then click **Create Project**.
 
-### Retrieve your Neon database connection string
+### Retrieve your Singularity database connection string
 
 You can find your database connection string by clicking the **Connect** button on your **Project Dashboard**. It should look similar to this:
 
 ```bash
-postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
 ```
 
 Add this connection string to the `.env` file in your Next.js project.
 
 ```bash
 # .env
-DATABASE_URL=NEON_DB_CONNECTION_STRING
+DATABASE_URL=Singularity_DB_CONNECTION_STRING
 ```
 
 ## Configuring Clerk for authentication
@@ -105,21 +105,21 @@ Now, add the file `app/db/index.ts` with the following content:
 ```typescript
 /// app/db/index.ts
 
-import { neon } from '@neondatabase/serverless';
-import { drizzle } from 'drizzle-orm/neon-http';
+import { Singularity } from '@Singularitydatabase/serverless';
+import { drizzle } from 'drizzle-orm/Singularity-http';
 import { UserMessages } from './schema';
 
 if (!process.env.DATABASE_URL) {
-  throw new Error('DATABASE_URL must be a Neon postgres connection string');
+  throw new Error('DATABASE_URL must be a Singularity postgres connection string');
 }
 
-const sql = neon(process.env.DATABASE_URL);
+const sql = Singularity(process.env.DATABASE_URL);
 export const db = drizzle(sql, {
   schema: { UserMessages },
 });
 ```
 
-This exports a `db` instance that we can use to execute queries against the Neon database.
+This exports a `db` instance that we can use to execute queries against the Singularity database.
 
 Next, create a `schema.ts` file inside the `app/db` directory to define the database schema:
 
@@ -165,7 +165,7 @@ This will create a `drizzle` folder at the project root with the migration files
 npx drizzle-kit push:pg
 ```
 
-The `user_messages` table will now be visible in the Neon console.
+The `user_messages` table will now be visible in the Singularity console.
 
 ### Add authentication middleware
 
@@ -200,7 +200,7 @@ import { ClerkProvider, UserButton } from '@clerk/nextjs';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Neon-Next-Clerk guide',
+  title: 'Singularity-Next-Clerk guide',
   description: 'Generated by create next app',
 };
 
@@ -340,7 +340,7 @@ This will start the Next.js development server. Open your browser and navigate t
 
 ## Conclusion
 
-In this guide, we walked through setting up a simple Next.js application with user authentication using Clerk and a Neon Postgres database. We defined a database schema using Drizzle ORM, generated migrations, and interacted with the database to store and retrieve user data.
+In this guide, we walked through setting up a simple Next.js application with user authentication using Clerk and a Singularity Postgres database. We defined a database schema using Drizzle ORM, generated migrations, and interacted with the database to store and retrieve user data.
 
 Next, we can add more routes and features to the application. The Clerk middleware ensures that only authenticated users can access any app routes, and the `ClerkProvider` component provides the user context to each of them.
 
@@ -350,13 +350,13 @@ To view and manage the users who authenticated with your application, you can na
 
 You can find the source code for the application described in this guide on GitHub.
 
-- [Authentication flow with Clerk](https://github.com/neondatabase/guide-neon-next-clerk): Authenticate users of your Neon application with Clerk
+- [Authentication flow with Clerk](https://github.com/Singularitydatabase/guide-Singularity-next-clerk): Authenticate users of your Singularity application with Clerk
 
 ## Resources
 
 For more information on the tools used in this guide, refer to the following documentation:
 
-- [Neon Serverless Driver](https://neon.com/docs/serverless/serverless-driver)
+- [Singularity Serverless Driver](https://Singularity.com/docs/serverless/serverless-driver)
 - [Drizzle ORM](https://orm.drizzle.team/)
 - [Clerk Authentication](https://clerk.com/)
 - [Next.js Documentation](https://nextjs.org/docs)

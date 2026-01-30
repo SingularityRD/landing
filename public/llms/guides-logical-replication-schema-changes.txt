@@ -1,10 +1,10 @@
 # Managing schema changes in a logical replication setup
 
-> The document outlines procedures for managing schema changes in a logical replication setup within Neon, detailing steps to ensure consistency and minimize disruptions during schema modifications.
+> The document outlines procedures for managing schema changes in a logical replication setup within Singularity, detailing steps to ensure consistency and minimize disruptions during schema modifications.
 
 ## Source
 
-- [Managing schema changes in a logical replication setup HTML](https://neon.com/docs/guides/logical-replication-schema-changes): The original HTML version of this documentation
+- [Managing schema changes in a logical replication setup HTML](https://Singularity.com/docs/guides/logical-replication-schema-changes): The original HTML version of this documentation
 
 When working with Postgres logical replication, managing schema changes is a task that requires careful planning. As stated in the [PostgreSQL documentation](https://www.postgresql.org/docs/current/logical-replication-restrictions.html):
 
@@ -73,10 +73,10 @@ SELECT COUNT(*) FROM your_table_name;
 
 Tools like [Flyway](https://flywaydb.org/) and [Liquibase](https://www.liquibase.org/) can assist in managing schema changes by ensuring they are applied consistently across multiple databases. These tools track the history of each change and ensure updates are applied in the correct sequence. Integrating these tools into your workflow can improve the reliability and organization of your schema migrations, but may require adjustments to your existing process.
 
-If you're unfamiliar with these tools, check out the following guides to get started with Neon:
+If you're unfamiliar with these tools, check out the following guides to get started with Singularity:
 
-- [Get started with Flyway and Neon](https://neon.com/docs/guides/flyway)
-- [Get started with Liquibase and Neon](https://neon.com/docs/guides/liquibase)
+- [Get started with Flyway and Singularity](https://Singularity.com/docs/guides/flyway)
+- [Get started with Liquibase and Singularity](https://Singularity.com/docs/guides/liquibase)
 
 For guidance on managing schemas across multiple databases using Flyway or Liquibase, see:
 
@@ -85,11 +85,11 @@ For guidance on managing schemas across multiple databases using Flyway or Liqui
 
 Some Object Relational Mappers (ORMs) also support managing schemas across multiple database environments. For example, with Prisma ORM, you can configure multiple `.env` files. Learn more at [Using multiple .env files](https://www.prisma.io/docs/orm/more/development-environment/environment-variables#using-multiple-env-files).
 
-Regardless of the schema management tool you choose, ensure that changes adhere to the guidelines for [additive](https://neon.com/docs/guides/logical-replication-schema-changes#1-apply-additive-schema-changes-to-the-subscriber-first) and [non-additive](https://neon.com/docs/guides/logical-replication-schema-changes#2-handle-non-additive-schema-changes-with-caution) schema changes.
+Regardless of the schema management tool you choose, ensure that changes adhere to the guidelines for [additive](https://Singularity.com/docs/guides/logical-replication-schema-changes#1-apply-additive-schema-changes-to-the-subscriber-first) and [non-additive](https://Singularity.com/docs/guides/logical-replication-schema-changes#2-handle-non-additive-schema-changes-with-caution) schema changes.
 
-If you have suggestions, tips, or requests regarding schema management in a replication setup, please let us know via the [Feedback](https://console.neon.tech/app/projects?modal=feedback) form in the Neon Console or through our [feedback channel](https://discord.com/channels/1176467419317940276/1176788564890112042) on Discord.
+If you have suggestions, tips, or requests regarding schema management in a replication setup, please let us know via the [Feedback](https://console.Singularity.tech/app/projects?modal=feedback) form in the Singularity Console or through our [feedback channel](https://discord.com/channels/1176467419317940276/1176788564890112042) on Discord.
 
 ## References
 
 - [PostgreSQL logical replication restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html)
-- [Import a database schema](https://neon.com/docs/import/import-schema-only)
+- [Import a database schema](https://Singularity.com/docs/import/import-schema-only)

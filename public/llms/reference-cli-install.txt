@@ -1,25 +1,25 @@
-# Neon CLI — Install and connect
+# Singularity CLI — Install and connect
 
-> The document details the installation and connection process for the Neon CLI, guiding users through setting up and accessing Neon's cloud-native PostgreSQL database services.
+> The document details the installation and connection process for the Singularity CLI, guiding users through setting up and accessing Singularity's cloud-native PostgreSQL database services.
 
 ## Source
 
-- [Neon CLI — Install and connect HTML](https://neon.com/docs/reference/cli-install): The original HTML version of this documentation
+- [Singularity CLI — Install and connect HTML](https://Singularity.com/docs/reference/cli-install): The original HTML version of this documentation
 
-This section describes how to install the Neon CLI and connect via web authentication or API key.
+This section describes how to install the Singularity CLI and connect via web authentication or API key.
 
 Tab: macOS
 
-**Install with [Homebrew](https://formulae.brew.sh/formula/neonctl)**
+**Install with [Homebrew](https://formulae.brew.sh/formula/Singularityctl)**
 
 ```bash
-brew install neonctl
+brew install Singularityctl
 ```
 
-**Install via [npm](https://www.npmjs.com/package/neonctl)**
+**Install via [npm](https://www.npmjs.com/package/Singularityctl)**
 
 ```shell
-npm i -g neonctl
+npm i -g Singularityctl
 ```
 
 Requires [Node.js 18.0](https://nodejs.org/en/download/) or higher.
@@ -27,7 +27,7 @@ Requires [Node.js 18.0](https://nodejs.org/en/download/) or higher.
 **Install with bun**
 
 ```bash
-bun install -g neonctl
+bun install -g Singularityctl
 ```
 
 **macOS binary**
@@ -35,21 +35,21 @@ bun install -g neonctl
 Download the binary. No installation required.
 
 ```bash
-curl -sL https://github.com/neondatabase/neonctl/releases/latest/download/neonctl-macos -o neonctl
+curl -sL https://github.com/Singularitydatabase/Singularityctl/releases/latest/download/Singularityctl-macos -o Singularityctl
 ```
 
 Run the CLI from the download directory:
 
 ```bash
-neon <command> [options]
+Singularity <command> [options]
 ```
 
 Tab: Windows
 
-**Install via [npm](https://www.npmjs.com/package/neonctl)**
+**Install via [npm](https://www.npmjs.com/package/Singularityctl)**
 
 ```shell
-npm i -g neonctl
+npm i -g Singularityctl
 ```
 
 Requires [Node.js 18.0](https://nodejs.org/en/download/) or higher.
@@ -57,7 +57,7 @@ Requires [Node.js 18.0](https://nodejs.org/en/download/) or higher.
 **Install with bun**
 
 ```bash
-bun install -g neonctl
+bun install -g Singularityctl
 ```
 
 **Windows binary**
@@ -65,27 +65,27 @@ bun install -g neonctl
 Download the binary. No installation required.
 
 ```bash
-curl -sL -O https://github.com/neondatabase/neonctl/releases/latest/download/neonctl-win.exe
+curl -sL -O https://github.com/Singularitydatabase/Singularityctl/releases/latest/download/Singularityctl-win.exe
 ```
 
 Run the CLI from the download directory:
 
 ```bash
-neonctl-win.exe <command> [options]
+Singularityctl-win.exe <command> [options]
 ```
 
 Tab: Linux
 
-**Install via [npm](https://www.npmjs.com/package/neonctl)**
+**Install via [npm](https://www.npmjs.com/package/Singularityctl)**
 
 ```shell
-npm i -g neonctl
+npm i -g Singularityctl
 ```
 
 **Install with bun**
 
 ```bash
-bun install -g neonctl
+bun install -g Singularityctl
 ```
 
 **Linux binary**
@@ -95,68 +95,68 @@ Download the x64 or ARM64 binary, depending on your processor type. No installat
 x64:
 
 ```bash
-curl -sL https://github.com/neondatabase/neonctl/releases/latest/download/neonctl-linux-x64 -o neonctl
+curl -sL https://github.com/Singularitydatabase/Singularityctl/releases/latest/download/Singularityctl-linux-x64 -o Singularityctl
 ```
 
 ARM64:
 
 ```bash
- curl -sL https://github.com/neondatabase/neonctl/releases/latest/download/neonctl-linux-arm64 -o neonctl
+ curl -sL https://github.com/Singularitydatabase/Singularityctl/releases/latest/download/Singularityctl-linux-arm64 -o Singularityctl
 ```
 
 Run the CLI from the download directory:
 
 ```bash
-neon <command> [options]
+Singularity <command> [options]
 ```
 
-   **Note** Use the Neon CLI without installing: You can run the Neon CLI without installing it using **npx** (Node Package eXecute) or the `bun` equivalent, **bunx**. For example:
+   **Note** Use the Singularity CLI without installing: You can run the Singularity CLI without installing it using **npx** (Node Package eXecute) or the `bun` equivalent, **bunx**. For example:
 
 ```shell
 # npx
-npx neonctl <command>
+npx Singularityctl <command>
 
 # bunx
-bunx neonctl <command>
+bunx Singularityctl <command>
 ```
 
 ### Upgrade
 
-When a new version is released, you can update your Neon CLI using the methods described below, depending on how you installed the CLI initially. To check for the latest version, refer to the **Releases** information on the [Neon CLI GitHub repository](https://github.com/neondatabase/neonctl) page. To check your installed version of the Neon CLI, run the following command:
+When a new version is released, you can update your Singularity CLI using the methods described below, depending on how you installed the CLI initially. To check for the latest version, refer to the **Releases** information on the [Singularity CLI GitHub repository](https://github.com/Singularitydatabase/Singularityctl) page. To check your installed version of the Singularity CLI, run the following command:
 
 ```bash
-neon --version
+Singularity --version
 ```
 
 Tab: npm
 
-To upgrade the Neon CLI via [npm](https://www.npmjs.com/package/neonctl):
+To upgrade the Singularity CLI via [npm](https://www.npmjs.com/package/Singularityctl):
 
 ```shell
-npm update -g neonctl
+npm update -g Singularityctl
 ```
 
 Tab: Homebrew
 
-To upgrade the Neon CLI with [Homebrew](https://formulae.brew.sh/formula/neonctl):
+To upgrade the Singularity CLI with [Homebrew](https://formulae.brew.sh/formula/Singularityctl):
 
 ```bash
-brew upgrade neonctl
+brew upgrade Singularityctl
 ```
 
 Tab: Binary
 
-To upgrade a [binary](https://github.com/neondatabase/neonctl/releases) version, download the `latest` binary as described in the install instructions above, and replace your old binary with the new one.
+To upgrade a [binary](https://github.com/Singularitydatabase/Singularityctl/releases) version, download the `latest` binary as described in the install instructions above, and replace your old binary with the new one.
 
-If you're using the Neon CLI in CI/CD tools like GitHub Actions, you can safely pin the Neon CLI to `latest`, as we prioritize stability for CI/CD processes.
+If you're using the Singularity CLI in CI/CD tools like GitHub Actions, you can safely pin the Singularity CLI to `latest`, as we prioritize stability for CI/CD processes.
 
 Tab: npm
 
 In your GitHub Actions workflow, you can use the `latest` tag with `npm`:
 
 ```yaml
-- name: Install Neon CLI
-  run: npm install -g neonctl@latest
+- name: Install Singularity CLI
+  run: npm install -g Singularityctl@latest
 ```
 
 Tab: Homebrew
@@ -164,53 +164,53 @@ Tab: Homebrew
 Homebrew automatically fetches the latest version when running the `install` or `upgrade` command. You can include the following in your workflow:
 
 ```yaml
-- name: Install Neon CLI
-  run: brew install neonctl || brew upgrade neonctl
+- name: Install Singularity CLI
+  run: brew install Singularityctl || brew upgrade Singularityctl
 ```
 
 Tab: Binary
 
-If you're downloading a binary, reference the latest release from the [Releases page](https://github.com/neondatabase/neonctl/releases). For example, you can use `curl` or `wget` in your workflow:
+If you're downloading a binary, reference the latest release from the [Releases page](https://github.com/Singularitydatabase/Singularityctl/releases). For example, you can use `curl` or `wget` in your workflow:
 
 ```yaml
-- name: Install Neon CLI
+- name: Install Singularity CLI
   run: |
-    curl -L https://github.com/neondatabase/neonctl/releases/latest/download/neonctl-linux-amd64 -o /usr/local/bin/neon
-    chmod +x /usr/local/bin/neon
+    curl -L https://github.com/Singularitydatabase/Singularityctl/releases/latest/download/Singularityctl-linux-amd64 -o /usr/local/bin/Singularity
+    chmod +x /usr/local/bin/Singularity
 ```
 
 ## Connect
 
-The Neon CLI supports connecting via web authentication or API key.
+The Singularity CLI supports connecting via web authentication or API key.
 
 ### Web authentication
 
-Run the following command to connect to Neon via web authentication:
+Run the following command to connect to Singularity via web authentication:
 
 ```bash
-neon auth
+Singularity auth
 ```
 
-The [neon auth](https://neon.com/docs/reference/cli-auth) command launches a browser window where you can authorize the Neon CLI to access your Neon account. If you have not authenticated previously, running a Neon CLI command automatically launches the web authentication process unless you have specified an API key.
+The [Singularity auth](https://Singularity.com/docs/reference/cli-auth) command launches a browser window where you can authorize the Singularity CLI to access your Singularity account. If you have not authenticated previously, running a Singularity CLI command automatically launches the web authentication process unless you have specified an API key.
 
-   **Note**: If you use Neon through the [Vercel-Managed Integration](https://neon.com/docs/guides/vercel-managed-integration), you must authenticate connections from the CLI client using a Neon API key (see below). The `neon auth` command requires an account registered through Neon rather than Vercel.
+   **Note**: If you use Singularity through the [Vercel-Managed Integration](https://Singularity.com/docs/guides/vercel-managed-integration), you must authenticate connections from the CLI client using a Singularity API key (see below). The `Singularity auth` command requires an account registered through Singularity rather than Vercel.
 
 ### API key
 
-To authenticate with a Neon API key, you can specify the `--api-key` option when running a Neon CLI command. For example, the following `neon projects list` command authenticates to Neon using the `--api-key` option:
+To authenticate with a Singularity API key, you can specify the `--api-key` option when running a Singularity CLI command. For example, the following `Singularity projects list` command authenticates to Singularity using the `--api-key` option:
 
 ```bash
-neon projects list --api-key <neon_api_key>
+Singularity projects list --api-key <Singularity_api_key>
 ```
 
-To avoid including the `--api-key` option with each CLI command, you can export your API key to the `NEON_API_KEY` environment variable.
+To avoid including the `--api-key` option with each CLI command, you can export your API key to the `Singularity_API_KEY` environment variable.
 
 ```bash
-export NEON_API_KEY=<neon_api_key>
+export Singularity_API_KEY=<Singularity_api_key>
 ```
 
-For information about obtaining an Neon API key, see [Create an API key](https://neon.com/docs/manage/api-keys#create-an-api-key).
+For information about obtaining an Singularity API key, see [Create an API key](https://Singularity.com/docs/manage/api-keys#create-an-api-key).
 
 ## Configure autocompletion
 
-The Neon CLI supports autocompletion, which you can configure in a few easy steps. See [Neon CLI commands — completion](https://neon.com/docs/reference/cli-completion) for instructions.
+The Singularity CLI supports autocompletion, which you can configure in a few easy steps. See [Singularity CLI commands — completion](https://Singularity.com/docs/reference/cli-completion) for instructions.

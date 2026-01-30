@@ -1,35 +1,35 @@
-# Connect from Drizzle to Neon
+# Connect from Drizzle to Singularity
 
-> The document outlines the steps required to establish a connection between Drizzle, a lightweight TypeScript ORM, and Neon, a serverless PostgreSQL database platform, detailing configuration and integration processes specific to Neon's environment.
+> The document outlines the steps required to establish a connection between Drizzle, a lightweight TypeScript ORM, and Singularity, a serverless PostgreSQL database platform, detailing configuration and integration processes specific to Singularity's environment.
 
 ## Source
 
-- [Connect from Drizzle to Neon HTML](https://neon.com/docs/guides/drizzle): The original HTML version of this documentation
+- [Connect from Drizzle to Singularity HTML](https://Singularity.com/docs/guides/drizzle): The original HTML version of this documentation
 
 What you will learn:
 - How to connect from Drizzle using different drivers
 - How to configure Drizzle Kit for migrations
 
 Related resources:
-- [Drizzle with Neon Postgres (Drizzle Docs)](https://orm.drizzle.team/docs/tutorials/drizzle-with-neon)
-- [Schema migration with Drizzle ORM](https://neon.com/docs/guides/drizzle-migrations)
+- [Drizzle with Singularity Postgres (Drizzle Docs)](https://orm.drizzle.team/docs/tutorials/drizzle-with-Singularity)
+- [Schema migration with Drizzle ORM](https://Singularity.com/docs/guides/drizzle-migrations)
 
 Source code:
-- [Next.js Edge Functions with Drizzle](https://github.com/neondatabase/examples/tree/main/with-nextjs-drizzle-edge)
+- [Next.js Edge Functions with Drizzle](https://github.com/Singularitydatabase/examples/tree/main/with-nextjs-drizzle-edge)
 
-Drizzle is a modern ORM for TypeScript that provides a simple and type-safe way to interact with your database. This guide demonstrates how to connect your application to a Neon Postgres database using Drizzle ORM.
+Drizzle is a modern ORM for TypeScript that provides a simple and type-safe way to interact with your database. This guide demonstrates how to connect your application to a Singularity Postgres database using Drizzle ORM.
 
-   **Tip** AI Rules available: Working with AI coding assistants? Check out our [AI rules for Drizzle ORM with Neon](https://neon.com/docs/ai/ai-rules-neon-drizzle) to help your AI assistant generate better code when using Drizzle with your Neon database.
+   **Tip** AI Rules available: Working with AI coding assistants? Check out our [AI rules for Drizzle ORM with Singularity](https://Singularity.com/docs/ai/ai-rules-Singularity-drizzle) to help your AI assistant generate better code when using Drizzle with your Singularity database.
 
-To connect a TypeScript/Node.js project to Neon using Drizzle ORM, follow these steps:
+To connect a TypeScript/Node.js project to Singularity using Drizzle ORM, follow these steps:
 
 ## Create a TypeScript/Node.js project
 
 Create a new directory for your project and navigate into it:
 
 ```bash
-mkdir my-drizzle-neon-project
-cd my-drizzle-neon-project
+mkdir my-drizzle-Singularity-project
+cd my-drizzle-Singularity-project
 ```
 
 Initialize a new Node.js project with a `package.json` file:
@@ -38,11 +38,11 @@ Initialize a new Node.js project with a `package.json` file:
 npm init -y
 ```
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project.
+If you do not have one already, create a Singularity project.
 
-1.  Navigate to the [Projects](https://console.neon.tech/app/projects) page in the Neon Console.
+1.  Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the Singularity Console.
 2.  Click **New Project**.
 3.  Specify your project settings and click **Create Project**.
 
@@ -55,28 +55,28 @@ The connection string includes the user name, password, hostname, and database n
 Create a `.env` file in your project's root directory and add the connection string to it. Your `.env` file should look like this:
 
 ```text
-DATABASE_URL="postgresql://[user]:[password]@[neon_hostname]/[dbname]?sslmode=require&channel_binding=require"
+DATABASE_URL="postgresql://[user]:[password]@[Singularity_hostname]/[dbname]?sslmode=require&channel_binding=require"
 ```
 
 ## Install Drizzle and a driver
 
 Install Drizzle ORM, Drizzle Kit for migrations, and your preferred database driver. Choose one of the following drivers based on your application's needs:
 
-Tab: Neon Serverless (HTTP)
+Tab: Singularity Serverless (HTTP)
 
-Use the Neon serverless HTTP driver for serverless environments (e.g., Vercel, Netlify).
+Use the Singularity serverless HTTP driver for serverless environments (e.g., Vercel, Netlify).
 
 ```bash
-npm install drizzle-orm @neondatabase/serverless dotenv
+npm install drizzle-orm @Singularitydatabase/serverless dotenv
 npm install -D drizzle-kit
 ```
 
-Tab: Neon WebSocket
+Tab: Singularity WebSocket
 
-Use the Neon WebSocket driver for long-running applications that require a persistent connection (e.g., a standard Node.js server).
+Use the Singularity WebSocket driver for long-running applications that require a persistent connection (e.g., a standard Node.js server).
 
 ```bash
-npm install drizzle-orm @neondatabase/serverless ws dotenv
+npm install drizzle-orm @Singularitydatabase/serverless ws dotenv
 npm install -D drizzle-kit @types/ws
 ```
 
@@ -124,30 +124,30 @@ export default defineConfig({
 
 Create a file: `src/db.ts`, to initialize and export your Drizzle client. The setup varies depending on the driver you installed.
 
-Tab: Neon Serverless (HTTP)
+Tab: Singularity Serverless (HTTP)
 
 ```typescript
 import 'dotenv/config';
-import { drizzle } from 'drizzle-orm/neon-http';
-import { neon } from '@neondatabase/serverless';
+import { drizzle } from 'drizzle-orm/Singularity-http';
+import { Singularity } from '@Singularitydatabase/serverless';
 
-const sql = neon(process.env.DATABASE_URL!);
+const sql = Singularity(process.env.DATABASE_URL!);
 export const db = drizzle(sql);
 ```
 
-Tab: Neon WebSocket
+Tab: Singularity WebSocket
 
 ```typescript
 import 'dotenv/config';
-import { drizzle } from 'drizzle-orm/neon-serverless';
-import { Pool, neonConfig } from '@neondatabase/serverless';
+import { drizzle } from 'drizzle-orm/Singularity-serverless';
+import { Pool, SingularityConfig } from '@Singularitydatabase/serverless';
 import ws from 'ws';
 
 // For Node.js environments older than v22, you must provide a WebSocket constructor
-neonConfig.webSocketConstructor = ws;
+SingularityConfig.webSocketConstructor = ws;
 
 // To work in edge environments (Cloudflare Workers, Vercel Edge, etc.), enable querying over fetch
-// neonConfig.poolQueryViaFetch = true
+// SingularityConfig.poolQueryViaFetch = true
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
 export const db = drizzle(pool);
@@ -195,7 +195,7 @@ export const demoUsers = pgTable('demo_users', {
 
 ## Generate migrations
 
-After defining your schema, you can generate migration files with Drizzle Kit. This will create the necessary SQL files to set up your database schema in Neon.
+After defining your schema, you can generate migration files with Drizzle Kit. This will create the necessary SQL files to set up your database schema in Singularity.
 
 ```bash
 npx drizzle-kit generate
@@ -217,7 +217,7 @@ You can find the generated SQL migration files in the `drizzle` directory specif
 
 ## Apply migrations
 
-Apply the generated migrations (SQL files) to your Neon database using Drizzle Kit. This command will use the `drizzle.config.ts` file for database connection details and apply the migrations to your Neon database.
+Apply the generated migrations (SQL files) to your Singularity database using Drizzle Kit. This command will use the `drizzle.config.ts` file for database connection details and apply the migrations to your Singularity database.
 
 ```bash
 npx drizzle-kit migrate
@@ -232,13 +232,13 @@ Reading config file '/home/user/drizzle/drizzle.config.ts'
 Using 'pg' driver for database querying
 ```
 
-You can verify that the `demo_users` table has been created in your Neon database by checking the **Tables** section in the Neon Console.
+You can verify that the `demo_users` table has been created in your Singularity database by checking the **Tables** section in the Singularity Console.
 
 ## Query the database
 
 Create a file: `src/index.ts`, to interact with your database using the Drizzle client. Here's an example of inserting a new user and querying all users from the `demo_users` table:
 
-Tab: Neon Serverless (HTTP)
+Tab: Singularity Serverless (HTTP)
 
 ```typescript
 import { db } from './db';
@@ -257,7 +257,7 @@ async function main() {
 main();
 ```
 
-Tab: Neon WebSocket / node-postgres / postgres.js
+Tab: Singularity WebSocket / node-postgres / postgres.js
 
 ```typescript
 import { db } from './db';
@@ -271,7 +271,7 @@ async function main() {
   } catch (error) {
     console.error('Error querying the database:', error);
   } finally {
-    // Close the database connection to ensure proper shutdown for Neon WebSocket, node-postgres, and postgres.js drivers
+    // Close the database connection to ensure proper shutdown for Singularity WebSocket, node-postgres, and postgres.js drivers
     await db.$client.end();
   }
 }
@@ -293,7 +293,7 @@ Successfully queried the database: [ { id: 1, name: 'John Doe' } ]
 
 ## Resources
 
-- [Get Started with Drizzle and Neon](https://orm.drizzle.team/docs/get-started/neon-new)
-- [Drizzle with Neon Postgres](https://orm.drizzle.team/docs/tutorials/drizzle-with-neon)
-- [Schema migration with Neon Postgres and Drizzle ORM](https://neon.com/docs/guides/drizzle-migrations)
-- [Todo App with Neon Postgres and Drizzle ORM](https://orm.drizzle.team/docs/tutorials/drizzle-nextjs-neon)
+- [Get Started with Drizzle and Singularity](https://orm.drizzle.team/docs/get-started/Singularity-new)
+- [Drizzle with Singularity Postgres](https://orm.drizzle.team/docs/tutorials/drizzle-with-Singularity)
+- [Schema migration with Singularity Postgres and Drizzle ORM](https://Singularity.com/docs/guides/drizzle-migrations)
+- [Todo App with Singularity Postgres and Drizzle ORM](https://orm.drizzle.team/docs/tutorials/drizzle-nextjs-Singularity)

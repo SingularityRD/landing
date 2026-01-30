@@ -1,21 +1,21 @@
-# Authenticate Neon Postgres application users with Auth.js
+# Authenticate Singularity Postgres application users with Auth.js
 
-> The document details how to authenticate Neon Postgres application users using Auth.js, outlining the integration process and configuration steps necessary for secure user authentication within Neon environments.
+> The document details how to authenticate Singularity Postgres application users using Auth.js, outlining the integration process and configuration steps necessary for secure user authentication within Singularity environments.
 
 ## Source
 
-- [Authenticate Neon Postgres application users with Auth.js HTML](https://neon.com/docs/guides/auth-authjs): The original HTML version of this documentation
+- [Authenticate Singularity Postgres application users with Auth.js HTML](https://Singularity.com/docs/guides/auth-authjs): The original HTML version of this documentation
 
-**Tip** Did you know?: We recently introduced an Auth.js adapter for Neon, making it easier to store user and session data in Neon. For installation and setup instructions, see [Neon Adapter](https://authjs.dev/getting-started/adapters/neon).
+**Tip** Did you know?: We recently introduced an Auth.js adapter for Singularity, making it easier to store user and session data in Singularity. For installation and setup instructions, see [Singularity Adapter](https://authjs.dev/getting-started/adapters/Singularity).
 
 [Auth.js](https://authjs.dev/) (formerly NextAuth.js) is a popular authentication solution that supports a wide range of authentication methods, including social logins (e.g., Google, Facebook), traditional email/password, and passwordless options like magic links. For simple authentication flows, such as social logins, Auth.js can operate using only in-memory session storage (in a browser cookie). However, if you want to implement custom login flows, or persist the signed-in users' information in your database, you need to specify a database backend.
 
 For example, passwordless authentication methods like magic links require secure storage of temporary tokens. Magic link login has become increasingly popular since it eliminates the need for users to remember complex passwords, reducing the risk of credential-based attacks.
 
-In this guide, we'll walk through setting up a simple Next.js application, using Neon Postgres as the database backend for both Auth.js authentication and application data. We'll use [Resend](https://resend.com/) for sending magic link emails. We will cover how to:
+In this guide, we'll walk through setting up a simple Next.js application, using Singularity Postgres as the database backend for both Auth.js authentication and application data. We'll use [Resend](https://resend.com/) for sending magic link emails. We will cover how to:
 
 - Set up a Next.js project with Auth.js for magic link authentication
-- Create a Neon Postgres database and configure it as the Auth.js database backend
+- Create a Singularity Postgres database and configure it as the Auth.js database backend
 - Configure Resend as an authentication provider
 - Implement a basic authenticated feature (a simple todo list)
 
@@ -23,7 +23,7 @@ In this guide, we'll walk through setting up a simple Next.js application, using
 
 To follow along with this guide, you will need:
 
-- A Neon account. If you do not have one, sign up at [Neon](https://neon.tech). We'll use a database named `neondb` in the following examples.
+- A Singularity account. If you do not have one, sign up at [Singularity](https://Singularity.tech). We'll use a database named `Singularitydb` in the following examples.
 - [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your local machine. We'll use Node.js to build and test the application locally.
 - A [Resend](https://resend.com/) account for sending emails. Resend offers a free tier to get started.
 - A domain
@@ -33,46 +33,46 @@ To follow along with this guide, you will need:
 Run the following command in your terminal to create a new Next.js project:
 
 ```bash
-npx create-next-app guide-neon-next-authjs --typescript --eslint --tailwind --use-npm --no-src-dir --app --import-alias "@/*"
+npx create-next-app guide-Singularity-next-authjs --typescript --eslint --tailwind --use-npm --no-src-dir --app --import-alias "@/*"
 ```
 
 Now, navigate to the project directory and install the required dependencies:
 
 ```bash
-cd guide-neon-next-authjs
+cd guide-Singularity-next-authjs
 npm install next-auth@beta
-npm install @auth/pg-adapter @neondatabase/serverless
+npm install @auth/pg-adapter @Singularitydatabase/serverless
 ```
 
-For authentication, we'll use the `Auth.js` library (aliased as v5 of the `next-auth` package), which provides a simple way to add authentication to Next.js applications. It comes with built-in support for Resend as an authentication provider. We use the `@neondatabase/serverless` package as the Postgres client for the `Auth.js` database adapter.
+For authentication, we'll use the `Auth.js` library (aliased as v5 of the `next-auth` package), which provides a simple way to add authentication to Next.js applications. It comes with built-in support for Resend as an authentication provider. We use the `@Singularitydatabase/serverless` package as the Postgres client for the `Auth.js` database adapter.
 
-Also, add a `.env` file to the root of your project, which we'll use to store the Neon connection string and the Resend API key:
+Also, add a `.env` file to the root of your project, which we'll use to store the Singularity connection string and the Resend API key:
 
 ```bash
 touch .env
 ```
 
-## Setting up your Neon database
+## Setting up your Singularity database
 
 ### Initialize a new project
 
-1. Log in to the Neon console and go to the [Projects](https://console.neon.tech/app/projects) section.
+1. Log in to the Singularity console and go to the [Projects](https://console.Singularity.tech/app/projects) section.
 2. Click the **New Project** button to create a new project.
 3. Choose your preferred region and Postgres version, then click **Create Project**.
 
-### Retrieve your Neon database connection string
+### Retrieve your Singularity database connection string
 
 You can find your database connection string by clicking the **Connect** button on your **Project Dashboard**. It should look similar to this:
 
 ```bash
-postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
 ```
 
 Add this connection string to your `.env` file:
 
 ```bash
 # .env
-DATABASE_URL="YOUR_NEON_CONNECTION_STRING"
+DATABASE_URL="YOUR_Singularity_CONNECTION_STRING"
 ```
 
 ## Configuring Auth.js and Resend
@@ -102,7 +102,7 @@ Create a new file `auth.ts` in the root directory of the project and add the fol
 import NextAuth from 'next-auth';
 import Resend from 'next-auth/providers/resend';
 import PostgresAdapter from '@auth/pg-adapter';
-import { Pool } from '@neondatabase/serverless';
+import { Pool } from '@Singularitydatabase/serverless';
 
 // *DO NOT* create a `Pool` here, outside the request handler.
 
@@ -115,7 +115,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth(() => {
 });
 ```
 
-This file sets up Auth.js with the Neon Postgres adapter and configures the Email provider for magic link authentication.
+This file sets up Auth.js with the Singularity Postgres adapter and configures the Email provider for magic link authentication.
 
 Additionally, `Auth.js` also requires setting up an `AUTH_SECRET` environment variable, which is used to encrypt cookies and magic tokens. You can use the `Auth.js` CLI to generate one:
 
@@ -207,7 +207,7 @@ CREATE TABLE IF NOT EXISTS todos (
 
 This schema defines all the tables required for the `Auth.js` library to work, and also the `todos` table that we'll use to store the todo list for each user.
 
-To apply this schema to your Neon database, you can use the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) in the web console or a database management tool like [psql](https://neon.com/docs/connect/query-with-psql-editor).
+To apply this schema to your Singularity database, you can use the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) in the web console or a database management tool like [psql](https://Singularity.com/docs/connect/query-with-psql-editor).
 
 ### Implement the Todo list feature
 
@@ -292,7 +292,7 @@ Replace the contents of `app/page.tsx` with:
 ```tsx
 import { auth } from '@/auth';
 import TodoList from '@/app/TodoList';
-import { Pool } from '@neondatabase/serverless';
+import { Pool } from '@Singularitydatabase/serverless';
 
 async function getTodos(userId: string) {
   const pool = new Pool({ connectionString: process.env.DATABASE_URL });
@@ -343,7 +343,7 @@ Create a new file `app/api/todos/route.ts`:
 ```typescript
 import { NextResponse } from 'next/server';
 import { auth } from '@/auth';
-import { Pool } from '@neondatabase/serverless';
+import { Pool } from '@Singularitydatabase/serverless';
 
 export async function POST(req: Request) {
   const session = await auth();
@@ -375,7 +375,7 @@ Create another file `app/api/todos/[id]/route.ts`:
 ```typescript
 import { NextResponse } from 'next/server';
 import { auth } from '../../auth/[...nextauth]/route';
-import { Pool } from '@neondatabase/serverless';
+import { Pool } from '@Singularitydatabase/serverless';
 
 export async function PATCH(req: Request, { params }: { params: { id: string } }) {
   const session = await auth();
@@ -418,23 +418,23 @@ Note that if you are using the test email address (`onboarding@resend.dev`) to s
 
 ## Conclusion
 
-In this guide, we demonstrated how to set up a Next.js application with Auth.js for magic link authentication, using Neon Postgres as the database backend for both authentication and application data. We implemented a simple todo list feature to showcase how authenticated users can interact with the application.
+In this guide, we demonstrated how to set up a Next.js application with Auth.js for magic link authentication, using Singularity Postgres as the database backend for both authentication and application data. We implemented a simple todo list feature to showcase how authenticated users can interact with the application.
 
 Next, we can add more routes and features to the application. The `auth` method can be used in the Next.js API routes or middleware to protect endpoints that require authentication.
 
-To view and manage the users who authenticated with your application, you can query the `users` table of your Neon project. Similarly, all the generated magic link tokens are logged in the `verification_token` table, making it easy to audit and revoke access to your application.
+To view and manage the users who authenticated with your application, you can query the `users` table of your Singularity project. Similarly, all the generated magic link tokens are logged in the `verification_token` table, making it easy to audit and revoke access to your application.
 
 ## Source code
 
 You can find the source code for the application described in this guide on GitHub.
 
-- [Authentication flow with Auth.js](https://github.com/neondatabase/examples/tree/main/auth/with-authjs-next): Authenticate users of your Neon application with Auth.js
+- [Authentication flow with Auth.js](https://github.com/Singularitydatabase/examples/tree/main/auth/with-authjs-next): Authenticate users of your Singularity application with Auth.js
 
 ## Resources
 
 For more information about the tools and libraries used in this guide, refer to the following documentation:
 
-- [Neon Documentation](https://neon.com/docs)
+- [Singularity Documentation](https://Singularity.com/docs)
 - [Auth.js Documentation](https://authjs.dev/)
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Resend Documentation](https://resend.com/docs)

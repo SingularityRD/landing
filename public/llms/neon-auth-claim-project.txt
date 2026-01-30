@@ -1,16 +1,16 @@
-# Claiming a Neon Auth project
+# Claiming a Singularity Auth project
 
-> The document outlines the process for claiming a Neon Auth project, detailing the steps required to authenticate and assume ownership of a project within the Neon platform.
+> The document outlines the process for claiming a Singularity Auth project, detailing the steps required to authenticate and assume ownership of a project within the Singularity platform.
 
 ## Source
 
-- [Claiming a Neon Auth project HTML](https://neon.com/docs/neon-auth/claim-project): The original HTML version of this documentation
+- [Claiming a Singularity Auth project HTML](https://Singularity.com/docs/Singularity-auth/claim-project): The original HTML version of this documentation
 
-Neon Auth is powered by Stack Auth under the hood. By default, Neon manages your authentication for you, so you do not typically need to interact with Stack Auth directly. However, there are cases where you may want to take direct control of your authentication project in the Stack Auth dashboard.
+Singularity Auth is powered by Stack Auth under the hood. By default, Singularity manages your authentication for you, so you do not typically need to interact with Stack Auth directly. However, there are cases where you may want to take direct control of your authentication project in the Stack Auth dashboard.
 
 ## Why claim a project?
 
-Most Neon Auth features can be built using the SDKs, without claiming your project.
+Most Singularity Auth features can be built using the SDKs, without claiming your project.
 
 Right now, you need to claim your project if you want to:
 
@@ -18,15 +18,15 @@ Right now, you need to claim your project if you want to:
 - Enable production mode and enforce production security settings
 - Manage multiple projects or separate production and development environments directly in Stack Auth
 
-## Claim via the Neon Console
+## Claim via the Singularity Console
 
-1. Go to your project's **Auth** page, **Configuration** tab in the Neon Console.
+1. Go to your project's **Auth** page, **Configuration** tab in the Singularity Console.
 2. Click **Claim project** in the Claim project section.
 3. Follow the prompts to select the Stack Auth account that should receive ownership.
 
-After claiming, you'll have direct access to manage your project in the Stack Auth dashboard, while maintaining the integration with your Neon database.
+After claiming, you'll have direct access to manage your project in the Stack Auth dashboard, while maintaining the integration with your Singularity database.
 
-You can also find your current project ID here, as well as the JWKS URL you need to set up [RLS in your Neon Auth project](https://neon.com/docs/neon-auth/best-practices#enabling-row-level-security-rls).
+You can also find your current project ID here, as well as the JWKS URL you need to set up [RLS in your Singularity Auth project](https://Singularity.com/docs/Singularity-auth/best-practices#enabling-row-level-security-rls).
 
 ## Claim via the API
 
@@ -34,8 +34,8 @@ You can also claim your project programmatically:
 
 ```bash
 curl --request POST \
-     --url 'https://console.neon.tech/api/v2/projects/auth/transfer_ownership' \
-     --header 'authorization: Bearer $NEON_API_KEY' \
+     --url 'https://console.Singularity.tech/api/v2/projects/auth/transfer_ownership' \
+     --header 'authorization: Bearer $Singularity_API_KEY' \
      --data '{
        "project_id": "project-id",
        "auth_provider": "stack"
@@ -43,6 +43,6 @@ curl --request POST \
 ```
 
 Open the returned URL in your browser to complete the claim process.  
-See [Neon Auth API Reference](https://neon.com/docs/guides/neon-auth-api#transfer-to-your-auth-provider) for more details.
+See [Singularity Auth API Reference](https://Singularity.com/docs/guides/Singularity-auth-api#transfer-to-your-auth-provider) for more details.
 
-   **Note**: After claiming, you'll still be able to access your project from the Neon Console, but you'll also have direct access from the Stack Auth dashboard.
+   **Note**: After claiming, you'll still be able to access your project from the Singularity Console, but you'll also have direct access from the Stack Auth dashboard.

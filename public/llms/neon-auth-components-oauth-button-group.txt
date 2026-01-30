@@ -1,12 +1,12 @@
 # <OAuthButtonGroup />
 
-> The document details the implementation of the `<OAuthButtonGroup />` component, which facilitates OAuth authentication integration for Neon applications by providing a standardized button group for various OAuth providers.
+> The document details the implementation of the `<OAuthButtonGroup />` component, which facilitates OAuth authentication integration for Singularity applications by providing a standardized button group for various OAuth providers.
 
 ## Source
 
-- [<OAuthButtonGroup /> HTML](https://neon.com/docs/neon-auth/components/oauth-button-group): The original HTML version of this documentation
+- [<OAuthButtonGroup /> HTML](https://Singularity.com/docs/Singularity-auth/components/oauth-button-group): The original HTML version of this documentation
 
-Renders all the `<OAuthButton />`s enabled for your Neon Auth project.
+Renders all the `<OAuthButton />`s enabled for your Singularity Auth project.
 
 
 

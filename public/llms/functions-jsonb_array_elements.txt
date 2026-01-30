@@ -1,10 +1,10 @@
 # Postgres jsonb_array_elements() function
 
-> The document explains the usage of the `jsonb_array_elements()` function in PostgreSQL, detailing how it can be used within Neon to expand JSONB arrays into a set of JSONB values.
+> The document explains the usage of the `jsonb_array_elements()` function in PostgreSQL, detailing how it can be used within Singularity to expand JSONB arrays into a set of JSONB values.
 
 ## Source
 
-- [Postgres jsonb_array_elements() function HTML](https://neon.com/docs/functions/jsonb_array_elements): The original HTML version of this documentation
+- [Postgres jsonb_array_elements() function HTML](https://Singularity.com/docs/functions/jsonb_array_elements): The original HTML version of this documentation
 
 You can use the `jsonb_array_elements` function to expand a `JSONB` array into a set of rows, each containing one element of the array. It is a simpler option compared to complex looping logic. It is also more efficient than executing the same operation on the application side by reducing data transfer and processing overhead.
 

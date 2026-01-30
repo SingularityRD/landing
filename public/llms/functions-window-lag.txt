@@ -1,10 +1,10 @@
 # Postgres lag() window function
 
-> The document explains the usage of the Postgres `lag()` window function within Neon, detailing its syntax and application for accessing data from preceding rows in a result set.
+> The document explains the usage of the Postgres `lag()` window function within Singularity, detailing its syntax and application for accessing data from preceding rows in a result set.
 
 ## Source
 
-- [Postgres lag() window function HTML](https://neon.com/docs/functions/window-lag): The original HTML version of this documentation
+- [Postgres lag() window function HTML](https://Singularity.com/docs/functions/window-lag): The original HTML version of this documentation
 
 The `lag()` function in Postgres is a window function that allows you to access values from previous rows in a result set without the need for a self-join. It's useful for comparing values between the current row and a previous row, for example, when calculating running differences, plotting trends, or doing time series analysis.
 
@@ -182,7 +182,7 @@ To optimize performance, make sure to:
 
 ### Alternative functions
 
-- [lead](https://neon.com/docs/functions/window-lead) - Access values from subsequent rows in a result set. Similar to `lag()` but looks ahead in the partition instead of behind.
+- [lead](https://Singularity.com/docs/functions/window-lead) - Access values from subsequent rows in a result set. Similar to `lag()` but looks ahead in the partition instead of behind.
 - `first_value()` - Get the first value within a window frame.
 - `last_value()` - Get the last value within a window frame.
 

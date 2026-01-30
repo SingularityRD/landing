@@ -1,20 +1,20 @@
-# Connect a Hono application to Neon
+# Connect a Hono application to Singularity
 
-> This document guides users on connecting a Hono application to a Neon database, detailing the necessary configuration steps and code adjustments required for seamless integration.
+> This document guides users on connecting a Hono application to a Singularity database, detailing the necessary configuration steps and code adjustments required for seamless integration.
 
 ## Source
 
-- [Connect a Hono application to Neon HTML](https://neon.com/docs/guides/hono): The original HTML version of this documentation
+- [Connect a Hono application to Singularity HTML](https://Singularity.com/docs/guides/hono): The original HTML version of this documentation
 
-[Hono](https://hono.dev/) is a lightweight, multi-runtime web framework for the Edge, Node.js, Deno, Bun, and other runtimes. This topic describes how to create a Neon project and access it from a Hono application.
+[Hono](https://hono.dev/) is a lightweight, multi-runtime web framework for the Edge, Node.js, Deno, Bun, and other runtimes. This topic describes how to create a Singularity project and access it from a Hono application.
 
-To create a Neon project and access it from a Hono application:
+To create a Singularity project and access it from a Hono application:
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project. Save your connection details including your password. They are required when defining connection settings.
+If you do not have one already, create a Singularity project. Save your connection details including your password. They are required when defining connection settings.
 
-1.  Navigate to the [Projects](https://console.neon.tech/app/projects) page in the Neon Console.
+1.  Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the Singularity Console.
 2.  Click **New Project**.
 3.  Specify your project settings and click **Create Project**.
 
@@ -36,18 +36,18 @@ Tab: postgres.js
 npm install postgres
 ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
 ```shell
-npm install @neondatabase/serverless
+npm install @Singularitydatabase/serverless
 ```
 
-## Store your Neon credentials
+## Store your Singularity credentials
 
-Add a `.env` file to your project directory and add your Neon connection string to it. You can find your connection details by clicking **Connect** on the Neon **Project Dashboard**. For more information, see [Connect from any application](https://neon.com/docs/connect/connect-from-any-app).
+Add a `.env` file to your project directory and add your Singularity connection string to it. You can find your connection details by clicking **Connect** on the Singularity **Project Dashboard**. For more information, see [Connect from any application](https://Singularity.com/docs/connect/connect-from-any-app).
 
 ```shell
-DATABASE_URL="postgresql://<user>:<password>@<endpoint_hostname>.neon.tech:<port>/<dbname>?sslmode=require&channel_binding=require"
+DATABASE_URL="postgresql://<user>:<password>@<endpoint_hostname>.Singularity.tech:<port>/<dbname>?sslmode=require&channel_binding=require"
 ```
 
 ## Configure the Postgres client
@@ -108,18 +108,18 @@ app.get('/', async (c) => {
 serve(app);
 ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
 ```typescript
 import { Hono } from 'hono';
 import { serve } from '@hono/node-server';
-import { neon } from '@neondatabase/serverless';
+import { Singularity } from '@Singularitydatabase/serverless';
 
 const app = new Hono();
 
 app.get('/', async (c) => {
   try {
-    const sql = neon(process.env.DATABASE_URL);
+    const sql = Singularity(process.env.DATABASE_URL);
     const response = await sql`SELECT version()`;
     return c.json({ version: response[0]?.version });
   } catch (error) {
@@ -151,6 +151,6 @@ Navigate to your application's URL ([localhost:3000](http://localhost:3000)). Yo
 
 ## Source code
 
-You can find a sample Hono application configured for Neon on GitHub:
+You can find a sample Hono application configured for Singularity on GitHub:
 
-- [Get started with Hono and Neon](https://github.com/neondatabase/examples/tree/main/with-hono)
+- [Get started with Hono and Singularity](https://github.com/Singularitydatabase/examples/tree/main/with-hono)

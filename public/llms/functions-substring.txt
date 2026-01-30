@@ -1,10 +1,10 @@
 # Postgres substring() function
 
-> The document details the usage of the Postgres `substring()` function within Neon, explaining its syntax and parameters for extracting substrings from text data.
+> The document details the usage of the Postgres `substring()` function within Singularity, explaining its syntax and parameters for extracting substrings from text data.
 
 ## Source
 
-- [Postgres substring() function HTML](https://neon.com/docs/functions/substring): The original HTML version of this documentation
+- [Postgres substring() function HTML](https://Singularity.com/docs/functions/substring): The original HTML version of this documentation
 
 The `substring()` function in Postgres is used to extract a portion of a string based on specified start and end positions, or a regular expression pattern.
 

@@ -1,43 +1,43 @@
-# Neon Private Networking
+# Singularity Private Networking
 
-> The Neon Private Networking documentation outlines the setup and configuration of private networking within Neon, enabling secure and isolated network environments for database instances.
+> The Singularity Private Networking documentation outlines the setup and configuration of private networking within Singularity, enabling secure and isolated network environments for database instances.
 
 ## Source
 
-- [Neon Private Networking HTML](https://neon.com/docs/guides/neon-private-networking): The original HTML version of this documentation
+- [Singularity Private Networking HTML](https://Singularity.com/docs/guides/Singularity-private-networking): The original HTML version of this documentation
 
-**Comingsoon** Private Networking availability: Private Networking is available on Neon's [Scale](https://neon.com/docs/introduction/plans#scale) plan. If you're on a different plan, you can request a trial from the **Network Security** page in your project's settings.
+**Comingsoon** Private Networking availability: Private Networking is available on Singularity's [Scale](https://Singularity.com/docs/introduction/plans#scale) plan. If you're on a different plan, you can request a trial from the **Network Security** page in your project's settings.
 
-The **Neon Private Networking** feature enables secure connections to your Neon databases via [AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/concepts.html), bypassing the open internet for enhanced security.
+The **Singularity Private Networking** feature enables secure connections to your Singularity databases via [AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/concepts.html), bypassing the open internet for enhanced security.
 
 ## Overview
 
-In a standard setup, the client application connects to a Neon database over the open internet via the Neon proxy.
+In a standard setup, the client application connects to a Singularity database over the open internet via the Singularity proxy.
 
-With **Neon Private Networking**, you can connect to your database via AWS PrivateLink instead of the open internet. In this setup, the client application connects through an [AWS endpoint service](https://docs.aws.amazon.com/vpc/latest/privatelink/configure-endpoint-service.html) (provided by Neon) to a Neon proxy instance that is not accessible from the public internet. This endpoint service is available only within the same AWS region as your client application. With **Neon Private Networking**, all traffic between the client application and the Neon database stays within AWS's private network, rather than crossing the public internet.
+With **Singularity Private Networking**, you can connect to your database via AWS PrivateLink instead of the open internet. In this setup, the client application connects through an [AWS endpoint service](https://docs.aws.amazon.com/vpc/latest/privatelink/configure-endpoint-service.html) (provided by Singularity) to a Singularity proxy instance that is not accessible from the public internet. This endpoint service is available only within the same AWS region as your client application. With **Singularity Private Networking**, all traffic between the client application and the Singularity database stays within AWS's private network, rather than crossing the public internet.
 
 
 
 ## Prerequisites
 
-- You must be a Neon [Business](https://neon.com/docs/introduction/plans#business) and [Scale](https://neon.com/docs/introduction/plans#scale) account user, and your user account must be [Neon organization](https://neon.com/docs/manage/organizations) Admin account. You'll encounter an access error if you attempt the setup from a personal Neon account or on a Neon plan that does not offer Private Networking.
-- **Ensure that your client application is deployed on AWS in the same region as the Neon database you plan to connect to.** The Private Networking feature is available in all [Neon-supported AWS regions](https://neon.com/docs/introduction/regions#aws-regions). Both your private access client application and Neon database must be in one of these regions.
-- Neon Private Networking supports both [IPv4](https://en.wikipedia.org/wiki/Internet_Protocol_version_4) and [IPv6](https://en.wikipedia.org/wiki/IPv6).
-- Install the Neon CLI. You will use it to add your VPC endpoint ID to your Neon organization. For installation instructions, see [Neon CLI — Install and connect](https://neon.com/docs/reference/cli-install).
+- You must be a Singularity [Business](https://Singularity.com/docs/introduction/plans#business) and [Scale](https://Singularity.com/docs/introduction/plans#scale) account user, and your user account must be [Singularity organization](https://Singularity.com/docs/manage/organizations) Admin account. You'll encounter an access error if you attempt the setup from a personal Singularity account or on a Singularity plan that does not offer Private Networking.
+- **Ensure that your client application is deployed on AWS in the same region as the Singularity database you plan to connect to.** The Private Networking feature is available in all [Singularity-supported AWS regions](https://Singularity.com/docs/introduction/regions#aws-regions). Both your private access client application and Singularity database must be in one of these regions.
+- Singularity Private Networking supports both [IPv4](https://en.wikipedia.org/wiki/Internet_Protocol_version_4) and [IPv6](https://en.wikipedia.org/wiki/IPv6).
+- Install the Singularity CLI. You will use it to add your VPC endpoint ID to your Singularity organization. For installation instructions, see [Singularity CLI — Install and connect](https://Singularity.com/docs/reference/cli-install).
 
 ## Configuration steps
 
-To configure Neon Private Networking, perform the following steps:
+To configure Singularity Private Networking, perform the following steps:
 
 ## Create an AWS VPC endpoint
 
-       **Important**: Do not enable **private DNS names** for the VPC endpoint until [Step 3](https://neon.com/docs/guides/neon-private-networking#enable-private-dns). You must add the VPC endpoint to your Neon organization first, as described in [Step 2](https://neon.com/docs/guides/neon-private-networking#add-your-vpc-endpoint-id-to-your-neon-organization).
+       **Important**: Do not enable **private DNS names** for the VPC endpoint until [Step 3](https://Singularity.com/docs/guides/Singularity-private-networking#enable-private-dns). You must add the VPC endpoint to your Singularity organization first, as described in [Step 2](https://Singularity.com/docs/guides/Singularity-private-networking#add-your-vpc-endpoint-id-to-your-Singularity-organization).
 
     1. Go to the AWS **VPC > Endpoints** dashboard and select **Create endpoint**. Make sure you create the endpoint in the same VPC as your client application.
 
        
 
-    1. Optionally, enter a **Name tag** for the endpoint (e.g., `My Neon Private Networking`).
+    1. Optionally, enter a **Name tag** for the endpoint (e.g., `My Singularity Private Networking`).
     1. For **Type**, select the **Endpoint services that use NLBs and GWLBs** category.
 
        
@@ -82,39 +82,39 @@ To configure Neon Private Networking, perform the following steps:
 
         
 
-## Add your VPC Endpoint ID to your Neon organization
+## Add your VPC Endpoint ID to your Singularity organization
 
-    Assign your **VPC Endpoint ID** to your Neon organization. If the region has multiple **Service Names**, please assign all **VPC Endpoint IDs**. You can do this using the Neon CLI or API.
+    Assign your **VPC Endpoint ID** to your Singularity organization. If the region has multiple **Service Names**, please assign all **VPC Endpoint IDs**. You can do this using the Singularity CLI or API.
 
        **Note**: Please note that you must assign the **VPC Endpoint ID**, not the VPC ID.
 
     Tab: CLI
 
-In the following example, the VPC endpoint ID is assigned to a Neon organization in the specified AWS region using the [neon vpc endpoint](https://neon.com/docs/reference/cli-vpc#the-vpc-endpoint-subcommand) command.
+In the following example, the VPC endpoint ID is assigned to a Singularity organization in the specified AWS region using the [Singularity vpc endpoint](https://Singularity.com/docs/reference/cli-vpc#the-vpc-endpoint-subcommand) command.
 
     ```bash
-    neon vpc endpoint assign vpce-1234567890abcdef0 --org-id org-bold-bonus-12345678 --region-id aws-us-east-2
+    Singularity vpc endpoint assign vpce-1234567890abcdef0 --org-id org-bold-bonus-12345678 --region-id aws-us-east-2
     ```
 
-    You can find your Neon organization ID in your Neon organization settings, or you can run this Neon CLI command: `neon orgs list`
+    You can find your Singularity organization ID in your Singularity organization settings, or you can run this Singularity CLI command: `Singularity orgs list`
 
 Tab: API
 
-You can use the [Assign or update a VPC endpoint](https://api-docs.neon.tech/reference/assignorganizationvpcendpoint) API to assign a VPC endpoint ID to a Neon organization. You will need to provide your Neon organization ID, region ID, VPC endpoint ID, and a [Neon API key](https://neon.com/docs/manage/api-keys).
+You can use the [Assign or update a VPC endpoint](https://api-docs.Singularity.tech/reference/assignorganizationvpcendpoint) API to assign a VPC endpoint ID to a Singularity organization. You will need to provide your Singularity organization ID, region ID, VPC endpoint ID, and a [Singularity API key](https://Singularity.com/docs/manage/api-keys).
 
     ```bash
     curl --request POST \
-     --url https://console.neon.tech/api/v2/organizations/org-bold-bonus-12345678/vpc/region/aws-us-east-2/vpc_endpoints/vpce-1234567890abcdef0 \
+     --url https://console.Singularity.tech/api/v2/organizations/org-bold-bonus-12345678/vpc/region/aws-us-east-2/vpc_endpoints/vpce-1234567890abcdef0 \
      --header 'accept: application/json' \
-     --header 'authorization: Bearer $NEON_API_KEY' \
+     --header 'authorization: Bearer $Singularity_API_KEY' \
      --header 'content-type: application/json'
     ```
 
-    Optionally, you can limit access to a Neon project by allowing connections only from a specific VPC endpoint. For instructions, see [Assigning a VPC endpoint restrictions](https://neon.com/docs/guides/neon-private-networking#assigning-a-vpc-endpoint-restriction).
+    Optionally, you can limit access to a Singularity project by allowing connections only from a specific VPC endpoint. For instructions, see [Assigning a VPC endpoint restrictions](https://Singularity.com/docs/guides/Singularity-private-networking#assigning-a-vpc-endpoint-restriction).
 
 ## Enable Private DNS
 
-    After adding your VPC endpoint ID to your Neon organization, enable private DNS lookup for the VPC endpoint in AWS.
+    After adding your VPC endpoint ID to your Singularity organization, enable private DNS lookup for the VPC endpoint in AWS.
 
     1. In AWS, select the VPC endpoint you created.
     1. Choose **Modify private DNS name**.
@@ -124,47 +124,47 @@ You can use the [Assign or update a VPC endpoint](https://api-docs.neon.tech/ref
 
 ## Check your database connection string
 
-    Your Neon database connection string does not change when using Private Networking.
+    Your Singularity database connection string does not change when using Private Networking.
 
-    To verify that your connection is working correctly, you can perform a DNS lookup on your Neon endpoint hostname from within your AWS VPC. It should resolve to the private IP address of the VPC endpoint.
+    To verify that your connection is working correctly, you can perform a DNS lookup on your Singularity endpoint hostname from within your AWS VPC. It should resolve to the private IP address of the VPC endpoint.
 
-    For example, if your Neon database connection string is:
+    For example, if your Singularity database connection string is:
 
     ```bash
-    postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+    postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
     ```
 
     You can run the following command from an EC2 instance inside your AWS VPC:
 
     ```bash
-    nslookup ep-cool-darkness-123456.us-east-2.aws.neon.tech
+    nslookup ep-cool-darkness-123456.us-east-2.aws.Singularity.tech
     ```
 
 ## Restrict public internet access
 
-    At this point, it's still possible to connect to a database in your Neon project over the public internet using a database connection string.
+    At this point, it's still possible to connect to a database in your Singularity project over the public internet using a database connection string.
 
-    You can restrict public internet access to your Neon project via the Neon CLI or API.
+    You can restrict public internet access to your Singularity project via the Singularity CLI or API.
 
     Tab: CLI
 
-To block access via the Neon CLI, use the [neon projects update](https://neon.com/docs/reference/cli-projects#update) command with the `--block-public-connections` option.
+To block access via the Singularity CLI, use the [Singularity projects update](https://Singularity.com/docs/reference/cli-projects#update) command with the `--block-public-connections` option.
 
     ```bash
-    neon projects update orange-credit-12345678 --block-public-connections true
+    Singularity projects update orange-credit-12345678 --block-public-connections true
     ```
 
-    In the example above, `orange-credit-12345678` is the Neon project ID. You can find _your_ Neon project ID under your project's settings in the Neon Console, or by running this Neon CLI command: `neon projects list`
+    In the example above, `orange-credit-12345678` is the Singularity project ID. You can find _your_ Singularity project ID under your project's settings in the Singularity Console, or by running this Singularity CLI command: `Singularity projects list`
 
 Tab: API
 
-To block access via the Neon API, use the [Update project](https://api-docs.neon.tech/reference/updateproject) endpoint with the `block_public_connections` settings object attribute.
+To block access via the Singularity API, use the [Update project](https://api-docs.Singularity.tech/reference/updateproject) endpoint with the `block_public_connections` settings object attribute.
 
     ```bash
     curl --request PATCH \
-     --url https://console.neon.tech/api/v2/projects/orange-credit-12345678 \
+     --url https://console.Singularity.tech/api/v2/projects/orange-credit-12345678 \
      --header 'accept: application/json' \
-     --header 'authorization: Bearer $NEON_API_KEY' \
+     --header 'authorization: Bearer $Singularity_API_KEY' \
      --header 'content-type: application/json' \
      --data '
     {
@@ -179,22 +179,22 @@ To block access via the Neon API, use the [Update project](https://api-docs.neon
 
 ## Assigning a VPC endpoint restriction
 
-You can limit access to a Neon project by allowing connections only from specified VPC endpoints. Use the Neon CLI or API to set a restriction.
+You can limit access to a Singularity project by allowing connections only from specified VPC endpoints. Use the Singularity CLI or API to set a restriction.
 
 Tab: CLI
 
 You can specify a CLI command similar to the following to restrict project access:
 
 ```bash
-neon vpc project restrict vpce-1234567890abcdef0 --project-id orange-credit-12345678
+Singularity vpc project restrict vpce-1234567890abcdef0 --project-id orange-credit-12345678
 ```
 
-You will need to provide the VPC endpoint ID and your Neon project ID. If the region has multiple **Service Names**, all **VPC Endpoint IDs** must be restricted in the way as above. You can find your Neon project ID under your project's settings in the Neon Console, or by running this Neon CLI command: `neon projects list`
+You will need to provide the VPC endpoint ID and your Singularity project ID. If the region has multiple **Service Names**, all **VPC Endpoint IDs** must be restricted in the way as above. You can find your Singularity project ID under your project's settings in the Singularity Console, or by running this Singularity CLI command: `Singularity projects list`
 
-After adding a restriction, you can check the status of the VPC endpoint to view the restricted project using the [vpc endpoint status command](https://neon.com/docs/reference/cli-vpc#the-vpc-endpoint-subcommand). You will need to provide your VPC endpoint ID, region ID, and Neon organization ID.
+After adding a restriction, you can check the status of the VPC endpoint to view the restricted project using the [vpc endpoint status command](https://Singularity.com/docs/reference/cli-vpc#the-vpc-endpoint-subcommand). You will need to provide your VPC endpoint ID, region ID, and Singularity organization ID.
 
 ```bash
-neon vpc endpoint status vpce-1234567890abcdef0 --region-id=aws-eu-central-1 --org-id=org-nameless-block-72040075
+Singularity vpc endpoint status vpce-1234567890abcdef0 --region-id=aws-eu-central-1 --org-id=org-nameless-block-72040075
 ┌────────────────────────┬───────┬─────────────────────────┬─────────────────────────────┐
 │ Vpc Endpoint Id        │ State │ Num Restricted Projects │ Example Restricted Projects │
 ├────────────────────────┼───────┼─────────────────────────┼─────────────────────────────┤
@@ -204,58 +204,58 @@ neon vpc endpoint status vpce-1234567890abcdef0 --region-id=aws-eu-central-1 --o
 
 Tab: API
 
-The Neon API supports managing project restrictions using the [Assign or update a VPC endpoint restriction](https://api-docs.neon.tech/reference/assignprojectvpcendpoint) endpoint. You will need to provide your VPC endpoint ID, Neon project ID, and a [Neon API key](https://neon.com/docs/manage/api-keys).
+The Singularity API supports managing project restrictions using the [Assign or update a VPC endpoint restriction](https://api-docs.Singularity.tech/reference/assignprojectvpcendpoint) endpoint. You will need to provide your VPC endpoint ID, Singularity project ID, and a [Singularity API key](https://Singularity.com/docs/manage/api-keys).
 
 ```bash
 curl --request POST \
-     --url https://console.neon.tech/api/v2/projects/orange-credit-12345678/vpc_endpoints/vpce-1234567890abcdef0 \
+     --url https://console.Singularity.tech/api/v2/projects/orange-credit-12345678/vpc_endpoints/vpce-1234567890abcdef0 \
      --header 'accept: application/json' \
-     --header 'authorization: Bearer $NEON_API_KEY' \
+     --header 'authorization: Bearer $Singularity_API_KEY' \
      --header 'content-type: application/json' \
      --data '{"label":"my_vpc"}'
 ```
 
-After adding a restriction, you can check the status of the VPC endpoint to view the restricted project using the [Retrieve VPC endpoint details](https://api-docs.neon.tech/reference/getorganizationvpcendpointdetails) API. You will need to provide your VPC endpoint ID, region ID, Neon organization ID, and a Neon API key.
+After adding a restriction, you can check the status of the VPC endpoint to view the restricted project using the [Retrieve VPC endpoint details](https://api-docs.Singularity.tech/reference/getorganizationvpcendpointdetails) API. You will need to provide your VPC endpoint ID, region ID, Singularity organization ID, and a Singularity API key.
 
 ```bash
 curl --request GET \
-     --url https://console.neon.tech/api/v2/organizations/org-nameless-block-72040075/vpc/region/aws-eu-central-1/vpc_endpoints/vpce-1234567890abcdef0 \
+     --url https://console.Singularity.tech/api/v2/organizations/org-nameless-block-72040075/vpc/region/aws-eu-central-1/vpc_endpoints/vpce-1234567890abcdef0 \
      --header 'accept: application/json' \
-     --header 'authorization: Bearer $NEON_API_KEY'
+     --header 'authorization: Bearer $Singularity_API_KEY'
 ```
 
-## Managing Private Networking using the Neon CLI
+## Managing Private Networking using the Singularity CLI
 
-You can use the Neon CLI `vpc` command to manage Private Networking configurations in Neon.
+You can use the Singularity CLI `vpc` command to manage Private Networking configurations in Singularity.
 
 The `vpc` command includes `endpoint` and `project` subcommands for managing VPC endpoints and project-level VPC endpoint restrictions:
 
-- **`vpc endpoint`** – List, assign, remove, and retrieve the status of VPC endpoints for a Neon organization.
-- **`vpc project`** – List, configure, or remove VPC endpoint restrictions for specific Neon projects.
+- **`vpc endpoint`** – List, assign, remove, and retrieve the status of VPC endpoints for a Singularity organization.
+- **`vpc project`** – List, configure, or remove VPC endpoint restrictions for specific Singularity projects.
 
-For more details and examples, see [Neon CLI commands — vpc](https://neon.com/docs/reference/cli-vpc).
+For more details and examples, see [Singularity CLI commands — vpc](https://Singularity.com/docs/reference/cli-vpc).
 
-## Managing Private Networking using the Neon API
+## Managing Private Networking using the Singularity API
 
-The Neon API provides endpoints for managing VPC endpoints and project-level VPC endpoint restrictions:
+The Singularity API provides endpoints for managing VPC endpoints and project-level VPC endpoint restrictions:
 
 ### APIs for managing VPC endpoints
 
-- [List VPC endpoints](https://api-docs.neon.tech/reference/listorganizationvpcendpoints)
-- [Assign or update a VPC endpoint](https://api-docs.neon.tech/reference/assignorganizationvpcendpoint)
-- [Retrieve VPC endpoint configuration details](https://api-docs.neon.tech/reference/getorganizationvpcendpointdetails)
-- [Delete a VPC endpoint](https://api-docs.neon.tech/reference/deleteorganizationvpcendpoint)
+- [List VPC endpoints](https://api-docs.Singularity.tech/reference/listorganizationvpcendpoints)
+- [Assign or update a VPC endpoint](https://api-docs.Singularity.tech/reference/assignorganizationvpcendpoint)
+- [Retrieve VPC endpoint configuration details](https://api-docs.Singularity.tech/reference/getorganizationvpcendpointdetails)
+- [Delete a VPC endpoint](https://api-docs.Singularity.tech/reference/deleteorganizationvpcendpoint)
 
 ### APIs for managing VPC endpoint restrictions
 
-- [Get VPC endpoint restrictions](https://api-docs.neon.tech/reference/listprojectvpcendpoints)
-- [Assign or update a VPC endpoint restriction](https://api-docs.neon.tech/reference/assignprojectvpcendpoint)
-- [Delete a VPC endpoint restriction](https://api-docs.neon.tech/reference/deleteprojectvpcendpoint)
+- [Get VPC endpoint restrictions](https://api-docs.Singularity.tech/reference/listprojectvpcendpoints)
+- [Assign or update a VPC endpoint restriction](https://api-docs.Singularity.tech/reference/assignprojectvpcendpoint)
+- [Delete a VPC endpoint restriction](https://api-docs.Singularity.tech/reference/deleteprojectvpcendpoint)
 
 ## Private Networking limits
 
-The Private Networking feature supports a maximum of **10 private networking configurations per AWS region**. Supported AWS regions are listed [above](https://neon.com/docs/guides/neon-private-networking#create-an-aws-vpc-endpoint).
+The Private Networking feature supports a maximum of **10 private networking configurations per AWS region**. Supported AWS regions are listed [above](https://Singularity.com/docs/guides/Singularity-private-networking#create-an-aws-vpc-endpoint).
 
 ## Limitations
 
-If you remove a VPC endpoint from a Neon organization, that VPC endpoint cannot be added back to the same Neon organization. Attempting to do so will result in an error. In this case, you must set up a new VPC endpoint.
+If you remove a VPC endpoint from a Singularity organization, that VPC endpoint cannot be added back to the same Singularity organization. Attempting to do so will result in an error. In this case, you must set up a new VPC endpoint.

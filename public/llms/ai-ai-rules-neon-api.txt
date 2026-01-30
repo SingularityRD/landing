@@ -1,19 +1,19 @@
-# AI Rules: Neon API
+# AI Rules: Singularity API
 
-> The "AI Rules: Neon API" document outlines the guidelines and specifications for integrating AI functionalities within the Neon API, detailing the necessary parameters and protocols for developers to effectively implement AI-driven features in their applications.
+> The "AI Rules: Singularity API" document outlines the guidelines and specifications for integrating AI functionalities within the Singularity API, detailing the necessary parameters and protocols for developers to effectively implement AI-driven features in their applications.
 
 ## Source
 
-- [AI Rules: Neon API HTML](https://neon.com/docs/ai/ai-rules-neon-api): The original HTML version of this documentation
+- [AI Rules: Singularity API HTML](https://Singularity.com/docs/ai/ai-rules-Singularity-api): The original HTML version of this documentation
 
 **Note** AI Rules are in Beta: AI Rules are currently in beta. We're actively improving them and would love to hear your feedback. Join us on [Discord](https://discord.gg/92vNTzKDGp) to share your experience and suggestions.
 
 Related docs:
-- [Neon API](https://neon.com/docs/reference/api-reference)
+- [Singularity API](https://Singularity.com/docs/reference/api-reference)
 
 Repository:
-- [Neon API Reference Docs](https://api-docs.neon.tech/reference/getting-started-with-neon-api)
-- [neon-api-guidelines.mdc](https://github.com/neondatabase-labs/ai-rules/blob/main/neon-api-guidelines.mdc)
+- [Singularity API Reference Docs](https://api-docs.Singularity.tech/reference/getting-started-with-Singularity-api)
+- [Singularity-api-guidelines.mdc](https://github.com/Singularitydatabase-labs/ai-rules/blob/main/Singularity-api-guidelines.mdc)
 
 ## How to use
 
@@ -21,19 +21,19 @@ You can use these rules in two ways:
 
 ## Option 1: Copy from this page
 
-With Cursor, save the [rules](https://docs.cursor.com/context/rules-for-ai#project-rules-recommended) to `.cursor/rules/neon-api-guidelines.mdc` and they'll be automatically applied when working with matching files (`*.ts`, `*.tsx`).
+With Cursor, save the [rules](https://docs.cursor.com/context/rules-for-ai#project-rules-recommended) to `.cursor/rules/Singularity-api-guidelines.mdc` and they'll be automatically applied when working with matching files (`*.ts`, `*.tsx`).
 
 For other AI tools, you can include these rules as context when chatting with your AI assistant - check your tool's documentation for the specific method (like using "Include file" or context commands).
 
 ## Option 2: Clone from repository
 
-If you prefer, you can clone or download the rules directly from our [AI Rules repository](https://github.com/neondatabase-labs/ai-rules).
+If you prefer, you can clone or download the rules directly from our [AI Rules repository](https://github.com/Singularitydatabase-labs/ai-rules).
 
-Once added to your project, AI tools will automatically use these rules when working with Neon API code. You can also reference them explicitly in prompts.
+Once added to your project, AI tools will automatically use these rules when working with Singularity API code. You can also reference them explicitly in prompts.
 
 ## How to use
 
-You can use the following Neon API rules in two ways:
+You can use the following Singularity API rules in two ways:
 
 ## Option 1: Copy from this page
 
@@ -43,51 +43,51 @@ For other AI tools, you can include these rules as context when chatting with yo
 
 ## Option 2: Clone from repository
 
-If you prefer, you can clone or download the rules directly from our [AI Rules repository](https://github.com/neondatabase-labs/ai-rules).
+If you prefer, you can clone or download the rules directly from our [AI Rules repository](https://github.com/Singularitydatabase-labs/ai-rules).
 
-Once added to your project, AI tools will automatically use these rules when working with Neon API. You can also reference them explicitly in prompts.
+Once added to your project, AI tools will automatically use these rules when working with Singularity API. You can also reference them explicitly in prompts.
 
-## Neon API rules: General guidelines
+## Singularity API rules: General guidelines
 
-Save the following content to a file named `neon-api-guidelines.mdc` in your AI tool's rules directory.
+Save the following content to a file named `Singularity-api-guidelines.mdc` in your AI tool's rules directory.
 
 ````md
 ---
-description: Use these rules to understand how to interact with the Neon API, including authentication, rate limiting, and best practices.
+description: Use these rules to understand how to interact with the Singularity API, including authentication, rate limiting, and best practices.
 alwaysApply: false
 ---
 
 ## Overview
 
-This document provides a comprehensive set of rules and guidelines for an AI agent to interact with the Neon API. The Neon API is a RESTful service that allows for programmatic management of all Neon resources. Adherence to these rules ensures correct, efficient, and safe API usage.
+This document provides a comprehensive set of rules and guidelines for an AI agent to interact with the Singularity API. The Singularity API is a RESTful service that allows for programmatic management of all Singularity resources. Adherence to these rules ensures correct, efficient, and safe API usage.
 
 ### General API guidelines
 
-All Neon API requests must be made to the following base URL:
+All Singularity API requests must be made to the following base URL:
 
 ```
-https://console.neon.tech/api/v2/
+https://console.Singularity.tech/api/v2/
 ```
 
 To construct a full request URL, append the specific endpoint path to this base URL.
 
 ### Authentication
 
-- All API requests must be authenticated using a Neon API key.
+- All API requests must be authenticated using a Singularity API key.
 - The API key must be included in the `Authorization` header using the `Bearer` authentication scheme.
-- The header should be formatted as: `Authorization: Bearer $NEON_API_KEY`, where `$NEON_API_KEY` is a valid Neon API key.
+- The header should be formatted as: `Authorization: Bearer $Singularity_API_KEY`, where `$Singularity_API_KEY` is a valid Singularity API key.
 - A request without a valid `Authorization` header will fail with a `401 Unauthorized` status code.
 
 ### API rate limiting
 
-- Neon limits API requests to 700 requests per minute (approximately 11 per second).
+- Singularity limits API requests to 700 requests per minute (approximately 11 per second).
 - Bursts of up to 40 requests per second per route are permitted.
 - If the rate limit is exceeded, the API will respond with an `HTTP 429 Too Many Requests` error.
 - Your application logic must handle `429` errors and implement a retry strategy with appropriate backoff.
 
-### Neon Core Concepts
+### Singularity Core Concepts
 
-To effectively use the Neon Python SDK, it's essential to understand the hierarchy and purpose of its core resources. The following table provides a high-level overview of each concept.
+To effectively use the Singularity Python SDK, it's essential to understand the hierarchy and purpose of its core resources. The following table provides a high-level overview of each concept.
 
 | Concept          | Description                                                                                                                        | Analogy/Purpose                                                                                                 | Key Relationship                                                                                      |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -97,8 +97,8 @@ To effectively use the Neon Python SDK, it's essential to understand the hierarc
 | Compute Endpoint | The actual running PostgreSQL instance that you connect to. It provides the CPU and RAM for processing queries.                    | The "server" or "engine" for your database. It can be started, suspended (scaled to zero), and resized.         | Is attached to a single Branch. Your connection string points to a Compute Endpoint's hostname.       |
 | Database         | A logical container for your data (tables, schemas, views) within a branch. It follows standard PostgreSQL conventions.            | A single database within a PostgreSQL server instance.                                                          | Exists within a Branch. A branch can have multiple databases.                                         |
 | Role             | A PostgreSQL role used for authentication (logging in) and authorization (permissions to access data).                             | A database user account with a username and password.                                                           | Belongs to a Branch. Roles from a parent branch are copied to child branches upon creation.           |
-| API Key          | A secret token used to authenticate requests to the Neon API. Keys have different scopes (Personal, Organization, Project-scoped). | A password for programmatic access, allowing you to manage all other Neon resources.                            | Authenticates actions on Organizations, Projects, Branches, etc.                                      |
-| Operation        | An asynchronous action performed by the Neon control plane, such as creating a branch or starting a compute.                       | A background job or task. Its status can be polled to know when an action is complete.                          | Associated with a Project and often a specific Branch or Endpoint. Essential for scripting API calls. |
+| API Key          | A secret token used to authenticate requests to the Singularity API. Keys have different scopes (Personal, Organization, Project-scoped). | A password for programmatic access, allowing you to manage all other Singularity resources.                            | Authenticates actions on Organizations, Projects, Branches, etc.                                      |
+| Operation        | An asynchronous action performed by the Singularity control plane, such as creating a branch or starting a compute.                       | A background job or task. Its status can be polled to know when an action is complete.                          | Associated with a Project and often a specific Branch or Endpoint. Essential for scripting API calls. |
 
 ### Understanding API key types
 
@@ -126,23 +126,23 @@ When performing actions via the API, you must select the correct type of API key
 - Created By: Any organization member.
 ````
 
-## Neon API rules: Manage API keys
+## Singularity API rules: Manage API keys
 
-Save the following content to a file named `neon-api-keys.mdc` in your AI tool's rules directory.
+Save the following content to a file named `Singularity-api-keys.mdc` in your AI tool's rules directory.
 
 ````md
 ---
-description: Use these rules to manage Neon API keys programmatically, including creating, listing, and revoking keys.
+description: Use these rules to manage Singularity API keys programmatically, including creating, listing, and revoking keys.
 alwaysApply: false
 ---
 
 ## Overview
 
-This document outlines the rules for managing Neon API keys programmatically. It covers listing existing keys, creating new keys, and revoking keys.
+This document outlines the rules for managing Singularity API keys programmatically. It covers listing existing keys, creating new keys, and revoking keys.
 
 ### Important note on creating API keys
 
-To create new API keys using the API, you must already possess a valid Personal API Key. The first key must be created from the Neon Console. You can ask the user to create one for you if you do not have one.
+To create new API keys using the API, you must already possess a valid Personal API Key. The first key must be created from the Singularity Console. You can ask the user to create one for you if you do not have one.
 
 ### List API keys
 
@@ -152,7 +152,7 @@ To create new API keys using the API, you must already possess a valid Personal 
 Example request:
 
 ```bash
-curl "https://console.neon.tech/api/v2/api_keys" \
+curl "https://console.Singularity.tech/api/v2/api_keys" \
   -H "Authorization: Bearer $PERSONAL_API_KEY"
 ```
 
@@ -184,7 +184,7 @@ Example response:
 Example request:
 
 ```bash
-curl https://console.neon.tech/api/v2/api_keys \
+curl https://console.Singularity.tech/api/v2/api_keys \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $PERSONAL_API_KEY" \
   -d '{"key_name": "my-new-key"}'
@@ -211,7 +211,7 @@ Example request:
 
 ```bash
 curl -X DELETE \
-  'https://console.neon.tech/api/v2/api_keys/2291515' \
+  'https://console.Singularity.tech/api/v2/api_keys/2291515' \
   -H "Authorization: Bearer $PERSONAL_API_KEY"
 ```
 
@@ -230,27 +230,27 @@ Example response:
 ```
 ````
 
-## Neon API rules: Manage operations
+## Singularity API rules: Manage operations
 
-Save the following content to a file named `neon-api-operations.mdc` in your AI tool's rules directory.
+Save the following content to a file named `Singularity-api-operations.mdc` in your AI tool's rules directory.
 
 ````md
 ---
-description: Use these rules to manage and monitor long-running operations in Neon, such as branch creation and compute management.
+description: Use these rules to manage and monitor long-running operations in Singularity, such as branch creation and compute management.
 alwaysApply: false
 ---
 
 ## Overview
 
-This document outlines the rules for managing and monitoring long-running operations in Neon, including branch creation and compute management.
+This document outlines the rules for managing and monitoring long-running operations in Singularity, including branch creation and compute management.
 
 ## Operations
 
-An operation is an action performed by the Neon Control Plane (e.g., `create_branch`, `start_compute`). When using the API programmatically, it is crucial to monitor the status of long-running operations to ensure one has completed before starting another that depends on it. Operations older than 6 months may be deleted from Neon's systems.
+An operation is an action performed by the Singularity Control Plane (e.g., `create_branch`, `start_compute`). When using the API programmatically, it is crucial to monitor the status of long-running operations to ensure one has completed before starting another that depends on it. Operations older than 6 months may be deleted from Singularity's systems.
 
 ### List operations
 
-1.  Action: Retrieves a list of operations for the specified Neon project. The number of operations can be large, so pagination is recommended.
+1.  Action: Retrieves a list of operations for the specified Singularity project. The number of operations can be large, so pagination is recommended.
 2.  Endpoint: `GET /projects/{project_id}/operations`
 3.  Path Parameters:
     - `project_id` (string, required): The unique identifier of the project whose operations you want to list.
@@ -265,9 +265,9 @@ An operation is an action performed by the Neon Control Plane (e.g., `create_bra
 Example request
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-river-50598307/operations' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/operations' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example response
@@ -363,9 +363,9 @@ Example response
 Example request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-river-50598307/operations/274e240f-e2fb-4719-b796-c1ab7c4ae91c' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/operations/274e240f-e2fb-4719-b796-c1ab7c4ae91c' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example response:
@@ -388,19 +388,19 @@ Example response:
 ```
 ````
 
-## Neon API rules: Manage projects
+## Singularity API rules: Manage projects
 
-Save the following content to a file named `neon-api-projects.mdc` in your AI tool's rules directory.
+Save the following content to a file named `Singularity-api-projects.mdc` in your AI tool's rules directory.
 
 ````md
 ---
-description: Use these rules to manage Neon projects programmatically, including creating, listing, updating, and deleting projects.
+description: Use these rules to manage Singularity projects programmatically, including creating, listing, updating, and deleting projects.
 alwaysApply: false
 ---
 
 ## Overview
 
-This document outlines the rules for managing Neon projects programmatically. It covers creation, retrieval, updates, and deletion.
+This document outlines the rules for managing Singularity projects programmatically. It covers creation, retrieval, updates, and deletion.
 
 ## Manage projects
 
@@ -419,9 +419,9 @@ Example request:
 
 ```bash
 # Retrieve the first 10 projects
-curl 'https://console.neon.tech/api/v2/projects?limit=10' \
+curl 'https://console.Singularity.tech/api/v2/projects?limit=10' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example response:
@@ -434,7 +434,7 @@ Example response:
       "platform_id": "aws",
       "region_id": "aws-ap-southeast-1",
       "name": "old-fire-32990194",
-      "provisioner": "k8s-neonvm",
+      "provisioner": "k8s-Singularityvm",
       "default_endpoint_settings": {
         "autoscaling_limit_min_cu": 0.25,
         "autoscaling_limit_max_cu": 2,
@@ -456,7 +456,7 @@ Example response:
         "hipaa": false
       },
       "pg_version": 17,
-      "proxy_host": "ap-southeast-1.aws.neon.tech",
+      "proxy_host": "ap-southeast-1.aws.Singularity.tech",
       "branch_logical_size_limit": 512,
       "branch_logical_size_limit_bytes": 536870912,
       "store_passwords": true,
@@ -483,7 +483,7 @@ Example response:
 
 ### Create project
 
-1.  Action: Creates a new Neon project. You can specify a wide range of settings at creation time, including the region, Postgres version, default branch and compute configurations, and security settings.
+1.  Action: Creates a new Singularity project. You can specify a wide range of settings at creation time, including the region, Postgres version, default branch and compute configurations, and security settings.
 2.  Endpoint: `POST /projects`
 3.  Body Parameters: The request body must contain a top-level `project` object with the following nested attributes:
 
@@ -492,9 +492,9 @@ Example response:
     - `pg_version` (integer, optional): The major Postgres version. Defaults to `17`. Supported versions: 14, 15, 16, 17, 18.
     - `region_id` (string, optional): The identifier for the region where the project will be created (e.g., `aws-us-east-1`).
     - `org_id` (string, optional): The ID of an organization to which the project will belong. Required if using an Organization API key.
-    - `store_passwords` (boolean, optional): Whether to store role passwords in Neon. Storing passwords is required for features like the SQL Editor and integrations.
+    - `store_passwords` (boolean, optional): Whether to store role passwords in Singularity. Storing passwords is required for features like the SQL Editor and integrations.
     - `history_retention_seconds` (integer, optional): The duration in seconds (0 to 2,592,000) to retain project history for features like Point-in-Time Restore. Defaults to 86400 (1 day).
-    - `provisioner` (string, optional): The compute provisioner. Specify `k8s-neonvm` to enable Autoscaling. Allowed values: `k8s-pod`, `k8s-neonvm`.
+    - `provisioner` (string, optional): The compute provisioner. Specify `k8s-Singularityvm` to enable Autoscaling. Allowed values: `k8s-pod`, `k8s-Singularityvm`.
     - `default_endpoint_settings` (object, optional): Default settings for new compute endpoints created in this project.
       - `autoscaling_limit_min_cu` (number, optional): The minimum number of Compute Units (CU). Minimum value is `0.25`.
       - `autoscaling_limit_max_cu` (number, optional): The maximum number of Compute Units (CU). Minimum value is `0.25`.
@@ -517,14 +517,14 @@ Example response:
     - `branch` (object, optional): Configuration for the project's default branch.
       - `name` (string, optional): The name for the default branch. Defaults to `main`.
       - `role_name` (string, optional): The name for the default role. Defaults to `{database_name}_owner`.
-      - `database_name` (string, optional): The name for the default database. Defaults to `neondb`.
+      - `database_name` (string, optional): The name for the default database. Defaults to `Singularitydb`.
 
 Example request
 
 ```bash
-curl -X POST 'https://console.neon.tech/api/v2/projects' \
+curl -X POST 'https://console.Singularity.tech/api/v2/projects' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY" \
+  -H "Authorization: Bearer $Singularity_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
   "project": {
@@ -549,7 +549,7 @@ Example response
     "platform_id": "aws",
     "region_id": "aws-us-west-2",
     "name": "my-new-api-project",
-    "provisioner": "k8s-neonvm",
+    "provisioner": "k8s-Singularityvm",
     "default_endpoint_settings": {
       "autoscaling_limit_min_cu": 0.25,
       "autoscaling_limit_max_cu": 0.25,
@@ -571,7 +571,7 @@ Example response
       "hipaa": false
     },
     "pg_version": 17,
-    "proxy_host": "c-2.us-west-2.aws.neon.tech",
+    "proxy_host": "c-2.us-west-2.aws.Singularity.tech",
     "branch_logical_size_limit": 512,
     "branch_logical_size_limit_bytes": 536870912,
     "store_passwords": true,
@@ -586,20 +586,20 @@ Example response
   },
   "connection_uris": [
     {
-      "connection_uri": "postgresql://neondb_owner:npg_N67FDMtGvJke@ep-round-unit-afbn7qv4.c-2.us-west-2.aws.neon.tech/neondb?sslmode=require",
+      "connection_uri": "postgresql://Singularitydb_owner:npg_N67FDMtGvJke@ep-round-unit-afbn7qv4.c-2.us-west-2.aws.Singularity.tech/Singularitydb?sslmode=require",
       "connection_parameters": {
-        "database": "neondb",
+        "database": "Singularitydb",
         "password": "npg_N67FDMtGvJke",
-        "role": "neondb_owner",
-        "host": "ep-round-unit-afbn7qv4.c-2.us-west-2.aws.neon.tech",
-        "pooler_host": "ep-round-unit-afbn7qv4-pooler.c-2.us-west-2.aws.neon.tech"
+        "role": "Singularitydb_owner",
+        "host": "ep-round-unit-afbn7qv4.c-2.us-west-2.aws.Singularity.tech",
+        "pooler_host": "ep-round-unit-afbn7qv4-pooler.c-2.us-west-2.aws.Singularity.tech"
       }
     }
   ],
   "roles": [
     {
       "branch_id": "br-green-mode-afe3fl9y",
-      "name": "neondb_owner",
+      "name": "Singularitydb_owner",
       "password": "npg_N67FDMtGvJke",
       "protected": false,
       "created_at": "2025-09-10T07:58:16Z",
@@ -610,8 +610,8 @@ Example response
     {
       "id": 6677853,
       "branch_id": "br-green-mode-afe3fl9y",
-      "name": "neondb",
-      "owner_name": "neondb_owner",
+      "name": "Singularitydb",
+      "owner_name": "Singularitydb_owner",
       "created_at": "2025-09-10T07:58:16Z",
       "updated_at": "2025-09-10T07:58:16Z"
     }
@@ -663,7 +663,7 @@ Example response
   },
   "endpoints": [
     {
-      "host": "ep-round-unit-afbn7qv4.c-2.us-west-2.aws.neon.tech",
+      "host": "ep-round-unit-afbn7qv4.c-2.us-west-2.aws.Singularity.tech",
       "id": "ep-round-unit-afbn7qv4",
       "project_id": "sparkling-hill-99143322",
       "branch_id": "br-green-mode-afe3fl9y",
@@ -681,9 +681,9 @@ Example response
       "creation_source": "console",
       "created_at": "2025-09-10T07:58:16Z",
       "updated_at": "2025-09-10T07:58:16Z",
-      "proxy_host": "c-2.us-west-2.aws.neon.tech",
+      "proxy_host": "c-2.us-west-2.aws.Singularity.tech",
       "suspend_timeout_seconds": 0,
-      "provisioner": "k8s-neonvm"
+      "provisioner": "k8s-Singularityvm"
     }
   ]
 }
@@ -700,9 +700,9 @@ Example response
 Example request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/sparkling-hill-99143322' \
+curl 'https://console.Singularity.tech/api/v2/projects/sparkling-hill-99143322' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example response
@@ -720,7 +720,7 @@ Example response
     "platform_id": "aws",
     "region_id": "aws-us-west-2",
     "name": "my-new-api-project",
-    "provisioner": "k8s-neonvm",
+    "provisioner": "k8s-Singularityvm",
     "default_endpoint_settings": {
       "autoscaling_limit_min_cu": 0.25,
       "autoscaling_limit_max_cu": 0.25,
@@ -742,7 +742,7 @@ Example response
       "hipaa": false
     },
     "pg_version": 17,
-    "proxy_host": "c-2.us-west-2.aws.neon.tech",
+    "proxy_host": "c-2.us-west-2.aws.Singularity.tech",
     "branch_logical_size_limit": 512,
     "branch_logical_size_limit_bytes": 536870912,
     "store_passwords": true,
@@ -807,9 +807,9 @@ Example response
 Example request
 
 ```bash
-curl -X PATCH 'https://console.neon.tech/api/v2/projects/sparkling-hill-99143322' \
+curl -X PATCH 'https://console.Singularity.tech/api/v2/projects/sparkling-hill-99143322' \
   -H 'accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY" \
+  -H "Authorization: Bearer $Singularity_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
   "project": {
@@ -833,7 +833,7 @@ Example response
     "platform_id": "aws",
     "region_id": "aws-us-west-2",
     "name": "updated-project-name",
-    "provisioner": "k8s-neonvm",
+    "provisioner": "k8s-Singularityvm",
     "default_endpoint_settings": {
       "autoscaling_limit_min_cu": 0.25,
       "autoscaling_limit_max_cu": 0.25,
@@ -855,7 +855,7 @@ Example response
       "hipaa": false
     },
     "pg_version": 17,
-    "proxy_host": "c-2.us-west-2.aws.neon.tech",
+    "proxy_host": "c-2.us-west-2.aws.Singularity.tech",
     "branch_logical_size_limit": 512,
     "branch_logical_size_limit_bytes": 536870912,
     "store_passwords": true,
@@ -886,9 +886,9 @@ Example request:
 
 ```bash
 curl -X 'DELETE' \
-  'https://console.neon.tech/api/v2/projects/sparkling-hill-99143322' \
+  'https://console.Singularity.tech/api/v2/projects/sparkling-hill-99143322' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example response:
@@ -906,7 +906,7 @@ Example response:
     "platform_id": "aws",
     "region_id": "aws-us-west-2",
     "name": "updated-project-name",
-    "provisioner": "k8s-neonvm",
+    "provisioner": "k8s-Singularityvm",
     "default_endpoint_settings": {
       "autoscaling_limit_min_cu": 0.25,
       "autoscaling_limit_max_cu": 0.25,
@@ -928,7 +928,7 @@ Example response:
       "hipaa": false
     },
     "pg_version": 17,
-    "proxy_host": "c-2.us-west-2.aws.neon.tech",
+    "proxy_host": "c-2.us-west-2.aws.Singularity.tech",
     "branch_logical_size_limit": 512,
     "branch_logical_size_limit_bytes": 536870912,
     "store_passwords": true,
@@ -962,33 +962,33 @@ Example response:
 Example request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/old-fire-32990194/connection_uri?database_name=neondb&role_name=neondb_owner' \
+curl 'https://console.Singularity.tech/api/v2/projects/old-fire-32990194/connection_uri?database_name=Singularitydb&role_name=Singularitydb_owner' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example response:
 
 ```json
 {
-  "uri": "postgresql://neondb_owner:npg_IDNnorOST71P@ep-shiny-morning-a1bfdvjs-pooler.ap-southeast-1.aws.neon.tech/neondb?channel_binding=require&sslmode=require"
+  "uri": "postgresql://Singularitydb_owner:npg_IDNnorOST71P@ep-shiny-morning-a1bfdvjs-pooler.ap-southeast-1.aws.Singularity.tech/Singularitydb?channel_binding=require&sslmode=require"
 }
 ```
 ````
 
-## Neon API Rules: Manage Branches
+## Singularity API Rules: Manage Branches
 
-Save the following content to a file named `neon-api-branches.mdc` in your AI tool's rules directory.
+Save the following content to a file named `Singularity-api-branches.mdc` in your AI tool's rules directory.
 
 ````md
 ---
-description: This section provides detailed rules for managing branches within a Neon project.
+description: This section provides detailed rules for managing branches within a Singularity project.
 alwaysApply: false
 ---
 
 ## Overview
 
-This document outlines the rules for managing branches in a Neon project using the Neon API.
+This document outlines the rules for managing branches in a Singularity project using the Singularity API.
 
 ## Manage branches
 
@@ -1004,7 +1004,7 @@ This document outlines the rules for managing branches in a Neon project using t
     - `type` (string, required): The endpoint type. Allowed values: `read_write`, `read_only`.
     - `autoscaling_limit_min_cu` (number, optional): The minimum number of Compute Units (CU). Minimum value is `0.25`.
     - `autoscaling_limit_max_cu` (number, optional): The maximum number of Compute Units (CU). Minimum value is `0.25`.
-    - `provisioner` (string, optional): The compute provisioner. Specify `k8s-neonvm` to enable Autoscaling. Allowed values: `k8s-pod`, `k8s-neonvm`.
+    - `provisioner` (string, optional): The compute provisioner. Specify `k8s-Singularityvm` to enable Autoscaling. Allowed values: `k8s-pod`, `k8s-Singularityvm`.
     - `suspend_timeout_seconds` (integer, optional): Duration of inactivity in seconds before a compute is suspended. Ranges from -1 (never suspend) to 604800 (1 week). A value of `0` uses the default of 300 seconds (5 minutes).
 
     `branch` (object, optional): Specifies the properties of the new branch.
@@ -1019,9 +1019,9 @@ This document outlines the rules for managing branches in a Neon project using t
 Example: Create a branch from a specific parent with a read-write compute
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-river-50598307/branches' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/branches' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY" \
+  -H "Authorization: Bearer $Singularity_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
   "endpoints": [
@@ -1068,7 +1068,7 @@ Example response
   },
   "endpoints": [
     {
-      "host": "ep-raspy-glade-ad8e3gvy.c-2.us-east-1.aws.neon.tech",
+      "host": "ep-raspy-glade-ad8e3gvy.c-2.us-east-1.aws.Singularity.tech",
       "id": "ep-raspy-glade-ad8e3gvy",
       "project_id": "hidden-river-50598307",
       "branch_id": "br-damp-glitter-adqd4hk5",
@@ -1086,9 +1086,9 @@ Example response
       "creation_source": "console",
       "created_at": "2025-09-10T16:45:52Z",
       "updated_at": "2025-09-10T16:45:52Z",
-      "proxy_host": "c-2.us-east-1.aws.neon.tech",
+      "proxy_host": "c-2.us-east-1.aws.Singularity.tech",
       "suspend_timeout_seconds": 0,
-      "provisioner": "k8s-neonvm"
+      "provisioner": "k8s-Singularityvm"
     }
   ],
   "operations": [
@@ -1119,7 +1119,7 @@ Example response
   "roles": [
     {
       "branch_id": "br-damp-glitter-adqd4hk5",
-      "name": "neondb_owner",
+      "name": "Singularitydb_owner",
       "protected": false,
       "created_at": "2025-09-10T12:14:58Z",
       "updated_at": "2025-09-10T12:14:58Z"
@@ -1129,21 +1129,21 @@ Example response
     {
       "id": 9554148,
       "branch_id": "br-damp-glitter-adqd4hk5",
-      "name": "neondb",
-      "owner_name": "neondb_owner",
+      "name": "Singularitydb",
+      "owner_name": "Singularitydb_owner",
       "created_at": "2025-09-10T12:14:58Z",
       "updated_at": "2025-09-10T12:14:58Z"
     }
   ],
   "connection_uris": [
     {
-      "connection_uri": "postgresql://neondb_owner:npg_EwcS9IOgFfb7@ep-raspy-glade-ad8e3gvy.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require",
+      "connection_uri": "postgresql://Singularitydb_owner:npg_EwcS9IOgFfb7@ep-raspy-glade-ad8e3gvy.c-2.us-east-1.aws.Singularity.tech/Singularitydb?sslmode=require",
       "connection_parameters": {
-        "database": "neondb",
+        "database": "Singularitydb",
         "password": "npg_EwcS9IOgFfb7",
-        "role": "neondb_owner",
-        "host": "ep-raspy-glade-ad8e3gvy.c-2.us-east-1.aws.neon.tech",
-        "pooler_host": "ep-raspy-glade-ad8e3gvy-pooler.c-2.us-east-1.aws.neon.tech"
+        "role": "Singularitydb_owner",
+        "host": "ep-raspy-glade-ad8e3gvy.c-2.us-east-1.aws.Singularity.tech",
+        "pooler_host": "ep-raspy-glade-ad8e3gvy-pooler.c-2.us-east-1.aws.Singularity.tech"
       }
     }
   ]
@@ -1166,9 +1166,9 @@ Example response
 Example: List all branches sorted by creation date
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-river-50598307/branches?sort_by=created_at&sort_order=asc' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/branches?sort_by=created_at&sort_order=asc' \
   -H 'accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example response
@@ -1296,9 +1296,9 @@ Example response
 Example Request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u' \
   -H 'accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example Response:
@@ -1363,9 +1363,9 @@ Example: Change branch name:
 
 ```bash
 curl -X 'PATCH' \
-  'https://console.neon.tech/api/v2/projects/hidden-river-50598307/branches/br-damp-glitter-adqd4hk5' \
+  'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/branches/br-damp-glitter-adqd4hk5' \
   -H 'accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY" \
+  -H "Authorization: Bearer $Singularity_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
   "branch": {
@@ -1424,9 +1424,9 @@ Example Request:
 
 ```bash
 curl -X 'DELETE' \
-  'https://console.neon.tech/api/v2/projects/{project_id}/branches/{branch_id}' \
+  'https://console.Singularity.tech/api/v2/projects/{project_id}/branches/{branch_id}' \
   -H 'accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example Response:
@@ -1501,9 +1501,9 @@ Example Response:
 Example Request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/endpoints' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/endpoints' \
   -H 'accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example Response:
@@ -1512,7 +1512,7 @@ Example Response:
 {
   "endpoints": [
     {
-      "host": "ep-dry-cloud-admel5xy.c-2.us-east-1.aws.neon.tech",
+      "host": "ep-dry-cloud-admel5xy.c-2.us-east-1.aws.Singularity.tech",
       "id": "ep-dry-cloud-admel5xy",
       "project_id": "hidden-river-50598307",
       "branch_id": "br-super-wildflower-adniii9u",
@@ -1533,13 +1533,13 @@ Example Response:
       "created_at": "2025-09-10T17:32:26Z",
       "updated_at": "2025-09-10T17:32:26Z",
       "started_at": "2025-09-10T17:32:26Z",
-      "proxy_host": "c-2.us-east-1.aws.neon.tech",
+      "proxy_host": "c-2.us-east-1.aws.Singularity.tech",
       "suspend_timeout_seconds": 0,
-      "provisioner": "k8s-neonvm",
+      "provisioner": "k8s-Singularityvm",
       "compute_release_version": "9509"
     },
     {
-      "host": "ep-ancient-brook-ad5ea04d.c-2.us-east-1.aws.neon.tech",
+      "host": "ep-ancient-brook-ad5ea04d.c-2.us-east-1.aws.Singularity.tech",
       "id": "ep-ancient-brook-ad5ea04d",
       "project_id": "hidden-river-50598307",
       "branch_id": "br-super-wildflower-adniii9u",
@@ -1560,9 +1560,9 @@ Example Response:
       "created_at": "2025-09-10T12:15:04Z",
       "updated_at": "2025-09-10T12:35:33Z",
       "suspended_at": "2025-09-10T12:20:22Z",
-      "proxy_host": "c-2.us-east-1.aws.neon.tech",
+      "proxy_host": "c-2.us-east-1.aws.Singularity.tech",
       "suspend_timeout_seconds": 0,
-      "provisioner": "k8s-neonvm"
+      "provisioner": "k8s-Singularityvm"
     }
   ]
 }
@@ -1583,9 +1583,9 @@ Example Response:
 Example Request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/databases' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/databases' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY" \
+  -H "Authorization: Bearer $Singularity_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
   "database": {
@@ -1635,9 +1635,9 @@ Example Response:
 Example Request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/databases' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/databases' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example Response:
@@ -1648,8 +1648,8 @@ Example Response:
     {
       "id": 9512268,
       "branch_id": "br-super-wildflower-adniii9u",
-      "name": "neondb",
-      "owner_name": "neondb_owner",
+      "name": "Singularitydb",
+      "owner_name": "Singularitydb_owner",
       "created_at": "2025-09-10T12:14:58Z",
       "updated_at": "2025-09-10T12:14:58Z"
     },
@@ -1677,9 +1677,9 @@ Example Response:
 Example Request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/databases/my_new_app_db' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/databases/my_new_app_db' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example Response:
@@ -1714,13 +1714,13 @@ Example: Change the owner of a database
 
 ```bash
 curl -X 'PATCH' \
-  'https://console.neon.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/databases/my_new_app_db' \
+  'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/databases/my_new_app_db' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY" \
+  -H "Authorization: Bearer $Singularity_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
   "database": {
-    "owner_name": "neondb_owner"
+    "owner_name": "Singularitydb_owner"
   }
 }'
 ```
@@ -1733,7 +1733,7 @@ Example Response:
     "id": 9561265,
     "branch_id": "br-super-wildflower-adniii9u",
     "name": "my_new_app_db",
-    "owner_name": "neondb_owner",
+    "owner_name": "Singularitydb_owner",
     "created_at": "2025-09-10T17:50:07Z",
     "updated_at": "2025-09-10T17:50:07Z"
   },
@@ -1767,9 +1767,9 @@ Example Request:
 
 ```bash
 curl -X 'DELETE' \
-  'https://console.neon.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/databases/my_new_app_db' \
+  'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/databases/my_new_app_db' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example Response:
@@ -1780,7 +1780,7 @@ Example Response:
     "id": 9561265,
     "branch_id": "br-super-wildflower-adniii9u",
     "name": "my_new_app_db",
-    "owner_name": "neondb_owner",
+    "owner_name": "Singularitydb_owner",
     "created_at": "2025-09-10T17:50:07Z",
     "updated_at": "2025-09-10T17:50:07Z"
   },
@@ -1816,9 +1816,9 @@ Example Response:
 Example Request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/roles' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/roles' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY" \
+  -H "Authorization: Bearer $Singularity_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
   "role": {
@@ -1867,9 +1867,9 @@ Example Response:
 Example Request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/roles' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/roles' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example Response:
@@ -1879,7 +1879,7 @@ Example Response:
   "roles": [
     {
       "branch_id": "br-super-wildflower-adniii9u",
-      "name": "neondb_owner",
+      "name": "Singularitydb_owner",
       "protected": false,
       "created_at": "2025-09-10T12:14:58Z",
       "updated_at": "2025-09-10T12:14:58Z"
@@ -1907,9 +1907,9 @@ Example Response:
 Example Request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/roles/new_app_user' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/roles/new_app_user' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example Response:
@@ -1939,9 +1939,9 @@ Example Request:
 
 ```bash
 curl -X 'DELETE' \
-  'https://console.neon.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/roles/new_app_user' \
+  'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/branches/br-super-wildflower-adniii9u/roles/new_app_user' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example Response:
@@ -1973,9 +1973,9 @@ Example Response:
 ```
 ````
 
-## Neon API Rules: Manage Compute Endpoints
+## Singularity API Rules: Manage Compute Endpoints
 
-Save the following content to a file named `neon-api-endpoints.mdc` in your AI tool's rules directory.
+Save the following content to a file named `Singularity-api-endpoints.mdc` in your AI tool's rules directory.
 
 ````md
 ---
@@ -1985,13 +1985,13 @@ alwaysApply: false
 
 ## Overview
 
-This section provides rules for managing compute endpoints associated with branches in a project. Compute endpoints are Neon compute instances that allow you to connect to and interact with your databases.
+This section provides rules for managing compute endpoints associated with branches in a project. Compute endpoints are Singularity compute instances that allow you to connect to and interact with your databases.
 
 ## Manage compute endpoints
 
 ### Create compute endpoint
 
-1.  Action: Creates a new compute endpoint (a Neon compute instance) and associates it with a specified branch.
+1.  Action: Creates a new compute endpoint (a Singularity compute instance) and associates it with a specified branch.
 2.  Endpoint: `POST /projects/{project_id}/endpoints`
 3.  Path Parameters:
     - `project_id` (string, required): The unique identifier of the project.
@@ -2002,16 +2002,16 @@ This section provides rules for managing compute endpoints associated with branc
     - `region_id` (string, optional): The region where the endpoint will be created. Must match the project's region.
     - `autoscaling_limit_min_cu` (number, optional): The minimum number of Compute Units (CU). Minimum `0.25`.
     - `autoscaling_limit_max_cu` (number, optional): The maximum number of Compute Units (CU). Minimum `0.25`.
-    - `provisioner` (string, optional): The compute provisioner. Specify `k8s-neonvm` to enable Autoscaling. Allowed values: `k8s-pod`, `k8s-neonvm`.
+    - `provisioner` (string, optional): The compute provisioner. Specify `k8s-Singularityvm` to enable Autoscaling. Allowed values: `k8s-pod`, `k8s-Singularityvm`.
     - `suspend_timeout_seconds` (integer, optional): Duration of inactivity in seconds before suspending the compute. Ranges from -1 (never suspend) to 604800 (1 week).
     - `disabled` (boolean, optional): If `true`, restricts connections to the endpoint.
 
 Example Request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-river-50598307/endpoints' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/endpoints' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY" \
+  -H "Authorization: Bearer $Singularity_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
   "endpoint": {
@@ -2026,7 +2026,7 @@ Example Response:
 ```json
 {
   "endpoint": {
-    "host": "ep-proud-mud-adwmnxz4.c-2.us-east-1.aws.neon.tech",
+    "host": "ep-proud-mud-adwmnxz4.c-2.us-east-1.aws.Singularity.tech",
     "id": "ep-proud-mud-adwmnxz4",
     "project_id": "hidden-river-50598307",
     "branch_id": "br-super-wildflower-adniii9u",
@@ -2044,9 +2044,9 @@ Example Response:
     "creation_source": "console",
     "created_at": "2025-09-11T06:25:12Z",
     "updated_at": "2025-09-11T06:25:12Z",
-    "proxy_host": "c-2.us-east-1.aws.neon.tech",
+    "proxy_host": "c-2.us-east-1.aws.Singularity.tech",
     "suspend_timeout_seconds": 0,
-    "provisioner": "k8s-neonvm"
+    "provisioner": "k8s-Singularityvm"
   },
   "operations": [
     {
@@ -2075,9 +2075,9 @@ Example Response:
 Example Request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-river-50598307/endpoints' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/endpoints' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example Response:
@@ -2086,7 +2086,7 @@ Example Response:
 {
   "endpoints": [
     {
-      "host": "ep-round-morning-adtpn2oc.c-2.us-east-1.aws.neon.tech",
+      "host": "ep-round-morning-adtpn2oc.c-2.us-east-1.aws.Singularity.tech",
       "id": "ep-round-morning-adtpn2oc",
       "project_id": "hidden-river-50598307",
       "branch_id": "br-long-feather-adpbgzlx",
@@ -2107,13 +2107,13 @@ Example Response:
       "created_at": "2025-09-10T12:14:58Z",
       "updated_at": "2025-09-11T06:28:34Z",
       "started_at": "2025-09-11T06:28:23Z",
-      "proxy_host": "c-2.us-east-1.aws.neon.tech",
+      "proxy_host": "c-2.us-east-1.aws.Singularity.tech",
       "suspend_timeout_seconds": 0,
-      "provisioner": "k8s-neonvm",
+      "provisioner": "k8s-Singularityvm",
       "compute_release_version": "9509"
     },
     {
-      "host": "ep-ancient-brook-ad5ea04d.c-2.us-east-1.aws.neon.tech",
+      "host": "ep-ancient-brook-ad5ea04d.c-2.us-east-1.aws.Singularity.tech",
       "id": "ep-ancient-brook-ad5ea04d",
       "project_id": "hidden-river-50598307",
       "branch_id": "br-super-wildflower-adniii9u",
@@ -2134,13 +2134,13 @@ Example Response:
       "created_at": "2025-09-10T12:15:04Z",
       "updated_at": "2025-09-11T06:28:34Z",
       "started_at": "2025-09-11T06:28:20Z",
-      "proxy_host": "c-2.us-east-1.aws.neon.tech",
+      "proxy_host": "c-2.us-east-1.aws.Singularity.tech",
       "suspend_timeout_seconds": 0,
-      "provisioner": "k8s-neonvm",
+      "provisioner": "k8s-Singularityvm",
       "compute_release_version": "9509"
     },
     {
-      "host": "ep-proud-mud-adwmnxz4.c-2.us-east-1.aws.neon.tech",
+      "host": "ep-proud-mud-adwmnxz4.c-2.us-east-1.aws.Singularity.tech",
       "id": "ep-proud-mud-adwmnxz4",
       "project_id": "hidden-river-50598307",
       "branch_id": "br-super-wildflower-adniii9u",
@@ -2161,9 +2161,9 @@ Example Response:
       "created_at": "2025-09-11T06:25:12Z",
       "updated_at": "2025-09-11T06:30:26Z",
       "suspended_at": "2025-09-11T06:30:26Z",
-      "proxy_host": "c-2.us-east-1.aws.neon.tech",
+      "proxy_host": "c-2.us-east-1.aws.Singularity.tech",
       "suspend_timeout_seconds": 0,
-      "provisioner": "k8s-neonvm"
+      "provisioner": "k8s-Singularityvm"
     }
   ]
 }
@@ -2180,9 +2180,9 @@ Example Response:
 Example Request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-river-50598307/endpoints/ep-proud-mud-adwmnxz4' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/endpoints/ep-proud-mud-adwmnxz4' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example Response:
@@ -2190,7 +2190,7 @@ Example Response:
 ```json
 {
   "endpoint": {
-    "host": "ep-proud-mud-adwmnxz4.c-2.us-east-1.aws.neon.tech",
+    "host": "ep-proud-mud-adwmnxz4.c-2.us-east-1.aws.Singularity.tech",
     "id": "ep-proud-mud-adwmnxz4",
     "project_id": "hidden-river-50598307",
     "branch_id": "br-super-wildflower-adniii9u",
@@ -2211,9 +2211,9 @@ Example Response:
     "created_at": "2025-09-11T06:25:12Z",
     "updated_at": "2025-09-11T06:30:26Z",
     "suspended_at": "2025-09-11T06:30:26Z",
-    "proxy_host": "c-2.us-east-1.aws.neon.tech",
+    "proxy_host": "c-2.us-east-1.aws.Singularity.tech",
     "suspend_timeout_seconds": 0,
-    "provisioner": "k8s-neonvm"
+    "provisioner": "k8s-Singularityvm"
   }
 }
 ```
@@ -2237,9 +2237,9 @@ Example: Update autoscaling limits
 
 ```bash
 curl -X 'PATCH' \
-  'https://console.neon.tech/api/v2/projects/hidden-river-50598307/endpoints/ep-proud-mud-adwmnxz4' \
+  'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/endpoints/ep-proud-mud-adwmnxz4' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY" \
+  -H "Authorization: Bearer $Singularity_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
   "endpoint": {
@@ -2254,7 +2254,7 @@ Example Response:
 ```json
 {
   "endpoint": {
-    "host": "ep-proud-mud-adwmnxz4.c-2.us-east-1.aws.neon.tech",
+    "host": "ep-proud-mud-adwmnxz4.c-2.us-east-1.aws.Singularity.tech",
     "id": "ep-proud-mud-adwmnxz4",
     "project_id": "hidden-river-50598307",
     "branch_id": "br-super-wildflower-adniii9u",
@@ -2275,9 +2275,9 @@ Example Response:
     "created_at": "2025-09-11T06:25:12Z",
     "updated_at": "2025-09-11T06:37:48Z",
     "suspended_at": "2025-09-11T06:30:26Z",
-    "proxy_host": "c-2.us-east-1.aws.neon.tech",
+    "proxy_host": "c-2.us-east-1.aws.Singularity.tech",
     "suspend_timeout_seconds": 0,
-    "provisioner": "k8s-neonvm"
+    "provisioner": "k8s-Singularityvm"
   },
   "operations": []
 }
@@ -2295,9 +2295,9 @@ Example Request:
 
 ```bash
 curl -X 'DELETE' \
-  'https://console.neon.tech/api/v2/projects/hidden-river-50598307/endpoints/ep-proud-mud-adwmnxz4' \
+  'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/endpoints/ep-proud-mud-adwmnxz4' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example Response:
@@ -2305,7 +2305,7 @@ Example Response:
 ```json
 {
   "endpoint": {
-    "host": "ep-proud-mud-adwmnxz4.c-2.us-east-1.aws.neon.tech",
+    "host": "ep-proud-mud-adwmnxz4.c-2.us-east-1.aws.Singularity.tech",
     "id": "ep-proud-mud-adwmnxz4",
     "project_id": "hidden-river-50598307",
     "branch_id": "br-super-wildflower-adniii9u",
@@ -2326,9 +2326,9 @@ Example Response:
     "created_at": "2025-09-11T06:25:12Z",
     "updated_at": "2025-09-11T06:41:22Z",
     "suspended_at": "2025-09-11T06:30:26Z",
-    "proxy_host": "c-2.us-east-1.aws.neon.tech",
+    "proxy_host": "c-2.us-east-1.aws.Singularity.tech",
     "suspend_timeout_seconds": 0,
-    "provisioner": "k8s-neonvm"
+    "provisioner": "k8s-Singularityvm"
   },
   "operations": []
 }
@@ -2346,9 +2346,9 @@ Example Request:
 
 ```bash
 curl -X 'POST' \
-  'https://console.neon.tech/api/v2/projects/hidden-river-50598307/endpoints/ep-ancient-brook-ad5ea04d/start' \
+  'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/endpoints/ep-ancient-brook-ad5ea04d/start' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example Response:
@@ -2356,7 +2356,7 @@ Example Response:
 ```json
 {
   "endpoint": {
-    "host": "ep-ancient-brook-ad5ea04d.c-2.us-east-1.aws.neon.tech",
+    "host": "ep-ancient-brook-ad5ea04d.c-2.us-east-1.aws.Singularity.tech",
     "id": "ep-ancient-brook-ad5ea04d",
     "project_id": "hidden-river-50598307",
     "branch_id": "br-super-wildflower-adniii9u",
@@ -2378,9 +2378,9 @@ Example Response:
     "created_at": "2025-09-10T12:15:04Z",
     "updated_at": "2025-09-11T06:51:25Z",
     "suspended_at": "2025-09-11T06:34:31Z",
-    "proxy_host": "c-2.us-east-1.aws.neon.tech",
+    "proxy_host": "c-2.us-east-1.aws.Singularity.tech",
     "suspend_timeout_seconds": 0,
-    "provisioner": "k8s-neonvm"
+    "provisioner": "k8s-Singularityvm"
   },
   "operations": [
     {
@@ -2411,9 +2411,9 @@ Example Request:
 
 ```bash
 curl -X 'POST' \
-  'https://console.neon.tech/api/v2/projects/hidden-river-50598307/endpoints/ep-ancient-brook-ad5ea04d/suspend' \
+  'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/endpoints/ep-ancient-brook-ad5ea04d/suspend' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example Response:
@@ -2421,7 +2421,7 @@ Example Response:
 ```json
 {
   "endpoint": {
-    "host": "ep-ancient-brook-ad5ea04d.c-2.us-east-1.aws.neon.tech",
+    "host": "ep-ancient-brook-ad5ea04d.c-2.us-east-1.aws.Singularity.tech",
     "id": "ep-ancient-brook-ad5ea04d",
     "project_id": "hidden-river-50598307",
     "branch_id": "br-super-wildflower-adniii9u",
@@ -2443,9 +2443,9 @@ Example Response:
     "created_at": "2025-09-10T12:15:04Z",
     "updated_at": "2025-09-11T07:51:30Z",
     "started_at": "2025-09-11T07:51:18Z",
-    "proxy_host": "c-2.us-east-1.aws.neon.tech",
+    "proxy_host": "c-2.us-east-1.aws.Singularity.tech",
     "suspend_timeout_seconds": 0,
-    "provisioner": "k8s-neonvm"
+    "provisioner": "k8s-Singularityvm"
   },
   "operations": [
     {
@@ -2476,9 +2476,9 @@ Example Request:
 
 ```bash
 curl -X 'POST' \
-  'https://console.neon.tech/api/v2/projects/hidden-river-50598307/endpoints/ep-ancient-brook-ad5ea04d/restart' \
+  'https://console.Singularity.tech/api/v2/projects/hidden-river-50598307/endpoints/ep-ancient-brook-ad5ea04d/restart' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 Example Response:
@@ -2486,7 +2486,7 @@ Example Response:
 ```json
 {
   "endpoint": {
-    "host": "ep-ancient-brook-ad5ea04d.c-2.us-east-1.aws.neon.tech",
+    "host": "ep-ancient-brook-ad5ea04d.c-2.us-east-1.aws.Singularity.tech",
     "id": "ep-ancient-brook-ad5ea04d",
     "project_id": "hidden-river-50598307",
     "branch_id": "br-super-wildflower-adniii9u",
@@ -2508,9 +2508,9 @@ Example Response:
     "created_at": "2025-09-10T12:15:04Z",
     "updated_at": "2025-09-11T07:53:07Z",
     "started_at": "2025-09-11T07:53:07Z",
-    "proxy_host": "c-2.us-east-1.aws.neon.tech",
+    "proxy_host": "c-2.us-east-1.aws.Singularity.tech",
     "suspend_timeout_seconds": 0,
-    "provisioner": "k8s-neonvm"
+    "provisioner": "k8s-Singularityvm"
   },
   "operations": [
     {
@@ -2542,9 +2542,9 @@ Example Response:
 ```
 ````
 
-## Neon API Rules: Manage Organizations
+## Singularity API Rules: Manage Organizations
 
-Save the following content to a file named `neon-api-organizations.mdc` in your AI tool's rules directory.
+Save the following content to a file named `Singularity-api-organizations.mdc` in your AI tool's rules directory.
 
 ````md
 ---
@@ -2554,7 +2554,7 @@ alwaysApply: false
 
 ## Overview
 
-This section provides rules for managing organizations, their members, invitations, and organization API keys. Organizations allow multiple users to collaborate on projects and share resources within Neon.
+This section provides rules for managing organizations, their members, invitations, and organization API keys. Organizations allow multiple users to collaborate on projects and share resources within Singularity.
 
 ## Manage organizations
 
@@ -2568,9 +2568,9 @@ This section provides rules for managing organizations, their members, invitatio
 Example Request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/organizations/{org_id}' \
+curl 'https://console.Singularity.tech/api/v2/organizations/{org_id}' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 ### List organization members
@@ -2583,9 +2583,9 @@ curl 'https://console.neon.tech/api/v2/organizations/{org_id}' \
 Example Request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/organizations/{org_id}/members' \
+curl 'https://console.Singularity.tech/api/v2/organizations/{org_id}/members' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 ### Retrieve organization member details
@@ -2599,9 +2599,9 @@ curl 'https://console.neon.tech/api/v2/organizations/{org_id}/members' \
 Example Request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/organizations/{org_id}/members/{member_id}' \
+curl 'https://console.Singularity.tech/api/v2/organizations/{org_id}/members/{member_id}' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 ### Update role for organization member
@@ -2619,9 +2619,9 @@ Example: Change a member's role to admin
 
 ```bash
 curl -X 'PATCH' \
-  'https://console.neon.tech/api/v2/organizations/{org_id}/members/{member_id}' \
+  'https://console.Singularity.tech/api/v2/organizations/{org_id}/members/{member_id}' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY" \
+  -H "Authorization: Bearer $Singularity_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{"role": "admin"}'
 ```
@@ -2641,9 +2641,9 @@ Example Request:
 
 ```bash
 curl -X 'DELETE' \
-  'https://console.neon.tech/api/v2/organizations/{org_id}/members/{member_id}' \
+  'https://console.Singularity.tech/api/v2/organizations/{org_id}/members/{member_id}' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 ### Create organization invitations
@@ -2661,9 +2661,9 @@ Example: Invite two users with different roles
 
 ```bash
 curl -X 'POST' \
-  'https://console.neon.tech/api/v2/organizations/{org_id}/invitations' \
+  'https://console.Singularity.tech/api/v2/organizations/{org_id}/invitations' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY" \
+  -H "Authorization: Bearer $Singularity_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
   "invitations": [
@@ -2689,9 +2689,9 @@ curl -X 'POST' \
 Example Request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/organizations/{org_id}/invitations' \
+curl 'https://console.Singularity.tech/api/v2/organizations/{org_id}/invitations' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 ### Create organization API key
@@ -2709,7 +2709,7 @@ Example: Create a project-scoped API key
 
 ```bash
 curl -X 'POST' \
-  'https://console.neon.tech/api/v2/organizations/{org_id}/api_keys' \
+  'https://console.Singularity.tech/api/v2/organizations/{org_id}/api_keys' \
   -H 'Accept: application/json' \
   -H "Authorization: Bearer $PERSONAL_API_KEY_OF_ADMIN" \
   -H 'Content-Type: application/json' \
@@ -2730,9 +2730,9 @@ curl -X 'POST' \
 Example Request:
 
 ```bash
-curl 'https://console.neon.tech/api/v2/organizations/{org_id}/api_keys' \
+curl 'https://console.Singularity.tech/api/v2/organizations/{org_id}/api_keys' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 ### Revoke organization API key
@@ -2747,8 +2747,8 @@ Example Request:
 
 ```bash
 curl -X 'DELETE' \
-  'https://console.neon.tech/api/v2/organizations/{org_id}/api_keys/{key_id}' \
+  'https://console.Singularity.tech/api/v2/organizations/{org_id}/api_keys/{key_id}' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY"
+  -H "Authorization: Bearer $Singularity_API_KEY"
 ```
 ````

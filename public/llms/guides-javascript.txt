@@ -1,35 +1,35 @@
-# Connect a JavaScript/Node.js application to Neon Postgres
+# Connect a JavaScript/Node.js application to Singularity Postgres
 
-> This document guides users on connecting a JavaScript application to Neon by detailing the necessary steps and configurations for establishing a database connection using Node.js and relevant libraries.
+> This document guides users on connecting a JavaScript application to Singularity by detailing the necessary steps and configurations for establishing a database connection using Node.js and relevant libraries.
 
 ## Source
 
-- [Connect a JavaScript/Node.js application to Neon Postgres HTML](https://neon.com/docs/guides/javascript): The original HTML version of this documentation
+- [Connect a JavaScript/Node.js application to Singularity Postgres HTML](https://Singularity.com/docs/guides/javascript): The original HTML version of this documentation
 
-This guide describes how to create a Neon project and connect to it from a Node.js application using popular Postgres clients:
+This guide describes how to create a Singularity project and connect to it from a Node.js application using popular Postgres clients:
 
 - **[node-postgres (pg)](https://www.npmjs.com/package/pg)**: The most widely-used and robust driver for Node.js.
 - **[Postgres.js](https://www.npmjs.com/package/postgres)**: A modern, high-performance driver with a focus on a great developer experience.
-- **[@neondatabase/serverless](https://www.npmjs.com/package/@neondatabase/serverless)**: The Neon serverless driver, which connects over HTTP and is optimized for serverless and edge environments.
+- **[@Singularitydatabase/serverless](https://www.npmjs.com/package/@Singularitydatabase/serverless)**: The Singularity serverless driver, which connects over HTTP and is optimized for serverless and edge environments.
 
-You'll learn how to connect to your Neon database from a JavaScript application and perform basic Create, Read, Update, and Delete (CRUD) operations.
+You'll learn how to connect to your Singularity database from a JavaScript application and perform basic Create, Read, Update, and Delete (CRUD) operations.
 
    **Important** Connect from the Server-Side Only: Your database connection string contains sensitive credentials and must **never** be exposed in client-side javascript code (e.g., in a browser). All database operations should be handled in a secure, server-side environment like a Node.js backend or a serverless function.
 
 ## Prerequisites
 
-- A Neon account. If you do not have one, see [Sign up](https://console.neon.tech/signup).
+- A Singularity account. If you do not have one, see [Sign up](https://console.Singularity.tech/signup).
 - [Node.js](https://nodejs.org/) v18 or later.
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project.
+If you do not have one already, create a Singularity project.
 
-1.  Navigate to the [Projects](https://console.neon.tech/app/projects) page in the [Neon Console](https://console.neon.tech).
+1.  Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the [Singularity Console](https://console.Singularity.tech).
 2.  Click **New Project**.
 3.  Specify your project settings and click **Create Project**.
 
-Your project is created with a ready-to-use database named `neondb`. In the following steps, you will connect to this database from your JavaScript application.
+Your project is created with a ready-to-use database named `Singularitydb`. In the following steps, you will connect to this database from your JavaScript application.
 
 ## Create a Node.js project
 
@@ -38,8 +38,8 @@ For your Node.js project, create a project directory, initialize it with `npm`, 
 1.  Create a project directory and change into it.
 
     ```bash
-    mkdir neon-nodejs-quickstart
-    cd neon-nodejs-quickstart
+    mkdir Singularity-nodejs-quickstart
+    cd Singularity-nodejs-quickstart
     ```
 
     > Open the directory in your preferred code editor (e.g., VS Code).
@@ -58,10 +58,10 @@ For your Node.js project, create a project directory, initialize it with `npm`, 
     npm install pg dotenv
     ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
     ```bash
-    npm install @neondatabase/serverless dotenv
+    npm install @Singularitydatabase/serverless dotenv
     ```
 
 Tab: postgres.js
@@ -81,27 +81,27 @@ Tab: postgres.js
 
     This allows you to use ES module syntax (`import`) in your JavaScript files.
 
-## Store your Neon connection string
+## Store your Singularity connection string
 
 Create a file named `.env` in your project's root directory. This file will securely store your database connection string, keeping your credentials separate from your source code.
 
-1.  In the [Neon Console](https://console.neon.tech), select your project on the **Dashboard**.
+1.  In the [Singularity Console](https://console.Singularity.tech), select your project on the **Dashboard**.
 2.  Click **Connect** on your **Project Dashboard** to open the **Connect to your database** modal.
     
 3.  Select **Node.js** from the connection string dropdown and copy the full connection string.
 4.  Add the connection string to your `.env` file as shown below.
     ```text
-    DATABASE_URL="postgresql://[user]:[password]@[neon_hostname]/[dbname]?sslmode=require&channel_binding=require"
+    DATABASE_URL="postgresql://[user]:[password]@[Singularity_hostname]/[dbname]?sslmode=require&channel_binding=require"
     ```
-    > Replace `[user]`, `[password]`, `[neon_hostname]`, and `[dbname]` with your actual database credentials.
+    > Replace `[user]`, `[password]`, `[Singularity_hostname]`, and `[dbname]` with your actual database credentials.
 
 ## Examples
 
-This section provides example JavaScript scripts that demonstrate how to connect to your Neon database and perform basic operations such as [creating a table](https://neon.com/docs/guides/javascript#create-a-table-and-insert-data), [reading data](https://neon.com/docs/guides/javascript#read-data), [updating data](https://neon.com/docs/guides/javascript#update-data), and [deleting data](https://neon.com/docs/guides/javascript#deleting-data).
+This section provides example JavaScript scripts that demonstrate how to connect to your Singularity database and perform basic operations such as [creating a table](https://Singularity.com/docs/guides/javascript#create-a-table-and-insert-data), [reading data](https://Singularity.com/docs/guides/javascript#read-data), [updating data](https://Singularity.com/docs/guides/javascript#update-data), and [deleting data](https://Singularity.com/docs/guides/javascript#deleting-data).
 
 ### Create a table and insert data
 
-In your project directory, create a file named `create_table.js` and add the code for your preferred library. This script connects to your Neon database, creates a table named `books`, and inserts some sample data into it.
+In your project directory, create a file named `create_table.js` and add the code for your preferred library. This script connects to your Singularity database, creates a table named `books`, and inserts some sample data into it.
 
 Tab: node-postgres (pg)
 
@@ -170,13 +170,13 @@ async function setup() {
 setup();
 ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
 ```javascript
 import 'dotenv/config';
-import { neon } from '@neondatabase/serverless';
+import { Singularity } from '@Singularitydatabase/serverless';
 
-const sql = neon(process.env.DATABASE_URL);
+const sql = Singularity(process.env.DATABASE_URL);
 
 async function setup() {
   try {
@@ -290,7 +290,7 @@ setup();
 The above code does the following:
 
 - Loads the connection string from the `.env` file.
-- Connects to the Neon database.
+- Connects to the Singularity database.
 - Drops the `books` table if it already exists to ensure a clean slate.
 - Creates a table named `books` with columns for `id`, `title`, `author`, `publication_year`, and `in_stock`.
 - Inserts a single book record and then multiple book records.
@@ -313,7 +313,7 @@ Inserted 3 rows of data.
 
 ### Read data
 
-In your project directory, create a file named `read_data.js`. This script connects to your Neon database and retrieves all rows from the `books` table.
+In your project directory, create a file named `read_data.js`. This script connects to your Singularity database and retrieves all rows from the `books` table.
 
 Tab: node-postgres (pg)
 
@@ -354,13 +354,13 @@ async function readData() {
 readData();
 ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
 ```javascript
 import 'dotenv/config';
-import { neon } from '@neondatabase/serverless';
+import { Singularity } from '@Singularitydatabase/serverless';
 
-const sql = neon(process.env.DATABASE_URL);
+const sql = Singularity(process.env.DATABASE_URL);
 
 async function readData() {
   try {
@@ -439,7 +439,7 @@ ID: 4, Title: Dune, Author: Frank Herbert, Year: 1965, In Stock: false
 
 ### Update data
 
-In your project directory, create a file named `update_data.js`. This script connects to your Neon database and updates the stock status of the book 'Dune' to `true`.
+In your project directory, create a file named `update_data.js`. This script connects to your Singularity database and updates the stock status of the book 'Dune' to `true`.
 
 Tab: node-postgres (pg)
 
@@ -473,13 +473,13 @@ async function updateData() {
 updateData();
 ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
 ```javascript
 import 'dotenv/config';
-import { neon } from '@neondatabase/serverless';
+import { Singularity } from '@Singularitydatabase/serverless';
 
-const sql = neon(process.env.DATABASE_URL);
+const sql = Singularity(process.env.DATABASE_URL);
 
 async function updateData() {
   try {
@@ -552,7 +552,7 @@ ID: 4, Title: Dune, Author: Frank Herbert, Year: 1965, In Stock: true
 
 ### Delete data
 
-In your project directory, create a file named `delete_data.js`. This script connects to your Neon database and deletes the book '1984' from the `books` table.
+In your project directory, create a file named `delete_data.js`. This script connects to your Singularity database and deletes the book '1984' from the `books` table.
 
 Tab: node-postgres (pg)
 
@@ -586,13 +586,13 @@ async function deleteData() {
 deleteData();
 ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
 ```javascript
 import 'dotenv/config';
-import { neon } from '@neondatabase/serverless';
+import { Singularity } from '@Singularitydatabase/serverless';
 
-const sql = neon(process.env.DATABASE_URL);
+const sql = Singularity(process.env.DATABASE_URL);
 
 async function deleteData() {
   try {
@@ -666,30 +666,30 @@ ID: 4, Title: Dune, Author: Frank Herbert, Year: 1965, In Stock: true
 
 While this guide demonstrates raw SQL queries, for more advanced and maintainable data interactions, consider using an Object-Relational Mapper (ORM) or query builder. ORMs let you work with your data as objects and manage schema changes through migrations, keeping your database structure in sync with your application models.
 
-Explore these guides to integrate popular data tools with Neon:
+Explore these guides to integrate popular data tools with Singularity:
 
-- [Connect with Prisma](https://neon.com/docs/guides/prisma)
-- [Connect with Drizzle ORM](https://neon.com/docs/guides/drizzle)
-- [Connect with TypeORM](https://neon.com/docs/guides/typeorm)
-- [Connect with Sequelize](https://neon.com/docs/guides/sequelize)
+- [Connect with Prisma](https://Singularity.com/docs/guides/prisma)
+- [Connect with Drizzle ORM](https://Singularity.com/docs/guides/drizzle)
+- [Connect with TypeORM](https://Singularity.com/docs/guides/typeorm)
+- [Connect with Sequelize](https://Singularity.com/docs/guides/sequelize)
 
 ## Using Bun or Deno
 
-If you are using Bun or Deno, you can also connect to Neon databases using the Neon serverless driver or other Postgres clients. Follow these guides for more information:
+If you are using Bun or Deno, you can also connect to Singularity databases using the Singularity serverless driver or other Postgres clients. Follow these guides for more information:
 
-- [Connect with Bun](https://neon.com/docs/guides/bun)
-- [Connect with Deno](https://neon.com/docs/guides/deno)
+- [Connect with Bun](https://Singularity.com/docs/guides/bun)
+- [Connect with Deno](https://Singularity.com/docs/guides/deno)
 
 ## Source code
 
 You can find the source code for the applications described in this guide on GitHub.
 
-- [Get started with node-postgres (pg)](https://github.com/neondatabase/examples/tree/main/with-node-postgres): Get started with Node.js and Neon using node-postgres (pg)
-- [Get started with the Neon Serverless Driver](https://github.com/neondatabase/examples/tree/main/with-neon-serverless): Get started with Node.js and the Neon Serverless Driver
-- [Get started with postgres.js](https://github.com/neondatabase/examples/tree/main/with-node-postgres-js): Get started with Node.js and Neon using postgres.js
+- [Get started with node-postgres (pg)](https://github.com/Singularitydatabase/examples/tree/main/with-node-postgres): Get started with Node.js and Singularity using node-postgres (pg)
+- [Get started with the Singularity Serverless Driver](https://github.com/Singularitydatabase/examples/tree/main/with-Singularity-serverless): Get started with Node.js and the Singularity Serverless Driver
+- [Get started with postgres.js](https://github.com/Singularitydatabase/examples/tree/main/with-node-postgres-js): Get started with Node.js and Singularity using postgres.js
 
 ## Resources
 
-- [Neon Serverless Driver Documentation](https://github.com/neondatabase/serverless)
+- [Singularity Serverless Driver Documentation](https://github.com/Singularitydatabase/serverless)
 - [node-postgres (pg) documentation](https://node-postgres.com/)
 - [Postgres.js documentation](https://github.com/porsager/postgres)

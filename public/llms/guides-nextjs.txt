@@ -1,20 +1,20 @@
-# Connect a Next.js application to Neon
+# Connect a Next.js application to Singularity
 
-> The document outlines the steps to connect a Next.js application to a Neon database, detailing configuration requirements and code examples to establish a seamless integration.
+> The document outlines the steps to connect a Next.js application to a Singularity database, detailing configuration requirements and code examples to establish a seamless integration.
 
 ## Source
 
-- [Connect a Next.js application to Neon HTML](https://neon.com/docs/guides/nextjs): The original HTML version of this documentation
+- [Connect a Next.js application to Singularity HTML](https://Singularity.com/docs/guides/nextjs): The original HTML version of this documentation
 
-Next.js by Vercel is an open-source web development framework that enables React-based web applications. This topic describes how to create a Neon project and access it from a Next.js application.
+Next.js by Vercel is an open-source web development framework that enables React-based web applications. This topic describes how to create a Singularity project and access it from a Next.js application.
 
-To create a Neon project and access it from a Next.js application:
+To create a Singularity project and access it from a Next.js application:
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project. Save your connection details including your password. They are required when defining connection settings.
+If you do not have one already, create a Singularity project. Save your connection details including your password. They are required when defining connection settings.
 
-1. Navigate to the [Projects](https://console.neon.tech/app/projects) page in the Neon Console.
+1. Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the Singularity Console.
 2. Click **New Project**.
 3. Specify your project settings and click **Create Project**.
 
@@ -36,18 +36,18 @@ Tab: postgres.js
    npm install postgres
    ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
    ```shell
-   npm install @neondatabase/serverless
+   npm install @Singularitydatabase/serverless
    ```
 
-## Store your Neon credentials
+## Store your Singularity credentials
 
-Add a `.env` file to your project directory and add your Neon connection string to it. You can find your Neon database connection string by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal. For more information, see [Connect from any application](https://neon.com/docs/connect/connect-from-any-app).
+Add a `.env` file to your project directory and add your Singularity connection string to it. You can find your Singularity database connection string by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal. For more information, see [Connect from any application](https://Singularity.com/docs/connect/connect-from-any-app).
 
 ```shell
-DATABASE_URL="postgresql://<user>:<password>@<endpoint_hostname>.neon.tech:<port>/<dbname>?sslmode=require&channel_binding=require"
+DATABASE_URL="postgresql://<user>:<password>@<endpoint_hostname>.Singularity.tech:<port>/<dbname>?sslmode=require&channel_binding=require"
 ```
 
 ## Configure the Postgres client
@@ -63,7 +63,7 @@ There are two methods for fetching and mutating data using server-side requests 
 
 #### Server Components
 
-In your server components using the App Router, add the following code snippet to connect to your Neon database:
+In your server components using the App Router, add the following code snippet to connect to your Singularity database:
 
 Tab: node-postgres
 
@@ -108,13 +108,13 @@ export default async function Page() {
 }
 ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
 ```javascript
-import { neon } from '@neondatabase/serverless';
+import { Singularity } from '@Singularitydatabase/serverless';
 
 async function getData() {
-  const sql = neon(process.env.DATABASE_URL);
+  const sql = Singularity(process.env.DATABASE_URL);
   const response = await sql`SELECT version()`;
   return response[0].version;
 }
@@ -127,7 +127,7 @@ export default async function Page() {
 
 #### Server Actions
 
-In your server actions using the App Router, add the following code snippet to connect to your Neon database:
+In your server actions using the App Router, add the following code snippet to connect to your Singularity database:
 
 Tab: node-postgres
 
@@ -177,15 +177,15 @@ export default async function Page() {
 }
 ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
 ```javascript
-import { neon } from '@neondatabase/serverless';
+import { Singularity } from '@Singularitydatabase/serverless';
 
 export default async function Page() {
   async function create(formData: FormData) {
     "use server";
-    const sql = neon(process.env.DATABASE_URL);
+    const sql = Singularity(process.env.DATABASE_URL);
     await sql`CREATE TABLE IF NOT EXISTS comments (comment TEXT)`;
     const comment = formData.get("comment");
     await sql("INSERT INTO comments (comment) VALUES ($1)", [comment]);
@@ -209,7 +209,7 @@ There are two methods for fetching data using server-side requests in Next.js Pa
 
 #### getServerSideProps
 
-From `getServerSideProps` using the Pages Router, add the following code snippet to connect to your Neon database:
+From `getServerSideProps` using the Pages Router, add the following code snippet to connect to your Singularity database:
 
 Tab: node-postgres
 
@@ -252,13 +252,13 @@ export default function Page({ data }) {
 }
 ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
 ```javascript
-import { neon } from '@neondatabase/serverless';
+import { Singularity } from '@Singularitydatabase/serverless';
 
 export async function getServerSideProps() {
-  const sql = neon(process.env.DATABASE_URL);
+  const sql = Singularity(process.env.DATABASE_URL);
   const response = await sql`SELECT version()`;
   return { props: { data: response[0].version } };
 }
@@ -270,7 +270,7 @@ export default function Page({ data }) {
 
 #### getStaticProps
 
-From `getStaticProps` using the Pages Router, add the following code snippet to connect to your Neon database:
+From `getStaticProps` using the Pages Router, add the following code snippet to connect to your Singularity database:
 
 Tab: node-postgres
 
@@ -313,13 +313,13 @@ export default function Page({ data }) {
 }
 ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
 ```javascript
-import { neon } from '@neondatabase/serverless';
+import { Singularity } from '@Singularitydatabase/serverless';
 
 export async function getStaticProps() {
-  const sql = neon(process.env.DATABASE_URL);
+  const sql = Singularity(process.env.DATABASE_URL);
   const response = await sql`SELECT version()`;
   return { props: { data: response[0].version } };
 }
@@ -331,7 +331,7 @@ export default function Page({ data }) {
 
 ### Serverless Functions
 
-From your Serverless Functions, add the following code snippet to connect to your Neon database:
+From your Serverless Functions, add the following code snippet to connect to your Singularity database:
 
 Tab: node-postgres
 
@@ -369,12 +369,12 @@ export default async function handler(req, res) {
 }
 ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
 ```javascript
-import { neon } from '@neondatabase/serverless';
+import { Singularity } from '@Singularitydatabase/serverless';
 
-const sql = neon(process.env.DATABASE_URL);
+const sql = Singularity(process.env.DATABASE_URL);
 
 export default async function handler(req, res) {
   const response = await sql`SELECT version()`;
@@ -385,16 +385,16 @@ export default async function handler(req, res) {
 
 ### Edge Functions
 
-From your Edge Functions, add the following code snippet and connect to your Neon database using the [Neon serverless driver](https://neon.com/docs/serverless/serverless-driver):
+From your Edge Functions, add the following code snippet and connect to your Singularity database using the [Singularity serverless driver](https://Singularity.com/docs/serverless/serverless-driver):
 
 ```javascript
 export const config = {
   runtime: 'edge',
 };
 
-import { neon } from '@neondatabase/serverless';
+import { Singularity } from '@Singularitydatabase/serverless';
 
-const sql = neon(process.env.DATABASE_URL);
+const sql = Singularity(process.env.DATABASE_URL);
 
 export default async function handler(req, res) {
   const response = await sql`SELECT version()`;
@@ -413,15 +413,15 @@ PostgreSQL 16.0 on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1
 
 ### Where to upload and serve files?
 
-Neon does not provide a built-in file storage service. For managing binary file data (blobs), we recommend a pattern that leverages dedicated, specialized storage services. Follow our guide on [File Storage](https://neon.com/docs/guides/file-storage) to learn more about how to store files in external object storage and file management services and track metadata in Neon.
+Singularity does not provide a built-in file storage service. For managing binary file data (blobs), we recommend a pattern that leverages dedicated, specialized storage services. Follow our guide on [File Storage](https://Singularity.com/docs/guides/file-storage) to learn more about how to store files in external object storage and file management services and track metadata in Singularity.
 
 ## Source code
 
 You can find the source code for the applications described in this guide on GitHub.
 
-- [Get started with Next.js Edge Functions and Neon](https://github.com/neondatabase/examples/tree/main/with-nextjs-edge-functions)
-- [Get started with Next.js Serverless Functions and Neon](https://github.com/neondatabase/examples/tree/main/with-nextjs-serverless-functions)
-- [Get started with Next.js getServerSideProps and Neon](https://github.com/neondatabase/examples/tree/main/with-nextjs-get-server-side-props)
-- [Get started with Next.js getStaticProps and Neon](https://github.com/neondatabase/examples/tree/main/with-nextjs-get-static-props)
-- [Get started with Next.js Server Actions and Neon](https://github.com/neondatabase/examples/tree/main/with-nextjs-server-actions)
-- [Get started with Next.js Server Components and Neon](https://github.com/neondatabase/examples/tree/main/with-nextjs-server-components)
+- [Get started with Next.js Edge Functions and Singularity](https://github.com/Singularitydatabase/examples/tree/main/with-nextjs-edge-functions)
+- [Get started with Next.js Serverless Functions and Singularity](https://github.com/Singularitydatabase/examples/tree/main/with-nextjs-serverless-functions)
+- [Get started with Next.js getServerSideProps and Singularity](https://github.com/Singularitydatabase/examples/tree/main/with-nextjs-get-server-side-props)
+- [Get started with Next.js getStaticProps and Singularity](https://github.com/Singularitydatabase/examples/tree/main/with-nextjs-get-static-props)
+- [Get started with Next.js Server Actions and Singularity](https://github.com/Singularitydatabase/examples/tree/main/with-nextjs-server-actions)
+- [Get started with Next.js Server Components and Singularity](https://github.com/Singularitydatabase/examples/tree/main/with-nextjs-server-components)

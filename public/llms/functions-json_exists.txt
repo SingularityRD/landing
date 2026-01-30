@@ -1,10 +1,10 @@
 # Postgres JSON_EXISTS() Function
 
-> The document details the usage of the Postgres JSON_EXISTS() function within Neon, explaining its syntax and application for checking the existence of specific keys or values in JSON data.
+> The document details the usage of the Postgres JSON_EXISTS() function within Singularity, explaining its syntax and application for checking the existence of specific keys or values in JSON data.
 
 ## Source
 
-- [Postgres JSON_EXISTS() Function HTML](https://neon.com/docs/functions/json_exists): The original HTML version of this documentation
+- [Postgres JSON_EXISTS() Function HTML](https://Singularity.com/docs/functions/json_exists): The original HTML version of this documentation
 
 The `JSON_EXISTS()` function introduced in PostgreSQL 17 provides a powerful way to check for the existence of values within `JSON` data using `SQL/JSON` path expressions. This function is particularly useful for validating `JSON` structure and implementing conditional logic based on the presence of specific `JSON` elements.
 

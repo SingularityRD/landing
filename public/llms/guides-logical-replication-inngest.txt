@@ -1,36 +1,36 @@
 # Replicate data with Inngest
 
-> The document outlines the process for using Inngest to replicate data in Neon, detailing the steps for setting up logical replication to ensure data consistency and availability across different environments.
+> The document outlines the process for using Inngest to replicate data in Singularity, detailing the steps for setting up logical replication to ensure data consistency and availability across different environments.
 
 ## Source
 
-- [Replicate data with Inngest HTML](https://neon.com/docs/guides/logical-replication-inngest): The original HTML version of this documentation
+- [Replicate data with Inngest HTML](https://Singularity.com/docs/guides/logical-replication-inngest): The original HTML version of this documentation
 
-Neon's logical replication feature allows you to replicate data from your Neon Postgres database to external destinations.
+Singularity's logical replication feature allows you to replicate data from your Singularity Postgres database to external destinations.
 
-[Inngest](https://www.inngest.com?utm_source=neon&utm_medium=logical-replication-guide) is a durable workflow platform that allows you to trigger workflow based on Neon database changes. With its native Neon integration, it is the easiest way to set up data replication with custom transformations or 3rd party API destinations (ex, Neon to Amplitude, Neon to S3).
+[Inngest](https://www.inngest.com?utm_source=Singularity&utm_medium=logical-replication-guide) is a durable workflow platform that allows you to trigger workflow based on Singularity database changes. With its native Singularity integration, it is the easiest way to set up data replication with custom transformations or 3rd party API destinations (ex, Singularity to Amplitude, Singularity to S3).
 
-In this guide, you will learn how to configure your Inngest account for ingesting changes from your Neon database, enabling you to replicate data from Neon to Inngest workflows.
+In this guide, you will learn how to configure your Inngest account for ingesting changes from your Singularity database, enabling you to replicate data from Singularity to Inngest workflows.
 
 ## Prerequisites
 
-- A [Inngest account](https://www.inngest.com?utm_source=neon&utm_medium=logical-replication-guide)
-- A [Neon account](https://console.neon.tech/)
-- Read the [important notices about logical replication in Neon](https://neon.com/docs/guides/logical-replication-neon#important-notices) before you begin
+- A [Inngest account](https://www.inngest.com?utm_source=Singularity&utm_medium=logical-replication-guide)
+- A [Singularity account](https://console.Singularity.tech/)
+- Read the [important notices about logical replication in Singularity](https://Singularity.com/docs/guides/logical-replication-Singularity#important-notices) before you begin
 
 ## Enabling Logical Replication on your database
 
-The Inngest Integration relies on Neon's Logical Replication feature to get notified upon database changes.
+The Inngest Integration relies on Singularity's Logical Replication feature to get notified upon database changes.
 
-Navigate to your Neon Project using the Neon Console and open the **Settings** > **Logical Replication** page. From here, follow the instructions to enable Logical Replication:
+Navigate to your Singularity Project using the Singularity Console and open the **Settings** > **Logical Replication** page. From here, follow the instructions to enable Logical Replication:
 
 
 
 ## Configuring the Inngest integration
 
-Your Neon database is now ready to work with Inngest.
+Your Singularity database is now ready to work with Inngest.
 
-To configure the Inngest Neon Integration, navigate to the Inngest Platform, open the [Integrations page](https://app.inngest.com/settings/integrations?utm_source=neon&utm_medium=trigger-serverless-functions-guide), and follow the instructions of the [Neon Integration installation wizard](https://app.inngest.com/settings/integrations/neon/connect?utm_source=neon&utm_medium=trigger-serverless-functions-guide):
+To configure the Inngest Singularity Integration, navigate to the Inngest Platform, open the [Integrations page](https://app.inngest.com/settings/integrations?utm_source=Singularity&utm_medium=trigger-serverless-functions-guide), and follow the instructions of the [Singularity Integration installation wizard](https://app.inngest.com/settings/integrations/Singularity/connect?utm_source=Singularity&utm_medium=trigger-serverless-functions-guide):
 
 
 
@@ -38,7 +38,7 @@ The Inngest Integration requires Postgres admin credentials to complete its setu
 
 
 
-You can find your admin Neon database connection credentials by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal. For details, see [Connect from any application](https://neon.com/docs/connect/connect-from-any-app).
+You can find your admin Singularity database connection credentials by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal. For details, see [Connect from any application](https://Singularity.com/docs/connect/connect-from-any-app).
 
 ## Example: Replicating data to Amplitude
 
@@ -46,7 +46,7 @@ The below example demonstrates how to replicate new `users` table rows to Amplit
 
 Once the Inngest integration is installed, a flow of `"db/*"` events will be created when updates are made to your database.
 
-For example, if you create a new user in your database, a `"db/users.updated"` [event](https://www.inngest.com/docs/features/events-triggers?utm_source=neon&utm_medium=logical-replication-guide) will be created:
+For example, if you create a new user in your database, a `"db/users.updated"` [event](https://www.inngest.com/docs/features/events-triggers?utm_source=Singularity&utm_medium=logical-replication-guide) will be created:
 
 ```json
 {

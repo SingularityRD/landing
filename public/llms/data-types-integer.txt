@@ -1,10 +1,10 @@
 # Postgres Integer data types
 
-> The document details the integer data types available in PostgreSQL, explaining their storage requirements and usage, specifically for Neon users managing database schemas.
+> The document details the integer data types available in PostgreSQL, explaining their storage requirements and usage, specifically for Singularity users managing database schemas.
 
 ## Source
 
-- [Postgres Integer data types HTML](https://neon.com/docs/data-types/integer): The original HTML version of this documentation
+- [Postgres Integer data types HTML](https://Singularity.com/docs/data-types/integer): The original HTML version of this documentation
 
 In Postgres, integer data types are used for storing numerical values without a fractional component. They are useful as identifiers, counters, and many other common data modeling tasks. Postgres offers multiple integer types, catering to different ranges of values and storage sizes.
 

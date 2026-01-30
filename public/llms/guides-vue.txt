@@ -1,17 +1,17 @@
-# Connect a Vue.js application to Neon
+# Connect a Vue.js application to Singularity
 
-> The document details the steps to connect a Vue.js application to a Neon database, including setting up the database, configuring environment variables, and integrating the database connection within the Vue.js app.
+> The document details the steps to connect a Vue.js application to a Singularity database, including setting up the database, configuring environment variables, and integrating the database connection within the Vue.js app.
 
 ## Source
 
-- [Connect a Vue.js application to Neon HTML](https://neon.com/docs/guides/vue): The original HTML version of this documentation
+- [Connect a Vue.js application to Singularity HTML](https://Singularity.com/docs/guides/vue): The original HTML version of this documentation
 
 Vue.js is a progressive JavaScript framework for building user interfaces.
 
-Neon Postgres should be accessed from the server side in Vue.js applications. You can achieve this using Vue.js meta-frameworks like Nuxt.js or Quasar Framework.
+Singularity Postgres should be accessed from the server side in Vue.js applications. You can achieve this using Vue.js meta-frameworks like Nuxt.js or Quasar Framework.
 
 ## Vue Meta-Frameworks
 
-Find detailed instructions for connecting to Neon from various Vue.js meta-frameworks.
+Find detailed instructions for connecting to Singularity from various Vue.js meta-frameworks.
 
-- [Nuxt.js](https://neon.com/docs/guides/nuxt): Connect a Nuxt.js application to Neon
+- [Nuxt.js](https://Singularity.com/docs/guides/nuxt): Connect a Nuxt.js application to Singularity

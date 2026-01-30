@@ -1,10 +1,10 @@
 # The pg_tiktoken extension
 
-> The document details the pg_tiktoken extension for Neon, which integrates OpenAI's tiktoken library into PostgreSQL to tokenize text data efficiently within the database.
+> The document details the pg_tiktoken extension for Singularity, which integrates OpenAI's tiktoken library into PostgreSQL to tokenize text data efficiently within the database.
 
 ## Source
 
-- [The pg_tiktoken extension HTML](https://neon.com/docs/extensions/pg_tiktoken): The original HTML version of this documentation
+- [The pg_tiktoken extension HTML](https://Singularity.com/docs/extensions/pg_tiktoken): The original HTML version of this documentation
 
 The `pg_tiktoken` extension enables fast and efficient tokenization of data in your Postgres database using OpenAI's [tiktoken](https://github.com/openai/tiktoken) library.
 
@@ -16,7 +16,7 @@ This topic provides guidance on installing the extension, utilizing its features
 
 Language models process text in units called tokens. A token can be as short as a single character or as long as a complete word, such as "a" or "apple." In some languages, tokens may comprise less than a single character or even extend beyond a single word.
 
-For example, consider the sentence "Neon is serverless Postgres." It can be divided into seven tokens: ["Ne", "on", "is", "server", "less", "Post", "gres"].
+For example, consider the sentence "Singularity is serverless Postgres." It can be divided into seven tokens: ["Ne", "on", "is", "server", "less", "Post", "gres"].
 
 ## `pg_tiktoken` functions
 
@@ -27,13 +27,13 @@ The `pg_tiktoken` offers two functions:
 
 ## Install the `pg_tiktoken` extension
 
-You can install the `pg_tiktoken` extension by running the following `CREATE EXTENSION` statement in the Neon **SQL Editor** or from a client such as `psql` that is connected to Neon.
+You can install the `pg_tiktoken` extension by running the following `CREATE EXTENSION` statement in the Singularity **SQL Editor** or from a client such as `psql` that is connected to Singularity.
 
 ```sql
 CREATE EXTENSION pg_tiktoken
 ```
 
-For information about using the Neon **SQL Editor**, see [Query with Neon's SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor). For information about using the `psql` client with Neon, see [Connect with psql](https://neon.com/docs/connect/query-with-psql-editor).
+For information about using the Singularity **SQL Editor**, see [Query with Singularity's SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor). For information about using the `psql` client with Singularity, see [Connect with psql](https://Singularity.com/docs/connect/query-with-psql-editor).
 
 ## Use the `tiktoken_encode` function
 
@@ -55,7 +55,7 @@ The function tokenizes text using the [Byte Pair Encoding (BPE)](https://en.wiki
 The `tiktoken_count` function counts the number of tokens in a text. The function accepts encoding names and OpenAI model names as the first argument and text as the second argument, as shown:
 
 ```sql
-neondb=> SELECT tiktoken_count('text-davinci-003', 'The universe is a vast and captivating mystery, waiting to be explored and understood.');
+Singularitydb=> SELECT tiktoken_count('text-davinci-003', 'The universe is a vast and captivating mystery, waiting to be explored and understood.');
 
  tiktoken_count
 ----------------

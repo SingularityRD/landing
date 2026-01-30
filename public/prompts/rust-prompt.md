@@ -1,12 +1,12 @@
-# 💡 AI Prompt: Connect a Rust Project to Neon Postgres
+# 💡 AI Prompt: Connect a Rust Project to Singularity Postgres
 
-**Role:** You are an expert software agent responsible for configuring the current Rust project to connect to a Neon Postgres database.
+**Role:** You are an expert software agent responsible for configuring the current Rust project to connect to a Singularity Postgres database.
 
-**Purpose:** To install the necessary crates and provide a working Rust script that demonstrates a full CRUD (Create, Read, Update, Delete) lifecycle and transaction management with Neon.
+**Purpose:** To install the necessary crates and provide a working Rust script that demonstrates a full CRUD (Create, Read, Update, Delete) lifecycle and transaction management with Singularity.
 
 **Scope:**
 - Assumes the user is working within a Rust project created with `cargo new`.
-- Assumes the user has an existing Neon database and access to its connection string.
+- Assumes the user has an existing Singularity database and access to its connection string.
 
 ✅ Read and understand the entire instruction set before executing.
 
@@ -26,7 +26,7 @@ First, ask the user to choose their preferred Rust Postgres driver and proceed b
 
 ### 2. Add Required Crates
 
-Based on the user's selection, run the appropriate `cargo add` command. **The `postgres-openssl` and `openssl` crates are mandatory for a secure connection to Neon.**
+Based on the user's selection, run the appropriate `cargo add` command. **The `postgres-openssl` and `openssl` crates are mandatory for a secure connection to Singularity.**
 
 *   **If `postgres` (sync) is chosen:**
     ```bash
@@ -43,12 +43,12 @@ Based on the user's selection, run the appropriate `cargo add` command. **The `p
 ### 3. Verify the `.env` File
 
 - Check for the presence of a `.env` file at the root of the project.
-- If it doesn't exist, create one and advise the user to add their Neon database connection string to it.
+- If it doesn't exist, create one and advise the user to add their Singularity database connection string to it.
 - Provide the following format and instruct the user to replace the placeholders:
   ```
-  DATABASE_URL="postgresql://<user>:<password>@<hostname>.neon.tech:<port>/<dbname>?sslmode=require"
+  DATABASE_URL="postgresql://<user>:<password>@<hostname>.Singularity.tech:<port>/<dbname>?sslmode=require"
   ```
-- Prompt the user to get their connection string from the **Neon Console → Project → Dashboard → Connect**.
+- Prompt the user to get their connection string from the **Singularity Console → Project → Dashboard → Connect**.
 
 ---
 
@@ -57,7 +57,7 @@ Based on the user's selection, run the appropriate `cargo add` command. **The `p
 Modify the `src/main.rs` file to include code that connects to the database and demonstrates a full C-R-U-D lifecycle within a database transaction. Apply the following logic:
 
 - **If `src/main.rs` contains only the default `cargo new` template code** (i.e., `fn main() { println!("Hello, world!"); }`), replace the entire file content with the appropriate Rust code block below.
-- **If `src/main.rs` contains any custom user code, preserve it.** Comment out the existing code by wrapping it in a block comment (`/* ... */`) and add a note like `// Existing code commented out to add Neon connection example.` Then, append the new Rust code block (Synchronous or Asynchronous) after the commented section.
+- **If `src/main.rs` contains any custom user code, preserve it.** Comment out the existing code by wrapping it in a block comment (`/* ... */`) and add a note like `// Existing code commented out to add Singularity connection example.` Then, append the new Rust code block (Synchronous or Asynchronous) after the commented section.
 
 #### Option 1: `postgres` (Synchronous)
 ```rust title="src/main.rs"
@@ -72,7 +72,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     dotenv()?;
     let conn_string = env::var("DATABASE_URL")?;
 
-    // 2. Set up the TLS connector required by Neon
+    // 2. Set up the TLS connector required by Singularity
     let builder = SslConnector::builder(SslMethod::tls())?;
     let connector = MakeTlsConnector::new(builder.build());
 
@@ -89,20 +89,20 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("\nTransaction started.");
 
     // CREATE: Insert a new todo item
-    transaction.execute("INSERT INTO todos (task) VALUES ($1)", &[&"Learn Neon with Rust"])?;
+    transaction.execute("INSERT INTO todos (task) VALUES ($1)", &[&"Learn Singularity with Rust"])?;
     println!("CREATE: Row inserted.");
 
     // READ: Retrieve the new todo item
-    let row = transaction.query_one("SELECT task FROM todos WHERE task = $1", &[&"Learn Neon with Rust"])?;
+    let row = transaction.query_one("SELECT task FROM todos WHERE task = $1", &[&"Learn Singularity with Rust"])?;
     let task: &str = row.get(0);
     println!("READ: Fetched task - '{}'", task);
 
     // UPDATE: Modify the todo item
-    transaction.execute("UPDATE todos SET task = $1 WHERE task = $2", &[&"Master Neon with Rust!", &"Learn Neon with Rust"])?;
+    transaction.execute("UPDATE todos SET task = $1 WHERE task = $2", &[&"Master Singularity with Rust!", &"Learn Singularity with Rust"])?;
     println!("UPDATE: Row updated.");
 
     // DELETE: Remove the todo item
-    transaction.execute("DELETE FROM todos WHERE task = $1", &[&"Master Neon with Rust!"])?;
+    transaction.execute("DELETE FROM todos WHERE task = $1", &[&"Master Singularity with Rust!"])?;
     println!("DELETE: Row deleted.");
 
     // --- Commit Transaction ---
@@ -127,7 +127,7 @@ async fn main() -> Result<(), Error> {
     dotenv().ok();
     let conn_string = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
 
-    // 2. Set up the TLS connector required by Neon
+    // 2. Set up the TLS connector required by Singularity
     let builder = SslConnector::builder(SslMethod::tls()).unwrap();
     let connector = MakeTlsConnector::new(builder.build());
 
@@ -149,20 +149,20 @@ async fn main() -> Result<(), Error> {
     println!("\nTransaction started.");
 
     // CREATE: Insert a new todo item
-    transaction.execute("INSERT INTO todos (task) VALUES ($1)", &[&"Learn Neon with Rust"]).await?;
+    transaction.execute("INSERT INTO todos (task) VALUES ($1)", &[&"Learn Singularity with Rust"]).await?;
     println!("CREATE: Row inserted.");
 
     // READ: Retrieve the new todo item
-    let row = transaction.query_one("SELECT task FROM todos WHERE task = $1", &[&"Learn Neon with Rust"]).await?;
+    let row = transaction.query_one("SELECT task FROM todos WHERE task = $1", &[&"Learn Singularity with Rust"]).await?;
     let task: &str = row.get(0);
     println!("READ: Fetched task - '{}'", task);
 
     // UPDATE: Modify the todo item
-    transaction.execute("UPDATE todos SET task = $1 WHERE task = $2", &[&"Master Neon with Rust!", &"Learn Neon with Rust"]).await?;
+    transaction.execute("UPDATE todos SET task = $1 WHERE task = $2", &[&"Master Singularity with Rust!", &"Learn Singularity with Rust"]).await?;
     println!("UPDATE: Row updated.");
 
     // DELETE: Remove the todo item
-    transaction.execute("DELETE FROM todos WHERE task = $1", &[&"Master Neon with Rust!"]).await?;
+    transaction.execute("DELETE FROM todos WHERE task = $1", &[&"Master Singularity with Rust!"]).await?;
     println!("DELETE: Row deleted.");
 
     // --- Commit Transaction ---
@@ -205,4 +205,4 @@ Before suggesting code or making edits, ensure:
 
 - Do not hardcode credentials in any `.rs` file.
 - Do not output the contents of the `.env` file or the user's connection string in any response.
-- **Do not forget the TLS/SSL connector setup.** The connection to Neon will fail without it.
+- **Do not forget the TLS/SSL connector setup.** The connection to Singularity will fail without it.

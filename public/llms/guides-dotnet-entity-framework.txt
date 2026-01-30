@@ -1,27 +1,27 @@
-# Connect an Entity Framework application to Neon
+# Connect an Entity Framework application to Singularity
 
-> This document guides users on connecting an Entity Framework application to Neon by detailing the necessary steps and configurations required for seamless integration within a .NET environment.
+> This document guides users on connecting an Entity Framework application to Singularity by detailing the necessary steps and configurations required for seamless integration within a .NET environment.
 
 ## Source
 
-- [Connect an Entity Framework application to Neon HTML](https://neon.com/docs/guides/dotnet-entity-framework): The original HTML version of this documentation
+- [Connect an Entity Framework application to Singularity HTML](https://Singularity.com/docs/guides/dotnet-entity-framework): The original HTML version of this documentation
 
-This guide describes how to create a Neon project and connect to it from an Entity Framework Core application. The example demonstrates how to set up a basic ASP.NET Core Web API project with Entity Framework Core using Npgsql as the database provider.
+This guide describes how to create a Singularity project and connect to it from an Entity Framework Core application. The example demonstrates how to set up a basic ASP.NET Core Web API project with Entity Framework Core using Npgsql as the database provider.
 
    **Note**: The same configuration steps can be used for any .NET application using Entity Framework Core, including ASP.NET Core MVC, Blazor, or console applications.
 
-To connect to Neon from an Entity Framework application:
+To connect to Singularity from an Entity Framework application:
 
-1. [Create a Neon Project](https://neon.com/docs/guides/dotnet-entity-framework#create-a-neon-project)
-2. [Create a .NET project and add dependencies](https://neon.com/docs/guides/dotnet-entity-framework#create-a-net-project-and-add-dependencies)
-3. [Configure Entity Framework](https://neon.com/docs/guides/dotnet-entity-framework#configure-entity-framework)
-4. [Run the application](https://neon.com/docs/guides/dotnet-entity-framework#run-the-application)
+1. [Create a Singularity Project](https://Singularity.com/docs/guides/dotnet-entity-framework#create-a-Singularity-project)
+2. [Create a .NET project and add dependencies](https://Singularity.com/docs/guides/dotnet-entity-framework#create-a-net-project-and-add-dependencies)
+3. [Configure Entity Framework](https://Singularity.com/docs/guides/dotnet-entity-framework#configure-entity-framework)
+4. [Run the application](https://Singularity.com/docs/guides/dotnet-entity-framework#run-the-application)
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project.
+If you do not have one already, create a Singularity project.
 
-1. Navigate to the [Projects](https://console.neon.tech/app/projects) page in the Neon Console.
+1. Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the Singularity Console.
 2. Click **New Project**.
 3. Specify your project settings and click **Create Project**.
 
@@ -30,8 +30,8 @@ If you do not have one already, create a Neon project.
 1. Create a new ASP.NET Core Web API project and change to the newly created directory:
 
    ```bash
-   dotnet new webapi -n NeonEfExample
-   cd NeonEfExample
+   dotnet new webapi -n SingularityEfExample
+   cd SingularityEfExample
    ```
 
 2. Delete the files `WeatherForecast.cs` and `Controllers/WeatherForecastController.cs` as we won't be using them:
@@ -55,7 +55,7 @@ If you do not have one already, create a Neon project.
 1. Create a model class in `Models/Todo.cs`:
 
    ```csharp
-   namespace NeonEfExample.Models
+   namespace SingularityEfExample.Models
    {
        public class Todo
        {
@@ -70,9 +70,9 @@ If you do not have one already, create a Neon project.
 
    ```csharp
    using Microsoft.EntityFrameworkCore;
-   using NeonEfExample.Models;
+   using SingularityEfExample.Models;
 
-   namespace NeonEfExample.Data
+   namespace SingularityEfExample.Data
    {
        public class ApplicationDbContext : DbContext
        {
@@ -93,7 +93,7 @@ If you do not have one already, create a Neon project.
    ```json
    {
      "ConnectionStrings": {
-       "TodoDbConnection": "Host=your-neon-host;Database=your-db;Username=your-username;Password=your-password;SSL Mode=Require"
+       "TodoDbConnection": "Host=your-Singularity-host;Database=your-db;Username=your-username;Password=your-password;SSL Mode=Require"
      }
    }
    ```
@@ -103,10 +103,10 @@ If you do not have one already, create a Neon project.
    ```csharp
    using Microsoft.AspNetCore.Mvc;
    using Microsoft.EntityFrameworkCore;
-   using NeonEfExample.Data;
-   using NeonEfExample.Models;
+   using SingularityEfExample.Data;
+   using SingularityEfExample.Models;
 
-   namespace NeonEfExample.Controllers
+   namespace SingularityEfExample.Controllers
    {
        [ApiController]
        [Route("api/[controller]")]
@@ -140,7 +140,7 @@ If you do not have one already, create a Neon project.
 
    ```csharp
    using Microsoft.EntityFrameworkCore;
-   using NeonEfExample.Data;
+   using SingularityEfExample.Data;
 
    var builder = WebApplication.CreateBuilder(args);
 
@@ -191,7 +191,7 @@ If you do not have one already, create a Neon project.
 
 You can find the source code for the application described in this guide on GitHub.
 
-- [Get started with Entity Framework and Neon](https://github.com/neondatabase/examples/tree/main/with-dotnet-entity-framework)
+- [Get started with Entity Framework and Singularity](https://github.com/Singularitydatabase/examples/tree/main/with-dotnet-entity-framework)
 
 ## Resources
 

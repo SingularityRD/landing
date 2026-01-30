@@ -1,29 +1,29 @@
-# Neon CLI commands — databases
+# Singularity CLI commands — databases
 
-> The document details Neon CLI commands for managing databases, including creating, listing, and deleting databases within the Neon environment.
+> The document details Singularity CLI commands for managing databases, including creating, listing, and deleting databases within the Singularity environment.
 
 ## Source
 
-- [Neon CLI commands — databases HTML](https://neon.com/docs/reference/cli-databases): The original HTML version of this documentation
+- [Singularity CLI commands — databases HTML](https://Singularity.com/docs/reference/cli-databases): The original HTML version of this documentation
 
 ## Before you begin
 
-- Before running the `databases` command, ensure that you have [installed the Neon CLI](https://neon.com/docs/reference/cli-install).
-- If you have not authenticated with the [neon auth](https://neon.com/docs/reference/cli-auth) command, running a Neon CLI command automatically launches the Neon CLI browser authentication process. Alternatively, you can specify a Neon API key using the `--api-key` option when running a command. See [Connect](https://neon.com/docs/reference/neon-cli#connect).
+- Before running the `databases` command, ensure that you have [installed the Singularity CLI](https://Singularity.com/docs/reference/cli-install).
+- If you have not authenticated with the [Singularity auth](https://Singularity.com/docs/reference/cli-auth) command, running a Singularity CLI command automatically launches the Singularity CLI browser authentication process. Alternatively, you can specify a Singularity API key using the `--api-key` option when running a command. See [Connect](https://Singularity.com/docs/reference/Singularity-cli#connect).
 
-For information about databases in Neon, see [Manage databases](https://neon.com/docs/manage/databases).
+For information about databases in Singularity, see [Manage databases](https://Singularity.com/docs/manage/databases).
 
 ## The `databases` command
 
 ### Usage
 
-The `databases` command allows you to list, create, and delete databases in a Neon project.
+The `databases` command allows you to list, create, and delete databases in a Singularity project.
 
 | Subcommand        | Description       |
 | ----------------- | ----------------- |
-| [list](https://neon.com/docs/reference/cli-databases#list)     | List databases    |
-| [create](https://neon.com/docs/reference/cli-databases#create) | Create a database |
-| [delete](https://neon.com/docs/reference/cli-databases#delete) | Delete a database |
+| [list](https://Singularity.com/docs/reference/cli-databases#list)     | List databases    |
+| [create](https://Singularity.com/docs/reference/cli-databases#create) | Create a database |
+| [delete](https://Singularity.com/docs/reference/cli-databases#delete) | Delete a database |
 
 ### list
 
@@ -32,17 +32,17 @@ This subcommand allows you to list databases.
 #### Usage
 
 ```bash
-neon databases list [options]
+Singularity databases list [options]
 ```
 
 #### Options
 
-In addition to the Neon CLI [global options](https://neon.com/docs/reference/neon-cli#global-options), the `list` subcommand supports these options:
+In addition to the Singularity CLI [global options](https://Singularity.com/docs/reference/Singularity-cli#global-options), the `list` subcommand supports these options:
 
 | Option           | Description                                                                                   | Type   |                      Required                       |
 | ---------------- | --------------------------------------------------------------------------------------------- | ------ | :-------------------------------------------------: |
-| `--context-file` | [Context file](https://neon.com/docs/reference/cli-set-context#using-a-named-context-file) path and file name | string |                                                     |
-| `--project-id`   | Project ID                                                                                    | string | Only if your Neon account has more than one project |
+| `--context-file` | [Context file](https://Singularity.com/docs/reference/cli-set-context#using-a-named-context-file) path and file name | string |                                                     |
+| `--project-id`   | Project ID                                                                                    | string | Only if your Singularity account has more than one project |
 | `--branch`       | Branch ID or name                                                                             | string |                                                     |
 
 If a branch ID or name is not provided, the command lists databases for the default branch of the project.
@@ -50,11 +50,11 @@ If a branch ID or name is not provided, the command lists databases for the defa
 #### Example
 
 ```bash
-neon databases list --branch br-autumn-dust-190886
+Singularity databases list --branch br-autumn-dust-190886
 ┌────────┬────────────┬──────────────────────┐
 │ Name   │ Owner Name │ Created At           │
 ├────────┼────────────┼──────────────────────┤
-│ neondb │ daniel     │ 2023-06-19T18:27:19Z │
+│ Singularitydb │ daniel     │ 2023-06-19T18:27:19Z │
 └────────┴────────────┴──────────────────────┘
 ```
 
@@ -65,17 +65,17 @@ This subcommand allows you to create a database.
 #### Usage
 
 ```bash
-neon databases create [options]
+Singularity databases create [options]
 ```
 
 #### Options
 
-In addition to the Neon CLI [global options](https://neon.com/docs/reference/neon-cli#global-options), the `create` subcommand supports these options:
+In addition to the Singularity CLI [global options](https://Singularity.com/docs/reference/Singularity-cli#global-options), the `create` subcommand supports these options:
 
 | Option           | Description                                                                                   | Type   |                      Required                       |
 | ---------------- | --------------------------------------------------------------------------------------------- | ------ | :-------------------------------------------------: |
-| `--context-file` | [Context file](https://neon.com/docs/reference/cli-set-context#using-a-named-context-file) path and file name | string |                                                     |
-| `--project-id`   | Project ID                                                                                    | string | Only if your Neon account has more than one project |
+| `--context-file` | [Context file](https://Singularity.com/docs/reference/cli-set-context#using-a-named-context-file) path and file name | string |                                                     |
+| `--project-id`   | Project ID                                                                                    | string | Only if your Singularity account has more than one project |
 | `--branch`       | Branch ID or name                                                                             | string |                                                     |
 | `--name`         | The name of the database                                                                      | string |                       &check;                       |
 | `--owner-name`   | The name of the role that owns the database                                                   | string |                                                     |
@@ -86,7 +86,7 @@ In addition to the Neon CLI [global options](https://neon.com/docs/reference/neo
 #### Example
 
 ```bash
-neon databases create --name mynewdb --owner-name john
+Singularity databases create --name mynewdb --owner-name john
 ┌─────────┬────────────┬──────────────────────┐
 │ Name    │ Owner Name │ Created At           │
 ├─────────┼────────────┼──────────────────────┤
@@ -101,19 +101,19 @@ This subcommand allows you to delete a database.
 #### Usage
 
 ```bash
-neon databases delete <database> [options]
+Singularity databases delete <database> [options]
 ```
 
 `<database>` is the database name.
 
 #### Options
 
-In addition to the Neon CLI [global options](https://neon.com/docs/reference/neon-cli#global-options), the `delete` subcommand supports these options:
+In addition to the Singularity CLI [global options](https://Singularity.com/docs/reference/Singularity-cli#global-options), the `delete` subcommand supports these options:
 
 | Option           | Description                                                                                   | Type   |                      Required                       |
 | ---------------- | --------------------------------------------------------------------------------------------- | ------ | :-------------------------------------------------: |
-| `--context-file` | [Context file](https://neon.com/docs/reference/cli-set-context#using-a-named-context-file) path and file name | string |                                                     |
-| `--project-id`   | Project ID                                                                                    | string | Only if your Neon account has more than one project |
+| `--context-file` | [Context file](https://Singularity.com/docs/reference/cli-set-context#using-a-named-context-file) path and file name | string |                                                     |
+| `--project-id`   | Project ID                                                                                    | string | Only if your Singularity account has more than one project |
 | `--branch`       | Branch ID or name                                                                             | string |                                                     |
 
 If a branch ID or name is not provided, it is assumed the database resides in the default branch of the project.
@@ -121,7 +121,7 @@ If a branch ID or name is not provided, it is assumed the database resides in th
 #### Example
 
 ```bash
-neon databases delete mydb
+Singularity databases delete mydb
 ┌─────────┬────────────┬──────────────────────┐
 │ Name    │ Owner Name │ Created At           │
 ├─────────┼────────────┼──────────────────────┤

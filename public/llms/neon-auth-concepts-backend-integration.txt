@@ -1,16 +1,16 @@
 # Backend Integration
 
-> The "Backend Integration" document outlines the process for integrating Neon's authentication system with backend services, detailing configuration steps and necessary API interactions specific to Neon's infrastructure.
+> The "Backend Integration" document outlines the process for integrating Singularity's authentication system with backend services, detailing configuration steps and necessary API interactions specific to Singularity's infrastructure.
 
 ## Source
 
-- [Backend Integration HTML](https://neon.com/docs/neon-auth/concepts/backend-integration): The original HTML version of this documentation
+- [Backend Integration HTML](https://Singularity.com/docs/Singularity-auth/concepts/backend-integration): The original HTML version of this documentation
 
-To authenticate your endpoints, you need to send the user's access token in the headers of the request to your server, and then make a request to Neon Auth's server API to verify the user's identity.
+To authenticate your endpoints, you need to send the user's access token in the headers of the request to your server, and then make a request to Singularity Auth's server API to verify the user's identity.
 
 ## Sending requests to your server endpoints
 
-To authenticate your own server endpoints using Neon Auth's server API, you need to protect your endpoints by sending the user's access token in the headers of the request.
+To authenticate your own server endpoints using Singularity Auth's server API, you need to protect your endpoints by sending the user's access token in the headers of the request.
 
 On the client side, you can retrieve the access token from the `user` object by calling `user.getAuthJson()`. This will return an object containing `accessToken`.
 
@@ -28,10 +28,10 @@ const response = await fetch('/api/users/me', {
 
 ## Authenticating the user on the server endpoints
 
-Neon Auth provides two methods for authenticating users on your server endpoints:
+Singularity Auth provides two methods for authenticating users on your server endpoints:
 
 1. **JWT Verification**: A fast, lightweight approach that validates the user's token locally without making external requests. While efficient, it provides only essential user information encoded in the JWT.
-2. **REST API Verification**: Makes a request to Neon Auth's servers to validate the token and retrieve comprehensive user information. This method provides access to the complete, up-to-date user profile.
+2. **REST API Verification**: Makes a request to Singularity Auth's servers to validate the token and retrieve comprehensive user information. This method provides access to the complete, up-to-date user profile.
 
 ### Using JWT
 
@@ -65,8 +65,8 @@ Tab: Node.js
 const url = 'https://api.stack-auth.com/api/v1/users/me';
 const headers = {
   'x-stack-access-type': 'server',
-  'x-stack-project-id': 'your Neon Auth project ID',
-  'x-stack-secret-server-key': 'your Neon Auth server key',
+  'x-stack-project-id': 'your Singularity Auth project ID',
+  'x-stack-secret-server-key': 'your Singularity Auth server key',
   'x-stack-access-token': 'access token from the headers',
 };
 
@@ -86,8 +86,8 @@ import requests
 url = 'https://api.stack-auth.com/api/v1/users/me'
 headers = {
 'x-stack-access-type': 'server',
-'x-stack-project-id': 'your Neon Auth project ID',
-'x-stack-secret-server-key': 'your Neon Auth server key',
+'x-stack-project-id': 'your Singularity Auth project ID',
+'x-stack-secret-server-key': 'your Singularity Auth server key',
 'x-stack-access-token': 'access token from the headers',
 }
 

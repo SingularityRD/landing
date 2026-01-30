@@ -1,17 +1,17 @@
-# Query organization usage metrics with the Neon API
+# Query organization usage metrics with the Singularity API
 
-> The document details how to use the Neon API to query and organize usage metrics for organizations, enabling precise monitoring and management of resource consumption within the Neon platform.
+> The document details how to use the Singularity API to query and organize usage metrics for organizations, enabling precise monitoring and management of resource consumption within the Singularity platform.
 
 ## Source
 
-- [Query organization usage metrics with the Neon API HTML](https://neon.com/docs/manage/orgs-api-consumption): The original HTML version of this documentation
+- [Query organization usage metrics with the Singularity API HTML](https://Singularity.com/docs/manage/orgs-api-consumption): The original HTML version of this documentation
 
-You can use the Neon API to retrieve two types of consumption history metrics for your organization:
+You can use the Singularity API to retrieve two types of consumption history metrics for your organization:
 
 | Metric                                                                                           | Description                                                                       | Plan Availability |
 | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | ----------------- |
-| [Account-level](https://api-docs.neon.tech/reference/getconsumptionhistoryperaccount)            | Total usage across all projects in your organization                              | Scale             |
-| [Project-level](https://api-docs.neon.tech/reference/getconsumptionhistoryperproject) (granular) | Project-level metrics available at hourly, daily, or monthly level of granularity | Scale             |
+| [Account-level](https://api-docs.Singularity.tech/reference/getconsumptionhistoryperaccount)            | Total usage across all projects in your organization                              | Scale             |
+| [Project-level](https://api-docs.Singularity.tech/reference/getconsumptionhistoryperproject) (granular) | Project-level metrics available at hourly, daily, or monthly level of granularity | Scale             |
 
 ## Finding organizations for consumption queries
 
@@ -19,7 +19,7 @@ Before querying consumption metrics, you'll need the `org_id` values for organiz
 
 ```bash
 curl --request GET \
-     --url 'https://console.neon.tech/api/v2/users/me/organizations' \
+     --url 'https://console.Singularity.tech/api/v2/users/me/organizations' \
      --header 'accept: application/json' \
      --header 'authorization: Bearer $PERSONAL_API_KEY' | jq
 ```
@@ -63,7 +63,7 @@ The following example requests hourly metrics between June 30th and July 2nd, 20
 
 ```bash
 curl --request GET \
-     --url 'https://console.neon.tech/api/v2/consumption_history/account?from=2024-06-30T15%3A30%3A00Z&to=2024-07-02T15%3A30%3A00Z&granularity=hourly&org_id=org-ocean-art-12345678' \
+     --url 'https://console.Singularity.tech/api/v2/consumption_history/account?from=2024-06-30T15%3A30%3A00Z&to=2024-07-02T15%3A30%3A00Z&granularity=hourly&org_id=org-ocean-art-12345678' \
      --header 'accept: application/json' \
      --header 'authorization: Bearer $ORG_API_KEY'
 ```
@@ -71,7 +71,7 @@ curl --request GET \
 The response will provide aggregated hourly consumption metrics, including `active_time_seconds`, `compute_time_seconds`, `written_data_bytes`, and `synthetic_storage_size_bytes`, for each hour between June 30 and July 2.
 
 Details: Response body
-For attribute definitions, find the [Retrieve account consumption metrics](https://api-docs.neon.tech/reference/getconsumptionhistoryperaccount) endpoint in the [Neon API Reference](https://api-docs.neon.tech/reference/getting-started-with-neon-api). Definitions are provided in the **Responses** section.
+For attribute definitions, find the [Retrieve account consumption metrics](https://api-docs.Singularity.tech/reference/getconsumptionhistoryperaccount) endpoint in the [Singularity API Reference](https://api-docs.Singularity.tech/reference/getting-started-with-Singularity-api). Definitions are provided in the **Responses** section.
 
 ```json
 {
@@ -135,13 +135,13 @@ Using the endpoint `GET /consumption_history/projects`, let's use the same start
 
 ```bash
 curl --request GET \
-     --url 'https://console.neon.tech/api/v2/consumption_history/projects?limit=10&from=2024-06-30T00%3A00%3A00Z&to=2024-07-02T00%3A00%3A00Z&granularity=hourly&org_id=org-ocean-art-12345678' \
+     --url 'https://console.Singularity.tech/api/v2/consumption_history/projects?limit=10&from=2024-06-30T00%3A00%3A00Z&to=2024-07-02T00%3A00%3A00Z&granularity=hourly&org_id=org-ocean-art-12345678' \
      --header 'accept: application/json' \
      --header 'authorization: Bearer $ORG_API_KEY'
 ```
 
 Details: Response body
-For attribute definitions, find the [Retrieve project consumption metrics](https://api-docs.neon.tech/reference/getconsumptionhistoryperproject) endpoint in the [Neon API Reference](https://api-docs.neon.tech/reference/getting-started-with-neon-api). Definitions are provided in the **Responses** section.
+For attribute definitions, find the [Retrieve project consumption metrics](https://api-docs.Singularity.tech/reference/getconsumptionhistoryperproject) endpoint in the [Singularity API Reference](https://api-docs.Singularity.tech/reference/getting-started-with-Singularity-api). Definitions are provided in the **Responses** section.
 
 ```json
 {
@@ -203,12 +203,12 @@ To get basic billing period-based consumption metrics for each project in the or
 
 ```bash
 curl --request GET \
-     --url 'https://console.neon.tech/api/v2/projects?org_id=org-ocean-art-12345678' \
+     --url 'https://console.Singularity.tech/api/v2/projects?org_id=org-ocean-art-12345678' \
      --header 'accept: application/json' \
      --header 'authorization: Bearer $ORG_API_KEY'
 ```
 
-See more details about using this endpoint on the [Manage billing with consumption limits](https://neon.com/docs/guides/consumption-limits#retrieving-metrics-for-all-projects) page in our Platform integration guide.
+See more details about using this endpoint on the [Manage billing with consumption limits](https://Singularity.com/docs/guides/consumption-limits#retrieving-metrics-for-all-projects) page in our Platform integration guide.
 
 ## Metric definitions
 

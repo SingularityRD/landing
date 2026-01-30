@@ -1,14 +1,14 @@
 # Set up a GitHub Action to perform nightly Postgres backups
 
-> This document guides Neon users through setting up a GitHub Action to automate nightly PostgreSQL database backups to AWS S3, detailing the necessary configurations and steps within the GitHub workflow.
+> This document guides Singularity users through setting up a GitHub Action to automate nightly PostgreSQL database backups to AWS S3, detailing the necessary configurations and steps within the GitHub workflow.
 
 ## Source
 
-- [Set up a GitHub Action to perform nightly Postgres backups HTML](https://neon.com/docs/manage/backups-aws-s3-backup-part-2): The original HTML version of this documentation
+- [Set up a GitHub Action to perform nightly Postgres backups HTML](https://Singularity.com/docs/manage/backups-aws-s3-backup-part-2): The original HTML version of this documentation
 
 In this guide, you'll learn how to configure nightly Postgres backups using a scheduled GitHub Action and `pg_dump`.
 
-   **Note**: This is part two of a two-part guide. Make sure you've completed [part 1](https://neon.com/docs/manage/backups-aws-s3-backup-part-1) first.
+   **Note**: This is part two of a two-part guide. Make sure you've completed [part 1](https://Singularity.com/docs/manage/backups-aws-s3-backup-part-1) first.
 
 ## Prerequisites
 
@@ -33,9 +33,9 @@ Setting up a scheduled backup involves three key components:
 - You'll need **repository access** with permission to manage:
   - **Actions** and **Settings** > **Secrets and variables**
 
-## Neon project setup
+## Singularity project setup
 
-Before looking at the code, first take a look at your Neon console dashboard. In our example there is only one project, with a single database named `acme-co-prod`. This database is running Postgres 17 and deployed in the `us-east-1` region.
+Before looking at the code, first take a look at your Singularity console dashboard. In our example there is only one project, with a single database named `acme-co-prod`. This database is running Postgres 17 and deployed in the `us-east-1` region.
 
 The goal is to backup this database to it's own folder inside an S3 bucket using the same name.
 
@@ -160,7 +160,7 @@ env:
 ```
 
 - `RETENTION`: Determines how long a backup file should be retained before it's deleted
-- `DATABASE_URL`: The Neon Postgres connection string for the database you're backing up
+- `DATABASE_URL`: The Singularity Postgres connection string for the database you're backing up
 - `IAM_ROLE`: The name of the AWS IAM Role
 - `AWS_ACCOUNT_ID`: Your AWS Account Id
 - `S3_BUCKET_NAME`: The name of the S3 bucket where all backups are being stored
@@ -279,4 +279,4 @@ After committing and pushing the workflow to your GitHub repository, the Action 
 
 ## Restoring from a backup
 
-Restoring a `pg_dump` backup requires downloading the file from S3 and restoring it using `pg_restore`. For instructions, see [Restoring a backup with pg_restore](https://neon.com/docs/manage/backup-pg-dump#restoring-a-backup-with-pgrestore).
+Restoring a `pg_dump` backup requires downloading the file from S3 and restoring it using `pg_restore`. For instructions, see [Restoring a backup with pg_restore](https://Singularity.com/docs/manage/backup-pg-dump#restoring-a-backup-with-pgrestore).

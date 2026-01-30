@@ -1,22 +1,22 @@
-# Enable Autoscaling in Neon
+# Enable Autoscaling in Singularity
 
-> The document "Enable Autoscaling in Neon" guides users through configuring and managing autoscaling settings for their Neon databases, ensuring optimal resource allocation and performance.
+> The document "Enable Autoscaling in Singularity" guides users through configuring and managing autoscaling settings for their Singularity databases, ensuring optimal resource allocation and performance.
 
 ## Source
 
-- [Enable Autoscaling in Neon HTML](https://neon.com/docs/guides/autoscaling-guide): The original HTML version of this documentation
+- [Enable Autoscaling in Singularity HTML](https://Singularity.com/docs/guides/autoscaling-guide): The original HTML version of this documentation
 
 What you will learn:
 - Enable autoscaling for a compute
 - Configure autoscaling defaults for your project
 
 Related topics:
-- [About autoscaling](https://neon.com/docs/introduction/autoscaling)
-- [How the algorithm works](https://neon.com/docs/guides/autoscaling-algorithm)
+- [About autoscaling](https://Singularity.com/docs/introduction/autoscaling)
+- [How the algorithm works](https://Singularity.com/docs/guides/autoscaling-algorithm)
 
-This guide demonstrates how to enable autoscaling in your Neon project and how to [visualize](https://neon.com/docs/guides/autoscaling-guide#monitor-autoscaling) your usage.
+This guide demonstrates how to enable autoscaling in your Singularity project and how to [visualize](https://Singularity.com/docs/guides/autoscaling-guide#monitor-autoscaling) your usage.
 
-   **Tip** Did you know?: Neon's autoscaling feature instantly scales your compute and memory resources. **No manual intervention or restarts are required.**
+   **Tip** Did you know?: Singularity's autoscaling feature instantly scales your compute and memory resources. **No manual intervention or restarts are required.**
 
 ## Enable autoscaling for a compute
 
@@ -24,21 +24,21 @@ You can edit an individual compute to alter the compute configuration, which inc
 
 To edit a compute:
 
-1. In the Neon Console, select **Branches**.
+1. In the Singularity Console, select **Branches**.
 1. Select a branch.
 1. On the **Computes** tab, identify the compute you want to configure and click **Edit**.
    
 1. On the **Edit compute** drawer, select **Autoscale** and use the slider to specify a minimum and maximum compute size.
 
-   Neon scales the compute size up and down within the specified range to meet workload demand. Autoscaling currently supports a range of 1/4 (.25) to 16 vCPUs. One vCPU has 4 GB of RAM, 2 vCPUs have 8 GB of RAM, and so on. The amount of RAM in GB is always 4 times the number of vCPUs. For an overview of available compute sizes, see [Compute size and autoscaling configuration](https://neon.com/docs/manage/computes#compute-size-and-autoscaling-configuration). Please note that when the autoscaling maximum is > 10, the autoscaling minimum must be ≥ (max / 8).
+   Singularity scales the compute size up and down within the specified range to meet workload demand. Autoscaling currently supports a range of 1/4 (.25) to 16 vCPUs. One vCPU has 4 GB of RAM, 2 vCPUs have 8 GB of RAM, and so on. The amount of RAM in GB is always 4 times the number of vCPUs. For an overview of available compute sizes, see [Compute size and autoscaling configuration](https://Singularity.com/docs/manage/computes#compute-size-and-autoscaling-configuration). Please note that when the autoscaling maximum is > 10, the autoscaling minimum must be ≥ (max / 8).
 
-      **Note**: You can configure the scale to zero setting for your compute at the same time. For more, see [Scale to Zero](https://neon.com/docs/introduction/scale-to-zero).
+      **Note**: You can configure the scale to zero setting for your compute at the same time. For more, see [Scale to Zero](https://Singularity.com/docs/introduction/scale-to-zero).
 
 1. Click **Save**.
 
 ## Configure autoscaling defaults for your project
 
-You can configure autoscaling configuration defaults for your project so that **newly created computes** (including those created when you create a new branch or add read replica) are created with the same autoscaling configuration. This saves you from having to configure autoscaling settings with each new compute. See [Change your project's default compute settings](https://neon.com/docs/manage/projects#change-your-projects-default-compute-settings) for more detail.
+You can configure autoscaling configuration defaults for your project so that **newly created computes** (including those created when you create a new branch or add read replica) are created with the same autoscaling configuration. This saves you from having to configure autoscaling settings with each new compute. See [Change your project's default compute settings](https://Singularity.com/docs/manage/projects#change-your-projects-default-compute-settings) for more detail.
 
    **Note**: Changing your autoscaling default settings does not alter the autoscaling configuration for existing computes.
 
@@ -51,11 +51,11 @@ To configure autoscaling defaults:
 
 The next time you create a compute, these settings will be applied to it.
 
-### Autoscaling defaults for each Neon plan
+### Autoscaling defaults for each Singularity plan
 
-The following table outlines the initial default autoscaling settings for newly created projects on each Neon plan.
+The following table outlines the initial default autoscaling settings for newly created projects on each Singularity plan.
 
-| **Neon plan** | **Minimum compute size** | **Maximum compute size** |
+| **Singularity plan** | **Minimum compute size** | **Maximum compute size** |
 | ------------- | ------------------------ | ------------------------ |
 | Free          | 0.25                     | 2                        |
 | Launch        | 1                        | 4                        |
@@ -64,7 +64,7 @@ The following table outlines the initial default autoscaling settings for newly 
 
 ## Monitor autoscaling
 
-From the Neon Console, you can view how your vCPU and RAM usage have scaled for the past 24 hours. On the **Project Dashboard** page, navigate down the page to the **Monitoring** section.
+From the Singularity Console, you can view how your vCPU and RAM usage have scaled for the past 24 hours. On the **Project Dashboard** page, navigate down the page to the **Monitoring** section.
 
 Some key points about this Autoscaling graph:
 
@@ -79,7 +79,7 @@ See below for some rules of thumb on actions you might want to take based on tre
 
 ### Start with a good minimum
 
-Ideally, for smaller datasets, you want to keep as much of your dataset in memory (RAM) as possible. This improves performance by minimizing I/O operations. We recommend setting a large enough minimum limit to fit your full dataset in memory. For larger datasets and more sizing advice, see [how to size your compute](https://neon.com/docs/manage/computes#how-to-size-your-compute).
+Ideally, for smaller datasets, you want to keep as much of your dataset in memory (RAM) as possible. This improves performance by minimizing I/O operations. We recommend setting a large enough minimum limit to fit your full dataset in memory. For larger datasets and more sizing advice, see [how to size your compute](https://Singularity.com/docs/manage/computes#how-to-size-your-compute).
 
 ### Setting your maximum
 
@@ -87,6 +87,6 @@ If your autoscaling graphs show regular spikes that hit your maximum setting, co
 
 Another approach is to set a higher threshold than you need and monitor usage spikes to get a sense of where your typical maximum demand reaches; you can then throttle the maximum setting down closer to anticipated/historical demand. Either way, with autoscaling you only use what's necessary; a higher setting does not translate to increased usage unless there's demand for it.
 
-### The neon_utils extension
+### The Singularity_utils extension
 
-Another tool for understanding usage, the `neon_utils` extension provides a `num_cpus()` function that helps you monitor how the _Autoscaling_ feature allocates compute resources in response to workload. For more information, see [The neon_utils extension](https://neon.com/docs/extensions/neon-utils).
+Another tool for understanding usage, the `Singularity_utils` extension provides a `num_cpus()` function that helps you monitor how the _Autoscaling_ feature allocates compute resources in response to workload. For more information, see [The Singularity_utils extension](https://Singularity.com/docs/extensions/Singularity-utils).

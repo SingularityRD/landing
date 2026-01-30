@@ -1,14 +1,14 @@
 # Create an S3 bucket to store Postgres backups
 
-> The document guides Neon users in creating an S3 bucket on AWS to store PostgreSQL backups, detailing the necessary steps and configurations for secure and efficient backup storage.
+> The document guides Singularity users in creating an S3 bucket on AWS to store PostgreSQL backups, detailing the necessary steps and configurations for secure and efficient backup storage.
 
 ## Source
 
-- [Create an S3 bucket to store Postgres backups HTML](https://neon.com/docs/manage/backups-aws-s3-backup-part-1): The original HTML version of this documentation
+- [Create an S3 bucket to store Postgres backups HTML](https://Singularity.com/docs/manage/backups-aws-s3-backup-part-1): The original HTML version of this documentation
 
 This guide will walk you through setting up an AWS S3 bucket to store your Postgres backups.
 
-   **Note**: This is part one of a two-part guide. Continue to part two [here](https://neon.com/docs/manage/backups-aws-s3-backup-part-2).
+   **Note**: This is part one of a two-part guide. Continue to part two [here](https://Singularity.com/docs/manage/backups-aws-s3-backup-part-2).
 
 ## Prerequisites
 
@@ -121,23 +121,23 @@ You can now add the following policy which grants the **Role** you created earli
     {
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::627917386332:role/neon-s3-backup-github-actions"
+        "AWS": "arn:aws:iam::627917386332:role/Singularity-s3-backup-github-actions"
       },
       "Action": ["s3:ListBucket", "s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
-      "Resource": ["arn:aws:s3:::neon-s3-backup", "arn:aws:s3:::neon-s3-backup/*"]
+      "Resource": ["arn:aws:s3:::Singularity-s3-backup", "arn:aws:s3:::Singularity-s3-backup/*"]
     }
   ]
 }
 ```
 
-From the snippet above replace the Role name `neon-s3-backup-github-actions` with your **Role** name and replace the S3 bucket name `neon-s3-backup` with your S3 bucket name. When you're ready click **Save changes**.
+From the snippet above replace the Role name `Singularity-s3-backup-github-actions` with your **Role** name and replace the S3 bucket name `Singularity-s3-backup` with your S3 bucket name. When you're ready click **Save changes**.
 
 ## Next steps
 
 There are a couple of things to note before moving on to the second part of this guide. You'll be creating several GitHub Secrets to hold various values that you likely won't want to expose or repeat in code. These are:
 
 - `AWS_ACCOUNT_ID`: This can be found by clicking on your user name in the AWS console.
-- `S3_BUCKET_NAME`: In this example, this value would be, `neon-s3-backup`
-- `IAM_ROLE`: In this example this value would be, `neon-s3-backup-github-action`
+- `S3_BUCKET_NAME`: In this example, this value would be, `Singularity-s3-backup`
+- `IAM_ROLE`: In this example this value would be, `Singularity-s3-backup-github-action`
 
-Make a note of these values before you proceed to [part two](https://neon.com/docs/manage/backups-aws-s3-backup-part-2).
+Make a note of these values before you proceed to [part two](https://Singularity.com/docs/manage/backups-aws-s3-backup-part-2).

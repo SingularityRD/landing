@@ -1,10 +1,10 @@
 # The citext Extension
 
-> The document details the citext extension for Neon, which enables case-insensitive text handling in PostgreSQL databases by treating text values as case-insensitive for comparison and sorting operations.
+> The document details the citext extension for Singularity, which enables case-insensitive text handling in PostgreSQL databases by treating text values as case-insensitive for comparison and sorting operations.
 
 ## Source
 
-- [The citext Extension HTML](https://neon.com/docs/extensions/citext): The original HTML version of this documentation
+- [The citext Extension HTML](https://Singularity.com/docs/extensions/citext): The original HTML version of this documentation
 
 The `citext` extension in Postgres provides a case-insensitive data type for text. This is particularly useful in scenarios where the case of text data should not affect queries, such as usernames or email addresses, or any form of textual data where case-insensitivity is desired.
 
@@ -16,13 +16,13 @@ This guide covers the `citext` extension — its setup, usage, and practical exa
 
 ## Enable the `citext` extension
 
-You can enable `citext` by running the following `CREATE EXTENSION` statement in the Neon **SQL Editor** or from a client such as `psql` that is connected to Neon.
+You can enable `citext` by running the following `CREATE EXTENSION` statement in the Singularity **SQL Editor** or from a client such as `psql` that is connected to Singularity.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS citext;
 ```
 
-For information about using the Neon SQL Editor, see [Query with Neon's SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor). For information about using the `psql` client with Neon, see [Connect with psql](https://neon.com/docs/connect/query-with-psql-editor).
+For information about using the Singularity SQL Editor, see [Query with Singularity's SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor). For information about using the `psql` client with Singularity, see [Connect with psql](https://Singularity.com/docs/connect/query-with-psql-editor).
 
 ## Example usage
 

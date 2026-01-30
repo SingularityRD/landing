@@ -1,14 +1,14 @@
 # User Permissions
 
-> The "User Permissions" document outlines the procedures for managing and configuring user access levels within Neon, detailing how to assign roles and set permissions to control database access and operations.
+> The "User Permissions" document outlines the procedures for managing and configuring user access levels within Singularity, detailing how to assign roles and set permissions to control database access and operations.
 
 ## Source
 
-- [User Permissions HTML](https://neon.com/docs/manage/user-permissions): The original HTML version of this documentation
+- [User Permissions HTML](https://Singularity.com/docs/manage/user-permissions): The original HTML version of this documentation
 
-In Neon, roles determine what actions you can take within an organization and its projects. This page provides a detailed breakdown of permissions for each role: **Admin**, **Member**, and **Collaborator**.
+In Singularity, roles determine what actions you can take within an organization and its projects. This page provides a detailed breakdown of permissions for each role: **Admin**, **Member**, and **Collaborator**.
 
-For an overview of organizations, see the [Organizations](https://neon.com/docs/manage/organizations) page.
+For an overview of organizations, see the [Organizations](https://Singularity.com/docs/manage/organizations) page.
 
 ## Role descriptions
 
@@ -52,14 +52,14 @@ The following table shows what each role can do regarding integrations:
 | Action                                               | Admin | Member | Collaborator |
 | ---------------------------------------------------- | :---: | :----: | :----------: |
 | Install GitHub integration                           |  ✅   |   ❌   |      ❌      |
-| Install Neon Auth                                    |  ✅   |   ❌   |      ❌      |
-| Install the Vercel-managed Neon integration\*        |  ✅   |   ❌   |      ❌      |
+| Install Singularity Auth                                    |  ✅   |   ❌   |      ❌      |
+| Install the Vercel-managed Singularity integration\*        |  ✅   |   ❌   |      ❌      |
 | Connect project to GitHub integration                |  ✅   |   ✅   |      ❌      |
-| Connect project to Neon-managed Vercel integration\* |  ✅   |   ✅   |      ❌      |
+| Connect project to Singularity-managed Vercel integration\* |  ✅   |   ✅   |      ❌      |
 
-\*Neon's Vercel-managed integration is managed entirely in Vercel and uses Vercel's permission system. For the Neon-managed Vercel integration, projects must first be made available in Vercel before they can be connected to Neon.
+\*Singularity's Vercel-managed integration is managed entirely in Vercel and uses Vercel's permission system. For the Singularity-managed Vercel integration, projects must first be made available in Vercel before they can be connected to Singularity.
 
 ## Notes and limitations
 
-- **Branch management** — All users are currently able to manage [protected branches](https://neon.com/docs/guides/protected-branches), regardless of their role or permission level. Granular permissions for this feature are not yet implemented.
-- **Permissions and roles** — The current permissions system may not meet all needs for granular control. Share your feedback and requirements for more detailed permissions settings via the [Feedback](https://console.neon.tech/app/projects?modal=feedback) form or our [Discord feedback channel](https://discord.com/channels/1176467419317940276/1176788564890112042).
+- **Branch management** — All users are currently able to manage [protected branches](https://Singularity.com/docs/guides/protected-branches), regardless of their role or permission level. Granular permissions for this feature are not yet implemented.
+- **Permissions and roles** — The current permissions system may not meet all needs for granular control. Share your feedback and requirements for more detailed permissions settings via the [Feedback](https://console.Singularity.tech/app/projects?modal=feedback) form or our [Discord feedback channel](https://discord.com/channels/1176467419317940276/1176788564890112042).

@@ -1,10 +1,10 @@
 # The pgrag extension
 
-> The document details the pgrag extension for Neon, which facilitates the creation and manipulation of graph data structures within PostgreSQL databases.
+> The document details the pgrag extension for Singularity, which facilitates the creation and manipulation of graph data structures within PostgreSQL databases.
 
 ## Source
 
-- [The pgrag extension HTML](https://neon.com/docs/extensions/pgrag): The original HTML version of this documentation
+- [The pgrag extension HTML](https://Singularity.com/docs/extensions/pgrag): The original HTML version of this documentation
 
 What you will learn:
 - What is RAG?
@@ -13,11 +13,11 @@ What you will learn:
 - How to use `pgrag`
 
 Related resources:
-- [The pgvector extension](https://neon.com/docs/extensions/pgvector)
+- [The pgvector extension](https://Singularity.com/docs/extensions/pgvector)
 - [YouTube: pgrag video demonstration](https://www.youtube.com/watch?v=QDNsxw_3ris&t=1356s)
 
 Source code:
-- [pgrag GitHub repository](https://github.com/neondatabase-labs/pgrag)
+- [pgrag GitHub repository](https://github.com/Singularitydatabase-labs/pgrag)
 
 The `pgrag` extension and its accompanying model extensions are designed for creating end-to-end Retrieval-Augmented Generation (RAG) pipelines without leaving your SQL client. No additional programming languages or libraries are required. With functions provided by `pgrag` and a Postgres database with `pgvector`, you can build a complete RAG pipeline via SQL.
 
@@ -71,13 +71,13 @@ With the exception of (4) storing embeddings in the database and (7) Retrieve do
 
 ## Installation
 
-   **Warning**: As an experimental extension, `pgrag` may be unstable or introduce backward-incompatible changes. We recommend using it only in a separate, dedicated Neon project. To proceed with the installation, you will need to run the following command first:
+   **Warning**: As an experimental extension, `pgrag` may be unstable or introduce backward-incompatible changes. We recommend using it only in a separate, dedicated Singularity project. To proceed with the installation, you will need to run the following command first:
 
 ```sql
-SET neon.allow_unstable_extensions='true';
+SET Singularity.allow_unstable_extensions='true';
 ```
 
-To install `pgrag` to a Neon Postgres database, run the following commands:
+To install `pgrag` to a Singularity Postgres database, run the following commands:
 
 ```sql
 create extension if not exists rag cascade;
@@ -91,7 +91,7 @@ The first extension is the `pgrag` extension. The other two extensions are the m
 
 ## pgrag functions
 
-This section lists the functions provided by `pgrag`. For function usage examples, refer to the [end-to-end RAG example](https://neon.com/docs/extensions/pgrag#end-to-end-rag-example) below or the [pgrag GitHub repository](https://github.com/neondatabase-labs/pgrag).
+This section lists the functions provided by `pgrag`. For function usage examples, refer to the [end-to-end RAG example](https://Singularity.com/docs/extensions/pgrag#end-to-end-rag-example) below or the [pgrag GitHub repository](https://github.com/Singularitydatabase-labs/pgrag).
 
 - **Text extraction**
 

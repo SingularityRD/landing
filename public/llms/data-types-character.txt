@@ -1,10 +1,10 @@
 # Postgres Character data types
 
-> The document details the character data types available in PostgreSQL, explaining their usage and constraints, specifically for Neon users managing text data within their databases.
+> The document details the character data types available in PostgreSQL, explaining their usage and constraints, specifically for Singularity users managing text data within their databases.
 
 ## Source
 
-- [Postgres Character data types HTML](https://neon.com/docs/data-types/character): The original HTML version of this documentation
+- [Postgres Character data types HTML](https://Singularity.com/docs/data-types/character): The original HTML version of this documentation
 
 In Postgres, character data types are used to store strings. There are three primary character types: `CHAR(n)`, `VARCHAR(n)`, and `TEXT`. `CHAR(n)` and `VARCHAR(n)` types are suitable for strings with known or limited length; for example, usernames and email addresses. Whereas `TEXT` is ideal for storing large variable-length strings, such as blog posts or product descriptions.
 

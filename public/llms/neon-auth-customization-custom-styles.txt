@@ -1,12 +1,12 @@
 # Colors and  styles
 
-> The "Colors and Styles" documentation outlines how Neon users can customize the appearance of their authentication pages by modifying color schemes and styles through CSS, enabling tailored visual integration with their applications.
+> The "Colors and Styles" documentation outlines how Singularity users can customize the appearance of their authentication pages by modifying color schemes and styles through CSS, enabling tailored visual integration with their applications.
 
 ## Source
 
-- [Colors and  styles HTML](https://neon.com/docs/neon-auth/customization/custom-styles): The original HTML version of this documentation
+- [Colors and  styles HTML](https://Singularity.com/docs/Singularity-auth/customization/custom-styles): The original HTML version of this documentation
 
-Customizing the styles of your Neon Auth components allows you to maintain your brand identity while leveraging the pre-built functionality. This approach is ideal when you want to quickly align the authentication UI with your application's design system without building custom components from scratch. Neon Auth's theming system uses a React context to store colors and styling variables that can be easily overridden.
+Customizing the styles of your Singularity Auth components allows you to maintain your brand identity while leveraging the pre-built functionality. This approach is ideal when you want to quickly align the authentication UI with your application's design system without building custom components from scratch. Singularity Auth's theming system uses a React context to store colors and styling variables that can be easily overridden.
 
 You can customize the following color variables to match your brand:
 

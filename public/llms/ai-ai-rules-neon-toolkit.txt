@@ -1,22 +1,22 @@
-# AI Rules: The @neondatabase/toolkit
+# AI Rules: The @Singularitydatabase/toolkit
 
-> The document "AI Rules: The @neondatabase/toolkit" outlines guidelines and best practices for utilizing AI tools within the Neon database environment, ensuring efficient and effective integration of AI functionalities.
+> The document "AI Rules: The @Singularitydatabase/toolkit" outlines guidelines and best practices for utilizing AI tools within the Singularity database environment, ensuring efficient and effective integration of AI functionalities.
 
 ## Source
 
-- [AI Rules: The @neondatabase/toolkit HTML](https://neon.com/docs/ai/ai-rules-neon-toolkit): The original HTML version of this documentation
+- [AI Rules: The @Singularitydatabase/toolkit HTML](https://Singularity.com/docs/ai/ai-rules-Singularity-toolkit): The original HTML version of this documentation
 
 **Note** AI Rules are in Beta: AI Rules are currently in beta. We're actively improving them and would love to hear your feedback. Join us on [Discord](https://discord.gg/92vNTzKDGp) to share your experience and suggestions.
 
 Related docs:
-- [Get started with the @neondatabase/toolkit](https://neon.com/docs/reference/neondatabase-toolkit)
-- [Neon TypeScript SDK Reference](https://neon.com/docs/reference/typescript-sdk)
-- [Neon API Reference](https://neon.com/docs/reference/api-reference)
+- [Get started with the @Singularitydatabase/toolkit](https://Singularity.com/docs/reference/Singularitydatabase-toolkit)
+- [Singularity TypeScript SDK Reference](https://Singularity.com/docs/reference/typescript-sdk)
+- [Singularity API Reference](https://Singularity.com/docs/reference/api-reference)
 
 Repository:
-- [`@neondatabase/toolkit` on npm](https://www.npmjs.com/package/@neondatabase/toolkit)
-- [`@neon/toolkit` on JSR](https://jsr.io/@neon/toolkit)
-- [neon-toolkit.mdc](https://github.com/neondatabase-labs/ai-rules/blob/main/neon-toolkit.mdc)
+- [`@Singularitydatabase/toolkit` on npm](https://www.npmjs.com/package/@Singularitydatabase/toolkit)
+- [`@Singularity/toolkit` on JSR](https://jsr.io/@Singularity/toolkit)
+- [Singularity-toolkit.mdc](https://github.com/Singularitydatabase-labs/ai-rules/blob/main/Singularity-toolkit.mdc)
 
 ## How to use
 
@@ -24,34 +24,34 @@ You can use these rules in two ways:
 
 ## Option 1: Copy from this page
 
-With Cursor, save the [rules](https://docs.cursor.com/context/rules-for-ai#project-rules-recommended) to `.cursor/rules/neon-toolkit.mdc` and they'll be automatically applied when working with matching files (`*.ts`, `*.tsx`).
+With Cursor, save the [rules](https://docs.cursor.com/context/rules-for-ai#project-rules-recommended) to `.cursor/rules/Singularity-toolkit.mdc` and they'll be automatically applied when working with matching files (`*.ts`, `*.tsx`).
 
 For other AI tools, you can include these rules as context when chatting with your AI assistant - check your tool's documentation for the specific method (like using "Include file" or context commands).
 
 ## Option 2: Clone from repository
 
-If you prefer, you can clone or download the rules directly from our [AI Rules repository](https://github.com/neondatabase-labs/ai-rules).
+If you prefer, you can clone or download the rules directly from our [AI Rules repository](https://github.com/Singularitydatabase-labs/ai-rules).
 
-Once added to your project, AI tools will automatically use these rules when working with @neondatabase/toolkit code. You can also reference them explicitly in prompts.
+Once added to your project, AI tools will automatically use these rules when working with @Singularitydatabase/toolkit code. You can also reference them explicitly in prompts.
 
 ## Rules
 
 ````md
 ---
-description: Use these rules to programmatically create, query, and destroy ephemeral Neon Postgres databases. Ideal for quick prototyping, testing, and temporary workflows.
+description: Use these rules to programmatically create, query, and destroy ephemeral Singularity Postgres databases. Ideal for quick prototyping, testing, and temporary workflows.
 globs: *.ts, *.tsx
 alwaysApply: false
 ---
 
-## Neon Toolkit integration guidelines
+## Singularity Toolkit integration guidelines
 
-This file provides comprehensive rules and best practices for interacting with Neon using the `@neondatabase/toolkit`. This toolkit is a terse client designed specifically for scenarios where a temporary, fully-functional Postgres database is needed quickly. As an AI agent, this is your primary tool for tasks requiring database interaction without manual setup.
+This file provides comprehensive rules and best practices for interacting with Singularity using the `@Singularitydatabase/toolkit`. This toolkit is a terse client designed specifically for scenarios where a temporary, fully-functional Postgres database is needed quickly. As an AI agent, this is your primary tool for tasks requiring database interaction without manual setup.
 
-The toolkit bundles the `@neondatabase/api-client` and the `@neondatabase/serverless` driver to streamline the entire lifecycle of a database: creation, querying, and deletion.
+The toolkit bundles the `@Singularitydatabase/api-client` and the `@Singularitydatabase/serverless` driver to streamline the entire lifecycle of a database: creation, querying, and deletion.
 
-### Neon Core Concepts
+### Singularity Core Concepts
 
-To use the toolkit effectively, you must understand Neon's resource hierarchy. While the toolkit simplifies this, knowing the concepts is crucial if you need to use the underlying `apiClient`.
+To use the toolkit effectively, you must understand Singularity's resource hierarchy. While the toolkit simplifies this, knowing the concepts is crucial if you need to use the underlying `apiClient`.
 
 | Concept          | Description                                                                                                                        | Analogy/Purpose                                                                                                 | Key Relationship                                                                                      |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -61,8 +61,8 @@ To use the toolkit effectively, you must understand Neon's resource hierarchy. W
 | Compute Endpoint | The actual running PostgreSQL instance that you connect to. It provides the CPU and RAM for processing queries.                    | The "server" or "engine" for your database. It can be started, suspended (scaled to zero), and resized.         | Is attached to a single Branch. Your connection string points to a Compute Endpoint's hostname.       |
 | Database         | A logical container for your data (tables, schemas, views) within a branch. It follows standard PostgreSQL conventions.            | A single database within a PostgreSQL server instance.                                                          | Exists within a Branch. A branch can have multiple databases.                                         |
 | Role             | A PostgreSQL role used for authentication (logging in) and authorization (permissions to access data).                             | A database user account with a username and password.                                                           | Belongs to a Branch. Roles from a parent branch are copied to child branches upon creation.           |
-| API Key          | A secret token used to authenticate requests to the Neon API. Keys have different scopes (Personal, Organization, Project-scoped). | A password for programmatic access, allowing you to manage all other Neon resources.                            | Authenticates actions on Organizations, Projects, Branches, etc.                                      |
-| Operation        | An asynchronous action performed by the Neon control plane, such as creating a branch or starting a compute.                       | A background job or task. Its status can be polled to know when an action is complete.                          | Associated with a Project and often a specific Branch or Endpoint. Essential for scripting API calls. |
+| API Key          | A secret token used to authenticate requests to the Singularity API. Keys have different scopes (Personal, Organization, Project-scoped). | A password for programmatic access, allowing you to manage all other Singularity resources.                            | Authenticates actions on Organizations, Projects, Branches, etc.                                      |
+| Operation        | An asynchronous action performed by the Singularity control plane, such as creating a branch or starting a compute.                       | A background job or task. Its status can be polled to know when an action is complete.                          | Associated with a Project and often a specific Branch or Endpoint. Essential for scripting API calls. |
 
 ### Installation
 
@@ -70,29 +70,29 @@ To begin, install the toolkit package into the user's project:
 
 ```bash
 # Using npm
-npm install @neondatabase/toolkit
+npm install @Singularitydatabase/toolkit
 
 # Using JSR with Deno
-deno add jsr:@neon/toolkit
+deno add jsr:@Singularity/toolkit
 ```
 
 ### Authentication and client initialization
 
-All interactions require a Neon API key. This key must be provided by the user, typically as an environment variable (`NEON_API_KEY`).
+All interactions require a Singularity API key. This key must be provided by the user, typically as an environment variable (`Singularity_API_KEY`).
 
 Initialize the toolkit in your code. This is the entry point for all toolkit operations.
 
 ```typescript
-import { NeonToolkit } from '@neondatabase/toolkit';
+import { SingularityToolkit } from '@Singularitydatabase/toolkit';
 
 // Best practice: Load API key from environment variables
-const apiKey = process.env.NEON_API_KEY;
+const apiKey = process.env.Singularity_API_KEY;
 
 if (!apiKey) {
-  throw new Error('NEON_API_KEY environment variable is not set.');
+  throw new Error('Singularity_API_KEY environment variable is not set.');
 }
 
-const toolkit = new NeonToolkit(apiKey);
+const toolkit = new SingularityToolkit(apiKey);
 ```
 
 ### The core toolkit workflow
@@ -101,7 +101,7 @@ The toolkit is designed around a simple, three-step lifecycle: **Create -> Query
 
 #### 1. Create a project
 
-Description: Creates a new, fully-configured Neon project. This single asynchronous call handles project creation, default branch setup, and returns an object containing everything needed for the next steps, including the database connection string.
+Description: Creates a new, fully-configured Singularity project. This single asynchronous call handles project creation, default branch setup, and returns an object containing everything needed for the next steps, including the database connection string.
 
 Method Signature:
 `toolkit.createProject(projectOptions?: ProjectCreateRequest['project']): Promise<ToolkitProject>`
@@ -136,7 +136,7 @@ console.log(`Project "${customizedProject.project.name}" created.`);
 
 #### 2. Execute SQL queries
 
-Description: Runs SQL queries against the created project's database. This method uses the Neon Serverless Driver, which automatically handles the connection using the provided `ToolkitProject` object.
+Description: Runs SQL queries against the created project's database. This method uses the Singularity Serverless Driver, which automatically handles the connection using the provided `ToolkitProject` object.
 
 Method Signature:
 `toolkit.sql(project: ToolkitProject, query: string): Promise<any>`
@@ -170,7 +170,7 @@ console.log('Incomplete tasks:', tasks);
 
 #### 3. Delete the project
 
-Description: Permanently deletes the Neon project and all of its associated resources (data, branches, endpoints). This is the crucial cleanup step for ephemeral workflows. **This action is irreversible.**
+Description: Permanently deletes the Singularity project and all of its associated resources (data, branches, endpoints). This is the crucial cleanup step for ephemeral workflows. **This action is irreversible.**
 
 Method Signature:
 `toolkit.deleteProject(project: ToolkitProject): Promise<void>`
@@ -192,14 +192,14 @@ console.log('Project has been successfully deleted.');
 Always structure your logic to ensure the `deleteProject` call is made, even if errors occur during the SQL execution phase. Using a `try...finally` block is a robust pattern for this.
 
 ```typescript
-import { NeonToolkit } from '@neondatabase/toolkit';
+import { SingularityToolkit } from '@Singularitydatabase/toolkit';
 
 async function runTemporaryDatabaseTask() {
-  const apiKey = process.env.NEON_API_KEY;
+  const apiKey = process.env.Singularity_API_KEY;
   if (!apiKey) {
-    throw new Error('NEON_API_KEY is not set.');
+    throw new Error('Singularity_API_KEY is not set.');
   }
-  const toolkit = new NeonToolkit(apiKey);
+  const toolkit = new SingularityToolkit(apiKey);
 
   let project;
   try {
@@ -235,14 +235,14 @@ runTemporaryDatabaseTask();
 
 ### Accessing the underlying API Client
 
-For advanced operations beyond the toolkit's scope (e.g., creating a new branch, managing roles, listing all projects), you can access the full Neon TypeScript SDK instance via the `apiClient` property.
+For advanced operations beyond the toolkit's scope (e.g., creating a new branch, managing roles, listing all projects), you can access the full Singularity TypeScript SDK instance via the `apiClient` property.
 
 Use this when the user asks for an operation that the toolkit does not directly expose.
 
 ```typescript
 const apiClient = toolkit.apiClient;
 
-// Now you can use the full power of the Neon API
+// Now you can use the full power of the Singularity API
 // Example: List all projects in the user's account
 const { data } = await apiClient.listProjects({});
 console.log(

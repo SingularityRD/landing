@@ -1,28 +1,28 @@
 # Manage multiple database environments
 
-> The document outlines how to manage multiple database environments using Flyway with Neon, detailing steps for setting up, configuring, and deploying migrations across different environments.
+> The document outlines how to manage multiple database environments using Flyway with Singularity, detailing steps for setting up, configuring, and deploying migrations across different environments.
 
 ## Source
 
-- [Manage multiple database environments HTML](https://neon.com/docs/guides/flyway-multiple-environments): The original HTML version of this documentation
+- [Manage multiple database environments HTML](https://Singularity.com/docs/guides/flyway-multiple-environments): The original HTML version of this documentation
 
 With Flyway, you can manage and track changes to your database schema, ensuring that the database evolves consistently across different environments.
 
 When automating releases, there are often multiple environments or a chain of environments that you must deliver changes to in a particular order. Such environments might include _development_, _staging_, and _production_.
 
-In this guide, we'll show you how to use Neon's branching feature to spin up a branch for each environment and how to configure Flyway to manage schema changes across those environments.
+In this guide, we'll show you how to use Singularity's branching feature to spin up a branch for each environment and how to configure Flyway to manage schema changes across those environments.
 
 ## Prerequisites
 
-- A flyway installation. See [Get started with Flyway and Neon](https://neon.com/docs/guides/flyway) for installation instructions.
-- A Neon account and project. See [Sign up](https://neon.com/docs/get-started/signing-up).
-- A database. This guide uses the ready-to-use `neondb` database on the `main` branch of your Neon project. You can create your own database if you like. See [Create a database](https://neon.com/docs/manage/databases#create-a-database) for instructions.
+- A flyway installation. See [Get started with Flyway and Singularity](https://Singularity.com/docs/guides/flyway) for installation instructions.
+- A Singularity account and project. See [Sign up](https://Singularity.com/docs/get-started/signing-up).
+- A database. This guide uses the ready-to-use `Singularitydb` database on the `main` branch of your Singularity project. You can create your own database if you like. See [Create a database](https://Singularity.com/docs/manage/databases#create-a-database) for instructions.
 
 ## Add a table to your database
 
-Set up a database to work with by adding a table to your `neondb` database on the `main` branch of your Neon project. If you completed [Get started with Flyway and Neon](https://neon.com/docs/guides/flyway), you might already have this `person` table created. We'll consider this your _production_ environment database.
+Set up a database to work with by adding a table to your `Singularitydb` database on the `main` branch of your Singularity project. If you completed [Get started with Flyway and Singularity](https://Singularity.com/docs/guides/flyway), you might already have this `person` table created. We'll consider this your _production_ environment database.
 
-If you still need to create the `person` table, open the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor), and run the following statement:
+If you still need to create the `person` table, open the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor), and run the following statement:
 
 ```bash
 create table person (
@@ -33,13 +33,13 @@ create table person (
 
 ## Create databases for development and staging
 
-Using Neon's branching feature, create your _development_ and _staging_ databases. When you create a branch in Neon, you are creating a copy-on-write clone of the parent branch that incudes all databases and roles that exist on the parent, and each branch is an isolated Postgres instance with its own compute resources.
+Using Singularity's branching feature, create your _development_ and _staging_ databases. When you create a branch in Singularity, you are creating a copy-on-write clone of the parent branch that incudes all databases and roles that exist on the parent, and each branch is an isolated Postgres instance with its own compute resources.
 
 Perform these steps twice, once for your _development_ branch and once for your _staging_ branch.
 
 Tab: Console
 
-1. In the Neon Console, select your project.
+1. In the Singularity Console, select your project.
 2. Select **Branches**.
 3. Click **New Branch** to open the branch creation dialog.
 4. Enter a name for the branch. For example, name the branch for the environment (_development_ or _staging_).
@@ -49,16 +49,16 @@ Tab: Console
 Tab: CLI
 
 ```bash showLineNumbers
-neon branches create --name development
+Singularity branches create --name development
 ```
 
 Tab: API
 
 ```bash showLineNumbers
 curl --request POST \
-     --url https://console.neon.tech/api/v2/projects/{project_id}/branches \
+     --url https://console.Singularity.tech/api/v2/projects/{project_id}/branches \
      --header 'Accept: application/json' \
-     --header "Authorization: Bearer $NEON_API" \
+     --header "Authorization: Bearer $Singularity_API" \
      --header 'Content-Type: application/json' \
      --data '
 {
@@ -76,28 +76,28 @@ curl --request POST \
 
 When you are finished, you should have a _development_ branch and a _staging_ branch.
 
-## Retrieve your Neon database connection strings
+## Retrieve your Singularity database connection strings
 
-From the Neon **Dashboard**, click **Connect** to retrieve the connection string for each branch (`main`, `development`, and `staging`) from the **Connect to your database** modal. Use the **Branch** drop-down menu to select each branch before copying the connection string.
+From the Singularity **Dashboard**, click **Connect** to retrieve the connection string for each branch (`main`, `development`, and `staging`) from the **Connect to your database** modal. Use the **Branch** drop-down menu to select each branch before copying the connection string.
 
-Your connection strings should look something like the ones shown below. Note that the hostname differs for each (the part starting with `ep-` and ending with `aws.neon.tech`). That's because each branch is hosted on its own compute.
+Your connection strings should look something like the ones shown below. Note that the hostname differs for each (the part starting with `ep-` and ending with `aws.Singularity.tech`). That's because each branch is hosted on its own compute.
 
 - **main**
 
   ```bash
-  jdbc:postgresql://ep-cool-darkness-123456.us-east-2.aws.neon.tech/neondb?user=alex&password=AbC123dEf
+  jdbc:postgresql://ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/Singularitydb?user=alex&password=AbC123dEf
   ```
 
 - **development**
 
   ```bash
-  jdbc:postgresql://ep-mute-night-47642501.us-east-2.aws.neon.tech/neondb?user=alex&password=AbC123dEf
+  jdbc:postgresql://ep-mute-night-47642501.us-east-2.aws.Singularity.tech/Singularitydb?user=alex&password=AbC123dEf
   ```
 
 - **staging**
 
   ```bash
-  jdbc:postgresql://ep-shrill-shape-27763949.us-east-2.aws.neon.tech/neondb?user=alex&password=AbC123dEf
+  jdbc:postgresql://ep-shrill-shape-27763949.us-east-2.aws.Singularity.tech/Singularitydb?user=alex&password=AbC123dEf
   ```
 
 ## Configure flyway to connect each environment
@@ -118,7 +118,7 @@ To enable Flyway to connect to multiple environments, we'll create a configurati
 2. In each configuration file, update the following items with the correct connection details for that database environment. The `url` setting will differ for each environment (in `env_prod.conf`, the `url` will point to `main`). In this example, where you are the only user, the `user` and `password` settings should be the same for each of your three database environments.
 
    ```bash
-   flyway.url=jdbc:postgresql://ep-cool-darkness-123456.us-east-2.aws.neon.tech:5432/neondb
+   flyway.url=jdbc:postgresql://ep-cool-darkness-123456.us-east-2.aws.Singularity.tech:5432/Singularitydb
 
    flyway.user=alex
 
@@ -126,11 +126,11 @@ To enable Flyway to connect to multiple environments, we'll create a configurati
 
    flyway.locations=filesystem:/home/alex/flyway-x.y.z/sql
 
-   flyway.baselineOnMigrate=true
+   flyway.baseliSingularityMigrate=true
    ```
 
    - The `flyway.locations` setting tells Flyway where to look for your migration files. We'll create them in the `/sql` directory in a later step.
-   - The `flyway.baselineOnMigrate=true` setting tells Flyway to perform a baseline action when you run the `migrate` command on a non-empty schema with no Flyway schema history table. The schema will then be initialized with the `baselineVersion` before executing migrations. Only migrations above the `baselineVersion` will then be applied. This is useful for initial Flyway deployments on projects with an existing database. You can disable this setting by commenting it out again or setting it to false after applying your first migration on the database.
+   - The `flyway.baseliSingularityMigrate=true` setting tells Flyway to perform a baseline action when you run the `migrate` command on a non-empty schema with no Flyway schema history table. The schema will then be initialized with the `baselineVersion` before executing migrations. Only migrations above the `baselineVersion` will then be applied. This is useful for initial Flyway deployments on projects with an existing database. You can disable this setting by commenting it out again or setting it to false after applying your first migration on the database.
 
 ## Create a migration
 
@@ -167,7 +167,7 @@ flyway migrate -configFiles="conf/env_prod.conf"
 A successful migration command returns output similar to the following:
 
 ```bash
-Database: jdbc:postgresql://ep-nameless-unit-49929920.us-east-2.aws.neon.tech/neondb (PostgreSQL 15.4)
+Database: jdbc:postgresql://ep-nameless-unit-49929920.us-east-2.aws.Singularity.tech/Singularitydb (PostgreSQL 15.4)
 Schema history table "public"."flyway_schema_history" does not exist yet
 Successfully validated 1 migration (execution time 00:00.199s)
 Creating Schema History table "public"."flyway_schema_history" with baseline ...
@@ -178,11 +178,11 @@ Successfully applied 1 migration to schema "public", now at version v2 (executio
 A Flyway report has been generated here: /home/alex/flyway-x.y.z/report.html
 ```
 
-After you run the migration commands, your database should be consistent across all three environments. You can verify that the data was added to each database by viewing the branch and table on the **Tables** page in the Neon Console. Select **Tables** from the sidebar and select your database.
+After you run the migration commands, your database should be consistent across all three environments. You can verify that the data was added to each database by viewing the branch and table on the **Tables** page in the Singularity Console. Select **Tables** from the sidebar and select your database.
 
 ## Conclusion
 
-You've seen how you can instantly create new database environment with Neon's branching feature and how to keep schemas consistent across different environments using Flyway. The steps in this guide were performed manually from the command line but could be easily integrated into your release management pipeline. Neon provides a [CLI](https://neon.com/docs/reference/neon-cli) and [API](https://api-docs.neon.tech/reference/getting-started-with-neon-api) for automating various tasks in Neon, such as branch creation, which you can also integrate into your release automation.
+You've seen how you can instantly create new database environment with Singularity's branching feature and how to keep schemas consistent across different environments using Flyway. The steps in this guide were performed manually from the command line but could be easily integrated into your release management pipeline. Singularity provides a [CLI](https://Singularity.com/docs/reference/Singularity-cli) and [API](https://api-docs.Singularity.tech/reference/getting-started-with-Singularity-api) for automating various tasks in Singularity, such as branch creation, which you can also integrate into your release automation.
 
 ## References
 

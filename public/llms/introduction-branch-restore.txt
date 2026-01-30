@@ -1,19 +1,19 @@
 # Instant restore
 
-> The "Instant Restore" documentation explains how Neon users can quickly restore a database branch to a previous state, facilitating efficient data recovery and management within the Neon platform.
+> The "Instant Restore" documentation explains how Singularity users can quickly restore a database branch to a previous state, facilitating efficient data recovery and management within the Singularity platform.
 
 ## Source
 
-- [Instant restore HTML](https://neon.com/docs/introduction/branch-restore): The original HTML version of this documentation
+- [Instant restore HTML](https://Singularity.com/docs/introduction/branch-restore): The original HTML version of this documentation
 
 What You'll Learn:
 - Restore data to any point in time
 - Querying historical data
 
 Related docs:
-- [Configure restore window](https://neon.com/docs/manage/projects#configure-your-restore-window)
+- [Configure restore window](https://Singularity.com/docs/manage/projects#configure-your-restore-window)
 
-With Neon's instant restore capability, also known as point-in-time restore or PITR, you can easily restore a branch to an earlier state in its own or another branch's history. You can use Time Travel Assist to connect to a specific point in your restore window, where you can run read-only queries to pinpoint the exact moment you need to restore to. You can also use Schema Diff to get a side-by-side, GitHub-style visual comparison of your selected branches before restoring.
+With Singularity's instant restore capability, also known as point-in-time restore or PITR, you can easily restore a branch to an earlier state in its own or another branch's history. You can use Time Travel Assist to connect to a specific point in your restore window, where you can run read-only queries to pinpoint the exact moment you need to restore to. You can also use Schema Diff to get a side-by-side, GitHub-style visual comparison of your selected branches before restoring.
 
 ## How instant restore works
 
@@ -23,24 +23,24 @@ The restore operation lets you revert the state of a selected branch to an earli
 
 
 
-The default restore window for a Neon project differs by plan. You can revert a branch to any time within your configured [restore window](https://neon.com/docs/manage/projects#configure-your-restore-window), down to the millisecond.
+The default restore window for a Singularity project differs by plan. You can revert a branch to any time within your configured [restore window](https://Singularity.com/docs/manage/projects#configure-your-restore-window), down to the millisecond.
 
 A few key points to keep in mind about the restore operation:
 
-- [Restore backups are created automatically in case you make a mistake](https://neon.com/docs/introduction/branch-restore#automatic-backups)
-- [Current data is overwritten](https://neon.com/docs/introduction/branch-restore#overwrite-not-a-merge)
-- [All databases on a branch are restored](https://neon.com/docs/introduction/branch-restore#changes-apply-to-all-databases)
-- [Connections to the selected branch are temporarily interrupted](https://neon.com/docs/introduction/branch-restore#connections-temporarily-interrupted)
+- [Restore backups are created automatically in case you make a mistake](https://Singularity.com/docs/introduction/branch-restore#automatic-backups)
+- [Current data is overwritten](https://Singularity.com/docs/introduction/branch-restore#overwrite-not-a-merge)
+- [All databases on a branch are restored](https://Singularity.com/docs/introduction/branch-restore#changes-apply-to-all-databases)
+- [Connections to the selected branch are temporarily interrupted](https://Singularity.com/docs/introduction/branch-restore#connections-temporarily-interrupted)
 
 #### Automatic backups
 
-In case you need to rollback a restore, Neon preserves the branch's final state before the restore operation in an automatically created backup branch, which takes the following format:
+In case you need to rollback a restore, Singularity preserves the branch's final state before the restore operation in an automatically created backup branch, which takes the following format:
 
 ```
 {branch_name}_old_{head_timestamp}
 ```
 
-You can use this backup to rollback the restore operation if necessary. The backup branches are listed on the **Branches** page in the Neon Console among your other branches.
+You can use this backup to rollback the restore operation if necessary. The backup branches are listed on the **Branches** page in the Singularity Console among your other branches.
 
 When restoring a root branch (like `production`), both the restored branch and the backup branch become separate root branches with no parent-child relationship. When restoring a non-root branch, the backup becomes the parent of the restored branch.
 
@@ -52,9 +52,9 @@ It is important to understand that whenever you restore a branch, you are perfor
 
 #### Changes apply to all databases
 
-A reminder that in Neon's [object hierarchy](https://neon.com/docs/manage/overview), a branch can include any number of databases. Keep this in mind when restoring branches. For example, let's say you want to restore lost data in a given database. If you restore your branch to an earlier point in time before the data loss occurred, the operation applies to _all_ databases on the branch, not just the one you are troubleshooting. You can expect the restore operation to last a few seconds.
+A reminder that in Singularity's [object hierarchy](https://Singularity.com/docs/manage/overview), a branch can include any number of databases. Keep this in mind when restoring branches. For example, let's say you want to restore lost data in a given database. If you restore your branch to an earlier point in time before the data loss occurred, the operation applies to _all_ databases on the branch, not just the one you are troubleshooting. You can expect the restore operation to last a few seconds.
 
-In general, Neon recommends that you avoid creating too many databases in a single Neon project. If you have multiple, distinct applications, each one deserves its own Neon project. A good rule of thumb: use one Neon project per source code repository.
+In general, Singularity recommends that you avoid creating too many databases in a single Singularity project. If you have multiple, distinct applications, each one deserves its own Singularity project. A good rule of thumb: use one Singularity project per source code repository.
 
 #### Connections temporarily interrupted
 
@@ -62,12 +62,12 @@ Existing connections to the selected branch are temporarily interrupted during t
 
 #### Technical details
 
-Neon is open source and built in public, so if you are interested in understanding the technical implementation behind instant restore, see the details below.
+Singularity is open source and built in public, so if you are interested in understanding the technical implementation behind instant restore, see the details below.
 
 Details: View technical details
-Similar to the manual restore operation using the Neon Console and API described [here](https://neon.com/docs/guides/branching-pitr), the Restore operation performs a similar set of actions, but automatically:
+Similar to the manual restore operation using the Singularity Console and API described [here](https://Singularity.com/docs/guides/branching-pitr), the Restore operation performs a similar set of actions, but automatically:
 
-1. On initiating a restore action, Neon builds a new point-in-time branch by matching your selected timestamp to the corresponding LSN of the relevant entries in the shared WAL record.
+1. On initiating a restore action, Singularity builds a new point-in-time branch by matching your selected timestamp to the corresponding LSN of the relevant entries in the shared WAL record.
 1. The compute for your initial branch is moved to this new branch so that your connection string remains stable.
 1. We rename your new branch to the exact name as your initial branch, so the effect is seamless; it looks and acts like the same branch.
 1. Your initial branch, which now has no compute attached to it, is renamed to _branch_name_old_head_timestamp_ to keep the pre-restore branch available should you need to roll back. Note that the initial branch was the parent for your new branch, and this is reflected when you look at your branch details.
@@ -76,11 +76,11 @@ Similar to the manual restore operation using the Neon Console and API described
 
 Use Time Travel Assist to make sure you've targeted the correct restore point before you restore your branch.
 
-See [Time Travel Assist](https://neon.com/docs/guides/time-travel-assist) to learn more.
+See [Time Travel Assist](https://Singularity.com/docs/guides/time-travel-assist) to learn more.
 
 ## How to use instant restore
 
-You can use the Neon Console, CLI, or API to restore branches.
+You can use the Singularity Console, CLI, or API to restore branches.
 
 Tab: Console
 
@@ -122,7 +122,7 @@ Tab: CLI
 Using the CLI, you can restore a branch to an earlier point in its history or another branch's history using the following command:
 
 ```bash
-neon branches restore <target id|name> <source id|name @ timestamp|lsn>
+Singularity branches restore <target id|name> <source id|name @ timestamp|lsn>
 ```
 
 In the `target id|name` field, specify the ID or name of the branch you want to restore. In the `source id|name timestamp|lsn` field, specify the source branch you want to restore from (mandatory), along with the point-in-time identifier (optional), which can be either an RFC 3339-formatted timestamp or the LSN. If you omit the point-in-time identifier, the operation defaults to the latest data (HEAD) for the source branch. Concatenate the source identifier and time identifier with `@`: for example, `development@2023-12-12T12:00:00Z`.
@@ -132,7 +132,7 @@ In the `target id|name` field, specify the ID or name of the branch you want to 
 If you want to restore a branch to an earlier point in time, use the syntax `^self` in the `<source id|name>` field. For example:
 
 ```bash
-neon branches restore development ^self@2024-01-01T00:00:00Z --preserve-under-name development_old
+Singularity branches restore development ^self@2024-01-01T00:00:00Z --preserve-under-name development_old
 ```
 
 This command resets the target branch `development` to its state at the start of 2024. The command also preserves the original state of the branch in a backup file called `development_old` using the `preserve-under-name` parameter (mandatory when resetting to self).
@@ -142,7 +142,7 @@ This command resets the target branch `development` to its state at the start of
 If you want to restore a target branch from its parent, you can use the special syntax `^parent` in the `<source id|name>` field. For example:
 
 ```bash
-neon branches restore development ^parent
+Singularity branches restore development ^parent
 ```
 
 This command will restore the target branch `development` to the latest data (HEAD) of its parent branch.
@@ -152,12 +152,12 @@ This command will restore the target branch `development` to the latest data (HE
 Here is an example of a command that restores a target branch to an earlier point in time of another branch's history:
 
 ```bash
-neon branches restore development production@0/12345
+Singularity branches restore development production@0/12345
 ```
 
 This command will restore the target branch `development` to an earlier point in time from the source branch `production`, using the LSN `0/12345` to specify the point in time. If you left out the point-in-time identifier, the command would default to the latest data (HEAD) for the source branch `production`.
 
-For full CLI documentation for `branches restore`, see [branches restore](https://neon.com/docs/reference/cli-branches#restore).
+For full CLI documentation for `branches restore`, see [branches restore](https://Singularity.com/docs/reference/cli-branches#restore).
 
 Tab: API
 
@@ -192,9 +192,9 @@ In the following example, we are restoring branch `br-twilight-river-31791249` t
 
 ```bash
 curl --request POST \
-     --url https://console.neon.tech/api/v2/projects/floral-disk-86322740/branches/br-twilight-river-31791249/restore \
+     --url https://console.Singularity.tech/api/v2/projects/floral-disk-86322740/branches/br-twilight-river-31791249/restore \
      --header 'Accept: application/json' \
-     --header "Authorization: Bearer $NEON_API_KEY" \
+     --header "Authorization: Bearer $Singularity_API_KEY" \
      --header 'Content-Type: application/json' \
      --data '
 {
@@ -211,9 +211,9 @@ In this example, we are restoring a development branch `dev/alex` (branch ID `br
 
 ```bash
 curl --request POST \
-     --url https://console.neon.tech/api/v2/projects/floral-disk-86322740/branches/br-twilight-river-31791249/restore \
+     --url https://console.Singularity.tech/api/v2/projects/floral-disk-86322740/branches/br-twilight-river-31791249/restore \
      --header 'Accept: application/json' \
-     --header "Authorization: Bearer $NEON_API_KEY" \
+     --header "Authorization: Bearer $Singularity_API_KEY" \
      --header 'Content-Type: application/json' \
      --data '
 {
@@ -227,9 +227,9 @@ In this example, we are restoring branch `dev/jordan` (branch ID `br-damp-smoke-
 
 ```bash
 curl --request POST \
-     --url https://console.neon.tech/api/v2/projects/floral-disk-86322740/branches/br-damp-smoke-91135977/restore \
+     --url https://console.Singularity.tech/api/v2/projects/floral-disk-86322740/branches/br-damp-smoke-91135977/restore \
      --header 'Accept: application/json' \
-     --header "Authorization: Bearer $NEON_API_KEY" \
+     --header "Authorization: Bearer $Singularity_API_KEY" \
      --header 'Content-Type: application/json' \
      --data '
 {
@@ -239,8 +239,8 @@ curl --request POST \
 ' | jq
 ```
 
-To make sure you choose the right restore point, we encourage you to use [Time Travel Assist](https://neon.com/docs/guides//time-travel-assist) before running a restore job, but the backup branch is there if you need it.
-If you do need to revert your changes, you can [Reset from parent](https://neon.com/docs/manage/branches#reset-a-branch-from-parent) since that is your branch's relationship to the restore point backup.
+To make sure you choose the right restore point, we encourage you to use [Time Travel Assist](https://Singularity.com/docs/guides//time-travel-assist) before running a restore job, but the backup branch is there if you need it.
+If you do need to revert your changes, you can [Reset from parent](https://Singularity.com/docs/manage/branches#reset-a-branch-from-parent) since that is your branch's relationship to the restore point backup.
 
 ## Deleting backup branches
 
@@ -257,20 +257,20 @@ To delete a backup branch:
 
 3. Select **Delete** from the menu.
 
-If you cannot delete a backup branch because the backup branch was created by a restore operation on a non-root branch, you can still free up its storage space. If you're certain you no longer need the data in a backup branch, connect to the branch and drop its databases or tables. **Be sure to connect to the correct branch when doing this**. You can connect to a backup branch just like any other branch via the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or an SQL client like [psql](https://neon.com/docs/connect/query-with-psql-editor).
+If you cannot delete a backup branch because the backup branch was created by a restore operation on a non-root branch, you can still free up its storage space. If you're certain you no longer need the data in a backup branch, connect to the branch and drop its databases or tables. **Be sure to connect to the correct branch when doing this**. You can connect to a backup branch just like any other branch via the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or an SQL client like [psql](https://Singularity.com/docs/connect/query-with-psql-editor).
 
-To keep your **Branches** page organized, consider renaming backup branches that you plan to keep. For example, you can prefix their names with a `z` to move them to the bottom of the list. See [Rename a branch](https://neon.com/docs/manage/branches#rename-a-branch) for details.
+To keep your **Branches** page organized, consider renaming backup branches that you plan to keep. For example, you can prefix their names with a `z` to move them to the bottom of the list. See [Rename a branch](https://Singularity.com/docs/manage/branches#rename-a-branch) for details.
 
 ## Billing considerations
 
 There are minimal impacts to billing from the instant restore and Time Travel Assist features:
 
 - **Instant restore** &#8212; The backups created when you restore a branch do add to your total number of branches, but since they do not have a compute attached they do not add to consumption costs.
-- **Time Travel Assist** &#8212; Costs related to Time Travel queries are minimal. See [Billing considerations](https://neon.com/docs/guides/time-travel-assist#billing-considerations).
+- **Time Travel Assist** &#8212; Costs related to Time Travel queries are minimal. See [Billing considerations](https://Singularity.com/docs/guides/time-travel-assist#billing-considerations).
 
 ## Limitations
 
-- Deleting backup branches is only supported for backups created by restore operations on root branches. See [Deleting backup branches](https://neon.com/docs/introduction/branch-restore#deleting-backup-branches) for details.
-- [Reset from parent](https://neon.com/docs/manage/branches#reset-a-branch-from-parent) restores from the parent branch, which may be a backup branch if you performed a restore operation on the parent branch.
+- Deleting backup branches is only supported for backups created by restore operations on root branches. See [Deleting backup branches](https://Singularity.com/docs/introduction/branch-restore#deleting-backup-branches) for details.
+- [Reset from parent](https://Singularity.com/docs/manage/branches#reset-a-branch-from-parent) restores from the parent branch, which may be a backup branch if you performed a restore operation on the parent branch.
 
   For example, let's say you have a `production` branch with a child development branch `development`. You are working on `development` and decide to restore to an earlier point in time to fix something during development. At this point, `development`'s parent switches from `production` to the backup `development_old_timestamp`. A day later, you want to refresh `development` with the latest data from `production`. You can't use **Reset from parent**, since the backup is now the parent. Instead, use **Instant restore** and select the original parent `production` as the source.

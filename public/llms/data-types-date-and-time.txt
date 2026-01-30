@@ -1,10 +1,10 @@
 # Postgres Date and Time data types
 
-> The document outlines the various date and time data types available in PostgreSQL, detailing their syntax, usage, and functions, specifically tailored for Neon users to manage temporal data effectively.
+> The document outlines the various date and time data types available in PostgreSQL, detailing their syntax, usage, and functions, specifically tailored for Singularity users to manage temporal data effectively.
 
 ## Source
 
-- [Postgres Date and Time data types HTML](https://neon.com/docs/data-types/date-and-time): The original HTML version of this documentation
+- [Postgres Date and Time data types HTML](https://Singularity.com/docs/data-types/date-and-time): The original HTML version of this documentation
 
 Postgres offers a rich set of native data types for storing date and time values. Both moment-in-time and interval data can be stored, and Postgres provides a variety of functions to query and manipulate them.
 

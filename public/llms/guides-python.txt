@@ -1,29 +1,29 @@
-# Connect a Python application to Neon Postgres
+# Connect a Python application to Singularity Postgres
 
-> The document outlines the steps to connect a Python application to a Neon database using the Psycopg library, detailing the necessary configurations and code examples for seamless integration.
+> The document outlines the steps to connect a Python application to a Singularity database using the Psycopg library, detailing the necessary configurations and code examples for seamless integration.
 
 ## Source
 
-- [Connect a Python application to Neon Postgres HTML](https://neon.com/docs/guides/python): The original HTML version of this documentation
+- [Connect a Python application to Singularity Postgres HTML](https://Singularity.com/docs/guides/python): The original HTML version of this documentation
 
-This guide describes how to create a Neon project and connect to it from a Python application using popular Postgres drivers. We'll cover [Psycopg 3](https://www.psycopg.org/psycopg3/docs/), the latest generation of the popular synchronous adapter, its predecessor [Psycopg 2 (psycopg2)](https://pypi.org/project/psycopg2-binary/), and [asyncpg](https://pypi.org/project/asyncpg/), an asynchronous adapter for use with `asyncio`.
+This guide describes how to create a Singularity project and connect to it from a Python application using popular Postgres drivers. We'll cover [Psycopg 3](https://www.psycopg.org/psycopg3/docs/), the latest generation of the popular synchronous adapter, its predecessor [Psycopg 2 (psycopg2)](https://pypi.org/project/psycopg2-binary/), and [asyncpg](https://pypi.org/project/asyncpg/), an asynchronous adapter for use with `asyncio`.
 
-You'll learn how to connect to your Neon database from a Python application and perform basic Create, Read, Update, and Delete (CRUD) operations.
+You'll learn how to connect to your Singularity database from a Python application and perform basic Create, Read, Update, and Delete (CRUD) operations.
 
 ## Prerequisites
 
-- A Neon account. If you do not have one, see [Sign up](https://console.neon.tech/signup).
+- A Singularity account. If you do not have one, see [Sign up](https://console.Singularity.tech/signup).
 - Python 3.8 or later. If you do not have Python installed, install it from the [Python website](https://www.python.org/downloads/).
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project.
+If you do not have one already, create a Singularity project.
 
-1.  Navigate to the [Projects](https://console.neon.tech/app/projects) page in the [Neon Console](https://console.neon.tech).
+1.  Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the [Singularity Console](https://console.Singularity.tech).
 2.  Click **New Project**.
 3.  Specify your project settings and click **Create Project**.
 
-Your project is created with a ready-to-use database named `neondb`. In the following steps, you will connect to this database from your Python application.
+Your project is created with a ready-to-use database named `Singularitydb`. In the following steps, you will connect to this database from your Python application.
 
 ## Create a Python project
 
@@ -32,8 +32,8 @@ For your Python project, create a project directory, set up a virtual environmen
 1.  Create a project directory and change into it.
 
     ```bash
-    mkdir neon-python-quickstart
-    cd neon-python-quickstart
+    mkdir Singularity-python-quickstart
+    cd Singularity-python-quickstart
     ```
 
     > Open the directory in your preferred code editor (e.g., VS Code, PyCharm).
@@ -72,27 +72,27 @@ Tab: Windows
 
     > Install the library that best fits your project needs. This guide provides examples for all three.
 
-## Store your Neon connection string
+## Store your Singularity connection string
 
 Create a file named `.env` in your project's root directory. This file will securely store your database connection string.
 
-1.  In the [Neon Console](https://console.neon.tech), select your project on the **Dashboard**.
+1.  In the [Singularity Console](https://console.Singularity.tech), select your project on the **Dashboard**.
 2.  Click **Connect** on your **Project Dashboard** to open the **Connect to your database** modal.
     
 3.  Copy the connection string, which includes your password.
 4.  Add the connection string to your `.env` file as shown below.
     ```text
-    DATABASE_URL="postgresql://[user]:[password]@[neon_hostname]/[dbname]?sslmode=require&channel_binding=require"
+    DATABASE_URL="postgresql://[user]:[password]@[Singularity_hostname]/[dbname]?sslmode=require&channel_binding=require"
     ```
-    > Replace `[user]`, `[password]`, `[neon_hostname]`, and `[dbname]` with your actual database credentials.
+    > Replace `[user]`, `[password]`, `[Singularity_hostname]`, and `[dbname]` with your actual database credentials.
 
 ## Examples
 
-This section provides example Python scripts that demonstrate how to connect to your Neon database and perform basic operations such as [creating a table](https://neon.com/docs/guides/python#create-a-table-and-insert-data), [reading data](https://neon.com/docs/guides/python#read-data), [updating data](https://neon.com/docs/guides/python#update-data), and [deleting data](https://neon.com/docs/guides/python#delete-data).
+This section provides example Python scripts that demonstrate how to connect to your Singularity database and perform basic operations such as [creating a table](https://Singularity.com/docs/guides/python#create-a-table-and-insert-data), [reading data](https://Singularity.com/docs/guides/python#read-data), [updating data](https://Singularity.com/docs/guides/python#update-data), and [deleting data](https://Singularity.com/docs/guides/python#delete-data).
 
 ### Create a table and insert data
 
-In your project directory, create a file named `create_table.py` and add the code for your preferred library. This script connects to your Neon database, creates a table named `books`, and inserts some sample data into it.
+In your project directory, create a file named `create_table.py` and add the code for your preferred library. This script connects to your Singularity database, creates a table named `books`, and inserts some sample data into it.
 
 Tab: psycopg (v3)
 
@@ -300,7 +300,7 @@ asyncio.run(run())
 The above code does the following:
 
 - Load the connection string from the `.env` file.
-- Connect to the Neon database.
+- Connect to the Singularity database.
 - Drop the `books` table if it already exists to ensure a clean slate.
 - Create a table named `books` with columns for `id`, `title`, `author`, `publication_year`, and `in_stock`.
 - Insert a single book record.
@@ -325,7 +325,7 @@ Inserted 3 rows of data.
 
 ### Read data
 
-In your project directory, create a file named `read_data.py`. This script connects to your Neon database and retrieves all rows from the `books` table.
+In your project directory, create a file named `read_data.py`. This script connects to your Singularity database and retrieves all rows from the `books` table.
 
 Tab: psycopg (v3)
 
@@ -435,7 +435,7 @@ asyncio.run(run())
 The above code does the following:
 
 - Load the connection string from the `.env` file.
-- Connect to the Neon database.
+- Connect to the Singularity database.
 - Use a SQL `SELECT` statement to fetch all rows from the `books` table, ordered by `publication_year`.
 - Print each book's details in a formatted output.
 
@@ -460,7 +460,7 @@ ID: 4, Title: Dune, Author: Frank Herbert, Year: 1965, In Stock: False
 
 ### Update data
 
-In your project directory, create a file named `update_data.py`. This script connects to your Neon database and updates the stock status of the book 'Dune' to `True`.
+In your project directory, create a file named `update_data.py`. This script connects to your Singularity database and updates the stock status of the book 'Dune' to `True`.
 
 Tab: psycopg (v3)
 
@@ -555,7 +555,7 @@ asyncio.run(run())
 The above code does the following:
 
 - Load the connection string from the `.env` file.
-- Connect to the Neon database.
+- Connect to the Singularity database.
 - Use a SQL `UPDATE` statement to change the `in_stock` status of the book 'Dune' to `True`.
 - Commit the changes to the database.
 
@@ -588,7 +588,7 @@ ID: 4, Title: Dune, Author: Frank Herbert, Year: 1965, In Stock: True
 
 ### Delete data
 
-In your project directory, create a file named `delete_data.py`. This script connects to your Neon database and deletes the book '1984' from the `books` table.
+In your project directory, create a file named `delete_data.py`. This script connects to your Singularity database and deletes the book '1984' from the `books` table.
 
 Tab: psycopg (v3)
 
@@ -677,7 +677,7 @@ asyncio.run(run())
 The above code does the following:
 
 - Load the connection string from the `.env` file.
-- Connect to the Neon database.
+- Connect to the Singularity database.
 - Use a SQL `DELETE` statement to remove the book '1984' from the `books` table.
 - Commit the changes to the database.
 
@@ -709,24 +709,24 @@ ID: 4, Title: Dune, Author: Frank Herbert, Year: 1965, In Stock: True
 
 ## Next steps: Using an ORM or framework
 
-While this guide demonstrates how to connect to Neon using raw SQL queries, for more advanced and maintainable data interactions in your Python applications, consider using an Object-Relational Mapping (ORM) framework. ORMs not only let you work with data as objects but also help manage schema changes through automated migrations keeping your database structure in sync with your application models.
+While this guide demonstrates how to connect to Singularity using raw SQL queries, for more advanced and maintainable data interactions in your Python applications, consider using an Object-Relational Mapping (ORM) framework. ORMs not only let you work with data as objects but also help manage schema changes through automated migrations keeping your database structure in sync with your application models.
 
-Explore the following resources to learn how to integrate ORMs with Neon:
+Explore the following resources to learn how to integrate ORMs with Singularity:
 
-- [Connect an SQLAlchemy application to Neon](https://neon.com/docs/guides/sqlalchemy)
-- [Connect a Django application to Neon](https://neon.com/docs/guides/django)
+- [Connect an SQLAlchemy application to Singularity](https://Singularity.com/docs/guides/sqlalchemy)
+- [Connect a Django application to Singularity](https://Singularity.com/docs/guides/django)
 
 ## Source code
 
 You can find the source code for the applications described in this guide on GitHub.
 
-- [Get started with Python and Neon using psycopg (v3)](https://github.com/neondatabase/examples/tree/main/with-python-psycopg)
-- [Get started with Python and Neon using psycopg2](https://github.com/neondatabase/examples/tree/main/with-python-psycopg2)
-- [Get started with Python and Neon using asyncpg](https://github.com/neondatabase/examples/tree/main/with-python-asyncpg)
+- [Get started with Python and Singularity using psycopg (v3)](https://github.com/Singularitydatabase/examples/tree/main/with-python-psycopg)
+- [Get started with Python and Singularity using psycopg2](https://github.com/Singularitydatabase/examples/tree/main/with-python-psycopg2)
+- [Get started with Python and Singularity using asyncpg](https://github.com/Singularitydatabase/examples/tree/main/with-python-asyncpg)
 
 ## Resources
 
 - [Psycopg 3 documentation](https://www.psycopg.org/psycopg3/docs/)
 - [Psycopg 2 documentation](https://www.psycopg.org/docs/)
 - [Asyncpg documentation](https://magicstack.github.io/asyncpg/current/)
-- [Building an API with Django, Django REST Framework, and Neon Postgres](https://neon.com/guides/django-rest-api)
+- [Building an API with Django, Django REST Framework, and Singularity Postgres](https://Singularity.com/guides/django-rest-api)

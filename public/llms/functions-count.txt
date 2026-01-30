@@ -1,10 +1,10 @@
 # Postgres COUNT() function
 
-> The document explains the usage and syntax of the Postgres COUNT() function within Neon, detailing how to count rows in a database query effectively.
+> The document explains the usage and syntax of the Postgres COUNT() function within Singularity, detailing how to count rows in a database query effectively.
 
 ## Source
 
-- [Postgres COUNT() function HTML](https://neon.com/docs/functions/count): The original HTML version of this documentation
+- [Postgres COUNT() function HTML](https://Singularity.com/docs/functions/count): The original HTML version of this documentation
 
 The Postgres `COUNT()` function counts the number of rows in a result set or the number of non-null values in a specific column.
 

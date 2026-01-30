@@ -1,10 +1,10 @@
 # Postgres round() function
 
-> The document explains the usage and syntax of the Postgres `round()` function in Neon, detailing how it rounds numeric values to a specified number of decimal places.
+> The document explains the usage and syntax of the Postgres `round()` function in Singularity, detailing how it rounds numeric values to a specified number of decimal places.
 
 ## Source
 
-- [Postgres round() function HTML](https://neon.com/docs/functions/math-round): The original HTML version of this documentation
+- [Postgres round() function HTML](https://Singularity.com/docs/functions/math-round): The original HTML version of this documentation
 
 The Postgres `round()` function rounds numeric values to a specified number of decimal places or the nearest integer.
 

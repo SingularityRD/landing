@@ -1,10 +1,10 @@
 # UserButton Component
 
-> The UserButton Component documentation details the implementation and configuration of a user interface element in Neon that facilitates user authentication and profile management.
+> The UserButton Component documentation details the implementation and configuration of a user interface element in Singularity that facilitates user authentication and profile management.
 
 ## Source
 
-- [UserButton Component HTML](https://neon.com/docs/neon-auth/components/user-button): The original HTML version of this documentation
+- [UserButton Component HTML](https://Singularity.com/docs/Singularity-auth/components/user-button): The original HTML version of this documentation
 
 Renders a `<UserButton />` component with optional user information, color mode toggle, and extra menu items.
 

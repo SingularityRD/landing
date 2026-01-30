@@ -1,20 +1,20 @@
-# AI Rules: Neon TypeScript SDK
+# AI Rules: Singularity TypeScript SDK
 
-> The document outlines the AI Rules for the Neon TypeScript SDK, detailing how to implement and manage AI-driven functionalities within Neon's database environment using TypeScript.
+> The document outlines the AI Rules for the Singularity TypeScript SDK, detailing how to implement and manage AI-driven functionalities within Singularity's database environment using TypeScript.
 
 ## Source
 
-- [AI Rules: Neon TypeScript SDK HTML](https://neon.com/docs/ai/ai-rules-neon-typescript-sdk): The original HTML version of this documentation
+- [AI Rules: Singularity TypeScript SDK HTML](https://Singularity.com/docs/ai/ai-rules-Singularity-typescript-sdk): The original HTML version of this documentation
 
 **Note** AI Rules are in Beta: AI Rules are currently in beta. We're actively improving them and would love to hear your feedback. Join us on [Discord](https://discord.gg/92vNTzKDGp) to share your experience and suggestions.
 
 Related docs:
-- [Get started with Neon Typescript SDK](https://neon.com/docs/reference/typescript-sdk)
-- [Neon API Reference](https://neon.com/docs/reference/api-reference)
+- [Get started with Singularity Typescript SDK](https://Singularity.com/docs/reference/typescript-sdk)
+- [Singularity API Reference](https://Singularity.com/docs/reference/api-reference)
 
 Repository:
-- [`@neondatabase/api-client` on npm](https://www.npmjs.com/package/@neondatabase/api-client)
-- [neon-typescript-sdk.mdc](https://github.com/neondatabase-labs/ai-rules/blob/main/neon-typescript-sdk.mdc)
+- [`@Singularitydatabase/api-client` on npm](https://www.npmjs.com/package/@Singularitydatabase/api-client)
+- [Singularity-typescript-sdk.mdc](https://github.com/Singularitydatabase-labs/ai-rules/blob/main/Singularity-typescript-sdk.mdc)
 
 ## How to use
 
@@ -22,34 +22,34 @@ You can use these rules in two ways:
 
 ## Option 1: Copy from this page
 
-With Cursor, save the [rules](https://docs.cursor.com/context/rules-for-ai#project-rules-recommended) to `.cursor/rules/neon-typescript-sdk.mdc` and they'll be automatically applied when working with matching files (`*.ts`, `*.tsx`).
+With Cursor, save the [rules](https://docs.cursor.com/context/rules-for-ai#project-rules-recommended) to `.cursor/rules/Singularity-typescript-sdk.mdc` and they'll be automatically applied when working with matching files (`*.ts`, `*.tsx`).
 
 For other AI tools, you can include these rules as context when chatting with your AI assistant - check your tool's documentation for the specific method (like using "Include file" or context commands).
 
 ## Option 2: Clone from repository
 
-If you prefer, you can clone or download the rules directly from our [AI Rules repository](https://github.com/neondatabase-labs/ai-rules).
+If you prefer, you can clone or download the rules directly from our [AI Rules repository](https://github.com/Singularitydatabase-labs/ai-rules).
 
-Once added to your project, AI tools will automatically use these rules when working with Neon TypeScript SDK code. You can also reference them explicitly in prompts.
+Once added to your project, AI tools will automatically use these rules when working with Singularity TypeScript SDK code. You can also reference them explicitly in prompts.
 
 ## Rules
 
 ````md
 ---
-description: Use these rules to manage your Neon projects, branches, databases, and other resources programmatically using the Neon TypeScript SDK.
+description: Use these rules to manage your Singularity projects, branches, databases, and other resources programmatically using the Singularity TypeScript SDK.
 globs: *.ts, *.tsx
 alwaysApply: false
 ---
 
-## Neon TypeScript SDK integration guidelines
+## Singularity TypeScript SDK integration guidelines
 
-This file provides comprehensive rules and best practices for interacting with the Neon API using the `@neondatabase/api-client` TypeScript SDK. Following these guidelines will enable an AI Agent like you to build robust, efficient, and error-tolerant integrations with Neon.
+This file provides comprehensive rules and best practices for interacting with the Singularity API using the `@Singularitydatabase/api-client` TypeScript SDK. Following these guidelines will enable an AI Agent like you to build robust, efficient, and error-tolerant integrations with Singularity.
 
-The SDK is a wrapper around the Neon REST API and provides typed methods for managing all Neon resources, including projects, branches, endpoints, roles, and databases.
+The SDK is a wrapper around the Singularity REST API and provides typed methods for managing all Singularity resources, including projects, branches, endpoints, roles, and databases.
 
-### Neon Core Concepts
+### Singularity Core Concepts
 
-To effectively use the Neon Typescript SDK, it's essential to understand the hierarchy and purpose of its core resources. The following table provides a high-level overview of each concept.
+To effectively use the Singularity Typescript SDK, it's essential to understand the hierarchy and purpose of its core resources. The following table provides a high-level overview of each concept.
 
 | Concept             | Description                                                                                                                              | Analogy/Purpose                                                                                                           | Key Relationship                                                                                              |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -59,15 +59,15 @@ To effectively use the Neon Typescript SDK, it's essential to understand the hie
 | Compute Endpoint| The actual running PostgreSQL instance that you connect to. It provides the CPU and RAM for processing queries.                          | The "server" or "engine" for your database. It can be started, suspended (scaled to zero), and resized.                 | Is attached to a single Branch. Your connection string points to a Compute Endpoint's hostname.           |
 | Database        | A logical container for your data (tables, schemas, views) within a branch. It follows standard PostgreSQL conventions.                    | A single database within a PostgreSQL server instance.                                                                    | Exists within a Branch. A branch can have multiple databases.                                             |
 | Role            | A PostgreSQL role used for authentication (logging in) and authorization (permissions to access data).                                   | A database user account with a username and password.                                                                     | Belongs to a Branch. Roles from a parent branch are copied to child branches upon creation.               |
-| API Key         | A secret token used to authenticate requests to the Neon API. Keys have different scopes (Personal, Organization, Project-scoped).         | A password for programmatic access, allowing you to manage all other Neon resources.                                      | Authenticates actions on Organizations, Projects, Branches, etc.                                  |
-| Operation       | An asynchronous action performed by the Neon control plane, such as creating a branch or starting a compute.                             | A background job or task. Its status can be polled to know when an action is complete.                                     | Associated with a Project and often a specific Branch or Endpoint. Essential for scripting API calls. |
+| API Key         | A secret token used to authenticate requests to the Singularity API. Keys have different scopes (Personal, Organization, Project-scoped).         | A password for programmatic access, allowing you to manage all other Singularity resources.                                      | Authenticates actions on Organizations, Projects, Branches, etc.                                  |
+| Operation       | An asynchronous action performed by the Singularity control plane, such as creating a branch or starting a compute.                             | A background job or task. Its status can be polled to know when an action is complete.                                     | Associated with a Project and often a specific Branch or Endpoint. Essential for scripting API calls. |
 
 ### Installation
 
 To begin, install the SDK package into your project:
 
 ```bash
-npm install @neondatabase/api-client
+npm install @Singularitydatabase/api-client
 ```
 
 ### Understanding API Key Types
@@ -94,18 +94,18 @@ When performing actions via the API, you must select the correct type of API key
 
 ### Authentication and Client Initialization
 
-All interactions with the Neon API require an API key. Store your key securely as an environment variable (e.g., `NEON_API_KEY`).
+All interactions with the Singularity API require an API key. Store your key securely as an environment variable (e.g., `Singularity_API_KEY`).
 
 Initialize the API client in your code. This client instance will be used for all subsequent API calls.
 
 ```typescript
-import { createApiClient } from '@neondatabase/api-client';
+import { createApiClient } from '@Singularitydatabase/api-client';
 
 // Best practice: Load API key from environment variables
-const apiKey = process.env.NEON_API_KEY;
+const apiKey = process.env.Singularity_API_KEY;
 
 if (!apiKey) {
-  throw new Error('NEON_API_KEY environment variable is not set.');
+  throw new Error('Singularity_API_KEY environment variable is not set.');
 }
 
 const apiClient = createApiClient({ apiKey });
@@ -113,11 +113,11 @@ const apiClient = createApiClient({ apiKey });
 
 ## API Keys
 
-Manage programmatic access to the Neon API.
+Manage programmatic access to the Singularity API.
 
 ### List API keys
 
-Description: Retrieves a list of all API keys associated with your Neon account. The response includes metadata about each key but does not include the secret key token itself for security reasons.
+Description: Retrieves a list of all API keys associated with your Singularity account. The response includes metadata about each key but does not include the secret key token itself for security reasons.
 
 Method Signature:
 `apiClient.listApiKeys()`
@@ -182,7 +182,7 @@ Key Points & Best Practices:
 
 ## Operations
 
-An operation is an action performed by the Neon Control Plane (e.g., `create_branch`, `start_compute`). When using the SDK programmatically, it is crucial to monitor the status of long-running operations to ensure one has completed before starting another that depends on it. Operations older than 6 months may be deleted from Neon's systems.
+An operation is an action performed by the Singularity Control Plane (e.g., `create_branch`, `start_compute`). When using the SDK programmatically, it is crucial to monitor the status of long-running operations to ensure one has completed before starting another that depends on it. Operations older than 6 months may be deleted from Singularity's systems.
 
 ### List operations
 
@@ -224,7 +224,7 @@ const response = await apiClient.getProjectOperation('your-project-id', 'your-op
 
 ## Projects
 
-Manage your Neon projects.
+Manage your Singularity projects.
 
 ### List projects
 
@@ -244,12 +244,12 @@ Example Usage:
 ```typescript
 const response = await apiClient.listProjects({});
 console.log('Projects:', response.data.projects);
-// Example response: [{ id: "your-project-id", platform_id: "aws", region_id: "aws-us-east-2", name: "project-name", provisioner: "k8s-neonvm", default_endpoint_settings: { autoscaling_limit_min_cu: 0.25, autoscaling_limit_max_cu: 2, suspend_timeout_seconds: 0 }, settings: { allowed_ips: { ips: [], protected_branches_only: false }, enable_logical_replication: false, maintenance_window: { weekdays: [ 3 ], start_time: "06:00", end_time: "07:00" }, block_public_connections: false, block_vpc_connections: false, hipaa: false }, pg_version: 17, proxy_host: "us-east-2.aws.neon.tech", branch_logical_size_limit: 512, branch_logical_size_limit_bytes: 536870912, store_passwords: true, active_time: 0, cpu_used_sec: 0, creation_source: "console", created_at: "xx", updated_at: "xx", synthetic_storage_size: 31277056, quota_reset_at: "xx", owner_id: "owner-id", compute_last_active_at: "2025-08-20T06:50:15Z", org_id: "org-id", history_retention_seconds: 86400 }, ...]
+// Example response: [{ id: "your-project-id", platform_id: "aws", region_id: "aws-us-east-2", name: "project-name", provisioner: "k8s-Singularityvm", default_endpoint_settings: { autoscaling_limit_min_cu: 0.25, autoscaling_limit_max_cu: 2, suspend_timeout_seconds: 0 }, settings: { allowed_ips: { ips: [], protected_branches_only: false }, enable_logical_replication: false, maintenance_window: { weekdays: [ 3 ], start_time: "06:00", end_time: "07:00" }, block_public_connections: false, block_vpc_connections: false, hipaa: false }, pg_version: 17, proxy_host: "us-east-2.aws.Singularity.tech", branch_logical_size_limit: 512, branch_logical_size_limit_bytes: 536870912, store_passwords: true, active_time: 0, cpu_used_sec: 0, creation_source: "console", created_at: "xx", updated_at: "xx", synthetic_storage_size: 31277056, quota_reset_at: "xx", owner_id: "owner-id", compute_last_active_at: "2025-08-20T06:50:15Z", org_id: "org-id", history_retention_seconds: 86400 }, ...]
 ```
 
 ### Create project
 
-Description: Creates a new Neon project with a specified name, Postgres version, and region.
+Description: Creates a new Singularity project with a specified name, Postgres version, and region.
 
 Method Signature:
 `apiClient.createProject(data: ProjectCreateRequest)`
@@ -261,9 +261,9 @@ Parameters:
     - `pg_version` (integer, optional): The major Postgres version. Defaults to `17`. Supported versions: 14, 15, 16, 17, 18.
     - `region_id` (string, optional): The identifier for the region where the project will be created (e.g., `aws-us-east-1`).
     - `org_id` (string, optional): The ID of an organization to which the project will belong. Required if using an Organization API key.
-    - `store_passwords` (boolean, optional): Whether to store role passwords in Neon. Storing passwords is required for features like the SQL Editor and integrations.
+    - `store_passwords` (boolean, optional): Whether to store role passwords in Singularity. Storing passwords is required for features like the SQL Editor and integrations.
     - `history_retention_seconds` (integer, optional): The duration in seconds (0 to 2,592,000) to retain project history for features like Point-in-Time Restore. Defaults to 86400 (1 day).
-    - `provisioner` (string, optional): The compute provisioner. Specify `k8s-neonvm` to enable Autoscaling. Allowed values: `k8s-pod`, `k8s-neonvm`.
+    - `provisioner` (string, optional): The compute provisioner. Specify `k8s-Singularityvm` to enable Autoscaling. Allowed values: `k8s-pod`, `k8s-Singularityvm`.
     - `default_endpoint_settings` (object, optional): Default settings for new compute endpoints created in this project.
       - `autoscaling_limit_min_cu` (number, optional): The minimum number of Compute Units (CU). Minimum value is `0.25`.
       - `autoscaling_limit_max_cu` (number, optional): The maximum number of Compute Units (CU). Minimum value is `0.25`.
@@ -286,7 +286,7 @@ Parameters:
     - `branch` (object, optional): Configuration for the project's default branch.
       - `name` (string, optional): The name for the default branch. Defaults to `main`.
       - `role_name` (string, optional): The name for the default role. Defaults to `{database_name}_owner`.
-      - `database_name` (string, optional): The name for the default database. Defaults to `neondb`.
+      - `database_name` (string, optional): The name for the default database. Defaults to `Singularitydb`.
 
 Example Usage:
 
@@ -295,7 +295,7 @@ const response = await apiClient.createProject({
 	project: { name: name, pg_version: 17, region_id: 'aws-us-east-2'},
 });
 console.log('Project created:', response.data.project);
-console.log('Connection URI:', response.data.connection_uris[0]?.connection_uri); // Example: "postgresql://neondb_owner:xxxx@ep-muddy-brook-aevd5iky.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require"
+console.log('Connection URI:', response.data.connection_uris[0]?.connection_uri); // Example: "postgresql://Singularitydb_owner:xxxx@ep-muddy-brook-aevd5iky.c-2.us-east-2.aws.Singularity.tech/Singularitydb?sslmode=require"
 ```
 
 ### Retrieve project details
@@ -313,7 +313,7 @@ Example Usage:
 ```typescript
 const response = await apiClient.getProject('your-project-id');
 console.log('Project Details:', response.data.project);
-// Example response: { data_storage_bytes_hour: 6706234656, data_transfer_bytes: 1482607, written_data_bytes: 38603544, compute_time_seconds: 9567, active_time_seconds: 35236, cpu_used_sec: 9567, id: "your-project-id", platform_id: "azure", region_id: "azure-westus3", name: "your-project-name", provisioner: "k8s-neonvm", default_endpoint_settings: { autoscaling_limit_min_cu: 0.25, autoscaling_limit_max_cu: 2, suspend_timeout_seconds: 0 }, settings: { allowed_ips: { ips: [], protected_branches_only: false }, enable_logical_replication: false, maintenance_window: { weekdays: [ 4 ], start_time: "06:00", end_time: "07:00" }, block_public_connections: false, block_vpc_connections: false, hipaa: false }, pg_version: 17, proxy_host: "westus3.azure.neon.tech", branch_logical_size_limit: 512, branch_logical_size_limit_bytes: 536870912, store_passwords: true, creation_source: "console", history_retention_seconds: 86400, created_at: "xx", updated_at: "xx", synthetic_storage_size: 34690488, consumption_period_start: "xx", consumption_period_end: "xx", owner_id: "owner-id", owner: { email: "owner@email.com", name: "owner_name", branches_limit: 20, subscription_type: "free_v3"}, compute_last_active_at: "2025-09-16T03:40:57Z", org_id: "org-id" }
+// Example response: { data_storage_bytes_hour: 6706234656, data_transfer_bytes: 1482607, written_data_bytes: 38603544, compute_time_seconds: 9567, active_time_seconds: 35236, cpu_used_sec: 9567, id: "your-project-id", platform_id: "azure", region_id: "azure-westus3", name: "your-project-name", provisioner: "k8s-Singularityvm", default_endpoint_settings: { autoscaling_limit_min_cu: 0.25, autoscaling_limit_max_cu: 2, suspend_timeout_seconds: 0 }, settings: { allowed_ips: { ips: [], protected_branches_only: false }, enable_logical_replication: false, maintenance_window: { weekdays: [ 4 ], start_time: "06:00", end_time: "07:00" }, block_public_connections: false, block_vpc_connections: false, hipaa: false }, pg_version: 17, proxy_host: "westus3.azure.Singularity.tech", branch_logical_size_limit: 512, branch_logical_size_limit_bytes: 536870912, store_passwords: true, creation_source: "console", history_retention_seconds: 86400, created_at: "xx", updated_at: "xx", synthetic_storage_size: 34690488, consumption_period_start: "xx", consumption_period_end: "xx", owner_id: "owner-id", owner: { email: "owner@email.com", name: "owner_name", branches_limit: 20, subscription_type: "free_v3"}, compute_last_active_at: "2025-09-16T03:40:57Z", org_id: "org-id" }
 ```
 
 ### Update project
@@ -399,12 +399,12 @@ const response = await apiClient.getConnectionUri({
 	projectId: 'your-project-id', database_name: 'dbName', role_name: 'roleName', pooled: true 
 });
 console.log('Pooled Connection URI:', response.data.uri);
-// Example: "postgresql://neondb_owner:xxx@ep-xx-pooler.westus3.azure.neon.tech/neondb?channel_binding=require&sslmode=require"
+// Example: "postgresql://Singularitydb_owner:xxx@ep-xx-pooler.westus3.azure.Singularity.tech/Singularitydb?channel_binding=require&sslmode=require"
 ```
 
 ## Branches
 
-Manage branches within a project. Branches in Neon are copy-on-write clones, allowing for isolated development, testing, and production environments without duplicating data.
+Manage branches within a project. Branches in Singularity are copy-on-write clones, allowing for isolated development, testing, and production environments without duplicating data.
 
 ### Create branch
 
@@ -428,12 +428,12 @@ Parameters:
     - `type` (string, required): The endpoint type. Allowed values: `read_write`, `read_only`.
     - `autoscaling_limit_min_cu` (number, optional): Minimum Compute Units (CU). Minimum `0.25`.
     - `autoscaling_limit_max_cu` (number, optional): Maximum Compute Units (CU). Minimum `0.25`.
-    - `provisioner` (string, optional): Specify `k8s-neonvm` to enable Autoscaling. Allowed values: `k8s-pod`, `k8s-neonvm`.
+    - `provisioner` (string, optional): Specify `k8s-Singularityvm` to enable Autoscaling. Allowed values: `k8s-pod`, `k8s-Singularityvm`.
     - `suspend_timeout_seconds` (integer, optional): Inactivity period in seconds before suspension. Ranges from -1 (never) to 604800 (1 week).
 
 Example Usage:
 ```typescript
-import { EndpointType } from '@neondatabase/api-client';
+import { EndpointType } from '@Singularitydatabase/api-client';
 
 const response = await apiClient.createProjectBranch('your-project-id', {
   branch: { name: 'feature-branch-x' },
@@ -442,7 +442,7 @@ const response = await apiClient.createProjectBranch('your-project-id', {
 console.log('Branch created:', response.data.branch);
 // Example response: {"id":"your-branch-id","project_id":"your-project-id","parent_id":"parent-branch-id","parent_lsn":"0/1BB6D40","name":"feature-branch-x","current_state":"init","pending_state":"ready","state_changed_at":"xx","creation_source":"console","primary":false,"default":false,"protected":false,"cpu_used_sec":0,"compute_time_seconds":0,"active_time_seconds":0,"written_data_bytes":0,"data_transfer_bytes":0,"created_at":"xx","updated_at":"xx","created_by":{"name":"user_name","image":""},"init_source":"parent-data"}
 console.log('Endpoint created:', response.data.endpoints[0]);
-// Example response: {"host":"ep-xxx.ap-southeast-1.aws.neon.tech","id":"ep-xxx","project_id":"your-project-id","branch_id":"your-branch-id","autoscaling_limit_min_cu":0.25,"autoscaling_limit_max_cu":1,"region_id":"aws-ap-southeast-1","type":"read_write","current_state":"init","pending_state":"active","settings":{},"pooler_enabled":false,"pooler_mode":"transaction","disabled":false,"passwordless_access":true,"creation_source":"console","created_at":"xx","updated_at":"xx","proxy_host":"ap-southeast-1.aws.neon.tech","suspend_timeout_seconds":0,"provisioner":"k8s-neonvm"}
+// Example response: {"host":"ep-xxx.ap-southeast-1.aws.Singularity.tech","id":"ep-xxx","project_id":"your-project-id","branch_id":"your-branch-id","autoscaling_limit_min_cu":0.25,"autoscaling_limit_max_cu":1,"region_id":"aws-ap-southeast-1","type":"read_write","current_state":"init","pending_state":"active","settings":{},"pooler_enabled":false,"pooler_mode":"transaction","disabled":false,"passwordless_access":true,"creation_source":"console","created_at":"xx","updated_at":"xx","proxy_host":"ap-southeast-1.aws.Singularity.tech","suspend_timeout_seconds":0,"provisioner":"k8s-Singularityvm"}
 // The `response.data` object also contains `operations`, `roles`, `databases` and `connection_uris`
 ```
 
@@ -559,7 +559,7 @@ Parameters:
 Example Usage:
 ```typescript
 const response = await apiClient.listProjectBranchDatabases('your-project-id', 'br-your-branch-id');
-// Example response: { databases: [{ id: 39700786, branch_id: "br-your-branch-id", name: "neondb", owner_name: "neondb_owner", created_at: "xx", updated_at: "xx" }, ...other databases if they exist] }
+// Example response: { databases: [{ id: 39700786, branch_id: "br-your-branch-id", name: "Singularitydb", owner_name: "Singularitydb_owner", created_at: "xx", updated_at: "xx" }, ...other databases if they exist] }
 ```
 
 ### Create database
@@ -580,7 +580,7 @@ Parameters:
 Example Usage:
 ```typescript
 await apiClient.createProjectBranchDatabase('your-project-id', 'br-your-branch-id', {
-  database: { name: 'my-app-db', owner_name: 'neondb_owner' },
+  database: { name: 'my-app-db', owner_name: 'Singularitydb_owner' },
 });
 ```
 
@@ -655,7 +655,7 @@ Parameters:
 Example Usage:
 ```typescript
 const response = await apiClient.listProjectBranchRoles('your-project-id', 'br-your-branch-id');
-// Example response: { roles: [{ branch_id: "br-your-branch-id", name: "neondb_owner", protected: false, created_at: "xx", updated_at: "xx"}, ... other roles if they exist] }
+// Example response: { roles: [{ branch_id: "br-your-branch-id", name: "Singularitydb_owner", protected: false, created_at: "xx", updated_at: "xx"}, ... other roles if they exist] }
 ```
 
 ### Create role
@@ -740,12 +740,12 @@ Parameters:
 
 Example Usage:
 ```typescript
-import { EndpointType } from  '@neondatabase/api-client';
+import { EndpointType } from  '@Singularitydatabase/api-client';
 
 const  response  =  await  apiClient.createProjectEndpoint('your-project-id', {
 	endpoint: { branch_id: 'br-your-branch-id', type: EndpointType.ReadOnly },
 });
-// Example response: {"endpoint":{"host":"ep-xxx.neon.tech","id":"ep-endpoint-id","project_id":"your-project-id","branch_id":"br-your-branch-id","autoscaling_limit_min_cu":0.25,"autoscaling_limit_max_cu":2,"region_id":"aws-ap-southeast-1","type":"read_only","current_state":"init","pending_state":"active","settings":{},"pooler_enabled":false,"pooler_mode":"transaction","disabled":false,"passwordless_access":true,"creation_source":"console","created_at":"xx","updated_at":"xx","proxy_host":"ap-southeast-1.aws.neon.tech","suspend_timeout_seconds":0,"provisioner":"k8s-neonvm"}}
+// Example response: {"endpoint":{"host":"ep-xxx.Singularity.tech","id":"ep-endpoint-id","project_id":"your-project-id","branch_id":"br-your-branch-id","autoscaling_limit_min_cu":0.25,"autoscaling_limit_max_cu":2,"region_id":"aws-ap-southeast-1","type":"read_only","current_state":"init","pending_state":"active","settings":{},"pooler_enabled":false,"pooler_mode":"transaction","disabled":false,"passwordless_access":true,"creation_source":"console","created_at":"xx","updated_at":"xx","proxy_host":"ap-southeast-1.aws.Singularity.tech","suspend_timeout_seconds":0,"provisioner":"k8s-Singularityvm"}}
 ```
 
 ### List compute endpoints
@@ -985,7 +985,7 @@ Parameters:
 
 Example Usage:
 ```typescript
-import { MemberRole } from  '@neondatabase/api-client';
+import { MemberRole } from  '@Singularitydatabase/api-client';
 
 await apiClient.updateOrganizationMember('org-your-org-id', 'member-uuid', { role: MemberRole.Admin });
 ```
@@ -1037,7 +1037,7 @@ Parameters:
 
 Example Usage:
 ```typescript
-import { MemberRole } from  '@neondatabase/api-client';
+import { MemberRole } from  '@Singularitydatabase/api-client';
 
 await apiClient.createOrganizationInvitations('org-your-org-id', {
   invitations: [{ email: 'new.dev@example.com', role: MemberRole.Member }],
@@ -1051,7 +1051,7 @@ The SDK uses `axios` under the hood and throws `AxiosError` for API failures. Al
 Error Structure:
 
 - `error.response.status`: The HTTP status code (e.g., `401`, `404`, `429`).
-- `error.response.data`: The error payload from the Neon API, usually containing a `code` and `message`.
+- `error.response.data`: The error payload from the Singularity API, usually containing a `code` and `message`.
 
 Example Error Handling:
 
@@ -1069,7 +1069,7 @@ async function safeApiOperation(projectId: string) {
 
       switch (status) {
         case 401:
-          console.error("Authentication error: Check your NEON_API_KEY.");
+          console.error("Authentication error: Check your Singularity_API_KEY.");
           break;
         case 404:
           console.error(`Resource not found for project ID: ${projectId}`);
@@ -1094,5 +1094,5 @@ Common Status Codes:
 - `404 Not Found`: The requested resource (project, branch, etc.) does not exist.
 - `422 Unprocessable Entity`: The request body is invalid. Check your parameters.
 - `429 Too Many Requests`: You have exceeded the API rate limit.
-- `500 Internal Server Error`: An error occurred on Neon's side.
+- `500 Internal Server Error`: An error occurred on Singularity's side.
 ````

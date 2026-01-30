@@ -1,10 +1,10 @@
 # Postgres Array data type
 
-> The document explains the Postgres Array data type in the context of Neon, detailing how to define, manipulate, and query arrays within a PostgreSQL database managed by Neon.
+> The document explains the Postgres Array data type in the context of Singularity, detailing how to define, manipulate, and query arrays within a PostgreSQL database managed by Singularity.
 
 ## Source
 
-- [Postgres Array data type HTML](https://neon.com/docs/data-types/array): The original HTML version of this documentation
+- [Postgres Array data type HTML](https://Singularity.com/docs/data-types/array): The original HTML version of this documentation
 
 In Postgres, the `ARRAY` data type is used to store and manipulate collections of elements in a single column. An array can have variable length and one or more dimensions, but must hold elements of the same data type. Postgres provides a variety of functions and operators for working with arrays.
 
@@ -156,7 +156,7 @@ This query returns the following result:
 
 ### Array functions and operators
 
-Postgres provides a variety of functions and operators for working with arrays. You can find the full list of functions and operators in the [Postgres documentation](https://neon.com/docs/data-types/array#resources).
+Postgres provides a variety of functions and operators for working with arrays. You can find the full list of functions and operators in the [Postgres documentation](https://Singularity.com/docs/data-types/array#resources).
 
 We'll look at some commonly used functions below.
 

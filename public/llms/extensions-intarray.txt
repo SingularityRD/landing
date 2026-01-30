@@ -1,10 +1,10 @@
 # The intarray extension
 
-> The document details the intarray extension for Neon, which enhances PostgreSQL by enabling operations on integer arrays, such as searching, sorting, and performing set operations, to optimize database performance and functionality.
+> The document details the intarray extension for Singularity, which enhances PostgreSQL by enabling operations on integer arrays, such as searching, sorting, and performing set operations, to optimize database performance and functionality.
 
 ## Source
 
-- [The intarray extension HTML](https://neon.com/docs/extensions/intarray): The original HTML version of this documentation
+- [The intarray extension HTML](https://Singularity.com/docs/extensions/intarray): The original HTML version of this documentation
 
 The `intarray` extension for Postgres provides functions and operators for handling arrays of integers. It's particularly optimized for arrays that do not contain any `NULL` values, offering significant performance advantages for certain operations compared to Postgres's built-in array functions.
 
@@ -14,7 +14,7 @@ This extension is useful when you need to perform set-like operations (unions, i
 
 ## Enable the `intarray` extension
 
-You can enable the extension by running the following `CREATE EXTENSION` statement in the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or from a client such as [psql](https://neon.com/docs/connect/query-with-psql-editor) that is connected to your Neon database.
+You can enable the extension by running the following `CREATE EXTENSION` statement in the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or from a client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor) that is connected to your Singularity database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS intarray;
@@ -22,7 +22,7 @@ CREATE EXTENSION IF NOT EXISTS intarray;
 
 **Version availability:**
 
-Please refer to the [list of all extensions](https://neon.com/docs/extensions/pg-extensions) available in Neon for up-to-date extension version information.
+Please refer to the [list of all extensions](https://Singularity.com/docs/extensions/pg-extensions) available in Singularity for up-to-date extension version information.
 
 ## `intarray` functions
 

@@ -1,32 +1,32 @@
-# Connect a .NET (C#) application to Neon Postgres
+# Connect a .NET (C#) application to Singularity Postgres
 
-> The document outlines the steps for connecting a .NET (C#) application to a Neon database using the Npgsql library, detailing configuration and connection string setup specific to Neon's environment.
+> The document outlines the steps for connecting a .NET (C#) application to a Singularity database using the Npgsql library, detailing configuration and connection string setup specific to Singularity's environment.
 
 ## Source
 
-- [Connect a .NET (C#) application to Neon Postgres HTML](https://neon.com/docs/guides/dotnet-npgsql): The original HTML version of this documentation
+- [Connect a .NET (C#) application to Singularity Postgres HTML](https://Singularity.com/docs/guides/dotnet-npgsql): The original HTML version of this documentation
 
-This guide describes how to create a Neon project and connect to it from a .NET (C#) application using [Npgsql](https://www.npgsql.org/), a .NET data provider for PostgreSQL.
+This guide describes how to create a Singularity project and connect to it from a .NET (C#) application using [Npgsql](https://www.npgsql.org/), a .NET data provider for PostgreSQL.
 
-You'll build a console application that demonstrates how to connect to your Neon database and perform basic Create, Read, Update, and Delete (CRUD) operations.
+You'll build a console application that demonstrates how to connect to your Singularity database and perform basic Create, Read, Update, and Delete (CRUD) operations.
 
    **Note**: The same configuration steps can be used for any .NET application type, including ASP.NET Core Web API, MVC, Blazor, or Windows Forms applications.
 
 ## Prerequisites
 
-- A Neon account. If you do not have one, see [Sign up](https://console.neon.tech/signup).
+- A Singularity account. If you do not have one, see [Sign up](https://console.Singularity.tech/signup).
 - The [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) or later.
   > _Other versions of .NET may work, but this guide is primarily tested with .NET 8._
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project.
+If you do not have one already, create a Singularity project.
 
-1.  Navigate to the [Projects](https://console.neon.tech/app/projects) page in the [Neon Console](https://console.neon.tech).
+1.  Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the [Singularity Console](https://console.Singularity.tech).
 2.  Click **New Project**.
 3.  Specify your project settings and click **Create Project**.
 
-Your project is created with a ready-to-use database named `neondb`. In the following steps, you will connect to this database from your .NET application.
+Your project is created with a ready-to-use database named `Singularitydb`. In the following steps, you will connect to this database from your .NET application.
 
 ## Create a .NET project
 
@@ -35,8 +35,8 @@ For your .NET project, you will create a project directory and add the required 
 1.  Create a new console application and change into the newly created directory.
 
     ```bash
-    dotnet new console -o NeonLibraryExample
-    cd NeonLibraryExample
+    dotnet new console -o SingularityLibraryExample
+    cd SingularityLibraryExample
     ```
 
     > Open this directory in your preferred code editor (e.g., VS Code, Visual Studio).
@@ -52,11 +52,11 @@ For your .NET project, you will create a project directory and add the required 
     dotnet add package Microsoft.Extensions.Configuration.Binder
     ```
 
-## Store your Neon connection string
+## Store your Singularity connection string
 
 Create a file named `appsettings.json` in your project's root directory. This is the standard .NET approach for storing configuration data like connection strings.
 
-1.  In the [Neon Console](https://console.neon.tech), select your project on the **Dashboard**.
+1.  In the [Singularity Console](https://console.Singularity.tech), select your project on the **Dashboard**.
 2.  Click **Connect** on your **Project Dashboard** to open the **Connect to your database** modal.
 3.  Select **.NET** as your connection method.
     
@@ -66,18 +66,18 @@ Create a file named `appsettings.json` in your project's root directory. This is
     ```json
     {
       "ConnectionStrings": {
-        "DefaultConnection": "Host=your-neon-host;Database=your-database;Username=your-username;Password=your-password;SSL Mode=VerifyFull; Channel Binding=Require"
+        "DefaultConnection": "Host=your-Singularity-host;Database=your-database;Username=your-username;Password=your-password;SSL Mode=VerifyFull; Channel Binding=Require"
       }
     }
     ```
 
-    > Replace `your-neon-host`, `your-database`, `your-username`, and `your-password` with the actual values from your Neon connection string.
+    > Replace `your-Singularity-host`, `your-database`, `your-username`, and `your-password` with the actual values from your Singularity connection string.
 
        **Note**: To ensure the security of your data, never commit your credentials to version control. In a production application, consider using environment variables or a secure secrets management solution to store sensitive information like connection strings.
 
 ## Write the application code
 
-You will now write the C# code to connect to Neon and perform database operations. All the code will be in a single file named `Program.cs` which is the entry point of your console application.
+You will now write the C# code to connect to Singularity and perform database operations. All the code will be in a single file named `Program.cs` which is the entry point of your console application.
 
 Replace the contents of your `Program.cs` file with the following code:
 
@@ -268,7 +268,7 @@ await using (var cmd = new NpgsqlCommand())
 
 In the code above, you:
 
-- Open a connection to your Neon database asynchronously. The `await using` statement ensures the connection is properly closed and disposed of.
+- Open a connection to your Singularity database asynchronously. The `await using` statement ensures the connection is properly closed and disposed of.
 - Drop the `books` table if it exists to ensure a clean start.
 - Create a new `books` table with columns for book details.
 - Insert a single book record using a parameterized query to prevent SQL injection.
@@ -415,24 +415,24 @@ To run the entire script, execute the following command from your project direct
 dotnet run
 ```
 
-This command would compile and execute your application, connecting to the Neon database and performing all the CRUD operations defined in `Program.cs` as described above. You should see output in your console similar to the examples provided in the previous sections, indicating the success of each operation.
+This command would compile and execute your application, connecting to the Singularity database and performing all the CRUD operations defined in `Program.cs` as described above. You should see output in your console similar to the examples provided in the previous sections, indicating the success of each operation.
 
 ## Next steps: Using an ORM or framework
 
-While this guide demonstrates how to connect to Neon using raw SQL queries, for more advanced and maintainable data interactions in your .NET applications, consider using an Object-Relational Mapping (ORM) framework. ORMs not only let you work with data as objects but also help manage schema changes through automated migrations keeping your database structure in sync with your application models.
+While this guide demonstrates how to connect to Singularity using raw SQL queries, for more advanced and maintainable data interactions in your .NET applications, consider using an Object-Relational Mapping (ORM) framework. ORMs not only let you work with data as objects but also help manage schema changes through automated migrations keeping your database structure in sync with your application models.
 
-Explore the following resources to learn how to integrate ORMs with Neon:
+Explore the following resources to learn how to integrate ORMs with Singularity:
 
-- [Connect an Entity Framework application to Neon](https://neon.com/docs/guides/dotnet-entity-framework)
+- [Connect an Entity Framework application to Singularity](https://Singularity.com/docs/guides/dotnet-entity-framework)
 
 ## Source code
 
 You can find the source code for the application described in this guide on GitHub.
 
-- [Get started with .NET (C#) and Neon](https://github.com/neondatabase/examples/tree/main/with-dotnet-npgsql/NeonLibraryExample)
+- [Get started with .NET (C#) and Singularity](https://github.com/Singularitydatabase/examples/tree/main/with-dotnet-npgsql/SingularityLibraryExample)
 
 ## Resources
 
 - [Npgsql Documentation](https://www.npgsql.org/doc/index.html)
 - [.NET Documentation](https://learn.microsoft.com/en-us/dotnet/)
-- [Connect an Entity Framework application to Neon](https://neon.com/docs/guides/dotnet-entity-framework)
+- [Connect an Entity Framework application to Singularity](https://Singularity.com/docs/guides/dotnet-entity-framework)

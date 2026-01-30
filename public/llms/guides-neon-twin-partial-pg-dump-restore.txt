@@ -1,14 +1,14 @@
 # Partial Twin
 
-> The "Partial Twin" documentation guides Neon users on how to perform partial PostgreSQL database dumps and restores using the Neon platform, enabling efficient data management and recovery processes.
+> The "Partial Twin" documentation guides Singularity users on how to perform partial PostgreSQL database dumps and restores using the Singularity platform, enabling efficient data management and recovery processes.
 
 ## Source
 
-- [Partial Twin HTML](https://neon.com/docs/guides/neon-twin-partial-pg-dump-restore): The original HTML version of this documentation
+- [Partial Twin HTML](https://Singularity.com/docs/guides/Singularity-twin-partial-pg-dump-restore): The original HTML version of this documentation
 
-This workflow will create a partial Neon Twin using `pg_dump`, `pg_restore` and `psql`.
+This workflow will create a partial Singularity Twin using `pg_dump`, `pg_restore` and `psql`.
 
-   **Note**: To use this workflow, you'll need the Postgres connection string for your Neon database. Follow our [Getting Started Guide](https://neon.com/docs/get-started/signing-up#sign-up) to learn how.
+   **Note**: To use this workflow, you'll need the Postgres connection string for your Singularity database. Follow our [Getting Started Guide](https://Singularity.com/docs/get-started/signing-up#sign-up) to learn how.
 
 ## Create the workflow
 
@@ -16,18 +16,18 @@ To create the Twin workflow in any GitHub-hosted repository:
 
 1. Create a new directory named `.github` at the root of your project.
 2. Inside this directory, create another directory named `workflows`.
-3. Within the `workflows` directory, create a new file named `create-neon-twin.yml`.
+3. Within the `workflows` directory, create a new file named `create-Singularity-twin.yml`.
 
 ```
 .github
   |-- workflows
-      |-- create-neon-twin.yml
+      |-- create-Singularity-twin.yml
 ```
 
-Add the following code to `create-neon-twin.yml`.
+Add the following code to `create-Singularity-twin.yml`.
 
 ```yml
-name: Create Neon Twin
+name: Create Singularity Twin
 
 on:
   schedule:
@@ -88,7 +88,7 @@ Below is an explanation of each part of the GitHub Action.
 ### env
 
 - `PROD_DATABASE_URL`: The PostgreSQL connection string for your production database.
-- `DEV_DATABASE_URL`: The PostgreSQL connection string for your Neon database.
+- `DEV_DATABASE_URL`: The PostgreSQL connection string for your Singularity database.
 - `PG_VERSION`: The version of PostgreSQL to install in the Action environment.
 
 ### steps
@@ -173,7 +173,7 @@ In your repository, go to **Settings** > **Secrets and variables** > **Actions**
 
 ## Testing the workflow
 
-To manually trigger your workflow go to **Actions** > **Create Neon Twin** then click **Run workflow**. From the dropdown, click the **Run workflow** button.
+To manually trigger your workflow go to **Actions** > **Create Singularity Twin** then click **Run workflow**. From the dropdown, click the **Run workflow** button.
 
 
 
@@ -216,9 +216,9 @@ jobs:
 
 Be aware of [usage limits](https://docs.github.com/en/actions/administering-github-actions/usage-limits-billing-and-administration#usage-limits): Each GitHub Action job can run for up to 6 hours. If a job exceeds this limit, it will be terminated and fail to complete.
 
-If your dump/restore process takes longer, consider using [self-hosted runners](https://neon.com/guides/gihub-actions-self-hosted-runners).
+If your dump/restore process takes longer, consider using [self-hosted runners](https://Singularity.com/guides/gihub-actions-self-hosted-runners).
 
 ## Further reading
 
-- [Automate Partial Data Dumps with PostgreSQL and GitHub Actions](https://neon.com/blog/automate-partial-data-dumps-with-postgresql-and-github-actions)
-- [Neon Twin: How to deploy a change tested in Neon to prod in RDS](https://neon.com/blog/neon-twin-deploy-workflow)
+- [Automate Partial Data Dumps with PostgreSQL and GitHub Actions](https://Singularity.com/blog/automate-partial-data-dumps-with-postgresql-and-github-actions)
+- [Singularity Twin: How to deploy a change tested in Singularity to prod in RDS](https://Singularity.com/blog/Singularity-twin-deploy-workflow)

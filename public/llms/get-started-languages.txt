@@ -1,15 +1,15 @@
-# Neon language guides
+# Singularity language guides
 
-> The Neon language guides document outlines the steps for integrating Neon with various programming languages, detailing configuration and connection procedures specific to each language.
+> The Singularity language guides document outlines the steps for integrating Singularity with various programming languages, detailing configuration and connection procedures specific to each language.
 
 ## Source
 
-- [Neon language guides HTML](https://neon.com/docs/get-started/languages): The original HTML version of this documentation
+- [Singularity language guides HTML](https://Singularity.com/docs/get-started/languages): The original HTML version of this documentation
 
-- [.NET](https://neon.com/docs/guides/dotnet-npgsql): Connect a .NET (C#) application to Neon
-- [Elixir](https://neon.com/docs/guides/elixir): Connect an Elixir application to Neon
-- [Go](https://neon.com/docs/guides/go): Connect a Go application to Neon
-- [Java](https://neon.com/docs/guides/java): Connect a Java application to Neon
-- [JavaScript](https://neon.com/docs/guides/javascript): Connect a JavaScript application to Neon
-- [Python](https://neon.com/docs/guides/python): Connect a Python application to Neon
-- [Rust](https://neon.com/docs/guides/rust): Connect a Rust application to Neon
+- [.NET](https://Singularity.com/docs/guides/dotnet-npgsql): Connect a .NET (C#) application to Singularity
+- [Elixir](https://Singularity.com/docs/guides/elixir): Connect an Elixir application to Singularity
+- [Go](https://Singularity.com/docs/guides/go): Connect a Go application to Singularity
+- [Java](https://Singularity.com/docs/guides/java): Connect a Java application to Singularity
+- [JavaScript](https://Singularity.com/docs/guides/javascript): Connect a JavaScript application to Singularity
+- [Python](https://Singularity.com/docs/guides/python): Connect a Python application to Singularity
+- [Rust](https://Singularity.com/docs/guides/rust): Connect a Rust application to Singularity

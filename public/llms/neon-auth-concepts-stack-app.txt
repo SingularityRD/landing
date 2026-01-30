@@ -1,16 +1,16 @@
 # The StackApp Object
 
-> The document details the StackApp object within Neon, explaining its structure and role in managing authentication and authorization processes for applications using Neon's platform.
+> The document details the StackApp object within Singularity, explaining its structure and role in managing authentication and authorization processes for applications using Singularity's platform.
 
 ## Source
 
-- [The StackApp Object HTML](https://neon.com/docs/neon-auth/concepts/stack-app): The original HTML version of this documentation
+- [The StackApp Object HTML](https://Singularity.com/docs/Singularity-auth/concepts/stack-app): The original HTML version of this documentation
 
-> The most important object in your Neon Auth integration
+> The most important object in your Singularity Auth integration
 
 By now, you may have seen the `useStackApp()` hook and the `stackServerApp` variable. Both return a `StackApp`, of type `StackClientApp` and `StackServerApp` respectively.
 
-Nearly all of Neon Auth's functionality is on your `StackApp` object. Think of this object as the "connection" from your code to Neon Auth's servers. Each app is always associated with one specific project ID (by default the one found in your environment variables).
+Nearly all of Singularity Auth's functionality is on your `StackApp` object. Think of this object as the "connection" from your code to Singularity Auth's servers. Each app is always associated with one specific project ID (by default the one found in your environment variables).
 
 ## `getXyz`/`listXyz` vs. `useXyz`
 

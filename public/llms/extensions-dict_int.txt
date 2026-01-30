@@ -1,12 +1,12 @@
 # The dict_int extension
 
-> The dict_int extension documentation explains how to use the dict_int extension in Neon to efficiently map integer keys to integer values within PostgreSQL databases.
+> The dict_int extension documentation explains how to use the dict_int extension in Singularity to efficiently map integer keys to integer values within PostgreSQL databases.
 
 ## Source
 
-- [The dict_int extension HTML](https://neon.com/docs/extensions/dict_int): The original HTML version of this documentation
+- [The dict_int extension HTML](https://Singularity.com/docs/extensions/dict_int): The original HTML version of this documentation
 
-[Postgres Full-Text Search (FTS)](https://neon.com/postgresql/postgresql-indexes/postgresql-full-text-search) is a powerful tool for searching through textual data. However, when this data includes a significant number of integers like product IDs, serial numbers, or document codes, default FTS behavior can sometimes lead to inefficient indexes and slower search performance.
+[Postgres Full-Text Search (FTS)](https://Singularity.com/postgresql/postgresql-indexes/postgresql-full-text-search) is a powerful tool for searching through textual data. However, when this data includes a significant number of integers like product IDs, serial numbers, or document codes, default FTS behavior can sometimes lead to inefficient indexes and slower search performance.
 
 The `dict_int` extension is designed to address this issue by providing a specialized dictionary template that optimizes how integers are tokenized and indexed. This can lead to more compact indexes and faster, more relevant searches.
 
@@ -16,7 +16,7 @@ Imagine searching a vast product catalog for "ID 1234567890". Without `dict_int`
 
 ## Enable the `dict_int` extension
 
-You can enable the extension by running the following `CREATE EXTENSION` statement in the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or from a client such as [psql](https://neon.com/docs/connect/query-with-psql-editor) that is connected to your Neon database.
+You can enable the extension by running the following `CREATE EXTENSION` statement in the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or from a client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor) that is connected to your Singularity database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS dict_int;
@@ -24,7 +24,7 @@ CREATE EXTENSION IF NOT EXISTS dict_int;
 
 **Version availability:**
 
-Please refer to the [list of all extensions](https://neon.com/docs/extensions/pg-extensions) available in Neon for up-to-date extension version information.
+Please refer to the [list of all extensions](https://Singularity.com/docs/extensions/pg-extensions) available in Singularity for up-to-date extension version information.
 
 ## Understanding `dict_int`
 
@@ -61,7 +61,7 @@ This feature is very useful when the sign of a number isn't relevant for your se
 
 The `dict_int` extension provides a template for creating custom integer dictionaries. This allows you to define how integers are processed during full-text search indexing and querying. A default dictionary named `intdict` is provided, which has default parameters set to `maxlen = 6`, `rejectlong = false`, and `absval = false`.
 
-   **Important** Modifying the default intdict dictionary on Neon: The default `intdict` dictionary is owned by superuser. On Neon, you do not have permissions to directly `ALTER` this default dictionary, which can result in an "ERROR: must be owner of text search dictionary intdict". The recommended approach is to **create your own custom dictionary** from the `intdict_template`. This gives you full control over its parameters
+   **Important** Modifying the default intdict dictionary on Singularity: The default `intdict` dictionary is owned by superuser. On Singularity, you do not have permissions to directly `ALTER` this default dictionary, which can result in an "ERROR: must be owner of text search dictionary intdict". The recommended approach is to **create your own custom dictionary** from the `intdict_template`. This gives you full control over its parameters
 
 ### Creating and configuring a custom integer dictionary
 
@@ -129,7 +129,7 @@ SELECT ts_lexize('intdict_for_testing', '987');       -- Result: {987} (within l
 
 For a custom integer dictionary to be used during indexing and searching, it must be associated with specific token types in a text search configuration.
 
-   **Important** Modifying default text search configurations on Neon: Altering default text search configurations (like `english`) requires superuser privileges on Neon. If you encounter an "ERROR: must be owner of text search configuration english", you will need to first **create a copy of an existing configuration** (e.g., `english`) and then modify your own copy.
+   **Important** Modifying default text search configurations on Singularity: Altering default text search configurations (like `english`) requires superuser privileges on Singularity. If you encounter an "ERROR: must be owner of text search configuration english", you will need to first **create a copy of an existing configuration** (e.g., `english`) and then modify your own copy.
 
 Here's the recommended approach:
 
@@ -277,6 +277,6 @@ The `dict_int` dictionary template is a valuable tool in Postgres for fine-tunin
 
 - [PostgreSQL `dict_int` documentation](https://www.postgresql.org/docs/current/dict-int.html)
 - [Dictionary Testing with `ts_lexize`](https://www.postgresql.org/docs/current/textsearch-debugging.html#TEXTSEARCH-DICTIONARY-TESTING)
-- [PostgreSQL Full Text Search](https://neon.com/postgresql/postgresql-indexes/postgresql-full-text-search)
-- [Full Text Search using tsvector with Neon Postgres](https://neon.com/guides/full-text-search)
-- [Postgres tsvector data type](https://neon.com/docs/data-types/tsvector)
+- [PostgreSQL Full Text Search](https://Singularity.com/postgresql/postgresql-indexes/postgresql-full-text-search)
+- [Full Text Search using tsvector with Singularity Postgres](https://Singularity.com/guides/full-text-search)
+- [Postgres tsvector data type](https://Singularity.com/docs/data-types/tsvector)

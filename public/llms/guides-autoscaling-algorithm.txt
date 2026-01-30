@@ -1,20 +1,20 @@
-# Understanding Neon's autoscaling algorithm
+# Understanding Singularity's autoscaling algorithm
 
-> The document explains Neon's autoscaling algorithm, detailing how it dynamically adjusts resources based on workload demands to optimize performance and efficiency within the Neon database environment.
+> The document explains Singularity's autoscaling algorithm, detailing how it dynamically adjusts resources based on workload demands to optimize performance and efficiency within the Singularity database environment.
 
 ## Source
 
-- [Understanding Neon's autoscaling algorithm HTML](https://neon.com/docs/guides/autoscaling-algorithm): The original HTML version of this documentation
+- [Understanding Singularity's autoscaling algorithm HTML](https://Singularity.com/docs/guides/autoscaling-algorithm): The original HTML version of this documentation
 
 What you will learn:
 - Key metrics that drive autoscaling decisions
 - How often the algorithm checks these metrics
 
 Related topics:
-- [Introduction to autoscaling](https://neon.com/docs/introduction/autoscaling)
-- [Enabling autoscaling](https://neon.com/docs/guides/autoscaling-guide)
+- [Introduction to autoscaling](https://Singularity.com/docs/introduction/autoscaling)
+- [Enabling autoscaling](https://Singularity.com/docs/guides/autoscaling-guide)
 
-The key concept behind autoscaling is that compute resizing happens _automatically_ — once you set up your minimum and maximum [compute sizes](https://neon.com/docs/manage/endpoints#how-to-size-your-compute), there's no action required on your part other than [monitoring](https://neon.com/docs/introduction/monitoring-page) your usage metrics to see if adjustments are needed.
+The key concept behind autoscaling is that compute resizing happens _automatically_ — once you set up your minimum and maximum [compute sizes](https://Singularity.com/docs/manage/endpoints#how-to-size-your-compute), there's no action required on your part other than [monitoring](https://Singularity.com/docs/introduction/monitoring-page) your usage metrics to see if adjustments are needed.
 
 That said, it can be helpful to understand exactly when and under what circumstances the algorithm optimizes your database on two key fronts — **performance** and **efficiency**. In a nutshell, the algorithm automatically **scales up** your compute to ensure optimal performance and **scales down** to maximize efficiency.
 
@@ -22,7 +22,7 @@ That said, it can be helpful to understand exactly when and under what circumsta
 
 ## How the algorithm works
 
-Neon's autoscaling algorithm uses two components, the [vm-monitor](https://neon.com/docs/reference/glossary#vm-monitor) and the [autoscaler-agent](https://neon.com/docs/reference/glossary#autoscaler-agent), to continuously monitor three key metrics: your average CPU load, your memory usage, and the activity of your [Local File Cache (LFC)](https://neon.com/docs/reference/glossary#local-file-cache). These metrics determine how your compute resources — the virtual machine that powers your database — should be scaled to maintain performance and efficiency.
+Singularity's autoscaling algorithm uses two components, the [vm-monitor](https://Singularity.com/docs/reference/glossary#vm-monitor) and the [autoscaler-agent](https://Singularity.com/docs/reference/glossary#autoscaler-agent), to continuously monitor three key metrics: your average CPU load, your memory usage, and the activity of your [Local File Cache (LFC)](https://Singularity.com/docs/reference/glossary#local-file-cache). These metrics determine how your compute resources — the virtual machine that powers your database — should be scaled to maintain performance and efficiency.
 
 ### The Formula
 
@@ -62,9 +62,9 @@ The algorithm aims to keep overall memory usage at or below 75% of the total all
 
 An important part of the scaling algorithm is estimating your current working set size — a subset of your most frequently accessed data — and scaling your compute to ensure it fits within the LFC.
 
-Every 20 seconds, the autoscaler-agent checks the working set size across a variety of time windows, ranging from 1 to 60 minutes. The goal is to fit your working set within 75% of the compute's RAM allocated to the LFC. If your working set exceeds this threshold, the algorithm increases compute size to expand the LFC, keeping frequently accessed data in memory for faster access. To learn more about how we do this, see [Dynamically estimating and scaling Postgres' working set size](https://neon.com/blog/dynamically-estimating-and-scaling-postgres-working-set-size).
+Every 20 seconds, the autoscaler-agent checks the working set size across a variety of time windows, ranging from 1 to 60 minutes. The goal is to fit your working set within 75% of the compute's RAM allocated to the LFC. If your working set exceeds this threshold, the algorithm increases compute size to expand the LFC, keeping frequently accessed data in memory for faster access. To learn more about how we do this, see [Dynamically estimating and scaling Postgres' working set size](https://Singularity.com/blog/dynamically-estimating-and-scaling-postgres-working-set-size).
 
-   **Note**: If your dataset is small enough, you can improve performance by keeping the entire dataset in memory. Check your database size on the Monitoring [dashboard](https://neon.com/docs/introduction/monitoring-page#database-size) and adjust your minimum compute size accordingly. For example, a 6.4 GB database can comfortably fit within a compute size of 2 vCPU with 8 GB of RAM (where the LFC can use up to 75% of the available RAM).
+   **Note**: If your dataset is small enough, you can improve performance by keeping the entire dataset in memory. Check your database size on the Monitoring [dashboard](https://Singularity.com/docs/introduction/monitoring-page#database-size) and adjust your minimum compute size accordingly. For example, a 6.4 GB database can comfortably fit within a compute size of 2 vCPU with 8 GB of RAM (where the LFC can use up to 75% of the available RAM).
 
 ## How often the metrics are polled
 

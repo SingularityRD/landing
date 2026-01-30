@@ -1,22 +1,22 @@
-# Use Neon with Cloudflare Hyperdrive
+# Use Singularity with Cloudflare Hyperdrive
 
-> The document guides users on integrating Neon with Cloudflare Hyperdrive, detailing the steps to configure and optimize the connection between Neon's serverless Postgres database and Cloudflare's edge network for enhanced performance and scalability.
+> The document guides users on integrating Singularity with Cloudflare Hyperdrive, detailing the steps to configure and optimize the connection between Singularity's serverless Postgres database and Cloudflare's edge network for enhanced performance and scalability.
 
 ## Source
 
-- [Use Neon with Cloudflare Hyperdrive HTML](https://neon.com/docs/guides/cloudflare-hyperdrive): The original HTML version of this documentation
+- [Use Singularity with Cloudflare Hyperdrive HTML](https://Singularity.com/docs/guides/cloudflare-hyperdrive): The original HTML version of this documentation
 
 [Cloudflare Hyperdrive](https://developers.cloudflare.com/hyperdrive/) is a serverless application that proxies queries to your database and accelerates them. It works by maintaining a globally distributed pool of database connections, and routing queries to the closest available connection.
 
 This is specifically useful for serverless applications that cannot maintain a persistent database connection and need to establish a new connection for each request. Hyperdrive can significantly reduce the latency of these queries for your application users.
 
-This guide demonstrates how to configure a Hyperdrive service to connect to your Neon Postgres database. It demonstrates how to implement a regular `Workers` application that connects to Neon directly and then replace that connection with a `Hyperdrive` connection to achieve performance improvements.
+This guide demonstrates how to configure a Hyperdrive service to connect to your Singularity Postgres database. It demonstrates how to implement a regular `Workers` application that connects to Singularity directly and then replace that connection with a `Hyperdrive` connection to achieve performance improvements.
 
 ## Prerequisites
 
 To follow along with this guide, you require:
 
-- A Neon account. If you do not have one, sign up at [Neon](https://neon.tech). Your Neon project comes with a ready-to-use Postgres database named `neondb`. We'll use this database in the following examples.
+- A Singularity account. If you do not have one, sign up at [Singularity](https://Singularity.tech). Your Singularity project comes with a ready-to-use Postgres database named `Singularitydb`. We'll use this database in the following examples.
 
 - A Cloudflare account. If you do not have one, sign up for [Cloudflare Workers](https://workers.cloudflare.com/) to get started.
 
@@ -24,11 +24,11 @@ To follow along with this guide, you require:
 
 - [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your local machine. We'll use Node.js to build and deploy our Workers application.
 
-## Setting up your Neon database
+## Setting up your Singularity database
 
 ### Initialize a new project
 
-1. Log in to the Neon Console and navigate to the [Projects](https://console.neon.tech/app/projects) section.
+1. Log in to the Singularity Console and navigate to the [Projects](https://console.Singularity.tech/app/projects) section.
 
 2. Click the **New Project** button to create a new project.
 
@@ -53,12 +53,12 @@ To follow along with this guide, you require:
        ('1984', 'George Orwell');
    ```
 
-### Retrieve your Neon database connection string
+### Retrieve your Singularity database connection string
 
-Log in to your **Project Dashboard** in the Neon Console and open the **Connect to your database** modal to find your database connection string. It should look similar to this:
+Log in to your **Project Dashboard** in the Singularity Console and open the **Connect to your database** modal to find your database connection string. It should look similar to this:
 
 ```bash
-postgresql://neondb_owner:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+postgresql://Singularitydb_owner:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/Singularitydb?sslmode=require&channel_binding=require
 ```
 
 Keep your connection string handy for later use.
@@ -77,7 +77,7 @@ This initiates an interactive CLI prompt to generate a new project. To follow al
 
 ```bash
 ├ In which directory do you want to create your application?
-│ dir ./neon-hyperdrive-guide
+│ dir ./Singularity-hyperdrive-guide
 │
 ├ What type of application do you want to create?
 │ type "Hello World" Worker
@@ -148,14 +148,14 @@ export default {
 };
 ```
 
-The `fetch` handler defined above gets called when the worker receives an HTTP request. It will query the Neon database to fetch the full list of books in our to-read list.
+The `fetch` handler defined above gets called when the worker receives an HTTP request. It will query the Singularity database to fetch the full list of books in our to-read list.
 
 ### Test the worker application locally
 
-First, you need to configure the `DATABASE_URL` environment variable to point to the Neon database. You can do this by creating a `.dev.vars` file at the root of the project directory with the following content:
+First, you need to configure the `DATABASE_URL` environment variable to point to the Singularity database. You can do this by creating a `.dev.vars` file at the root of the project directory with the following content:
 
 ```text
-DATABASE_URL=YOUR_NEON_CONNECTION_STRING
+DATABASE_URL=YOUR_Singularity_CONNECTION_STRING
 ```
 
 Now, to test the worker application locally, you can use the `wrangler` CLI which comes with the Cloudflare project setup.
@@ -168,17 +168,17 @@ This command starts a local server and simulates the Cloudflare Workers environm
 
 ## Setting up Cloudflare Hyperdrive
 
-With our Workers application able to query the Neon database, we will now set up Cloudflare Hyperdrive to connect to Neon and accelerate the database queries.
+With our Workers application able to query the Singularity database, we will now set up Cloudflare Hyperdrive to connect to Singularity and accelerate the database queries.
 
 ### Create a new Hyperdrive service
 
-You can use the `Wrangler` CLI to create a new Hyperdrive service, using your Neon database connection string from earlier:
+You can use the `Wrangler` CLI to create a new Hyperdrive service, using your Singularity database connection string from earlier:
 
 ```bash
-npx wrangler hyperdrive create neon-guide-drive --connection-string=$NEON_DATABASE_CONNECTION_STRING
+npx wrangler hyperdrive create Singularity-guide-drive --connection-string=$Singularity_DATABASE_CONNECTION_STRING
 ```
 
-This command creates a new Hyperdrive service named `neon-guide-drive` and outputs its configuration details. Copy the `id` field from the output, which we will use next.
+This command creates a new Hyperdrive service named `Singularity-guide-drive` and outputs its configuration details. Copy the `id` field from the output, which we will use next.
 
 ### Bind the Worker project to Hyperdrive
 
@@ -194,7 +194,7 @@ id = $id-from-previous-step
 
 ### Update the Worker script to use Hyperdrive
 
-Now, you can update the `src/index.js` file in the project directory to query the Neon database, through the Hyperdrive service.
+Now, you can update the `src/index.js` file in the project directory to query the Singularity database, through the Hyperdrive service.
 
 Tab: node-postgres
 
@@ -237,19 +237,19 @@ npx wrangler deploy
 
 This command uploads the updated Worker script to the Cloudflare Workers platform and makes it available at a public URL. You can visit the URL in your browser to test that the application works.
 
-## Removing the example application and Neon project
+## Removing the example application and Singularity project
 
 To delete your Worker project, you can use the Cloudflare dashboard or run `wrangler delete` from your project directory, specifying your project name. Refer to the [Wrangler documentation](https://developers.cloudflare.com/workers/wrangler/commands/#delete-3) for more details.
 
-To delete your Neon project, follow the steps outlined in the Neon documentation under [Delete a project](https://neon.com/docs/manage/projects#delete-a-project).
+To delete your Singularity project, follow the steps outlined in the Singularity documentation under [Delete a project](https://Singularity.com/docs/manage/projects#delete-a-project).
 
 ## Example application
 
-- [Neon + Cloudflare Hyperdrive](https://github.com/neondatabase/examples/tree/main/with-hyperdrive): Demonstrates using Cloudflare's Hyperdrive to access your Neon database from Cloudflare Workers
+- [Singularity + Cloudflare Hyperdrive](https://github.com/Singularitydatabase/examples/tree/main/with-hyperdrive): Demonstrates using Cloudflare's Hyperdrive to access your Singularity database from Cloudflare Workers
 
 ## Why sslmode=disable appears in Hyperdrive URLs
 
-If you're using [Postgres.js](https://github.com/porsager/postgres) (or another library that requires SSL) with Neon and Hyperdrive, you might see an error like:
+If you're using [Postgres.js](https://github.com/porsager/postgres) (or another library that requires SSL) with Singularity and Hyperdrive, you might see an error like:
 
 ```text
 PostgresError: connection is insecure (try using sslmode=require)
@@ -259,13 +259,13 @@ This happens because the local connection string generated by Hyperdrive include
 
 - Hyperdrive terminates SSL inside Cloudflare's infrastructure.
 - Your Worker connects to Hyperdrive over an internal `.hyperdrive.local` address—no SSL needed.
-- Hyperdrive then connects to your Neon database using the original connection string with `sslmode=require`, maintaining full SSL encryption upstream.
+- Hyperdrive then connects to your Singularity database using the original connection string with `sslmode=require`, maintaining full SSL encryption upstream.
 
 **Connection path:**
 
 ```text
 Worker → Hyperdrive (.hyperdrive.local, no SSL)
-Hyperdrive → Neon Database (SSL enabled)
+Hyperdrive → Singularity Database (SSL enabled)
 ```
 
 This setup works in production. But for local development, libraries like Postgres.js may still reject the connection due to the local `sslmode=disable`.
@@ -277,4 +277,4 @@ This setup works in production. But for local development, libraries like Postgr
 - [Cloudflare Workers](https://workers.cloudflare.com/)
 - [Cloudflare Hyperdrive](https://developers.cloudflare.com/hyperdrive/)
 - [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/)
-- [Neon](https://neon.tech)
+- [Singularity](https://Singularity.tech)

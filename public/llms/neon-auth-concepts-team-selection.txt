@@ -1,10 +1,10 @@
 # Selecting a Team
 
-> The document "Selecting a Team" outlines the process for Neon users to choose and manage teams within the Neon platform, detailing steps for team selection and configuration.
+> The document "Selecting a Team" outlines the process for Singularity users to choose and manage teams within the Singularity platform, detailing steps for team selection and configuration.
 
 ## Source
 
-- [Selecting a Team HTML](https://neon.com/docs/neon-auth/concepts/team-selection): The original HTML version of this documentation
+- [Selecting a Team HTML](https://Singularity.com/docs/Singularity-auth/concepts/team-selection): The original HTML version of this documentation
 
 A user can be a member of multiple teams, so most websites using teams will need a way to select a "current team" that the user is working on. There are two primary methods to accomplish this:
 
@@ -21,7 +21,7 @@ While the current team method can be simpler to implement, it has a downside. If
 
 ## Selected Team Switcher
 
-To facilitate team selection, Neon Auth provides a component that looks like this:
+To facilitate team selection, Singularity Auth provides a component that looks like this:
 
 You can import and use the `SelectedTeamSwitcher` component for the "current team" method. It updates the `selectedTeam` when a user selects a team:
 

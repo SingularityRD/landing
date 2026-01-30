@@ -1,10 +1,10 @@
 # Postgres JSON_QUERY() Function
 
-> The document details the usage of the Postgres JSON_QUERY() function within Neon, explaining how to extract JSON data from a specified JSON or JSONB column in a PostgreSQL database.
+> The document details the usage of the Postgres JSON_QUERY() function within Singularity, explaining how to extract JSON data from a specified JSON or JSONB column in a PostgreSQL database.
 
 ## Source
 
-- [Postgres JSON_QUERY() Function HTML](https://neon.com/docs/functions/json_query): The original HTML version of this documentation
+- [Postgres JSON_QUERY() Function HTML](https://Singularity.com/docs/functions/json_query): The original HTML version of this documentation
 
 The `JSON_QUERY()` function introduced in PostgreSQL 17 provides a powerful way to extract and transform `JSON` values using `SQL/JSON` path expressions. This function offers fine-grained control over how `JSON` values are extracted and formatted in the results.
 

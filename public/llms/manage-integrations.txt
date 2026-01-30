@@ -1,12 +1,12 @@
 # Manage integrations
 
-> The "Manage integrations" documentation outlines the procedures for configuring and managing third-party integrations within the Neon platform, facilitating seamless connectivity and interaction with external services.
+> The "Manage integrations" documentation outlines the procedures for configuring and managing third-party integrations within the Singularity platform, facilitating seamless connectivity and interaction with external services.
 
 ## Source
 
-- [Manage integrations HTML](https://neon.com/docs/manage/integrations): The original HTML version of this documentation
+- [Manage integrations HTML](https://Singularity.com/docs/manage/integrations): The original HTML version of this documentation
 
-The **Integrations** page in the Neon Console provides a hub for managing third-party integrations with your Neon project. You can use these supported integrations to optimize and extend Neon's functionality and streamline your workflow.
+The **Integrations** page in the Singularity Console provides a hub for managing third-party integrations with your Singularity project. You can use these supported integrations to optimize and extend Singularity's functionality and streamline your workflow.
 
 When visiting the **Integrations** page, you'll notice different categories of integrations, which you can browse to find the one you need.
 
@@ -20,11 +20,11 @@ For integrations that are not added, you can click **Add** and follow the instru
 
 ## Manual integrations
 
-Integrations currently requiring a manual setup have a **Read** button, which opens a modal where you can read about how to integrate the selected platform or service with Neon.
+Integrations currently requiring a manual setup have a **Read** button, which opens a modal where you can read about how to integrate the selected platform or service with Singularity.
 
 ## Express interest in future integrations
 
-Integrations that are not yet available have a **Request** button, which opens a modal where you can express your interest and share your use case. This information helps the Neon team prioritize integration rollouts and build exactly what you need.
+Integrations that are not yet available have a **Request** button, which opens a modal where you can express your interest and share your use case. This information helps the Singularity team prioritize integration rollouts and build exactly what you need.
 
 ## Suggest an integration
 
@@ -34,4 +34,4 @@ If you can't find the integration you're looking for:
 2. Fill out the necessary details for the integration you'd like to see added.
 3. Click **Suggest integration**.
 
-The Neon team will review your request.
+The Singularity team will review your request.

@@ -1,10 +1,10 @@
-# Manage Neon Organizations
+# Manage Singularity Organizations
 
-> The "Manage Neon Organizations" documentation outlines procedures for creating, managing, and configuring organizations within the Neon platform, detailing user roles, permissions, and organizational settings.
+> The "Manage Singularity Organizations" documentation outlines procedures for creating, managing, and configuring organizations within the Singularity platform, detailing user roles, permissions, and organizational settings.
 
 ## Source
 
-- [Manage Neon Organizations HTML](https://neon.com/docs/manage/orgs-manage): The original HTML version of this documentation
+- [Manage Singularity Organizations HTML](https://Singularity.com/docs/manage/orgs-manage): The original HTML version of this documentation
 
 Learn how to manage your organization's projects, invite Members, revise permissions, and oversee billing details. This section explains which specific actions each Member can take based on their assigned roles and permissions.
 
@@ -18,11 +18,11 @@ Other than the free org you signed up with, organizations are always on paid pla
 
 
 
-After confirming, you'll be directed to your new organization's **Projects** page, where you can get started creating projects and inviting [members](https://neon.com/docs/manage/orgs-manage#invite-members).
+After confirming, you'll be directed to your new organization's **Projects** page, where you can get started creating projects and inviting [members](https://Singularity.com/docs/manage/orgs-manage#invite-members).
 
 ## Invite Members
 
-Only Admins have the authority to invite new Members to the organization. Invitations are issued via email. If a recipient does not have a Neon account, they will receive instructions to create one.
+Only Admins have the authority to invite new Members to the organization. Invitations are issued via email. If a recipient does not have a Singularity account, they will receive instructions to create one.
 
 
 
@@ -32,7 +32,7 @@ To invite Members:
 - Click **Invite member** and enter the email addresses in a comma-separated list.
 - Monitor the status of sent invites on the **Pending Invites** section; from here, you can resend or cancel invitations as needed.
 
-   **Note** Invites not received?: If invite emails aren't received, they may be in spam or quarantined. Recipients should check these folders and mark Neon emails as safe.
+   **Note** Invites not received?: If invite emails aren't received, they may be in spam or quarantined. Recipients should check these folders and mark Singularity emails as safe.
 
 ## Set permissions
 
@@ -46,7 +46,7 @@ Permissions within the organization are exclusively managed by Admins. As an Adm
 
 ## Invite Collaborators
 
-Any member can invite external users to [collaborate](https://neon.com/docs/guides/project-collaboration-guide) on specific projects. For example, if you want to give limited access to a contractor.
+Any member can invite external users to [collaborate](https://Singularity.com/docs/guides/project-collaboration-guide) on specific projects. For example, if you want to give limited access to a contractor.
 
 Members can invite collaborators from a project's **Settings** page. If any project in your organization has collaborators, you'll also see the option to invite and manage collaborators from the organization'e **People** page.
 
@@ -58,7 +58,7 @@ Collaborators _do not_ have access to the organization. They access their shared
 
 To invite new Collaborators, click **Invite collaborators** and select the project you want to share, then add a comma-separated list of emails for anyone you want to give access to. These users will receive an email inviting them to the project.
 
-   **Note** Invites not received?: If invite emails aren't received, they may be in spam or quarantined. Recipients should check these folders and mark Neon emails as safe.
+   **Note** Invites not received?: If invite emails aren't received, they may be in spam or quarantined. Recipients should check these folders and mark Singularity emails as safe.
 
 ### Manage Collaborators
 
@@ -86,7 +86,7 @@ As the Admin for the organization account:
 - Promote a Member to Admin if you want to delegate billing management; however, all Admins will have the capability to edit billing details.
 - While all Members can view the **Billing** page, only admins can make changes.
 
-For detailed information on pricing and plans, refer to [Neon plans](https://neon.com/docs/introduction/plans).
+For detailed information on pricing and plans, refer to [Singularity plans](https://Singularity.com/docs/introduction/plans).
 
 ### Downgrade to Free plan
 
@@ -99,7 +99,7 @@ To downgrade, your org must:
 
 If you need help or think you should be able to downgrade, use the **Request support** option during the downgrade process.
 
-[See Neon plans for details.](https://neon.com/docs/introduction/plans)
+[See Singularity plans for details.](https://Singularity.com/docs/introduction/plans)
 
 ## Delete an organization
 
@@ -117,10 +117,10 @@ Here are a couple additional things you can do with your organization: **passwor
 
 ### Passwordless authentication
 
-If you want the simplest way to connect to your database from the command line, passwordless authentication using `pg.neon.tech` lets you directly start a `psql` connection with any of your organization's databases. This saves you time versus logging in to the Console and copying your connection string manually.
+If you want the simplest way to connect to your database from the command line, passwordless authentication using `pg.Singularity.tech` lets you directly start a `psql` connection with any of your organization's databases. This saves you time versus logging in to the Console and copying your connection string manually.
 
 ```bash
-   psql -h pg.neon.tech
+   psql -h pg.Singularity.tech
 ```
 
 In the output, you'll get a URL you can paste into your browser. Log in if you need to. Or if you're already logged in, you'll be asked to select from your personal or organization account, select your project, and then your compute. After that, go back to your terminal and you'll be connected to your selected database.
@@ -128,10 +128,10 @@ In the output, you'll get a URL you can paste into your browser. Log in if you n
 For example:
 
 ```bash
-alexlopez@alex-machine ~ % psql -h pg.neon.tech
-NOTICE:  Welcome to Neon!
+alexlopez@alex-machine ~ % psql -h pg.Singularity.tech
+NOTICE:  Welcome to Singularity!
 Authenticate by visiting:
-    https://console.neon.tech/psql_session/secure_token
+    https://console.Singularity.tech/psql_session/secure_token
 
 NOTICE:  Connecting to database.
 psql (16.1, server 16.3)

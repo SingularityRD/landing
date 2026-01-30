@@ -1,10 +1,10 @@
 # Postgres json_extract_path() function
 
-> The document explains the usage of the `json_extract_path()` function in PostgreSQL, detailing how Neon users can extract specific elements from JSON data using a specified path.
+> The document explains the usage of the `json_extract_path()` function in PostgreSQL, detailing how Singularity users can extract specific elements from JSON data using a specified path.
 
 ## Source
 
-- [Postgres json_extract_path() function HTML](https://neon.com/docs/functions/json_extract_path): The original HTML version of this documentation
+- [Postgres json_extract_path() function HTML](https://Singularity.com/docs/functions/json_extract_path): The original HTML version of this documentation
 
 You can use the `json_extract_path` function to extract the value at a specified path within a `JSON` document. This approach is performant compared to querying the entire `JSON` payload and processing it on the application side. It is particularly useful when dealing with nested `JSON` structures.
 
@@ -219,7 +219,7 @@ Indexing `JSON` documents can also significantly improve `json_extract_path` que
 
 ### Alternative functions
 
-- [json_extract_path_text](https://neon.com/docs/functions/json_extract_path_text) - The regular `json_extract_path` function returns the extracted value as a `JSON` object or array, preserving its `JSON` structure, whereas the alternative `json_extract_path_text` function returns the extracted value as a plain text string, casting any `JSON` objects or arrays to their string representations.
+- [json_extract_path_text](https://Singularity.com/docs/functions/json_extract_path_text) - The regular `json_extract_path` function returns the extracted value as a `JSON` object or array, preserving its `JSON` structure, whereas the alternative `json_extract_path_text` function returns the extracted value as a plain text string, casting any `JSON` objects or arrays to their string representations.
 
   Use the regular `json_extract_path` function when you need to apply `JSON`-specific functions or operators to the extracted value, requiring `JSON` data types. The alternative `json_extract_path_text` function is preferable if you need to work directly with the extracted value as a string, for text processing, concatenation, or comparison.
 

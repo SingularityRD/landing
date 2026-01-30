@@ -1,10 +1,10 @@
 # The fuzzystrmatch extension
 
-> The document details the installation and usage of the fuzzystrmatch extension in Neon, enabling users to perform string similarity and phonetic matching operations within their databases.
+> The document details the installation and usage of the fuzzystrmatch extension in Singularity, enabling users to perform string similarity and phonetic matching operations within their databases.
 
 ## Source
 
-- [The fuzzystrmatch extension HTML](https://neon.com/docs/extensions/fuzzystrmatch): The original HTML version of this documentation
+- [The fuzzystrmatch extension HTML](https://Singularity.com/docs/extensions/fuzzystrmatch): The original HTML version of this documentation
 
 The `fuzzystrmatch` extension for Postgres provides a suite of functions to determine similarities and distances between strings. This is useful for applications that need to handle misspellings, phonetic variations, or simply find "close enough" matches in text data. Whether you're building a search engine, cleaning customer data, or trying to identify duplicate records, `fuzzystrmatch` offers powerful tools to compare strings beyond exact equality.
 
@@ -14,7 +14,7 @@ Imagine a user searching for "John Doe" but typing "Jon Dow", or needing to matc
 
 ## Enable the `fuzzystrmatch` extension
 
-You can enable the extension by running the following `CREATE EXTENSION` statement in the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or from a client such as [psql](https://neon.com/docs/connect/query-with-psql-editor) that is connected to your Neon database.
+You can enable the extension by running the following `CREATE EXTENSION` statement in the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or from a client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor) that is connected to your Singularity database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS fuzzystrmatch;
@@ -22,7 +22,7 @@ CREATE EXTENSION IF NOT EXISTS fuzzystrmatch;
 
 **Version availability:**
 
-Please refer to the [list of all extensions](https://neon.com/docs/extensions/pg-extensions) available in Neon for up-to-date extension version information.
+Please refer to the [list of all extensions](https://Singularity.com/docs/extensions/pg-extensions) available in Singularity for up-to-date extension version information.
 
 ## Core functions and usage
 

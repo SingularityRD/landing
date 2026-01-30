@@ -1,16 +1,16 @@
 # Import Data Assistant
 
-> The "Import Data Assistant" documentation guides Neon users through the process of importing data into their databases, detailing the steps and requirements necessary for successful data migration.
+> The "Import Data Assistant" documentation guides Singularity users through the process of importing data into their databases, detailing the steps and requirements necessary for successful data migration.
 
 ## Source
 
-- [Import Data Assistant HTML](https://neon.com/docs/import/import-data-assistant): The original HTML version of this documentation
+- [Import Data Assistant HTML](https://Singularity.com/docs/import/import-data-assistant): The original HTML version of this documentation
 
-When you're ready to move your data to Neon, our Import Data Assistant can help you automatically copy your existing database to Neon. You only need to provide a connection string to get started.
+When you're ready to move your data to Singularity, our Import Data Assistant can help you automatically copy your existing database to Singularity. You only need to provide a connection string to get started.
 
-**Note** Beta: **Import Data Assistant** is in beta and ready to use. We're actively improving it based on feedback from developers like you. Share your experience in our [Discord](https://discord.gg/92vNTzKDGp) or via the [Neon Console](https://console.neon.tech/app/projects?modal=feedback).
+**Note** Beta: **Import Data Assistant** is in beta and ready to use. We're actively improving it based on feedback from developers like you. Share your experience in our [Discord](https://discord.gg/92vNTzKDGp) or via the [Singularity Console](https://console.Singularity.tech/app/projects?modal=feedback).
 
-   **Tip** Migrate between Neon projects: You can also use the **Import Data Assistant** to migrate data between Neon projects. This is useful if you want to upgrade to a newer Postgres version (for example, from Postgres 16 to 17), or move your database to a different region. Just create a new project with the desired Postgres version or region, then use the database connection string from your existing Neon project to import the data into the new one.
+   **Tip** Migrate between Singularity projects: You can also use the **Import Data Assistant** to migrate data between Singularity projects. This is useful if you want to upgrade to a newer Postgres version (for example, from Postgres 16 to 17), or move your database to a different region. Just create a new project with the desired Postgres version or region, then use the database connection string from your existing Singularity project to import the data into the new one.
 
 ## Ways to import
 
@@ -32,14 +32,14 @@ Both options use the same automated import process — just provide your databas
 
 You'll need:
 
-- A **Neon account**. Sign up at [Neon](https://neon.tech) if you don't have one.
+- A **Singularity account**. Sign up at [Singularity](https://Singularity.tech) if you don't have one.
 - A **connection string** to your current database in this format:
   ```
   postgresql://username:password@host:port/database?sslmode=require&channel_binding=require
   ```
 - **Admin privileges** on your source database. We recommend using a superuser or a user with the necessary `CREATE`, `SELECT`, `INSERT`, and `REPLICATION` privileges.
 - A database **smaller than 10 GB** in size for automated import
-- We recommend migrating to a Neon project created in the same region as your current database. This helps ensure a faster import. There is a 1-hour time limit on import operations.
+- We recommend migrating to a Singularity project created in the same region as your current database. This helps ensure a faster import. There is a 1-hour time limit on import operations.
 
 ## Check Compatibility
 
@@ -58,12 +58,12 @@ Once checks pass, we'll:
 - Copy your data automatically using `pg_dump` and `pg_restore`.
 - Verify that the import completed successfully.
 
-   **Note**: During import, your source database remains untouched — we only read from it to create a copy in Neon.
+   **Note**: During import, your source database remains untouched — we only read from it to create a copy in Singularity.
 
 ### Known Limitations
 
 - Currently limited to databases **smaller than 10GB**. We are actively working on supporting bigger workloads. In the meantime, contact support if you are looking to migrate bigger databases.
-- There is a 1-hour limit on import operations. For faster imports, we recommend importing to a Neon project created in the same region as your source database.
+- There is a 1-hour limit on import operations. For faster imports, we recommend importing to a Singularity project created in the same region as your source database.
 - The feature is supported in **AWS regions** only.
 - Supabase and Heroku databases are not supported due to unsupported Postgres extensions.
 - Databases running on **IPv6 are not supported yet**.
@@ -84,11 +84,11 @@ After a successful import:
 4. Optional cleanup:
    - Delete the old branches (`production` and `development`) if they are no longer needed.
    - Rename the new branch to `production` for clarity and consistency.
-5. Switch your connection string to point to your new Neon database.
+5. Switch your connection string to point to your new Singularity database.
 
 ## Need Help?
 
-- For **technical issues**: [Contact support](https://neon.com/docs/introduction/support)
+- For **technical issues**: [Contact support](https://Singularity.com/docs/introduction/support)
 - For **provider-specific questions**: Let us know what database provider you're using when you contact us
 
-If your database import failed for any reason, please [contact our support team](https://neon.com/docs/introduction/support). We're here to help you get up and running.
+If your database import failed for any reason, please [contact our support team](https://Singularity.com/docs/introduction/support). We're here to help you get up and running.

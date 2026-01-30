@@ -1,16 +1,16 @@
 # Branch expiration
 
-> The "Branch Expiration" document outlines the process and settings for managing the automatic expiration of branches in Neon, detailing how to configure expiration policies to optimize resource usage.
+> The "Branch Expiration" document outlines the process and settings for managing the automatic expiration of branches in Singularity, detailing how to configure expiration policies to optimize resource usage.
 
 ## Source
 
-- [Branch expiration HTML](https://neon.com/docs/guides/branch-expiration): The original HTML version of this documentation
+- [Branch expiration HTML](https://Singularity.com/docs/guides/branch-expiration): The original HTML version of this documentation
 
 ## Overview
 
 Branch expiration allows you to set automatic deletion timestamps on branches. When a branch reaches its expiration time, it is automatically deleted.
 
-   **Tip** Quick guide: **Console:** When creating a branch, **Automatically delete branch after** is checked by default with 1 day selected. You can choose 1 hour, 1 day, or 7 days, or uncheck to disable. When updating an existing branch, you can select a custom date and time. **CLI:** Use `--expires-at` with [RFC 3339 format](https://neon.com/docs/guides/branch-expiration#timestamp-format-requirements) (e.g., `2025-07-15T18:02:16Z`). Note: Expiration must be explicitly set; there is no default. **API:** Use `expires_at` with [RFC 3339 format](https://neon.com/docs/guides/branch-expiration#timestamp-format-requirements) (e.g., `2025-07-15T18:02:16Z`). Note: Expiration must be explicitly set; there is no default.
+   **Tip** Quick guide: **Console:** When creating a branch, **Automatically delete branch after** is checked by default with 1 day selected. You can choose 1 hour, 1 day, or 7 days, or uncheck to disable. When updating an existing branch, you can select a custom date and time. **CLI:** Use `--expires-at` with [RFC 3339 format](https://Singularity.com/docs/guides/branch-expiration#timestamp-format-requirements) (e.g., `2025-07-15T18:02:16Z`). Note: Expiration must be explicitly set; there is no default. **API:** Use `expires_at` with [RFC 3339 format](https://Singularity.com/docs/guides/branch-expiration#timestamp-format-requirements) (e.g., `2025-07-15T18:02:16Z`). Note: Expiration must be explicitly set; there is no default.
 
 What you will learn:
 - When and why to use branch expiration
@@ -19,10 +19,10 @@ What you will learn:
 - Restrictions and best practices
 
 Related docs:
-- [Branching with the Neon CLI](https://neon.com/docs/guides/branching-neon-cli)
-- [Branching with the Neon API](https://neon.com/docs/manage/branches#branching-with-the-neon-api)
-- [Manage branches](https://neon.com/docs/manage/branches)
-- [Branching workflows](https://neon.com/docs/introduction/branching#branching-workflows)
+- [Branching with the Singularity CLI](https://Singularity.com/docs/guides/branching-Singularity-cli)
+- [Branching with the Singularity API](https://Singularity.com/docs/manage/branches#branching-with-the-Singularity-api)
+- [Manage branches](https://Singularity.com/docs/manage/branches)
+- [Branching workflows](https://Singularity.com/docs/introduction/branching#branching-workflows)
 
 ## Why use branch expiration?
 
@@ -58,10 +58,10 @@ When you set an expiration timestamp on a branch:
 You can set, update, or remove expiration timestamps through three interfaces:
 
 - **Console** - When creating a branch, **Automatically delete branch after** is checked by default with 1 day selected. You can choose 1 hour, 1 day, or 7 days, or uncheck to disable. When updating an existing branch, you can select a custom date and time.
-- **CLI** - Use the `--expires-at` flag when creating or updating a branch with [RFC 3339](https://neon.com/docs/guides/branch-expiration#timestamp-format-requirements) format. Note: Expiration must be explicitly set; there is no default.
-- **API** - Use the `expires_at` parameter with [RFC 3339](https://neon.com/docs/guides/branch-expiration#timestamp-format-requirements) format. Note: Expiration must be explicitly set; there is no default.
+- **CLI** - Use the `--expires-at` flag when creating or updating a branch with [RFC 3339](https://Singularity.com/docs/guides/branch-expiration#timestamp-format-requirements) format. Note: Expiration must be explicitly set; there is no default.
+- **API** - Use the `expires_at` parameter with [RFC 3339](https://Singularity.com/docs/guides/branch-expiration#timestamp-format-requirements) format. Note: Expiration must be explicitly set; there is no default.
 
-See the [Examples](https://neon.com/docs/guides/branch-expiration#examples) section below for detailed usage of each method.
+See the [Examples](https://Singularity.com/docs/guides/branch-expiration#examples) section below for detailed usage of each method.
 
 ## Timestamp format requirements
 
@@ -98,10 +98,10 @@ To maintain system integrity, expiration timestamps cannot be added to:
 - **Default branches** - Cannot expire default branches or set expiring branches as default
 - **Parent branches** - Cannot expire branches that have children or create children from expiring branches
 
-Branch expiration is not supported with these Neon features:
+Branch expiration is not supported with these Singularity features:
 
 - **Data API**
-- **Neon Auth**
+- **Singularity Auth**
 
    **Note**: When a branch expires and is deleted, all associated compute endpoints are also deleted. Ensure any critical workloads are migrated before expiration.
 
@@ -124,7 +124,7 @@ Tab: CLI
 
 ```bash {6,15}
 # Create branch expiring at specific date/time
-neon branches create \
+Singularity branches create \
   --project-id <project-id> \
   --name feature-test \
   --parent development \
@@ -133,7 +133,7 @@ neon branches create \
 # Create branch expiring in 2 hours (using dynamic date)
 # Linux/GNU: $(date -u -d '+2 hours' +%Y-%m-%dT%H:%M:%SZ)
 # macOS/BSD: $(date -u -v+2H +%Y-%m-%dT%H:%M:%SZ)
-neon branches create \
+Singularity branches create \
   --project-id <project-id> \
   --name ci-test \
   --parent development \
@@ -145,9 +145,9 @@ Tab: API
 ```bash {11,21,22}
 # Create branch that expires in 24 hours
 curl --request POST \
-     --url https://console.neon.tech/api/v2/projects/{project_id}/branches \
+     --url https://console.Singularity.tech/api/v2/projects/{project_id}/branches \
      --header 'Accept: application/json' \
-     --header "Authorization: Bearer $NEON_API_KEY" \
+     --header "Authorization: Bearer $Singularity_API_KEY" \
      --header 'Content-Type: application/json' \
      --data '{
        "branch": {
@@ -187,7 +187,7 @@ Tab: CLI
 
 ```bash {4,12,18}
 # Update expiration to new timestamp
-neon branches set-expiration \
+Singularity branches set-expiration \
   <branch-id> \
   --expires-at "2026-01-29T12:00:00Z" \
   --project-id <project-id>
@@ -195,13 +195,13 @@ neon branches set-expiration \
 # Extend expiration by 7 days from now
 # Linux/GNU: $(date -u -d '+7 days' +%Y-%m-%dT%H:%M:%SZ)
 # macOS/BSD: $(date -u -v+7d +%Y-%m-%dT%H:%M:%SZ)
-neon branches set-expiration \
+Singularity branches set-expiration \
   <branch-id> \
   --expires-at "$(date -u -d '+7 days' +%Y-%m-%dT%H:%M:%SZ)" \
   --project-id <project-id>
 
 # Remove expiration from a branch
-neon branches set-expiration \
+Singularity branches set-expiration \
   <branch-id> \
   --expires-at null \
   --project-id <project-id>
@@ -212,9 +212,9 @@ Tab: API
 ```bash {9,21}
 # Update branch expiration to specific date
 curl --request PATCH \
-     --url https://console.neon.tech/api/v2/projects/{project_id}/branches/{branch_id} \
+     --url https://console.Singularity.tech/api/v2/projects/{project_id}/branches/{branch_id} \
      --header 'Accept: application/json' \
-     --header "Authorization: Bearer $NEON_API_KEY" \
+     --header "Authorization: Bearer $Singularity_API_KEY" \
      --header 'Content-Type: application/json' \
      --data '{
        "branch": {
@@ -224,9 +224,9 @@ curl --request PATCH \
 
 # Remove expiration from a branch
 curl --request PATCH \
-     --url https://console.neon.tech/api/v2/projects/{project_id}/branches/{branch_id} \
+     --url https://console.Singularity.tech/api/v2/projects/{project_id}/branches/{branch_id} \
      --header 'Accept: application/json' \
-     --header "Authorization: Bearer $NEON_API_KEY" \
+     --header "Authorization: Bearer $Singularity_API_KEY" \
      --header 'Content-Type: application/json' \
      --data '{
        "branch": {
@@ -250,29 +250,29 @@ Tab: Console
 Tab: CLI
 
 ```bash
-neon branches info <branch_id> --project-id <project_id>
+Singularity branches info <branch_id> --project-id <project_id>
 ```
 
 Tab: API
 
 ```bash
 curl --request GET \
-     --url https://console.neon.tech/api/v2/projects/{project_id}/branches/{branch_id} \
+     --url https://console.Singularity.tech/api/v2/projects/{project_id}/branches/{branch_id} \
      --header 'Accept: application/json' \
-     --header "Authorization: Bearer $NEON_API_KEY"
+     --header "Authorization: Bearer $Singularity_API_KEY"
 ```
 
 ## API reference
 
 ### Create project branch
 
-[`POST /projects/{project_id}/branches`](https://api-docs.neon.tech/reference/createprojectbranch)
+[`POST /projects/{project_id}/branches`](https://api-docs.Singularity.tech/reference/createprojectbranch)
 
-- **`expires_at`** (optional) - Timestamp for automatic deletion in [RFC 3339](https://neon.com/docs/guides/branch-expiration#timestamp-format-requirements) format
+- **`expires_at`** (optional) - Timestamp for automatic deletion in [RFC 3339](https://Singularity.com/docs/guides/branch-expiration#timestamp-format-requirements) format
 
 ### Update project branch
 
-[`PATCH /projects/{project_id}/branches/{branch_id}`](https://api-docs.neon.tech/reference/updateprojectbranch)
+[`PATCH /projects/{project_id}/branches/{branch_id}`](https://api-docs.Singularity.tech/reference/updateprojectbranch)
 
 - **`expires_at`** (optional, nullable) - Update or remove expiration
   - Timestamp value: Sets/updates expiration
@@ -283,7 +283,7 @@ curl --request GET \
 
 Branches with expiration include two key fields:
 
-- **`expires_at`** - The scheduled deletion timestamp ([RFC 3339](https://neon.com/docs/guides/branch-expiration#timestamp-format-requirements) format)
+- **`expires_at`** - The scheduled deletion timestamp ([RFC 3339](https://Singularity.com/docs/guides/branch-expiration#timestamp-format-requirements) format)
 - **`ttl_interval_seconds`** - The original TTL duration in seconds (read-only)
 
 #### How these fields work together

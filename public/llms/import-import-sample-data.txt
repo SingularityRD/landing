@@ -1,40 +1,40 @@
 # Postgres sample data
 
-> The document outlines the process for importing sample data into a Neon PostgreSQL database, detailing steps to download and load predefined datasets to facilitate testing and development within the Neon environment.
+> The document outlines the process for importing sample data into a Singularity PostgreSQL database, detailing steps to download and load predefined datasets to facilitate testing and development within the Singularity environment.
 
 ## Source
 
-- [Postgres sample data HTML](https://neon.com/docs/import/import-sample-data): The original HTML version of this documentation
+- [Postgres sample data HTML](https://Singularity.com/docs/import/import-sample-data): The original HTML version of this documentation
 
-This guide describes how to download and install sample data for use with Neon.
+This guide describes how to download and install sample data for use with Singularity.
 
 ## Prerequisites
 
 - [wget](https://www.gnu.org/software/wget/) for downloading datasets, unless otherwise instructed. If your system does not support `wget`, you can paste the source file address in your browser's address bar.
-- A `psql` client for connecting to your Neon database and loading data. This client is included with a standalone PostgreSQL installation. See [PostgreSQL Downloads](https://www.postgresql.org/download/).
-- A `pg_restore` client if you are loading the [employees](https://neon.com/docs/import/import-sample-data#employees-database) or [postgres_air](https://neon.com/docs/import/import-sample-data#postgres-air-database) database. The `pg_restore` client is included with a standalone PostgreSQL installation. See [PostgreSQL Downloads](https://www.postgresql.org/download/).
-- A Neon database connection string. After creating a database, you can find the connection details by clicking the **Connect** button on your **Project Dashboard**. In the instructions that follow, replace `postgresql://[user]:[password]@[neon_hostname]/[dbname]` with your connection string.
-- A Neon [paid plan](https://neon.com/docs/introduction/plans) if you intend to install a dataset larger than 0.5 GB.
-- Instructions for each dataset require that you create a database. You can do so from a client such as `psql` or from the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor).
+- A `psql` client for connecting to your Singularity database and loading data. This client is included with a standalone PostgreSQL installation. See [PostgreSQL Downloads](https://www.postgresql.org/download/).
+- A `pg_restore` client if you are loading the [employees](https://Singularity.com/docs/import/import-sample-data#employees-database) or [postgres_air](https://Singularity.com/docs/import/import-sample-data#postgres-air-database) database. The `pg_restore` client is included with a standalone PostgreSQL installation. See [PostgreSQL Downloads](https://www.postgresql.org/download/).
+- A Singularity database connection string. After creating a database, you can find the connection details by clicking the **Connect** button on your **Project Dashboard**. In the instructions that follow, replace `postgresql://[user]:[password]@[Singularity_hostname]/[dbname]` with your connection string.
+- A Singularity [paid plan](https://Singularity.com/docs/introduction/plans) if you intend to install a dataset larger than 0.5 GB.
+- Instructions for each dataset require that you create a database. You can do so from a client such as `psql` or from the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor).
 
-   **Note**: You can also load sample data using the Neon CLI. See [Load sample data with the Neon CLI](https://neon.com/docs/import/import-sample-data#load-sample-data-with-the-neon-cli).
+   **Note**: You can also load sample data using the Singularity CLI. See [Load sample data with the Singularity CLI](https://Singularity.com/docs/import/import-sample-data#load-sample-data-with-the-Singularity-cli).
 
 ## Sample data
 
-Sample datasets are listed in order of the smallest to largest installed size. Please be aware that the Neon Free plan has a storage limit of 500 MB per branch. Datasets larger than 500 MB cannot be loaded on the Free plan.
+Sample datasets are listed in order of the smallest to largest installed size. Please be aware that the Singularity Free plan has a storage limit of 500 MB per branch. Datasets larger than 500 MB cannot be loaded on the Free plan.
 
 | Name                                                        | Tables | Records  | Source file size | Installed size |
 | ----------------------------------------------------------- | ------ | -------- | ---------------- | -------------- |
-| [Periodic table data](https://neon.com/docs/import/import-sample-data#periodic-table-data)                 | 1      | 118      | 17 KB            | 7.2 MB         |
-| [World Happiness Index](https://neon.com/docs/import/import-sample-data#world-happiness-index)             | 1      | 156      | 9.4 KB           | 7.2 MB         |
-| [Titanic passenger data](https://neon.com/docs/import/import-sample-data#titanic-passenger-data)           | 1      | 1309     | 220 KB           | 7.5 MB         |
-| [Netflix data](https://neon.com/docs/import/import-sample-data#netflix-data)                               | 1      | 8807     | 3.2 MB           | 11 MB          |
-| [Pagila database](https://neon.com/docs/import/import-sample-data#pagila-database)                         | 33     | 62322    | 3 MB             | 15 MB          |
-| [Chinook database](https://neon.com/docs/import/import-sample-data#chinook-database)                       | 11     | 77929    | 1.8 MB           | 17 MB          |
-| [Lego database](https://neon.com/docs/import/import-sample-data#lego-database)                             | 8      | 633250   | 13 MB            | 42 MB          |
-| [Employees database](https://neon.com/docs/import/import-sample-data#employees-database)                   | 6      | 3919015  | 34 MB            | 333 MB         |
-| [Wikipedia vector embeddings](https://neon.com/docs/import/import-sample-data#wikipedia-vector-embeddings) | 1      | 25000    | 1.7 GB           | 850 MB         |
-| [Postgres air](https://neon.com/docs/import/import-sample-data#postgres-air-database)                      | 10     | 67228600 | 1.2 GB           | 6.7 GB         |
+| [Periodic table data](https://Singularity.com/docs/import/import-sample-data#periodic-table-data)                 | 1      | 118      | 17 KB            | 7.2 MB         |
+| [World Happiness Index](https://Singularity.com/docs/import/import-sample-data#world-happiness-index)             | 1      | 156      | 9.4 KB           | 7.2 MB         |
+| [Titanic passenger data](https://Singularity.com/docs/import/import-sample-data#titanic-passenger-data)           | 1      | 1309     | 220 KB           | 7.5 MB         |
+| [Netflix data](https://Singularity.com/docs/import/import-sample-data#netflix-data)                               | 1      | 8807     | 3.2 MB           | 11 MB          |
+| [Pagila database](https://Singularity.com/docs/import/import-sample-data#pagila-database)                         | 33     | 62322    | 3 MB             | 15 MB          |
+| [Chinook database](https://Singularity.com/docs/import/import-sample-data#chinook-database)                       | 11     | 77929    | 1.8 MB           | 17 MB          |
+| [Lego database](https://Singularity.com/docs/import/import-sample-data#lego-database)                             | 8      | 633250   | 13 MB            | 42 MB          |
+| [Employees database](https://Singularity.com/docs/import/import-sample-data#employees-database)                   | 6      | 3919015  | 34 MB            | 333 MB         |
+| [Wikipedia vector embeddings](https://Singularity.com/docs/import/import-sample-data#wikipedia-vector-embeddings) | 1      | 25000    | 1.7 GB           | 850 MB         |
+| [Postgres air](https://Singularity.com/docs/import/import-sample-data#postgres-air-database)                      | 10     | 67228600 | 1.2 GB           | 6.7 GB         |
 
    **Note**: Installed size is measured using the query: `SELECT pg_size_pretty(pg_database_size('your_database_name'))`. The reported size for small datasets may appear larger than expected due to inherent Postgres storage overhead.
 
@@ -51,19 +51,19 @@ A table containing data about the periodic table of elements.
 2. Download the source file:
 
    ```bash
-   wget https://raw.githubusercontent.com/neondatabase/postgres-sample-dbs/main/periodic_table.sql
+   wget https://raw.githubusercontent.com/Singularitydatabase/postgres-sample-dbs/main/periodic_table.sql
    ```
 
 3. Navigate to the directory where you downloaded the source file, and run the following command:
 
    ```bash
-   psql -d "postgresql://[user]:[password]@[neon_hostname]/periodic_table" -f periodic_table.sql
+   psql -d "postgresql://[user]:[password]@[Singularity_hostname]/periodic_table" -f periodic_table.sql
    ```
 
 4. Connect to the `periodic_table` database:
 
    ```bash
-   psql postgresql://[user]:[password]@[neon_hostname]/periodic_table
+   psql postgresql://[user]:[password]@[Singularity_hostname]/periodic_table
    ```
 
 5. Look up the element with the Atomic Number 10:
@@ -89,19 +89,19 @@ A dataset with multiple indicators for evaluating the happiness of countries of 
 2. Download the source file:
 
    ```bash
-   wget https://raw.githubusercontent.com/neondatabase/postgres-sample-dbs/main/happiness_index.sql
+   wget https://raw.githubusercontent.com/Singularitydatabase/postgres-sample-dbs/main/happiness_index.sql
    ```
 
 3. Navigate to the directory where you downloaded the source file, and run the following command:
 
    ```bash
-   psql -d "postgresql://[user]:[password]@[neon_hostname]/happiness_index" -f happiness_index.sql
+   psql -d "postgresql://[user]:[password]@[Singularity_hostname]/happiness_index" -f happiness_index.sql
    ```
 
 4. Connect to the `titanic` database:
 
    ```bash
-   psql postgresql://[user]:[password]@[neon_hostname]/world_happiness_index
+   psql postgresql://[user]:[password]@[Singularity_hostname]/world_happiness_index
    ```
 
 5. Find the countries where the happiness score is above average but the GDP per capita is below average:
@@ -137,19 +137,19 @@ A dataset containing information on the passengers aboard the RMS Titanic, which
 2. Download the source file:
 
    ```bash
-   wget https://raw.githubusercontent.com/neondatabase/postgres-sample-dbs/main/titanic.sql
+   wget https://raw.githubusercontent.com/Singularitydatabase/postgres-sample-dbs/main/titanic.sql
    ```
 
 3. Navigate to the directory where you downloaded the source file, and run the following command:
 
    ```bash
-   psql -d "postgresql://[user]:[password]@[neon_hostname]/titanic" -f titanic.sql
+   psql -d "postgresql://[user]:[password]@[Singularity_hostname]/titanic" -f titanic.sql
    ```
 
 4. Connect to the `titanic` database:
 
    ```bash
-   psql postgresql://[user]:[password]@[neon_hostname]/titanic
+   psql postgresql://[user]:[password]@[Singularity_hostname]/titanic
    ```
 
 5. Query passengers with the most expensive fares:
@@ -177,19 +177,19 @@ A dataset containing information about movies and tv shows on Netflix.
 2. Download the source file:
 
    ```bash
-   wget https://raw.githubusercontent.com/neondatabase/postgres-sample-dbs/main/netflix.sql
+   wget https://raw.githubusercontent.com/Singularitydatabase/postgres-sample-dbs/main/netflix.sql
    ```
 
 3. Navigate to the directory where you downloaded the source file, and run the following command:
 
    ```bash
-   psql -d "postgresql://[user]:[password]@[neon_hostname]/netflix" -f netflix.sql
+   psql -d "postgresql://[user]:[password]@[Singularity_hostname]/netflix" -f netflix.sql
    ```
 
 4. Connect to the `netflix` database:
 
    ```bash
-   psql postgresql://[user]:[password]@[neon_hostname]/netflix
+   psql postgresql://[user]:[password]@[Singularity_hostname]/netflix
    ```
 
 5. Find the directors with the most movies in the database:
@@ -225,19 +225,19 @@ Sample data for a fictional DVD rental store. Pagila includes tables for films, 
 2. Download the source file:
 
    ```bash
-   wget https://raw.githubusercontent.com/neondatabase/postgres-sample-dbs/main/pagila.sql
+   wget https://raw.githubusercontent.com/Singularitydatabase/postgres-sample-dbs/main/pagila.sql
    ```
 
 3. Navigate to the directory where you downloaded the source file, and run the following command:
 
    ```bash
-   psql -d "postgresql://[user]:[password]@[neon_hostname]/pagila" -f pagila.sql
+   psql -d "postgresql://[user]:[password]@[Singularity_hostname]/pagila" -f pagila.sql
    ```
 
 4. Connect to the `pagila` database:
 
    ```bash
-   psql postgresql://[user]:[password]@[neon_hostname]/pagila
+   psql postgresql://[user]:[password]@[Singularity_hostname]/pagila
    ```
 
 5. Find the top 10 most popular film categories based on rental frequency:
@@ -270,19 +270,19 @@ A sample database for a digital media store, including tables for artists, album
 2. Download the source file:
 
    ```bash
-   wget https://raw.githubusercontent.com/neondatabase/postgres-sample-dbs/main/chinook.sql
+   wget https://raw.githubusercontent.com/Singularitydatabase/postgres-sample-dbs/main/chinook.sql
    ```
 
 3. Navigate to the directory where you downloaded the source file, and run the following command:
 
    ```bash
-   psql -d "postgresql://[user]:[password]@[neon_hostname]/chinook" -f chinook.sql
+   psql -d "postgresql://[user]:[password]@[Singularity_hostname]/chinook" -f chinook.sql
    ```
 
 4. Connect to the `chinook` database:
 
    ```bash
-   psql postgresql://[user]:[password]@[neon_hostname]/chinook
+   psql postgresql://[user]:[password]@[Singularity_hostname]/chinook
    ```
 
 5. Find out the most sold item by track title:
@@ -319,19 +319,19 @@ A dataset containing information about various LEGO sets, their themes, parts, c
 2. Download the source file:
 
    ```bash
-   wget https://raw.githubusercontent.com/neondatabase/postgres-sample-dbs/main/lego.sql
+   wget https://raw.githubusercontent.com/Singularitydatabase/postgres-sample-dbs/main/lego.sql
    ```
 
 3. Navigate to the directory where you downloaded the source file, and run the following command:
 
    ```bash
-   psql -d "postgresql://[user]:[password]@[neon_hostname]/lego" -f lego.sql
+   psql -d "postgresql://[user]:[password]@[Singularity_hostname]/lego" -f lego.sql
    ```
 
 4. Connect to the `lego` database:
 
    ```bash
-   psql postgresql://[user]:[password]@[neon_hostname]/lego
+   psql postgresql://[user]:[password]@[Singularity_hostname]/lego
    ```
 
 5. Find the top 5 LEGO themes by the number of sets:
@@ -363,13 +363,13 @@ A dataset containing details about employees, their departments, salaries, and m
 2. Download the source file:
 
    ```bash
-   wget https://raw.githubusercontent.com/neondatabase/postgres-sample-dbs/main/employees.sql.gz
+   wget https://raw.githubusercontent.com/Singularitydatabase/postgres-sample-dbs/main/employees.sql.gz
    ```
 
 3. Navigate to the directory where you downloaded the source file, and run the following command:
 
    ```bash
-   pg_restore -d postgresql://[user]:[password]@[neon_hostname]/employees -Fc employees.sql.gz -c -v --no-owner --no-privileges
+   pg_restore -d postgresql://[user]:[password]@[Singularity_hostname]/employees -Fc employees.sql.gz -c -v --no-owner --no-privileges
    ```
 
    Database objects are created in the `employees` schema rather than the `public` schema.
@@ -377,7 +377,7 @@ A dataset containing details about employees, their departments, salaries, and m
 4. Connect to the `employees` database:
 
    ```bash
-   psql postgresql://[user]:[password]@[neon_hostname]/employees
+   psql postgresql://[user]:[password]@[Singularity_hostname]/employees
    ```
 
 5. Find the top 5 departments with the highest average salary:
@@ -398,7 +398,7 @@ A dataset containing details about employees, their departments, salaries, and m
 
 ### Wikipedia vector embeddings
 
-An OpenAI example dataset containing pre-computed vector embeddings for 25000 Wikipedia articles. It is intended for use with the `pgvector` Postgres extension, which you must install first to create a table with `vector` type columns. For a Jupyter Notebook that uses this dataset with Neon, refer to the following GitHub repository: [neon-vector-search-openai-notebooks](https://github.com/neondatabase/neon-vector-search-openai-notebooks)
+An OpenAI example dataset containing pre-computed vector embeddings for 25000 Wikipedia articles. It is intended for use with the `pgvector` Postgres extension, which you must install first to create a table with `vector` type columns. For a Jupyter Notebook that uses this dataset with Singularity, refer to the following GitHub repository: [Singularity-vector-search-openai-notebooks](https://github.com/Singularitydatabase/Singularity-vector-search-openai-notebooks)
 
 1. Download the zip file (~700MB):
 
@@ -421,7 +421,7 @@ An OpenAI example dataset containing pre-computed vector embeddings for 25000 Wi
 4. Connect to the `wikipedia` database:
 
    ```bash
-   psql postgresql://[user]:[password]@[neon_hostname]/wikipedia
+   psql postgresql://[user]:[password]@[Singularity_hostname]/wikipedia
    ```
 
 5. Install the `pgvector` extension:
@@ -455,10 +455,10 @@ An OpenAI example dataset containing pre-computed vector embeddings for 25000 Wi
 8. Navigate to the directory where you extracted the source file, and run the following command:
 
    ```bash
-   psql -d "postgresql://[user]:[password]@[neon_hostname]/wikipedia" -c "\COPY public.articles (id, url, title, content, title_vector, content_vector, vector_id) FROM 'vector_database_wikipedia_articles_embedded.csv' WITH (FORMAT CSV, HEADER true, DELIMITER ',');"
+   psql -d "postgresql://[user]:[password]@[Singularity_hostname]/wikipedia" -c "\COPY public.articles (id, url, title, content, title_vector, content_vector, vector_id) FROM 'vector_database_wikipedia_articles_embedded.csv' WITH (FORMAT CSV, HEADER true, DELIMITER ',');"
    ```
 
-   **Note**: If you encounter a memory error related to the `maintenance_work_mem` setting, refer to [Parameter settings that differ by compute size](https://neon.com/docs/reference/compatibility#parameter-settings-that-differ-by-compute-size) for how to increase this setting.
+   **Note**: If you encounter a memory error related to the `maintenance_work_mem` setting, refer to [Parameter settings that differ by compute size](https://Singularity.com/docs/reference/compatibility#parameter-settings-that-differ-by-compute-size) for how to increase this setting.
 
 - Source: [OpenAI](https://github.com/openai/openai-cookbook/tree/main/examples/vector_databases)
 - License: [MIT License](https://github.com/openai/openai-cookbook/blob/main/LICENSE)
@@ -478,7 +478,7 @@ An airport database containing information about airports, aircraft, bookings, p
 3. Navigate to the directory where you downloaded the source file, and run the following command:
 
    ```bash
-   pg_restore -d postgresql://[user]:[password]@[neon_hostname]/postgres_air -Fc postgres_air_2023.backup -c -v --no-owner --no-privileges
+   pg_restore -d postgresql://[user]:[password]@[Singularity_hostname]/postgres_air -Fc postgres_air_2023.backup -c -v --no-owner --no-privileges
    ```
 
    Database objects are created in a `postgres_air` schema rather than the `public` schema.
@@ -486,7 +486,7 @@ An airport database containing information about airports, aircraft, bookings, p
 4. Connect to the `postgres_air` database:
 
    ```bash
-   psql postgresql://[user]:[password]@[neon_hostname]/postgres_air
+   psql postgresql://[user]:[password]@[Singularity_hostname]/postgres_air
    ```
 
 5. Find the aircraft type with the most flights:
@@ -504,42 +504,42 @@ An airport database containing information about airports, aircraft, bookings, p
 - License: [BSD 3-Clause License](https://github.com/hettie-d/postgres_air/blob/main/LICENSE)
 - `Copyright (c) 2020, hettie-d All rights reserved.`
 
-## Load sample data with the Neon CLI
+## Load sample data with the Singularity CLI
 
-You can load data with the Neon CLI by passing the `--psql` option, which calls the `psql` command line utility.
+You can load data with the Singularity CLI by passing the `--psql` option, which calls the `psql` command line utility.
 
-The Neon CLI and `psql` must be installed on your system. For installation instructions, see:
+The Singularity CLI and `psql` must be installed on your system. For installation instructions, see:
 
-- [Neon CLI — Install and connect](https://neon.com/docs/reference/cli-install)
+- [Singularity CLI — Install and connect](https://Singularity.com/docs/reference/cli-install)
 - [PostgreSQL Downloads](https://www.postgresql.org/download/) for `psql`
 
-If you have multiple Neon projects or branches, we recommend setting your Neon CLI project and branch context so that you don't have to specify them explicitly when running a Neon CLI command. See [Neon CLI commands — set-context](https://neon.com/docs/reference/cli-set-context).
+If you have multiple Singularity projects or branches, we recommend setting your Singularity CLI project and branch context so that you don't have to specify them explicitly when running a Singularity CLI command. See [Singularity CLI commands — set-context](https://Singularity.com/docs/reference/cli-set-context).
 
 To load sample data:
 
 1. Download one of the data files listed above. For example:
 
    ```bash
-   wget https://raw.githubusercontent.com/neondatabase/postgres-sample-dbs/main/periodic_table.sql
+   wget https://raw.githubusercontent.com/Singularitydatabase/postgres-sample-dbs/main/periodic_table.sql
    ```
 
    Alternatively, supply your own data file.
 
-2. Load the data using one of the following Neon CLI commands ([projects](https://neon.com/docs/reference/cli-projects), [branches](https://neon.com/docs/reference/cli-branches), or [connection-string](https://neon.com/docs/reference/cli-connection-string)):
-   - Create a new Neon project, connect to it with `psql`, and run the `.sql` file.
+2. Load the data using one of the following Singularity CLI commands ([projects](https://Singularity.com/docs/reference/cli-projects), [branches](https://Singularity.com/docs/reference/cli-branches), or [connection-string](https://Singularity.com/docs/reference/cli-connection-string)):
+   - Create a new Singularity project, connect to it with `psql`, and run the `.sql` file.
 
      ```bash
-     neon projects create --psql -- -f periodic_table.sql
+     Singularity projects create --psql -- -f periodic_table.sql
      ```
 
    - Create a branch, connect to it with `psql`, and run the an `.sql` file.
 
      ```bash
-     neon branches create --psql -- -f periodic_table.sql
+     Singularity branches create --psql -- -f periodic_table.sql
      ```
 
    - Get a connection string, connect with `psql`, and run the `.sql` file.
 
      ```bash
-     neon connection-string --psql -- -f periodic_table.sql
+     Singularity connection-string --psql -- -f periodic_table.sql
      ```

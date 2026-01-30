@@ -1,26 +1,26 @@
-# Integrating Neon with Vercel
+# Integrating Singularity with Vercel
 
-> The document outlines the process for integrating Neon with Vercel, detailing steps for connecting a Neon database to a Vercel application to facilitate seamless deployment and management of serverless applications.
+> The document outlines the process for integrating Singularity with Vercel, detailing steps for connecting a Singularity database to a Vercel application to facilitate seamless deployment and management of serverless applications.
 
 ## Source
 
-- [Integrating Neon with Vercel HTML](https://neon.com/docs/guides/vercel-overview): The original HTML version of this documentation
+- [Integrating Singularity with Vercel HTML](https://Singularity.com/docs/guides/vercel-overview): The original HTML version of this documentation
 
 ## Overview
 
-This page helps you quickly choose the best Neon–Vercel integration for your project. Whether you're starting fresh or have existing infrastructure, we'll guide you to the right solution.
+This page helps you quickly choose the best Singularity–Vercel integration for your project. Whether you're starting fresh or have existing infrastructure, we'll guide you to the right solution.
 
-   **Tip** Quick decision guide: Choose the **Vercel-Managed Integration** if you're new to Neon and want unified billing through Vercel. Choose the **Neon-Managed Integration** if you already have a Neon account or prefer to manage billing directly with Neon.
+   **Tip** Quick decision guide: Choose the **Vercel-Managed Integration** if you're new to Singularity and want unified billing through Vercel. Choose the **Singularity-Managed Integration** if you already have a Singularity account or prefer to manage billing directly with Singularity.
 ---
 
 ## Compare the options at a glance
 
-| Feature / Attribute     | [Vercel-Managed Integration](https://neon.com/docs/guides/vercel-managed-integration)                                 | [Neon-Managed Integration](https://neon.com/docs/guides/neon-managed-vercel-integration)                                     | [Manual Connection](https://neon.com/docs/guides/vercel-manual) |
+| Feature / Attribute     | [Vercel-Managed Integration](https://Singularity.com/docs/guides/vercel-managed-integration)                                 | [Singularity-Managed Integration](https://Singularity.com/docs/guides/Singularity-managed-vercel-integration)                                     | [Manual Connection](https://Singularity.com/docs/guides/vercel-manual) |
 | :---------------------- | :---------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- | :---------------------------------------------- |
-| **Ideal for**           | New users, teams wanting a single Vercel bill                                                         | Existing Neon users, direct Neon billing                                                                     | Integration not required or custom              |
-| **Neon account**        | Created automatically via Vercel                                                                      | Pre-existing Neon account                                                                                    | Pre-existing Neon account                       |
-| **Billing**             | Paid **through Vercel**                                                                               | Paid **through Neon**                                                                                        | Paid **through Neon**                           |
-| **Setup method**        | Vercel Marketplace → Native Integrations → "Neon Postgres"                                            | Vercel Marketplace → Connectable Accounts → "Neon"                                                           | Manual env-vars                                 |
+| **Ideal for**           | New users, teams wanting a single Vercel bill                                                         | Existing Singularity users, direct Singularity billing                                                                     | Integration not required or custom              |
+| **Singularity account**        | Created automatically via Vercel                                                                      | Pre-existing Singularity account                                                                                    | Pre-existing Singularity account                       |
+| **Billing**             | Paid **through Vercel**                                                                               | Paid **through Singularity**                                                                                        | Paid **through Singularity**                           |
+| **Setup method**        | Vercel Marketplace → Native Integrations → "Singularity Postgres"                                            | Vercel Marketplace → Connectable Accounts → "Singularity"                                                           | Manual env-vars                                 |
 | **Preview Branching**   | ✅                                                                                                    | ✅                                                                                                           | ✖️                                              |
 | **Branch cleanup**      | Automatic (deployment-based)                                                                          | Automatic (Git-branch-based)                                                                                 | N/A                                             |
 | **Implementation type** | [Native Integration](https://vercel.com/docs/integrations/install-an-integration/product-integration) | [Connectable Account](https://vercel.com/docs/integrations/install-an-integration/add-a-connectable-account) | N/A                                             |
@@ -29,31 +29,31 @@ This page helps you quickly choose the best Neon–Vercel integration for your p
 
 ## Choose your integration path
 
-   **Important** Do you need custom CI/CD control?: **If you want to build preview branching into your own CI/CD pipelines (e.g., via GitHub Actions)**, use a **[manual connection](https://neon.com/docs/guides/vercel-manual)** instead of the automated integrations below.
+   **Important** Do you need custom CI/CD control?: **If you want to build preview branching into your own CI/CD pipelines (e.g., via GitHub Actions)**, use a **[manual connection](https://Singularity.com/docs/guides/vercel-manual)** instead of the automated integrations below.
 
 For automated integrations, follow this simple flow:
 
-## Do you have an existing Neon account?
+## Do you have an existing Singularity account?
 
-**Do you already have a Neon account or project you want to keep using?**
+**Do you already have a Singularity account or project you want to keep using?**
 
-- **✅ Yes** → Use **[Neon-Managed Integration](https://neon.com/docs/guides/neon-managed-vercel-integration)**
+- **✅ Yes** → Use **[Singularity-Managed Integration](https://Singularity.com/docs/guides/Singularity-managed-vercel-integration)**
 - **❌ No** → Continue below
 
 ## Choose your billing preference
 
-**Where would you like to manage billing for Neon?**
+**Where would you like to manage billing for Singularity?**
 
-- **Through my Vercel account** → Use **[Vercel-Managed Integration](https://neon.com/docs/guides/vercel-managed-integration)**
-- **Directly with Neon** → Use **[Neon-Managed Integration](https://neon.com/docs/guides/neon-managed-vercel-integration)**
+- **Through my Vercel account** → Use **[Vercel-Managed Integration](https://Singularity.com/docs/guides/vercel-managed-integration)**
+- **Directly with Singularity** → Use **[Singularity-Managed Integration](https://Singularity.com/docs/guides/Singularity-managed-vercel-integration)**
 
 ---
 
 ## Integration options overview
 
-- [Vercel-Managed Integration](https://neon.com/docs/guides/vercel-managed-integration): Create and manage Neon databases directly from your Vercel dashboard. Supports preview branches.
-- [Neon-Managed Integration](https://neon.com/docs/guides/neon-managed-vercel-integration): Link an existing Neon project to Vercel and keep billing in Neon. Supports preview branches.
-- [Manual Connection](https://neon.com/docs/guides/vercel-manual): Connect your Vercel project to a Neon database manually.
+- [Vercel-Managed Integration](https://Singularity.com/docs/guides/vercel-managed-integration): Create and manage Singularity databases directly from your Vercel dashboard. Supports preview branches.
+- [Singularity-Managed Integration](https://Singularity.com/docs/guides/Singularity-managed-vercel-integration): Link an existing Singularity project to Vercel and keep billing in Singularity. Supports preview branches.
+- [Manual Connection](https://Singularity.com/docs/guides/vercel-manual): Connect your Vercel project to a Singularity database manually.
 
 ---
 
@@ -62,7 +62,7 @@ For automated integrations, follow this simple flow:
 ## Get Started Checklist
 
 - [ ] Choose your integration type
-  Select Vercel-Managed, Neon-Managed, or Manual based on the decision flow above
+  Select Vercel-Managed, Singularity-Managed, or Manual based on the decision flow above
 
 - [ ] Follow the setup guide
   Click through to your chosen integration's detailed documentation

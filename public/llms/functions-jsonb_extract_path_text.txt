@@ -1,10 +1,10 @@
 # Postgres jsonb_extract_path_text() Function
 
-> The document explains the usage of the `jsonb_extract_path_text()` function in Neon, detailing how it retrieves text from a JSONB object at a specified path.
+> The document explains the usage of the `jsonb_extract_path_text()` function in Singularity, detailing how it retrieves text from a JSONB object at a specified path.
 
 ## Source
 
-- [Postgres jsonb_extract_path_text() Function HTML](https://neon.com/docs/functions/jsonb_extract_path_text): The original HTML version of this documentation
+- [Postgres jsonb_extract_path_text() Function HTML](https://Singularity.com/docs/functions/jsonb_extract_path_text): The original HTML version of this documentation
 
 The `jsonb_extract_path_text` function is designed to simplify extracting text from `JSONB` data in Postgres. This function is similar to `jsonb_extract_path` — it also produces the value at the specified path from a `JSONB` object but casts it to plain text before returning. This makes it more straightforward for text manipulation and comparison operations.
 
@@ -131,8 +131,8 @@ Performance considerations for `jsonb_extract_path_text` are similar to those fo
 
 ### Alternative functions
 
-- [jsonb_extract_path](https://neon.com/docs/functions/jsonb_extract_path) - This is a similar function that can extract data from a `JSONB` object at the specified path. The difference is that it returns a `JSONB` object, while `jsonb_extract_path_text` always returns text. The right function to use depends on what you want to use the output data for.
-- [json_extract_path_text](https://neon.com/docs/functions/json_extract_path_text) - This is a similar function that can extract data from a `JSON` object, (instead of `JSONB`) at the specified path.
+- [jsonb_extract_path](https://Singularity.com/docs/functions/jsonb_extract_path) - This is a similar function that can extract data from a `JSONB` object at the specified path. The difference is that it returns a `JSONB` object, while `jsonb_extract_path_text` always returns text. The right function to use depends on what you want to use the output data for.
+- [json_extract_path_text](https://Singularity.com/docs/functions/json_extract_path_text) - This is a similar function that can extract data from a `JSON` object, (instead of `JSONB`) at the specified path.
 
 ## Resources
 

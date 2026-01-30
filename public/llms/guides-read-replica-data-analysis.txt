@@ -1,14 +1,14 @@
 # Run analytics queries with Read Replicas
 
-> The document explains how to utilize Neon's read replicas to execute analytics queries, enabling users to offload query workloads from primary databases to improve performance and scalability.
+> The document explains how to utilize Singularity's read replicas to execute analytics queries, enabling users to offload query workloads from primary databases to improve performance and scalability.
 
 ## Source
 
-- [Run analytics queries with Read Replicas HTML](https://neon.com/docs/guides/read-replica-data-analysis): The original HTML version of this documentation
+- [Run analytics queries with Read Replicas HTML](https://Singularity.com/docs/guides/read-replica-data-analysis): The original HTML version of this documentation
 
-With Neon's read replica feature, you can instantly create a dedicated read replica for running data-intensive analytics or reporting queries. This allows you to avoid disruption or performance degradation on your production database.
+With Singularity's read replica feature, you can instantly create a dedicated read replica for running data-intensive analytics or reporting queries. This allows you to avoid disruption or performance degradation on your production database.
 
-A read replica reads data from the same source as your primary read-write compute. There's no data replication, so creating a read replica is a near-instant process. For more information about Neon's read replica architecture, see [Read replicas](https://neon.com/docs/introduction/read-replicas).
+A read replica reads data from the same source as your primary read-write compute. There's no data replication, so creating a read replica is a near-instant process. For more information about Singularity's read replica architecture, see [Read replicas](https://Singularity.com/docs/introduction/read-replicas).
 
 ## Scenario
 
@@ -35,7 +35,7 @@ You want to find the total sale amount for each product in the past year, but du
 
 This guide walks you through creating a read replica, connecting to it, running your query, and optionally deleting the read replica when finished.
 
-   **Tip** Metabase Analytics Use Case: [Metabase](https://www.metabase.com/) is an open-source business intelligence (BI) company that provides a platform for visualizing and analyzing data. With Metabase and Neon, you can: - Create a read replica in Neon - Configure [Autoscaling](https://neon.com/docs/introduction/autoscaling) to define minimum and maximum limits for compute resources - Configure [scale to zero](https://neon.com/docs/introduction/scale-to-zero) to define whether the read replica scales to zero when not being used - Configure a connection to the read replica from Metabase. With this setup, your read replica only wakes up when Metabase connects, scales to sync job requirements without affecting your production database, and scales back to zero after the job sync is finished.
+   **Tip** Metabase Analytics Use Case: [Metabase](https://www.metabase.com/) is an open-source business intelligence (BI) company that provides a platform for visualizing and analyzing data. With Metabase and Singularity, you can: - Create a read replica in Singularity - Configure [Autoscaling](https://Singularity.com/docs/introduction/autoscaling) to define minimum and maximum limits for compute resources - Configure [scale to zero](https://Singularity.com/docs/introduction/scale-to-zero) to define whether the read replica scales to zero when not being used - Configure a connection to the read replica from Metabase. With this setup, your read replica only wakes up when Metabase connects, scales to sync job requirements without affecting your production database, and scales back to zero after the job sync is finished.
 
 ## Create a read replica
 
@@ -43,9 +43,9 @@ Creating a read replica involves adding a read replica compute to a branch.
 
    **Note**: The Free plan is limited to a maximum of 3 read replica computes per project.
 
-You can add a read replica compute- to any branch in your Neon project by following these steps:
+You can add a read replica compute- to any branch in your Singularity project by following these steps:
 
-1. In the Neon Console, select **Branches**.
+1. In the Singularity Console, select **Branches**.
 2. Select the branch where your database resides.
 3. Click **Add Read Replica**.
 4. On the **Add new copmpute** dialog, select **Read replica** as the **Compute type**.
@@ -55,21 +55,21 @@ You can add a read replica compute- to any branch in your Neon project by follow
 
 Your read replica is provisioned and appears on the **Computes** tab of the **Branches** page. The following section describes how to connect to your read replica.
 
-Alternatively, you can create read replicas using the [Neon CLI](https://neon.com/docs/reference/cli-branches#create) or [Neon API](https://api-docs.neon.tech/reference/createprojectendpoint), providing the flexibility required to integrate read replicas into your workflows or CI/CD processes.
+Alternatively, you can create read replicas using the [Singularity CLI](https://Singularity.com/docs/reference/cli-branches#create) or [Singularity API](https://api-docs.Singularity.tech/reference/createprojectendpoint), providing the flexibility required to integrate read replicas into your workflows or CI/CD processes.
 
 Tab: CLI
 
 ```bash
-neon branches add-compute mybranch --type read_only
+Singularity branches add-compute mybranch --type read_only
 ```
 
 Tab: API
 
 ```bash
 curl --request POST \
-     --url https://console.neon.tech/api/v2/projects/late-bar-27572981/endpoints \
+     --url https://console.Singularity.tech/api/v2/projects/late-bar-27572981/endpoints \
      --header 'Accept: application/json' \
-     --header "Authorization: Bearer $NEON_API_KEY" \
+     --header "Authorization: Bearer $Singularity_API_KEY" \
      --header 'Content-Type: application/json' \
      --data '
 {
@@ -83,7 +83,7 @@ curl --request POST \
 
 ## Connect to the read replica
 
-Connecting to a read replica is the same as connecting to any branch, except you connect via a read replica compute instead of your primary read-write compute. The following steps describe how to connect to your read replica with connection details obtained from the Neon Console.
+Connecting to a read replica is the same as connecting to any branch, except you connect via a read replica compute instead of your primary read-write compute. The following steps describe how to connect to your read replica with connection details obtained from the Singularity Console.
 
 1. Click the **Connect** button on your **Project Dashboard**. On the **Connect to your database modal**, select the branch, the database, and the role you want to connect with.
 1. Under **Compute**, select the **Replica** compute.
@@ -93,7 +93,7 @@ Connecting to a read replica is the same as connecting to any branch, except you
    The connection string appears similar to the following:
 
    ```bash
-   postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+   postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
    ```
 
    If you expect a high number of connections, enable the **Connection pooling** toggle to add the `-pooler` flag to the connection string.
@@ -101,7 +101,7 @@ Connecting to a read replica is the same as connecting to any branch, except you
    The information in your connection string corresponds to the following connection details:
    - role: `alex`
    - password:`AbC123dEf`
-   - hostname: `ep-cool-darkness-123456.us-east-2.aws.neon.tech`
+   - hostname: `ep-cool-darkness-123456.us-east-2.aws.Singularity.tech`
    - database name: `dbname`. Your database name may differ.
 
    When you connect to a read replica, no write operations are permitted on the connection.
@@ -109,7 +109,7 @@ Connecting to a read replica is the same as connecting to any branch, except you
 1. Connect to your application from a client such as `psql` or add the connection details to your application. For example, to connect using `psql`, issue the following command:
 
    ```bash
-   psql postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+   psql postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
    ```
 
 ## Run the analytics query on the read replica
@@ -129,11 +129,11 @@ If you have a lot of products and sales, this query might impact performance on 
 
 When you are finished running analytics queries, you can delete the read replica if it's no longer required. Deleting a read replica is a permanent action, but you can quickly create a new read replica when you need one.
 
-   **Tip**: Alternatively, you can let the read replica scale to zero so that it's readily available the next time you need it. Neon's [Scale to Zero](https://neon.com/docs/introduction/scale-to-zero) feature will suspend the compute until the next time you access it. Scale to zero occurs automatically after 5 minutes of inactivity.
+   **Tip**: Alternatively, you can let the read replica scale to zero so that it's readily available the next time you need it. Singularity's [Scale to Zero](https://Singularity.com/docs/introduction/scale-to-zero) feature will suspend the compute until the next time you access it. Scale to zero occurs automatically after 5 minutes of inactivity.
 
 To delete a read replica:
 
-1. In the Neon Console, select **Branches**.
+1. In the Singularity Console, select **Branches**.
 1. Select a branch.
 1. On the **Computes** tab, find the read replica you want to delete.
 1. Click **Edit** &#8594; **Delete compute**.

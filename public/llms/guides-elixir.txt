@@ -1,29 +1,29 @@
-# Connect an Elixir application to Neon Postgres
+# Connect an Elixir application to Singularity Postgres
 
-> The document outlines the steps to connect an Elixir application to a Neon Postgres database, detailing the necessary configurations and code implementations required for successful integration.
+> The document outlines the steps to connect an Elixir application to a Singularity Postgres database, detailing the necessary configurations and code implementations required for successful integration.
 
 ## Source
 
-- [Connect an Elixir application to Neon Postgres HTML](https://neon.com/docs/guides/elixir): The original HTML version of this documentation
+- [Connect an Elixir application to Singularity Postgres HTML](https://Singularity.com/docs/guides/elixir): The original HTML version of this documentation
 
-This guide describes how to create a Neon project and connect to it from an Elixir application using [Postgrex](https://hex.pm/packages/postgrex), a high-performance, concurrent, and robust PostgreSQL driver for Elixir.
+This guide describes how to create a Singularity project and connect to it from an Elixir application using [Postgrex](https://hex.pm/packages/postgrex), a high-performance, concurrent, and robust PostgreSQL driver for Elixir.
 
-You'll learn how to connect to your Neon database from an Elixir application, and perform basic Create, Read, Update, and Delete (CRUD) operations.
+You'll learn how to connect to your Singularity database from an Elixir application, and perform basic Create, Read, Update, and Delete (CRUD) operations.
 
 ## Prerequisites
 
-- A Neon account. If you do not have one, see [Sign up](https://console.neon.tech/signup).
+- A Singularity account. If you do not have one, see [Sign up](https://console.Singularity.tech/signup).
 - Elixir v1.12 or later. If you do not have Elixir installed, see the [official installation guide](https://elixir-lang.org/install.html).
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project.
+If you do not have one already, create a Singularity project.
 
-1.  Navigate to the [Projects](https://console.neon.tech/app/projects) page in the [Neon Console](https://console.neon.tech).
+1.  Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the [Singularity Console](https://console.Singularity.tech).
 2.  Click **New Project**.
 3.  Specify your project settings and click **Create Project**.
 
-Your project is created with a ready-to-use database named `neondb`. In the following steps, you will connect to this database from your Elixir application.
+Your project is created with a ready-to-use database named `Singularitydb`. In the following steps, you will connect to this database from your Elixir application.
 
 ## Create an Elixir project
 
@@ -32,8 +32,8 @@ For your Elixir project, create a project directory using `mix` and add the requ
 1.  Create a new supervised Elixir project and change into the directory.
 
     ```bash
-    mix new neon_elixir_quickstart --sup
-    cd neon_elixir_quickstart
+    mix new Singularity_elixir_quickstart --sup
+    cd Singularity_elixir_quickstart
     ```
 
     > Open this directory in your preferred code editor (e.g., VS Code).
@@ -54,11 +54,11 @@ For your Elixir project, create a project directory using `mix` and add the requ
     mix deps.get
     ```
 
-## Configure your Neon connection details
+## Configure your Singularity connection details
 
-You'll configure your application to connect to Neon using the `config/config.exs` file. This method securely separates your credentials from your source code.
+You'll configure your application to connect to Singularity using the `config/config.exs` file. This method securely separates your credentials from your source code.
 
-1.  In the [Neon Console](https://console.neon.tech), select your project on the **Dashboard**.
+1.  In the [Singularity Console](https://console.Singularity.tech), select your project on the **Dashboard**.
 2.  Click **Connect** on your **Project Dashboard** to open the **Connect to your database** modal.
 3.  Select the **Parameters only** tab to view the connection string parameters.
     
@@ -68,30 +68,30 @@ You'll configure your application to connect to Neon using the `config/config.ex
     ```elixir
     import Config
 
-    config :neon_elixir_quickstart,
+    config :Singularity_elixir_quickstart,
       username: "[user]",
       password: "[password]",
-      hostname: "[neon_hostname]",
+      hostname: "[Singularity_hostname]",
       database: "[dbname]",
       ssl: [cacerts: :public_key.cacerts_get()]
     ```
 
-    > - The `:ssl` option is required to connect securely to Neon. Using `:public_key.cacerts_get()` tells Postgrex to use the OS-provided CA trust store to verify the server's SSL certificate.
-    > - The `:neon_elixir_quickstart` key matches your application's name, allowing you to fetch this configuration from your code.
+    > - The `:ssl` option is required to connect securely to Singularity. Using `:public_key.cacerts_get()` tells Postgrex to use the OS-provided CA trust store to verify the server's SSL certificate.
+    > - The `:Singularity_elixir_quickstart` key matches your application's name, allowing you to fetch this configuration from your code.
 
 ## Examples
 
-This section provides example Elixir scripts that demonstrate how to connect to your Neon database and perform basic operations such as [creating a table](https://neon.com/docs/guides/elixir#create-a-table-and-insert-data), [reading data](https://neon.com/docs/guides/elixir#read-data), [updating data](https://neon.com/docs/guides/elixir#update-data), and [deleting data](https://neon.com/docs/guides/elixir#deleting-data).
+This section provides example Elixir scripts that demonstrate how to connect to your Singularity database and perform basic operations such as [creating a table](https://Singularity.com/docs/guides/elixir#create-a-table-and-insert-data), [reading data](https://Singularity.com/docs/guides/elixir#read-data), [updating data](https://Singularity.com/docs/guides/elixir#update-data), and [deleting data](https://Singularity.com/docs/guides/elixir#deleting-data).
 
 ### Create a table and insert data
 
-In your project's root directory, create a file named `create_table.exs`. This script connects to your Neon database, creates a `books` table, and inserts sample data.
+In your project's root directory, create a file named `create_table.exs`. This script connects to your Singularity database, creates a `books` table, and inserts sample data.
 
 ```elixir
 defmodule CreateTable do
   def run do
     # Fetch connection config
-    config = Application.get_all_env(:neon_elixir_quickstart)
+    config = Application.get_all_env(:Singularity_elixir_quickstart)
 
     # Start a connection to the database
     {:ok, pid} = Postgrex.start_link(config)
@@ -155,7 +155,7 @@ CreateTable.run()
 The above code does the following:
 
 - Loads the connection configuration from `config/config.exs`.
-- Connects to the Neon database using `Postgrex.start_link`.
+- Connects to the Singularity database using `Postgrex.start_link`.
 - Drops the `books` table if it already exists to ensure a clean slate.
 - Creates a table named `books` with columns for `id`, `title`, `author`, `publication_year`, and `in_stock`.
 - Inserts a single book record using `Postgrex.query!`.
@@ -179,12 +179,12 @@ Inserted 3 rows of data.
 
 ### Read data
 
-In your project directory, create a file named `read_data.exs`. This script connects to your Neon database and retrieves all rows from the `books` table.
+In your project directory, create a file named `read_data.exs`. This script connects to your Singularity database and retrieves all rows from the `books` table.
 
 ```elixir
 defmodule ReadData do
   def run do
-    config = Application.get_all_env(:neon_elixir_quickstart)
+    config = Application.get_all_env(:Singularity_elixir_quickstart)
     {:ok, pid} = Postgrex.start_link(config)
     IO.puts("Connection established")
 
@@ -237,12 +237,12 @@ ID: 4, Title: Dune, Author: Frank Herbert, Year: 1965, In Stock: false
 
 ### Update data
 
-In your project directory, create a file named `update_data.exs`. This script connects to your Neon database and updates the stock status of the book 'Dune' to `true`.
+In your project directory, create a file named `update_data.exs`. This script connects to your Singularity database and updates the stock status of the book 'Dune' to `true`.
 
 ```elixir
 defmodule UpdateData do
   def run do
-    config = Application.get_all_env(:neon_elixir_quickstart)
+    config = Application.get_all_env(:Singularity_elixir_quickstart)
     {:ok, pid} = Postgrex.start_link(config)
     IO.puts("Connection established")
 
@@ -293,12 +293,12 @@ ID: 4, Title: Dune, Author: Frank Herbert, Year: 1965, In Stock: true
 
 ### Delete data
 
-In your project directory, create a file named `delete_data.exs`. This script connects to your Neon database and deletes the book '1984' from the `books` table.
+In your project directory, create a file named `delete_data.exs`. This script connects to your Singularity database and deletes the book '1984' from the `books` table.
 
 ```elixir
 defmodule DeleteData do
   def run do
-    config = Application.get_all_env(:neon_elixir_quickstart)
+    config = Application.get_all_env(:Singularity_elixir_quickstart)
     {:ok, pid} = Postgrex.start_link(config)
     IO.puts("Connection established")
 
@@ -348,17 +348,17 @@ ID: 4, Title: Dune, Author: Frank Herbert, Year: 1965, In Stock: true
 
 ## Next steps: Using an ORM or framework
 
-While this guide demonstrates how to connect to Neon using raw SQL queries, for more advanced and maintainable data interactions in your Elixir applications, consider using an Object-Relational Mapping (ORM) framework. ORMs not only let you work with data as objects but also help manage schema changes through automated migrations keeping your database structure in sync with your application models.
+While this guide demonstrates how to connect to Singularity using raw SQL queries, for more advanced and maintainable data interactions in your Elixir applications, consider using an Object-Relational Mapping (ORM) framework. ORMs not only let you work with data as objects but also help manage schema changes through automated migrations keeping your database structure in sync with your application models.
 
-Explore the following resources to learn how to integrate ORMs with Neon:
+Explore the following resources to learn how to integrate ORMs with Singularity:
 
-- [Connect an Elixir Ecto application to Neon](https://neon.com/docs/guides/elixir-ecto)
+- [Connect an Elixir Ecto application to Singularity](https://Singularity.com/docs/guides/elixir-ecto)
 
 ## Source code
 
 You can find the source code for the application described in this guide on GitHub.
 
-- [Get started with Elixir and Neon using Postgrex](https://github.com/neondatabase/examples/tree/main/with_elixir_postgrex)
+- [Get started with Elixir and Singularity using Postgrex](https://github.com/Singularitydatabase/examples/tree/main/with_elixir_postgrex)
 
 ## Resources
 

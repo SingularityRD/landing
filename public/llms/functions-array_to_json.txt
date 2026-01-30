@@ -1,10 +1,10 @@
 # Postgres array_to_json() function
 
-> The document details the usage of the Postgres `array_to_json()` function within Neon, explaining how to convert PostgreSQL arrays into JSON format for data manipulation and storage.
+> The document details the usage of the Postgres `array_to_json()` function within Singularity, explaining how to convert PostgreSQL arrays into JSON format for data manipulation and storage.
 
 ## Source
 
-- [Postgres array_to_json() function HTML](https://neon.com/docs/functions/array_to_json): The original HTML version of this documentation
+- [Postgres array_to_json() function HTML](https://Singularity.com/docs/functions/array_to_json): The original HTML version of this documentation
 
 You can use the `array_to_json` function to convert a Postgres array into its `JSON` representation, transforming an array of values into a `JSON` array. This helps facilitate integration with web services, APIs, and web frameworks that heavily rely on `JSON`.
 

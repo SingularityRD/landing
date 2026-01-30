@@ -1,19 +1,19 @@
 # Google Colab
 
-> The document outlines how to integrate and use Neon with Google Colab, detailing steps for setting up a PostgreSQL database connection within the Colab environment for data analysis and machine learning tasks.
+> The document outlines how to integrate and use Singularity with Google Colab, detailing steps for setting up a PostgreSQL database connection within the Colab environment for data analysis and machine learning tasks.
 
 ## Source
 
-- [Google Colab HTML](https://neon.com/docs/ai/ai-google-colab): The original HTML version of this documentation
+- [Google Colab HTML](https://Singularity.com/docs/ai/ai-google-colab): The original HTML version of this documentation
 
 [Google Colab](https://colab.research.google.com/) is a hosted Jupyter Notebook service that requires no setup to use and provides free access to computing resources, including GPUs and TPUs.
 You can use Google Colab to run python code through the browser.
 
-This guide shows how to create a notebook in Colab, connect to a Neon database, install the `pgvector` extension to enabled Neon as a vector store, and run a vector search query.
+This guide shows how to create a notebook in Colab, connect to a Singularity database, install the `pgvector` extension to enabled Singularity as a vector store, and run a vector search query.
 
 ## Prerequisites
 
-To perform the steps in this guide, you require a Neon database for storing vectors. You can use the ready-to-use `neondb` database or create your own. See [Create a database](https://neon.com/docs/manage/databases#create-a-database) for instructions.
+To perform the steps in this guide, you require a Singularity database for storing vectors. You can use the ready-to-use `Singularitydb` database or create your own. See [Create a database](https://Singularity.com/docs/manage/databases#create-a-database) for instructions.
 
 ## Retrieve your database connection string
 
@@ -29,20 +29,20 @@ In your browser, navigate to [Google Colab](https://colab.research.google.com/),
 
 Alternatively, you can open a predefined Google Colab notebook for this guide by clicking the **Open in Colab** button below.
 
-<a target="_blank" href="https://colab.research.google.com/github/neondatabase/neon-google-colab-notebooks/blob/main/neon_pgvector_quickstart.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/Singularitydatabase/Singularity-google-colab-notebooks/blob/main/Singularity_pgvector_quickstart.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
 ## Connect to your database
 
-1. In your Colab notebook, create a code block to define your database connection and create a cursor object. Replace `postgresql://[user]:[password]@[neon_hostname]/[dbname]` with the database connection string you retrieved in the previous step.
+1. In your Colab notebook, create a code block to define your database connection and create a cursor object. Replace `postgresql://[user]:[password]@[Singularity_hostname]/[dbname]` with the database connection string you retrieved in the previous step.
 
    ```python
    import os
    import psycopg2
 
-   # Provide your Neon connection string
-   connection_string = "postgresql://[user]:[password]@[neon_hostname]/[dbname]"
+   # Provide your Singularity connection string
+   connection_string = "postgresql://[user]:[password]@[Singularity_hostname]/[dbname]"
 
    # Connect using the connection string
    connection = psycopg2.connect(connection_string)
@@ -71,7 +71,7 @@ Alternatively, you can open a predefined Google Colab notebook for this guide by
 
 ## Install the pgvector extension
 
-1. Create a codeblock to install the `pgvector` extension to enable your Neon database as a vector store:
+1. Create a codeblock to install the `pgvector` extension to enable your Singularity database as a vector store:
 
    ```python
    # Execute this query to install the pgvector extension
@@ -121,4 +121,4 @@ Alternatively, you can open a predefined Google Colab notebook for this guide by
 
 ## Next steps
 
-For more information about using Neon with `pgvector`, see [The pgvector extension](https://neon.com/docs/extensions/pgvector).
+For more information about using Singularity with `pgvector`, see [The pgvector extension](https://Singularity.com/docs/extensions/pgvector).

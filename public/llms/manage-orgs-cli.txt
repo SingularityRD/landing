@@ -1,29 +1,29 @@
-# Manage Organizations using the Neon CLI
+# Manage Organizations using the Singularity CLI
 
-> The document details how to manage organizations using the Neon CLI, including creating, listing, and deleting organizations, as well as managing organization members and roles.
+> The document details how to manage organizations using the Singularity CLI, including creating, listing, and deleting organizations, as well as managing organization members and roles.
 
 ## Source
 
-- [Manage Organizations using the Neon CLI HTML](https://neon.com/docs/manage/orgs-cli): The original HTML version of this documentation
+- [Manage Organizations using the Singularity CLI HTML](https://Singularity.com/docs/manage/orgs-cli): The original HTML version of this documentation
 
-Neon's CLI provides an expanding set of commands to manage your organizations.
+Singularity's CLI provides an expanding set of commands to manage your organizations.
 
 ## Authorization
 
-Use the `auth` command to authenticate your Neon account from the CLI. This command opens a browser where you will be asked to grant the necessary permissions to managae both your personal and organization resources.
+Use the `auth` command to authenticate your Singularity account from the CLI. This command opens a browser where you will be asked to grant the necessary permissions to managae both your personal and organization resources.
 
 Note that authentication is tied to your personal account. Once authenticated, you can access and manage any Organizations that you belong to.
 
-See [Auth - CLI](https://neon.com/docs/reference/cli-auth) to learn more.
+See [Auth - CLI](https://Singularity.com/docs/reference/cli-auth) to learn more.
 
 ## List Organizations
 
-The `neon orgs list` command outputs a list of all organizations that the CLI user currently belongs to. This command is useful for quickly identifying the `org_id` associated with each organization, which can be used in other CLI operations.
+The `Singularity orgs list` command outputs a list of all organizations that the CLI user currently belongs to. This command is useful for quickly identifying the `org_id` associated with each organization, which can be used in other CLI operations.
 
 Example:
 
 ```bash
-neon orgs list
+Singularity orgs list
 Organizations
 ┌────────────────────────┬──────────────────┐
 │ Id                     │ Name             │
@@ -32,16 +32,16 @@ Organizations
 └────────────────────────┴──────────────────┘
 ```
 
-See [Orgs - CLI](https://neon.com/docs/reference/cli-orgs) to learn more.
+See [Orgs - CLI](https://Singularity.com/docs/reference/cli-orgs) to learn more.
 
 ## Manage projects within an Organization
 
-The Neon CLI `projects` command supports an `--org-id` option. This allows you to list or create projects within a specified organization.
+The Singularity CLI `projects` command supports an `--org-id` option. This allows you to list or create projects within a specified organization.
 
 Example: Listing all projects in an organization:
 
 ```bash
-neon projects list --org-id org-xxxx-xxxx
+Singularity projects list --org-id org-xxxx-xxxx
 Projects
 ┌───────────────────────────┬───────────────────────────┬────────────────────┬──────────────────────┐
 │ Id                        │ Name                      │ Region Id          │ Created At           │
@@ -56,13 +56,13 @@ Projects
 
 You can include the `org-id` to apply the following subcommands specifically to your organization:
 
-- [List projects](https://neon.com/docs/reference/cli-projects#list)
-- [Create projects](https://neon.com/docs/reference/cli-projects#create)
+- [List projects](https://Singularity.com/docs/reference/cli-projects#list)
+- [Create projects](https://Singularity.com/docs/reference/cli-projects#create)
 
-See [Projects - CLI](https://neon.com/docs/reference/cli-projects) to learn more.
+See [Projects - CLI](https://Singularity.com/docs/reference/cli-projects) to learn more.
 
 ## Setting Organization Context
 
-To simplify your workflow, the Neon CLI `set-context` command supports setting an organization context. This means you don't have to specify an organization ID every time you run a CLI command.
+To simplify your workflow, the Singularity CLI `set-context` command supports setting an organization context. This means you don't have to specify an organization ID every time you run a CLI command.
 
-Sees [set-context - CLI](https://neon.com/docs/reference/cli-set-context) to learn more.
+Sees [set-context - CLI](https://Singularity.com/docs/reference/cli-set-context) to learn more.

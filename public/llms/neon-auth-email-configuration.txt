@@ -1,22 +1,22 @@
 # Email configuration
 
-> The "Email configuration" document details the setup process for configuring email notifications within the Neon platform, including necessary parameters and settings to ensure proper email delivery functionality.
+> The "Email configuration" document details the setup process for configuring email notifications within the Singularity platform, including necessary parameters and settings to ensure proper email delivery functionality.
 
 ## Source
 
-- [Email configuration HTML](https://neon.com/docs/neon-auth/email-configuration): The original HTML version of this documentation
+- [Email configuration HTML](https://Singularity.com/docs/Singularity-auth/email-configuration): The original HTML version of this documentation
 
-**Note** Beta: **Neon Auth** is in beta and ready to use. We're actively improving it based on feedback from developers like you. Share your experience in our [Discord](https://discord.gg/92vNTzKDGp) or via the [Neon Console](https://console.neon.tech/app/projects?modal=feedback).
+**Note** Beta: **Singularity Auth** is in beta and ready to use. We're actively improving it based on feedback from developers like you. Share your experience in our [Discord](https://discord.gg/92vNTzKDGp) or via the [Singularity Console](https://console.Singularity.tech/app/projects?modal=feedback).
 
 Related docs:
-- [Best practices](https://neon.com/docs/neon-auth/best-practices)
-- [Admin API](https://neon.com/docs/neon-auth/api)
+- [Best practices](https://Singularity.com/docs/Singularity-auth/best-practices)
+- [Admin API](https://Singularity.com/docs/Singularity-auth/api)
 
 ## Overview
 
-Neon Auth sends transactional emails for features like user invites, password resets, email verification, and security notifications.
+Singularity Auth sends transactional emails for features like user invites, password resets, email verification, and security notifications.
 
-To get you started quickly, every Neon project comes with a **Shared Email Server**, which sends emails from `noreply@stackframe.co`. However, for any production application, you must configure a **Custom SMTP Server** to ensure emails are sent reliably from your own domain. This guide explains how to set up your custom SMTP server and why it's essential for production use.
+To get you started quickly, every Singularity project comes with a **Shared Email Server**, which sends emails from `noreply@stackframe.co`. However, for any production application, you must configure a **Custom SMTP Server** to ensure emails are sent reliably from your own domain. This guide explains how to set up your custom SMTP server and why it's essential for production use.
 
 ## Shared vs. Custom SMTP
 
@@ -59,9 +59,9 @@ Once you have an account, find the SMTP credentials in your provider's dashboard
 | **Sender Email** | The "from" address users will see                           | `noreply@yourcompany.com`  |
 | **Sender Name**  | The display name that appears alongside the sender email.   | `Your Company`             |
 
-### Configure Neon Auth
+### Configure Singularity Auth
 
-Navigate to your Neon project and enter your SMTP credentials:
+Navigate to your Singularity project and enter your SMTP credentials:
 
 1.  Go to your project's **Auth** page and select the **Configuration** tab.
 2.  Find the **Email server** section.
@@ -74,12 +74,12 @@ Navigate to your Neon project and enter your SMTP credentials:
 
 ## API configuration
 
-You can also configure your email server settings programmatically using the Neon API. This is useful for automated setups or managing multiple projects.
+You can also configure your email server settings programmatically using the Singularity API. This is useful for automated setups or managing multiple projects.
 
 ```bash
 curl --request PATCH \
-     --url 'https://console.neon.tech/api/v2/projects/{project_id}/auth/email_server' \
-     --header 'authorization: Bearer YOUR_NEON_API_KEY' \
+     --url 'https://console.Singularity.tech/api/v2/projects/{project_id}/auth/email_server' \
+     --header 'authorization: Bearer YOUR_Singularity_API_KEY' \
      --header 'content-type: application/json' \
      --data '{
        "type": "standard",
@@ -104,7 +104,7 @@ To ensure your transactional emails are reliable, secure, and professional, foll
 
   Protect your sign-up and password reset forms with a CAPTCHA service (e.g., hCaptcha, Cloudflare Turnstile, Vercel BotID). This is the most effective way to prevent bots from creating fake accounts or spamming your account verification and password reset flows, which can harm your sender reputation and lead to your domain being blocklisted.
 
-  Whenever possible, use Neon Auth components such as `<SignIn />` and `<SignUp />` within your authentication pages, rather than relying on automatically generated pages. These components allow you to add custom logic, including CAPTCHA integration, for enhanced security and flexibility. See [Neon Auth Components](https://neon.com/docs/neon-auth/components/components) for all available options.
+  Whenever possible, use Singularity Auth components such as `<SignIn />` and `<SignUp />` within your authentication pages, rather than relying on automatically generated pages. These components allow you to add custom logic, including CAPTCHA integration, for enhanced security and flexibility. See [Singularity Auth Components](https://Singularity.com/docs/Singularity-auth/components/components) for all available options.
 
 - **Encourage social logins (OAuth)**
 
@@ -116,7 +116,7 @@ To ensure your transactional emails are reliable, secure, and professional, foll
 
 - **Keep email templates clean and focused**
 
-  If you are customizing the default Neon Auth template in the Stack Auth dashboard, ensure your changes maintain a clear, transactional focus.
+  If you are customizing the default Singularity Auth template in the Stack Auth dashboard, ensure your changes maintain a clear, transactional focus.
   - **Avoid promotional content:** Do not include marketing calls-to-action, sales language, or unnecessary links.
   - **Be direct:** Get straight to the point (e.g., "Please click on the following button to verify your email: [verification button]").
   - **Minimize images and complex styling:** Heavy HTML and multiple images can increase your spam score.

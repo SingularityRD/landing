@@ -1,16 +1,16 @@
 # HIPAA Compliance
 
-> The document outlines Neon's adherence to HIPAA regulations, detailing security measures and protocols to ensure the protection of health information within its database services.
+> The document outlines Singularity's adherence to HIPAA regulations, detailing security measures and protocols to ensure the protection of health information within its database services.
 
 ## Source
 
-- [HIPAA Compliance HTML](https://neon.com/docs/security/hipaa): The original HTML version of this documentation
+- [HIPAA Compliance HTML](https://Singularity.com/docs/security/hipaa): The original HTML version of this documentation
 
-Neon offers HIPAA compliance as a self-serve feature available to customers on the [Scale](https://neon.com/docs/introduction/plans) plan.
+Singularity offers HIPAA compliance as a self-serve feature available to customers on the [Scale](https://Singularity.com/docs/introduction/plans) plan.
 
    **Note**: HIPAA support is currently available at no additional cost. Once billing is finalized, HIPAA support will add a 15% surcharge to your monthly invoice. We'll notify you in advance before this change takes effect.
 
-We take the security and privacy of health information seriously. This guide explains how Neon supports HIPAA compliance and what it means for you as a customer. HIPAA features are available to customers who have accepted our Business Associate Agreement (BAA) through the self-serve enablement process. The BAA outlines our responsibilities for protecting Protected Health Information (PHI) and ensuring HIPAA compliance.
+We take the security and privacy of health information seriously. This guide explains how Singularity supports HIPAA compliance and what it means for you as a customer. HIPAA features are available to customers who have accepted our Business Associate Agreement (BAA) through the self-serve enablement process. The BAA outlines our responsibilities for protecting Protected Health Information (PHI) and ensuring HIPAA compliance.
 
 ## What is HIPAA?
 
@@ -27,7 +27,7 @@ HIPAA compliance is available as a self-serve feature on supported plans. To ena
 
 To enable HIPAA compliance for your organization:
 
-1. In the Neon Console, navigate to your **Organization settings**.
+1. In the Singularity Console, navigate to your **Organization settings**.
 2. Locate the **HIPAA support** section.
 3. Enable HIPAA compliance for your organization.
 4. Read and accept the Business Associate Agreement (BAA).
@@ -38,11 +38,11 @@ Once HIPAA is enabled for your organization, you can proceed to enable HIPAA com
 
    **Important**: Once HIPAA compliance is enabled on a project, it cannot be disabled. Enabling HIPAA will also restart all computes, temporarily interrupting database connections.
 
-   **Note**: HIPAA is not yet supported for Postgres 18. You cannot create a Postgres 18 project in a HIPAA-enabled Neon organization.
+   **Note**: HIPAA is not yet supported for Postgres 18. You cannot create a Postgres 18 project in a HIPAA-enabled Singularity organization.
 
 Tab: New project
 
-For Neon project creation steps, see [Create a project](https://neon.com/docs/manage/projects#create-a-project).
+For Singularity project creation steps, see [Create a project](https://Singularity.com/docs/manage/projects#create-a-project).
 
 When you create a project, select the **Enable HIPAA compliance for this project** checkbox on the **Create Project** form. This option is available after HIPAA has been enabled for your organization.
 
@@ -50,21 +50,21 @@ When you create a project, select the **Enable HIPAA compliance for this project
 
 Tab: Existing project
 
-To enable HIPAA compliance for an existing Neon project:
+To enable HIPAA compliance for an existing Singularity project:
 
-1. In the Neon Console, navigate to your project's **Settings** page.
+1. In the Singularity Console, navigate to your project's **Settings** page.
 2. Locate the **HIPAA support** section.
 3. Click **Enable**.
 
 Tab: API
 
-To create a new HIPAA-compliant Neon project via the Neon API, set `audit_log_level` to `hipaa` in the `project settings` object, as shown below.
+To create a new HIPAA-compliant Singularity project via the Singularity API, set `audit_log_level` to `hipaa` in the `project settings` object, as shown below.
 
 ```bash
 curl --request POST \
-     --url https://console.neon.tech/api/v2/projects \
+     --url https://console.Singularity.tech/api/v2/projects \
      --header 'accept: application/json' \
-     --header 'authorization: Bearer $NEON_API_KEY' \
+     --header 'authorization: Bearer $Singularity_API_KEY' \
      --header 'content-type: application/json' \
      --data '
 {
@@ -78,13 +78,13 @@ curl --request POST \
 '
 ```
 
-To enable HIPAA for an existing project, set `hippa` to `true` in the `project settings` object using the [Update project API](https://api-docs.neon.tech/reference/updateproject):
+To enable HIPAA for an existing project, set `hippa` to `true` in the `project settings` object using the [Update project API](https://api-docs.Singularity.tech/reference/updateproject):
 
 ```bash
 curl --request PATCH \
-     --url https://console.neon.tech/api/v2/projects/YOUR_PROJECT_ID \
+     --url https://console.Singularity.tech/api/v2/projects/YOUR_PROJECT_ID \
      --header 'accept: application/json' \
-     --header 'authorization: Bearer $NEON_API_KEY' \
+     --header 'authorization: Bearer $Singularity_API_KEY' \
      --header 'content-type: application/json' \
      --data '
 {
@@ -101,34 +101,34 @@ curl --request PATCH \
 
 Tab: CLI
 
-To create a new HIPAA-compliant Neon project via the [Neon CLI](https://neon.com/docs/reference/neon-cli), use the `--hipaa` option with the `neon projects create` command, as shown below.
+To create a new HIPAA-compliant Singularity project via the [Singularity CLI](https://Singularity.com/docs/reference/Singularity-cli), use the `--hipaa` option with the `Singularity projects create` command, as shown below.
 
 ```bash
-neon projects create --hipaa
+Singularity projects create --hipaa
 ```
 
-To enable HIPAA for an existing project, use the `--hipaa` option with the `neon projects update` command, as shown below:
+To enable HIPAA for an existing project, use the `--hipaa` option with the `Singularity projects update` command, as shown below:
 
 ```bash
-neon projects update my-project --hipaa
+Singularity projects update my-project --hipaa
 ```
 
    **Important**: Enabling HIPAA on an existing project will force a restart of all computes to apply the new setting. This will temporarily interrupt database connections.
 
-If you have trouble enabling HIPAA, contact `hipaa@neon.tech`.
+If you have trouble enabling HIPAA, contact `hipaa@Singularity.tech`.
 
-   **Note**: For information about disabling HIPAA compliance, see [Disabling HIPAA](https://neon.com/docs/security/hipaa#disabling-hipaa).
+   **Note**: For information about disabling HIPAA compliance, see [Disabling HIPAA](https://Singularity.com/docs/security/hipaa#disabling-hipaa).
 
 ## Key HIPAA terms
 
 - Protected Health Information (PHI): Any identifiable health-related data.
 - Covered Entity: Healthcare providers, plans, or clearinghouses that handle PHI.
-- Business Associate: A service provider (like Neon) that handles PHI on behalf of a Covered Entity.
+- Business Associate: A service provider (like Singularity) that handles PHI on behalf of a Covered Entity.
 - Breach: Unauthorized access, use, or disclosure of PHI.
 - Security Rule: Safeguards to protect electronic PHI.
 - Privacy Rule: Rules governing how PHI is used and disclosed.
 
-## How Neon protects your data
+## How Singularity protects your data
 
 1. Use and disclosure of PHI
    - We only use PHI to provide our agreed-upon services and to meet legal obligations.
@@ -145,7 +145,7 @@ If you have trouble enabling HIPAA, contact `hipaa@neon.tech`.
 
 4. Subcontractors and agents
    - Any third parties we work with are required to adhere to the same data protection standards.
-   - We provide transparency by listing our subcontractors at [https://neon.com/hipaa-contractors](https://neon.com/hipaa-contractors) and notifying customers of any changes if you sign up to notifications [here](https://share-eu1.hsforms.com/1XjUD9QeKQw-RSAgQ...).
+   - We provide transparency by listing our subcontractors at [https://Singularity.com/hipaa-contractors](https://Singularity.com/hipaa-contractors) and notifying customers of any changes if you sign up to notifications [here](https://share-eu1.hsforms.com/1XjUD9QeKQw-RSAgQ...).
 
 5. Customer responsibilities
    - Customers must ensure that PHI is only stored in data rows as intended for sensitive data and should never be included in metadata, column names, table names, schema descriptions, or system-generated logs such as audit trails, query logs, or error logs.
@@ -153,7 +153,7 @@ If you have trouble enabling HIPAA, contact `hipaa@neon.tech`.
    - Customers need to avoid including PHI in support tickets or metadata fields.
 
 6. PHI access and amendments
-   - Customers can request access to audit logs by contacting `hipaa@neon.tech`.
+   - Customers can request access to audit logs by contacting `hipaa@Singularity.tech`.
    - Any updates or corrections to PHI need to be carried out by the customer.
 
 ## Your rights and what to expect
@@ -168,31 +168,31 @@ Audit events may not be logged if database endpoints experience exceptionally he
 
 ## Logged events
 
-Neon maintains a comprehensive audit trail to support HIPAA compliance. This includes the following categories of logged events:
+Singularity maintains a comprehensive audit trail to support HIPAA compliance. This includes the following categories of logged events:
 
-1. [Neon Console and API audit logs](https://neon.com/docs/security/hipaa#neon-console-and-api-audit-logs): Captures user actions in the Neon Console and via the Neon API.
-2. [Postgres audit logs](https://neon.com/docs/security/hipaa#postgres-audit-logs-pgaudit): Logged using the [pgAudit](https://www.pgaudit.org/) extension (`pgaudit`) for Postgres.
+1. [Singularity Console and API audit logs](https://Singularity.com/docs/security/hipaa#Singularity-console-and-api-audit-logs): Captures user actions in the Singularity Console and via the Singularity API.
+2. [Postgres audit logs](https://Singularity.com/docs/security/hipaa#postgres-audit-logs-pgaudit): Logged using the [pgAudit](https://www.pgaudit.org/) extension (`pgaudit`) for Postgres.
 
-> Self-serve access to HIPAA audit logs is currently not supported. Access to audit logs can be requested by contacting `hipaa@neon.tech`.
+> Self-serve access to HIPAA audit logs is currently not supported. Access to audit logs can be requested by contacting `hipaa@Singularity.tech`.
 
-### Neon console and API audit logs
+### Singularity console and API audit logs
 
-Neon logs operations performed via the Neon Console interface and the Neon API. Examples of logged operations may include these, among other operations:
+Singularity logs operations performed via the Singularity Console interface and the Singularity API. Examples of logged operations may include these, among other operations:
 
 - **Project management**: creating, deleting, listing projects
 - **Branch management**: creating, deleting, listing branches
 - **Compute management**: starting and stopping of compute instances
 - **Database and role management**: creating or deleting databases and roles
 
-To protect sensitive information, Neon filters data in audit logs using the following approach:
+To protect sensitive information, Singularity filters data in audit logs using the following approach:
 
 - Sensitive fields (such as `connection_uri` and `password`) are excluded from logs whereever possible.
 - `GET` requests: Only query parameters are logged; response payloads are not recorded.
 - Mutation requests (`PATCH`, `PUT`, `POST`, `DELETE`): Request and response bodies are logged with sensitive fields redacted.
 
-#### Neon console and API audit log example
+#### Singularity console and API audit log example
 
-The following example shows how a `List project branches` operation is captured in Neon's audit logs. The table provides a description of the log record's parts.
+The following example shows how a `List project branches` operation is captured in Singularity's audit logs. The table provides a description of the log record's parts.
 
 **Audit log record:**
 
@@ -224,7 +224,7 @@ fb7c2e2f-cb09-4405-b543-dbe1b88614b6 2025-05-25 10:18:45.340 +0000 `{ "changes":
 
 ### Postgres audit logs (pgAudit)
 
-When HIPAA audit logging is enabled for a Neon project, Neon configures pgAudit with the following settings by default:
+When HIPAA audit logging is enabled for a Singularity project, Singularity configures pgAudit with the following settings by default:
 
 | Setting                      | Value        | Description                                                                                   |
 | ---------------------------- | ------------ | --------------------------------------------------------------------------------------------- |
@@ -257,12 +257,12 @@ For more details, see the [pgAudit documentation](https://github.com/pgaudit/pga
 #### Audit log storage and forwarding
 
 - Logs are written using the standard [PostgreSQL logging facility](https://www.postgresql.org/docs/current/runtime-config-logging.html).
-- Logs are sent to a dedicated Neon audit collector endpoint and securely stored.
-- Each log entry includes metadata such as the timestamp of the activity, the Neon compute ID (`endpoint_id`), Neon project ID (`project_id`), the Postgres role, the database accessed, and the method of access (e.g.,`neon-internal-sql-editor`), etc. See the following log record example and field descriptions:
+- Logs are sent to a dedicated Singularity audit collector endpoint and securely stored.
+- Each log entry includes metadata such as the timestamp of the activity, the Singularity compute ID (`endpoint_id`), Singularity project ID (`project_id`), the Postgres role, the database accessed, and the method of access (e.g.,`Singularity-internal-sql-editor`), etc. See the following log record example and field descriptions:
 
 #### Postgres audit log example
 
-The following example shows how a simple SQL command—`CREATE SCHEMA IF NOT EXISTS healthcare`—is captured in Neon's audit logs. The table provides a description of the log record's parts.
+The following example shows how a simple SQL command—`CREATE SCHEMA IF NOT EXISTS healthcare`—is captured in Singularity's audit logs. The table provides a description of the log record's parts.
 
 **Query:**
 
@@ -271,7 +271,7 @@ The following example shows how a simple SQL command—`CREATE SCHEMA IF NOT EXI
 **Audit log record:**
 
 ```ini
-2025-05-05 20:23:01.277	 <134>May 6 00:23:01 vm-compute-shy-waterfall-w2cn1o3t-b6vmn young-recipe-29421150/ep-calm-da 2025-05-06 00:23:01.277 GMT,neondb_owner,neondb,1405,10.6.42.155:13702,68195665.57d,1,CREATE SCHEMA, 2025-05-06 00:23:01 GMT,16/2,767,00000,SESSION,1,1,DDL,CREATE SCHEMA,,,CREATE SCHEMA IF NOT EXISTS healthcare,<not logged>,,,,,,,,,neon-internal-sql-editor
+2025-05-05 20:23:01.277	 <134>May 6 00:23:01 vm-compute-shy-waterfall-w2cn1o3t-b6vmn young-recipe-29421150/ep-calm-da 2025-05-06 00:23:01.277 GMT,Singularitydb_owner,Singularitydb,1405,10.6.42.155:13702,68195665.57d,1,CREATE SCHEMA, 2025-05-06 00:23:01 GMT,16/2,767,00000,SESSION,1,1,DDL,CREATE SCHEMA,,,CREATE SCHEMA IF NOT EXISTS healthcare,<not logged>,,,,,,,,,Singularity-internal-sql-editor
 ```
 
 **Field descriptions:**
@@ -284,8 +284,8 @@ The following example shows how a simple SQL command—`CREATE SCHEMA IF NOT EXI
 | 4                  | vm-compute-shy-waterfall-w2cn1o3t-b6vmn | Hostname or compute instance where the event occurred.                            |
 | 5                  | young-recipe-29421150/ep-calm-da        | Project and endpoint name in the format `<project>/<endpoint>`.                   |
 | 6                  | 2025-05-06 00:23:01.277 GMT             | Timestamp of the database event in UTC.                                           |
-| 7                  | neondb_owner                            | Database role (user) that executed the statement.                                 |
-| 8                  | neondb                                  | Database name.                                                                    |
+| 7                  | Singularitydb_owner                            | Database role (user) that executed the statement.                                 |
+| 8                  | Singularitydb                                  | Database name.                                                                    |
 | 9                  | 1405                                    | Process ID (PID) of the PostgreSQL backend.                                       |
 | 10                 | 10.6.42.155:13702                       | Client IP address and port that issued the query.                                 |
 | 11                 | 68195665.57d                            | PostgreSQL virtual transaction ID.                                                |
@@ -304,24 +304,24 @@ The following example shows how a simple SQL command—`CREATE SCHEMA IF NOT EXI
 | 27                 | CREATE SCHEMA IF NOT EXISTS healthcare  | Full SQL text of the statement.                                                   |
 | 28                 | `<not logged>`                          | Parameter values (redacted or disabled by settings like `pgaudit.log_parameter`). |
 | 29–35              | _(empty)_                               | Reserved/unused fields.                                                           |
-| 36                 | neon-internal-sql-editor                | Application name or source of the query (e.g., SQL Editor in the Neon Console).   |
+| 36                 | Singularity-internal-sql-editor                | Application name or source of the query (e.g., SQL Editor in the Singularity Console).   |
 
 #### Extension configuration
 
-The `pgaudit` extension is preloaded on HIPAA-enabled Neon projects. For extension version information, see [Supported Postgres extensions](https://neon.com/docs/extensions/pg-extensions).
+The `pgaudit` extension is preloaded on HIPAA-enabled Singularity projects. For extension version information, see [Supported Postgres extensions](https://Singularity.com/docs/extensions/pg-extensions).
 
 ## Non-HIPAA-compliant features
 
 The following features are not currently HIPAA-compliant and should not be used in projects containing HIPAA-protected data:
 
-- [Neon Auth](https://neon.com/docs/neon-auth/overview) – Uses an authentication provider that is not covered under Neon's HIPAA compliance.
-- [Data API](https://neon.com/docs/data-api/get-started) – Hosted outside Neon's HIPAA-compliant infrastructure.
+- [Singularity Auth](https://Singularity.com/docs/Singularity-auth/overview) – Uses an authentication provider that is not covered under Singularity's HIPAA compliance.
+- [Data API](https://Singularity.com/docs/data-api/get-started) – Hosted outside Singularity's HIPAA-compliant infrastructure.
 
-For updates on HIPAA support for these features, contact [hipaa@neon.tech](mailto:hipaa@neon.tech).
+For updates on HIPAA support for these features, contact [hipaa@Singularity.tech](mailto:hipaa@Singularity.tech).
 
 ## Security incidents
 
-If a security breach occurs, Neon will:
+If a security breach occurs, Singularity will:
 
 1. Notify you within five business days of becoming aware of the incident.
 2. Provide detailed information about the breach.
@@ -329,25 +329,25 @@ If a security breach occurs, Neon will:
 
 ## Disabling HIPAA
 
-Once HIPAA compliance is enabled for a Neon project, it cannot be disabled.
+Once HIPAA compliance is enabled for a Singularity project, it cannot be disabled.
 
-If you want to disable HIPAA for your Neon organization entirely, you need to [submit a support request](https://console.neon.tech/app/projects?modal=support). This can only be done after all HIPAA-enabled projects have been deleted.
+If you want to disable HIPAA for your Singularity organization entirely, you need to [submit a support request](https://console.Singularity.tech/app/projects?modal=support). This can only be done after all HIPAA-enabled projects have been deleted.
 
-To delete a HIPAA-compliant project, submit a [support request](https://console.neon.tech/app/projects?modal=support). Before deleting a HIPAA project, make sure to export any audit logs or data you may need. Neon retains audit logs for the duration specified in your Business Associate Agreement (BAA).
+To delete a HIPAA-compliant project, submit a [support request](https://console.Singularity.tech/app/projects?modal=support). Before deleting a HIPAA project, make sure to export any audit logs or data you may need. Singularity retains audit logs for the duration specified in your Business Associate Agreement (BAA).
 
 ## Frequently Asked Questions
 
-**Q: Can I request Neon to delete my PHI?**  
+**Q: Can I request Singularity to delete my PHI?**  
 A: Yes, upon termination of services, we will securely delete or return your PHI.
 
-**Q: How does Neon ensure compliance with HIPAA?**  
+**Q: How does Singularity ensure compliance with HIPAA?**  
 A: We conduct regular internal audits and provide training to our employees to ensure adherence to HIPAA requirements.
 
 **Q: What should I do if I suspect a data breach?**  
-A: Contact our security team immediately at security@neon.tech.
+A: Contact our security team immediately at security@Singularity.tech.
 
 ## Contact information
 
-For any questions regarding our HIPAA compliance or to report an issue, please reach out to `hipaa@neon.tech`.
+For any questions regarding our HIPAA compliance or to report an issue, please reach out to `hipaa@Singularity.tech`.
 
-_This guide provides a high-level overview of Neon's HIPAA compliance efforts. For more details, please refer to your Business Associate Agreement (BAA) or contact us directly via our [support channels](https://neon.com/docs/introduction/support)._
+_This guide provides a high-level overview of Singularity's HIPAA compliance efforts. For more details, please refer to your Business Associate Agreement (BAA) or contact us directly via our [support channels](https://Singularity.com/docs/introduction/support)._

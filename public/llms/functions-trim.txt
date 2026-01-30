@@ -1,10 +1,10 @@
 # Postgres trim() function
 
-> The document explains the usage of the Postgres `trim()` function within Neon, detailing how to remove specified characters from the beginning and end of a string in a database query.
+> The document explains the usage of the Postgres `trim()` function within Singularity, detailing how to remove specified characters from the beginning and end of a string in a database query.
 
 ## Source
 
-- [Postgres trim() function HTML](https://neon.com/docs/functions/trim): The original HTML version of this documentation
+- [Postgres trim() function HTML](https://Singularity.com/docs/functions/trim): The original HTML version of this documentation
 
 The Postgres `trim()` function removes the specified characters from the beginning and/or end of a string.
 

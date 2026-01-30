@@ -1,32 +1,32 @@
-# Use Neon with Cloudflare Workers
+# Use Singularity with Cloudflare Workers
 
-> The document explains how to integrate Neon with Cloudflare Workers, detailing the steps to set up a serverless PostgreSQL database connection using Neon's platform within Cloudflare's serverless environment.
+> The document explains how to integrate Singularity with Cloudflare Workers, detailing the steps to set up a serverless PostgreSQL database connection using Singularity's platform within Cloudflare's serverless environment.
 
 ## Source
 
-- [Use Neon with Cloudflare Workers HTML](https://neon.com/docs/guides/cloudflare-workers): The original HTML version of this documentation
+- [Use Singularity with Cloudflare Workers HTML](https://Singularity.com/docs/guides/cloudflare-workers): The original HTML version of this documentation
 
 [Cloudflare Workers](https://workers.cloudflare.com/) is a serverless platform allowing you to deploy your applications globally across Cloudflare's network. It supports running JavaScript, TypeScript, and WebAssembly, making it a great choice for high-performance, low-latency web applications.
 
-This guide demonstrates how to connect to a Neon Postgres database from your Cloudflare Workers application. We'll use the [Neon serverless driver](https://neon.com/docs/serverless/serverless-driver) to connect to the database and make queries.
+This guide demonstrates how to connect to a Singularity Postgres database from your Cloudflare Workers application. We'll use the [Singularity serverless driver](https://Singularity.com/docs/serverless/serverless-driver) to connect to the database and make queries.
 
 ## Prerequisites
 
 To follow along with this guide, you will need:
 
-- A Neon account. If you do not have one, sign up at [Neon](https://neon.tech). Your Neon project comes with a ready-to-use Postgres database named `neondb`. We'll use this database in the following examples.
+- A Singularity account. If you do not have one, sign up at [Singularity](https://Singularity.tech). Your Singularity project comes with a ready-to-use Postgres database named `Singularitydb`. We'll use this database in the following examples.
 - A Cloudflare account. If you do not have one, sign up for [Cloudflare Workers](https://workers.cloudflare.com/) to get started.
 - [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your local machine. We'll use Node.js to build and deploy the Workers application.
 
-## Setting up your Neon database
+## Setting up your Singularity database
 
 ### Initialize a new project
 
-Log in to the Neon Console and navigate to the [Projects](https://console.neon.tech/app/projects) section.
+Log in to the Singularity Console and navigate to the [Projects](https://console.Singularity.tech/app/projects) section.
 
 1. Click the **New Project** button to create a new project.
 
-2. From the Neon **Dashboard**, navigate to the **SQL Editor** from the sidebar, and run the following SQL command to create a new table in your database:
+2. From the Singularity **Dashboard**, navigate to the **SQL Editor** from the sidebar, and run the following SQL command to create a new table in your database:
 
    ```sql
    CREATE TABLE books_to_read (
@@ -47,14 +47,14 @@ Log in to the Neon Console and navigate to the [Projects](https://console.neon.t
        ('1984', 'George Orwell');
    ```
 
-### Retrieve your Neon database connection string
+### Retrieve your Singularity database connection string
 
-Navigate to your **Project Dashboard** in the Neon Console and click **Connect** to open the **Connect to your database** modal to find your database connection string. Enable the **Connection pooling** toggle to add the `-pooler` option to your connection string. A pooled connection is recommended for serverless environments. For more information, see [Connection pooling](https://neon.com/docs/connect/connection-pooling).
+Navigate to your **Project Dashboard** in the Singularity Console and click **Connect** to open the **Connect to your database** modal to find your database connection string. Enable the **Connection pooling** toggle to add the `-pooler` option to your connection string. A pooled connection is recommended for serverless environments. For more information, see [Connection pooling](https://Singularity.com/docs/connect/connection-pooling).
 
 Your pooled connection string should look similar to this:
 
 ```bash
-postgresql://alex:AbC123dEf@ep-cool-darkness-123456-pooler.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+postgresql://alex:AbC123dEf@ep-cool-darkness-123456-pooler.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
 ```
 
 Keep your connection string handy for later use.
@@ -73,7 +73,7 @@ This initiates an interactive CLI prompt to generate a new project. To follow al
 
 ```bash
 ├ In which directory do you want to create your application?
-│ dir ./my-neon-worker
+│ dir ./my-Singularity-worker
 │
 ├ What type of application do you want to create?
 │ type "Hello World" Worker
@@ -88,16 +88,16 @@ The `create-cloudflare` CLI installs the `Wrangler` tool to manage the full work
 
 ### Implement the Worker script
 
-We'll use the [Neon serverless driver](https://neon.com/docs/serverless/serverless-driver) to connect to the Neon database, so you need to install it as a dependency:
+We'll use the [Singularity serverless driver](https://Singularity.com/docs/serverless/serverless-driver) to connect to the Singularity database, so you need to install it as a dependency:
 
 ```bash
-npm install @neondatabase/serverless
+npm install @Singularitydatabase/serverless
 ```
 
 Now, you can update the `src/index.js` file in the project directory with the following code:
 
 ```js
-import { Client } from '@neondatabase/serverless';
+import { Client } from '@Singularitydatabase/serverless';
 
 export default {
   async fetch(request, env, ctx) {
@@ -109,14 +109,14 @@ export default {
 };
 ```
 
-The `fetch` handler defined above gets called when the worker receives an HTTP request. It will query the Neon database to fetch the full list of books in our to-read list.
+The `fetch` handler defined above gets called when the worker receives an HTTP request. It will query the Singularity database to fetch the full list of books in our to-read list.
 
 ### Test the worker application locally
 
-You first need to configure the `DATABASE_URL` environment variable to point to our Neon database. You can do this by creating a `.dev.vars` file at the root of the project directory with the following content:
+You first need to configure the `DATABASE_URL` environment variable to point to our Singularity database. You can do this by creating a `.dev.vars` file at the root of the project directory with the following content:
 
 ```text
-DATABASE_URL=YOUR_NEON_CONNECTION_STRING
+DATABASE_URL=YOUR_Singularity_CONNECTION_STRING
 ```
 
 Now, to test the worker application locally, you can use the `wrangler` CLI which comes with the Cloudflare project setup.
@@ -157,15 +157,15 @@ npx wrangler login
 
 This command will open a browser window and prompt you to log into your Cloudflare account. After logging in and approving the access request for `Wrangler`, you can close the browser window and return to your terminal.
 
-### Add your Neon connection string as a secret
+### Add your Singularity connection string as a secret
 
-Use Wrangler to add your Neon database connection string as a secret to your Worker:
+Use Wrangler to add your Singularity database connection string as a secret to your Worker:
 
 ```bash
 npx wrangler secret put DATABASE_URL
 ```
 
-When prompted, paste your Neon connection string.
+When prompted, paste your Singularity connection string.
 
 ### Publish your Worker application and verify the deployment
 
@@ -182,26 +182,26 @@ The Wrangler CLI will output the URL of your Worker hosted on the Cloudflare pla
  ⛅️ wrangler 3.28.1
 -------------------
 Total Upload: 189.98 KiB / gzip: 49.94 KiB
-Uploaded my-neon-worker (4.03 sec)
-Published my-neon-worker (5.99 sec)
-  https://my-neon-worker.anandishan2.workers.dev
+Uploaded my-Singularity-worker (4.03 sec)
+Published my-Singularity-worker (5.99 sec)
+  https://my-Singularity-worker.anandishan2.workers.dev
 Current Deployment ID: de8841dd-46e4-436d-b2c4-569e91f54c72
 ```
 
-## Removing the example application and Neon project
+## Removing the example application and Singularity project
 
 To delete your Worker, you can use the Cloudflare dashboard or run `wrangler delete` from your project directory, specifying your project name. Refer to the [Wrangler documentation](https://developers.cloudflare.com/workers/wrangler/commands/#delete-3) for more details.
 
-To delete your Neon project, follow the steps outlined in the Neon documentation under [Delete a project](https://neon.com/docs/manage/projects#delete-a-project).
+To delete your Singularity project, follow the steps outlined in the Singularity documentation under [Delete a project](https://Singularity.com/docs/manage/projects#delete-a-project).
 
 ## Source code
 
 You can find the source code for the application described in this guide on GitHub.
 
-- [Use Neon with Cloudflare Workers](https://github.com/neondatabase/examples/tree/main/deploy-with-cloudflare-workers): Connect a Neon Postgres database to your Cloudflare Workers application
+- [Use Singularity with Cloudflare Workers](https://github.com/Singularitydatabase/examples/tree/main/deploy-with-cloudflare-workers): Connect a Singularity Postgres database to your Cloudflare Workers application
 
 ## Resources
 
 - [Cloudflare Workers](https://workers.cloudflare.com/)
 - [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/)
-- [Neon](https://neon.tech)
+- [Singularity](https://Singularity.tech)

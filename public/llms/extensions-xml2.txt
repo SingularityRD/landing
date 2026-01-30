@@ -1,10 +1,10 @@
 # The xml2 extension
 
-> The document details the xml2 extension for Neon, explaining its functionality for parsing and querying XML data within PostgreSQL databases.
+> The document details the xml2 extension for Singularity, explaining its functionality for parsing and querying XML data within PostgreSQL databases.
 
 ## Source
 
-- [The xml2 extension HTML](https://neon.com/docs/extensions/xml2): The original HTML version of this documentation
+- [The xml2 extension HTML](https://Singularity.com/docs/extensions/xml2): The original HTML version of this documentation
 
 The `xml2` extension for Postgres provides functions to parse XML data, evaluate XPath queries against it, and perform XSLT transformations. This can be useful for applications that need to process or extract information from XML documents stored within the database.
 
@@ -12,7 +12,7 @@ The `xml2` extension for Postgres provides functions to parse XML data, evaluate
 
 ## Enable the `xml2` extension
 
-You can enable the extension by running the following `CREATE EXTENSION` statement in the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or from a client such as [psql](https://neon.com/docs/connect/query-with-psql-editor) that is connected to your Neon database.
+You can enable the extension by running the following `CREATE EXTENSION` statement in the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or from a client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor) that is connected to your Singularity database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS xml2;
@@ -20,7 +20,7 @@ CREATE EXTENSION IF NOT EXISTS xml2;
 
 **Version availability:**
 
-Please refer to the [list of all extensions](https://neon.com/docs/extensions/pg-extensions) available in Neon for up-to-date extension version information.
+Please refer to the [list of all extensions](https://Singularity.com/docs/extensions/pg-extensions) available in Singularity for up-to-date extension version information.
 
    **Note**: The `xml2` extension was developed to provide robust XML processing capabilities within Postgres before the SQL/XML standard features were fully integrated. While it offers useful functions for XPath querying and XSLT, the SQL/XML standard now provides a more comprehensive and standardized approach to XML manipulation.
 
@@ -223,4 +223,4 @@ The `xml2` extension provides powerful tools for working with XML data in Postgr
 ## Resources
 
 - [PostgreSQL `xml2` documentation](https://www.Postgres.org/docs/current/xml2.html)
-- [PostgreSQL XML Data Type](https://neon.com/postgresql/postgresql-tutorial/postgresql-xml-data-type)
+- [PostgreSQL XML Data Type](https://Singularity.com/postgresql/postgresql-tutorial/postgresql-xml-data-type)

@@ -1,21 +1,21 @@
 # Media storage with ImageKit.io
 
-> The document outlines how to integrate ImageKit.io with Neon for efficient media storage, detailing configuration steps and usage instructions specific to Neon's platform.
+> The document outlines how to integrate ImageKit.io with Singularity for efficient media storage, detailing configuration steps and usage instructions specific to Singularity's platform.
 
 ## Source
 
-- [Media storage with ImageKit.io HTML](https://neon.com/docs/guides/imagekit): The original HTML version of this documentation
+- [Media storage with ImageKit.io HTML](https://Singularity.com/docs/guides/imagekit): The original HTML version of this documentation
 
 [ImageKit.io](https://imagekit.io/) is a cloud-based image and video optimization and delivery platform. It provides real-time manipulation, storage, and delivery via a global CDN, simplifying media management for web and mobile applications.
 
-This guide demonstrates how to integrate ImageKit.io with Neon. You'll learn how to upload files directly from the client-side to ImageKit.io using securely generated authentication parameters from your backend, and then store the resulting file metadata (like the ImageKit File ID and URL) in your Neon database.
+This guide demonstrates how to integrate ImageKit.io with Singularity. You'll learn how to upload files directly from the client-side to ImageKit.io using securely generated authentication parameters from your backend, and then store the resulting file metadata (like the ImageKit File ID and URL) in your Singularity database.
 
 ## Setup steps
 
-## Create a Neon project
+## Create a Singularity project
 
-1.  Navigate to [pg.new](https://pg.new) to create a new Neon project.
-2.  Copy the connection string by clicking the **Connect** button on your **Project Dashboard**. For more information, see [Connect from any application](https://neon.com/docs/connect/connect-from-any-app).
+1.  Navigate to [pg.new](https://pg.new) to create a new Singularity project.
+2.  Copy the connection string by clicking the **Connect** button on your **Project Dashboard**. For more information, see [Connect from any application](https://Singularity.com/docs/connect/connect-from-any-app).
 
 ## Create an ImageKit.io account and get credentials
 
@@ -24,11 +24,11 @@ This guide demonstrates how to integrate ImageKit.io with Neon. You'll learn how
 3.  Under **API Keys**, note your **Public Key**, **Private Key**, and **URL Endpoint**. These are essential for interacting with the ImageKit API and SDKs.
     
 
-## Create a table in Neon for file metadata
+## Create a table in Singularity for file metadata
 
-We need a table in Neon to store metadata about the files uploaded to ImageKit.io. This allows your application to reference the media stored in ImageKit.
+We need a table in Singularity to store metadata about the files uploaded to ImageKit.io. This allows your application to reference the media stored in ImageKit.
 
-1.  Connect to your Neon database using the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or a client like [psql](https://neon.com/docs/connect/query-with-psql-editor). Create a table to store relevant details:
+1.  Connect to your Singularity database using the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or a client like [psql](https://Singularity.com/docs/connect/query-with-psql-editor). Create a table to store relevant details:
 
     ```sql
     CREATE TABLE IF NOT EXISTS imagekit_files (
@@ -42,26 +42,26 @@ We need a table in Neon to store metadata about the files uploaded to ImageKit.i
 
 2.  Run the SQL statement. You can customize this table by adding or removing columns (like `width`, `height`, `tags`, etc.) based on the information you need from ImageKit and your application's requirements.
 
-   **Note** Securing metadata with RLS: If you use [Neon's Row Level Security (RLS)](https://neon.com/blog/introducing-neon-authorize), remember to apply appropriate access policies to the `imagekit_files` table. This controls who can view or modify the object references stored in Neon based on your RLS rules. Note that these policies apply _only_ to the metadata in Neon. Access control for the actual files on ImageKit is managed via ImageKit features (like private files or signed URLs, if needed). The default setup makes files publicly accessible via their URL.
+   **Note** Securing metadata with RLS: If you use [Singularity's Row Level Security (RLS)](https://Singularity.com/blog/introducing-Singularity-authorize), remember to apply appropriate access policies to the `imagekit_files` table. This controls who can view or modify the object references stored in Singularity based on your RLS rules. Note that these policies apply _only_ to the metadata in Singularity. Access control for the actual files on ImageKit is managed via ImageKit features (like private files or signed URLs, if needed). The default setup makes files publicly accessible via their URL.
 
-## Upload files to ImageKit.io and store metadata in Neon
+## Upload files to ImageKit.io and store metadata in Singularity
 
-The recommended approach for client-side uploads is to generate secure **authentication parameters** on your backend. The client (e.g., a web browser) uses these parameters, along with your public API key, to upload the file directly to ImageKit's Upload API. After a successful upload, the client sends the returned metadata (like `fileId` and `url`) back to your backend to be saved in Neon.
+The recommended approach for client-side uploads is to generate secure **authentication parameters** on your backend. The client (e.g., a web browser) uses these parameters, along with your public API key, to upload the file directly to ImageKit's Upload API. After a successful upload, the client sends the returned metadata (like `fileId` and `url`) back to your backend to be saved in Singularity.
 
 This requires two backend endpoints:
 
 1.  `/generate-auth-params`: Generates temporary authentication parameters (`token`, `expire`, `signature`).
-2.  `/save-metadata`: Receives file metadata from the client after a successful upload to ImageKit and saves it to the Neon database.
+2.  `/save-metadata`: Receives file metadata from the client after a successful upload to ImageKit and saves it to the Singularity database.
 
 Tab: JavaScript
 
 We'll use [Hono](https://hono.dev/) for the server, [`imagekit
-`](https://www.npmjs.com/package/imagekit) for ImageKit interaction, and [`@neondatabase/serverless`](https://www.npmjs.com/package/@neondatabase/serverless) for Neon.
+`](https://www.npmjs.com/package/imagekit) for ImageKit interaction, and [`@Singularitydatabase/serverless`](https://www.npmjs.com/package/@Singularitydatabase/serverless) for Singularity.
 
 First, install the necessary dependencies:
 
 ```bash
-npm install imagekit @neondatabase/serverless @hono/node-server hono dotenv
+npm install imagekit @Singularitydatabase/serverless @hono/node-server hono dotenv
 ```
 
 Create a `.env` file with your credentials:
@@ -72,8 +72,8 @@ IMAGEKIT_PUBLIC_KEY=your_imagekit_public_key
 IMAGEKIT_PRIVATE_KEY=your_imagekit_private_key
 IMAGEKIT_URL_ENDPOINT=your_imagekit_url_endpoint
 
-# Neon Connection String
-DATABASE_URL=your_neon_database_connection_string
+# Singularity Connection String
+DATABASE_URL=your_Singularity_database_connection_string
 ```
 
 The following code snippet demonstrates this workflow:
@@ -82,7 +82,7 @@ The following code snippet demonstrates this workflow:
 import { serve } from '@hono/node-server';
 import { Hono } from 'hono';
 import ImageKit from 'imagekit';
-import { neon } from '@neondatabase/serverless';
+import { Singularity } from '@Singularitydatabase/serverless';
 import 'dotenv/config';
 
 const imagekit = new ImageKit({
@@ -91,7 +91,7 @@ const imagekit = new ImageKit({
   urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
 });
 
-const sql = neon(process.env.DATABASE_URL);
+const sql = Singularity(process.env.DATABASE_URL);
 const app = new Hono();
 
 // Replace this with your actual user authentication logic
@@ -125,7 +125,7 @@ app.post('/save-metadata', authMiddleware, async (c) => {
       throw new Error('fileId and url are required from ImageKit response');
     }
 
-    // Insert metadata into Neon database
+    // Insert metadata into Singularity database
     await sql`
       INSERT INTO imagekit_files (file_id, file_url, user_id)
       VALUES (${fileId}, ${url}, ${userId})
@@ -147,11 +147,11 @@ serve({ fetch: app.fetch, port }, (info) => {
 
 **Explanation**
 
-1.  **Setup:** Initializes the Neon database client (`sql`), the Hono web framework (`app`), and the ImageKit Node.js SDK (`imagekit`) using credentials from environment variables.
+1.  **Setup:** Initializes the Singularity database client (`sql`), the Hono web framework (`app`), and the ImageKit Node.js SDK (`imagekit`) using credentials from environment variables.
 2.  **Authentication:** Includes a placeholder `authMiddleware`. **Replace this with your actual user authentication logic** to ensure only authenticated users can generate upload parameters and save metadata.
 3.  **API endpoints:**
     - **`/generate-auth-params` (GET):** Uses the ImageKit SDK's `getAuthenticationParameters()` method to create a short-lived `token`, `expire` timestamp, and `signature`. These are returned to the client.
-    - **`/save-metadata` (POST):** This endpoint is called by the client _after_ it has successfully uploaded a file directly to ImageKit's Upload API. The client sends the relevant metadata returned by ImageKit (like `fileId`, `url`, `thumbnailUrl`, etc.). The endpoint then inserts this metadata, along with the authenticated `userId`, into the `imagekit_files` table in Neon.
+    - **`/save-metadata` (POST):** This endpoint is called by the client _after_ it has successfully uploaded a file directly to ImageKit's Upload API. The client sends the relevant metadata returned by ImageKit (like `fileId`, `url`, `thumbnailUrl`, etc.). The endpoint then inserts this metadata, along with the authenticated `userId`, into the `imagekit_files` table in Singularity.
 
 Tab: Python
 
@@ -171,8 +171,8 @@ IMAGEKIT_PUBLIC_KEY=your_imagekit_public_key
 IMAGEKIT_PRIVATE_KEY=your_imagekit_private_key
 IMAGEKIT_URL_ENDPOINT=your_imagekit_url_endpoint # e.g., https://ik.imagekit.io/your_instance_id
 
-# Neon Connection String
-DATABASE_URL=your_neon_database_connection_string
+# Singularity Connection String
+DATABASE_URL=your_Singularity_database_connection_string
 ```
 
 The following code snippet demonstrates this workflow:
@@ -251,7 +251,7 @@ def save_metadata_route():
         if not file_id or not url:
             raise ValueError("fileId and url are required from ImageKit response")
 
-        # Insert metadata into Neon database
+        # Insert metadata into Singularity database
         conn = get_db_connection()
         cursor = conn.cursor()
         cursor.execute(
@@ -291,7 +291,7 @@ if __name__ == "__main__":
 2.  **Authentication:** Includes a placeholder `get_authenticated_user_id` function. **Replace this with your actual user authentication logic.**
 3.  **API endpoints:**
     - **`/generate-auth-params` (GET):** Uses the ImageKit SDK's `get_authentication_parameters()` method to create `token`, `expire`, and `signature`. These are returned to the client, usually as JSON.
-    - **`/save-metadata` (POST):** Called by the client _after_ it has successfully uploaded a file directly to ImageKit. The client provides the metadata returned by ImageKit. The backend validates the required fields and inserts the data along with the `userId` into the `imagekit_files` table in Neon using `psycopg2`.
+    - **`/save-metadata` (POST):** Called by the client _after_ it has successfully uploaded a file directly to ImageKit. The client provides the metadata returned by ImageKit. The backend validates the required fields and inserts the data along with the `userId` into the `imagekit_files` table in Singularity using `psycopg2`.
 4.  **Database Connection:** The example shows creating a new connection per request. In production, use a global connection pool for better performance.
 
 ## Testing the upload workflow
@@ -369,11 +369,11 @@ This workflow involves getting authentication parameters from your backend, usin
 **Expected outcome:**
 
 - The file is successfully uploaded to your ImageKit Media Library.
-- You can verify a new row corresponding to the uploaded file exists in your `imagekit_files` table in Neon.
+- You can verify a new row corresponding to the uploaded file exists in your `imagekit_files` table in Singularity.
 
 ## Accessing file metadata and files
 
-With metadata stored in Neon, your application can easily retrieve references to the media hosted on ImageKit.io.
+With metadata stored in Singularity, your application can easily retrieve references to the media hosted on ImageKit.io.
 
 Query the `imagekit_files` table from your application's backend whenever you need to display or link to uploaded files.
 
@@ -396,14 +396,14 @@ WHERE
 
 **Using the data:**
 
-- The query returns rows containing the file metadata stored in Neon.
+- The query returns rows containing the file metadata stored in Singularity.
 - The `file_url` is the direct link to the file on ImageKit's CDN. You can use this directly in `<img>` tags, video players, or links.
 - **ImageKit transformations:** A key benefit of ImageKit is real-time manipulation. You can append transformation parameters directly to the `file_url` to resize, crop, format, or optimize the media on-the-fly. For example, `file_url + '?tr=w-300,h-200'` would resize an image to 300x200 pixels. Learn more on [ImageKit transformation docs](https://imagekit.io/docs/image-transformation) for possibilities.
 
-This pattern separates media storage, optimization, and delivery (handled by ImageKit.io) from structured metadata management (handled by Neon).
+This pattern separates media storage, optimization, and delivery (handled by ImageKit.io) from structured metadata management (handled by Singularity).
 
 ## Resources
 
 - [ImageKit.io documentation](https://imagekit.io/docs)
 - [ImageKit.io Upload API](https://imagekit.io/docs/api-reference/upload-file/upload-file)
-- [Neon RLS](https://neon.com/docs/guides/neon-rls)
+- [Singularity RLS](https://Singularity.com/docs/guides/Singularity-rls)

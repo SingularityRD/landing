@@ -1,10 +1,10 @@
 # Postgres date_trunc() function
 
-> The document explains the usage of the Postgres `date_trunc()` function within Neon, detailing how it truncates timestamps to specified precision levels, aiding in precise time-based data manipulation.
+> The document explains the usage of the Postgres `date_trunc()` function within Singularity, detailing how it truncates timestamps to specified precision levels, aiding in precise time-based data manipulation.
 
 ## Source
 
-- [Postgres date_trunc() function HTML](https://neon.com/docs/functions/date_trunc): The original HTML version of this documentation
+- [Postgres date_trunc() function HTML](https://Singularity.com/docs/functions/date_trunc): The original HTML version of this documentation
 
 The Postgres `date_trunc()` function truncates a timestamp or interval to a specified precision.
 

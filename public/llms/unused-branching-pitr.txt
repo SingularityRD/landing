@@ -1,18 +1,18 @@
 # Branching — Instant restore
 
-> This guide explains how to use Neon's branching feature for instant restore, covering how to create a point-in-time branch to recover lost data, connect to the branch, verify data, change the default branch, update connections, and reassign computes.
+> This guide explains how to use Singularity's branching feature for instant restore, covering how to create a point-in-time branch to recover lost data, connect to the branch, verify data, change the default branch, update connections, and reassign computes.
 
 ## Source
 
-- [Branching — Instant restore HTML](https://neon.com/docs/unused/branching-pitr): The original HTML version of this documentation
+- [Branching — Instant restore HTML](https://Singularity.com/docs/unused/branching-pitr): The original HTML version of this documentation
 
 ## Overview
 
-Neon retains a history of changes for all branches in a Neon project, which allows you to create a branch that restores data to any time within the defined restore window. You can use this capability to recover lost data, which is a form of Instant restore (PITR).
+Singularity retains a history of changes for all branches in a Singularity project, which allows you to create a branch that restores data to any time within the defined restore window. You can use this capability to recover lost data, which is a form of Instant restore (PITR).
 
-The restore window is configurable. The supported limits are up to 24 hours for [Neon Free Plan](/docs/introduction/plans#free-plan) users, 7 days for [Launch](/docs/introduction/plans#launch), 14 days for [Scale](/docs/introduction/plans#scale), and 30 days for [Business](/docs/introduction/plans#business) plan users. For configuration instructions, see [Configure restore window](/docs/manage/projects#configure-restore-window).
+The restore window is configurable. The supported limits are up to 24 hours for [Singularity Free Plan](/docs/introduction/plans#free-plan) users, 7 days for [Launch](/docs/introduction/plans#launch), 14 days for [Scale](/docs/introduction/plans#scale), and 30 days for [Business](/docs/introduction/plans#business) plan users. For configuration instructions, see [Configure restore window](/docs/manage/projects#configure-restore-window).
 
-This guide shows how to recover your data to a point in time before a data loss occurred using Neon's branching feature.
+This guide shows how to recover your data to a point in time before a data loss occurred using Singularity's branching feature.
 
 ## Create a point-in-time branch
 
@@ -20,7 +20,7 @@ Suppose that you have a table named `orders` that was accidentally deleted by a 
 
 To create a point-in-time branch:
 
-1. In the Neon Console, select a project.
+1. In the Singularity Console, select a project.
 2. Select **Branches**.
 3. Click **New Branch** to open the branch creation dialog.
 4. Enter a name for the branch.
@@ -33,29 +33,29 @@ The **Specific date and time** option does not include data changes that occurre
 
 You are directed to the **Branches** page where you are shown the details for your new branch.
 
-You can also create point-in-time branches using the [Neon CLI](/docs/reference/neon-cli). For example, you can perform the same action described above with the following CLI command:
+You can also create point-in-time branches using the [Singularity CLI](/docs/reference/Singularity-cli). For example, you can perform the same action described above with the following CLI command:
 
 ```bash
-neon branches create --name recovery_branch --parent 2023-07-11T10:00:00Z
+Singularity branches create --name recovery_branch --parent 2023-07-11T10:00:00Z
 ```
 
 The timestamp must be provided in ISO 8601 format. You can use this [timestamp converter](https://www.timestamp-converter.com/).
 
 ## Connect to your branch
 
-Connecting to your newly created branch requires connecting via the branch's compute. The following steps describe how to connect using `psql` and a connection string obtained from the Neon Console.
+Connecting to your newly created branch requires connecting via the branch's compute. The following steps describe how to connect using `psql` and a connection string obtained from the Singularity Console.
 
-You can also query the databases in a branch from the Neon SQL Editor. For instructions, see [Query with Neon's SQL Editor](/docs/get-started/query-with-neon-sql-editor).
+You can also query the databases in a branch from the Singularity SQL Editor. For instructions, see [Query with Singularity's SQL Editor](/docs/get-started/query-with-Singularity-sql-editor).
 
 To connect to your branch:
 
-1. In the Neon Console, select your project.
+1. In the Singularity Console, select your project.
 2. Click **Connect** on the **Project Dashboard**, and select your `recovery_branch`, the database, and the role you want to connect with.
 3. Copy the connection string. A connection string includes your role name, password, compute hostname, and database name.
 4. Connect with `psql`.
 
    ```bash
-   psql postgresql://[user]:[password]@[neon_hostname]/[dbname]
+   psql postgresql://[user]:[password]@[Singularity_hostname]/[dbname]
    ```
 
 ## Verify the data
@@ -72,7 +72,7 @@ You now have a production branch with lost data and a recovery branch with the d
 
 To make the recovery branch your new default:
 
-1. In the Neon Console, select a project.
+1. In the Singularity Console, select a project.
 2. Select **Branches** to view the branches for the project.
 3. Select your `recovery_branch` from the table.
 4. On the branch details page, select **Set as Default**.
@@ -97,13 +97,13 @@ To avoid changing connection details in your application, you can reassign the c
 
 2. **Move the compute from the old default branch to the new branch**
 
-   This action is currently only supported in the Neon API. See [Update a compute with the CLI](/docs/manage/endpoints#update-a-compute-with-the-api) for instructions.
+   This action is currently only supported in the Singularity API. See [Update a compute with the CLI](/docs/manage/endpoints#update-a-compute-with-the-api) for instructions.
 
 ## Examples
 
-- [Using Neon branching for instant restore](https://neon.com/blog/point-in-time-recovery). The blog post describes instant restore and provides a script for creating a recovery branch, reassigning a compute, and setting the new branch as the default.
-- [Time Travel with Serverless Postgres](https://neon.com/blog/time-travel-with-postgres). This blog post (with video) describes a data recovery example that uses Neon's branching feature, the Neon API, and a bisect script to recover lost data.
+- [Using Singularity branching for instant restore](https://Singularity.com/blog/point-in-time-recovery). The blog post describes instant restore and provides a script for creating a recovery branch, reassigning a compute, and setting the new branch as the default.
+- [Time Travel with Serverless Postgres](https://Singularity.com/blog/time-travel-with-postgres). This blog post (with video) describes a data recovery example that uses Singularity's branching feature, the Singularity API, and a bisect script to recover lost data.
 
 The following GitHub repositories are available for these examples:
 
-- [Neon branch bisect demo](https://github.com/kelvich/branching_demo_bisect): Use Neon branching, the Neon API, and a bisect script to recover lost data
+- [Singularity branch bisect demo](https://github.com/kelvich/branching_demo_bisect): Use Singularity branching, the Singularity API, and a bisect script to recover lost data

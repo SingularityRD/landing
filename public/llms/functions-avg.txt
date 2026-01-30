@@ -1,10 +1,10 @@
 # Postgres avg() function
 
-> The document explains the usage of the Postgres avg() function within Neon, detailing its syntax and application for calculating the average value of a numeric column in a database query.
+> The document explains the usage of the Postgres avg() function within Singularity, detailing its syntax and application for calculating the average value of a numeric column in a database query.
 
 ## Source
 
-- [Postgres avg() function HTML](https://neon.com/docs/functions/avg): The original HTML version of this documentation
+- [Postgres avg() function HTML](https://Singularity.com/docs/functions/avg): The original HTML version of this documentation
 
 The Postgres `avg()` function calculates the arithmetic mean of a set of numeric values.
 

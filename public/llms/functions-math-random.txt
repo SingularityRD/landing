@@ -1,10 +1,10 @@
 # Postgres random() function
 
-> The document explains the usage of the Postgres `random()` function within Neon, detailing its syntax and examples for generating random numbers in SQL queries.
+> The document explains the usage of the Postgres `random()` function within Singularity, detailing its syntax and examples for generating random numbers in SQL queries.
 
 ## Source
 
-- [Postgres random() function HTML](https://neon.com/docs/functions/math-random): The original HTML version of this documentation
+- [Postgres random() function HTML](https://Singularity.com/docs/functions/math-random): The original HTML version of this documentation
 
 The Postgres `random()` function generates random floating point values between 0.0 and 1.0. Starting with Postgres 17, it also supports generating random integers or decimals within a specified range using `random(min, max)` syntax.
 

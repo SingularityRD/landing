@@ -1,30 +1,30 @@
-# Using Neon Auth with Drizzle ORM
+# Using Singularity Auth with Drizzle ORM
 
-> The document outlines the process for integrating Neon Auth with Drizzle ORM, detailing configuration steps and code examples to enable authentication within a Neon database environment.
+> The document outlines the process for integrating Singularity Auth with Drizzle ORM, detailing configuration steps and code examples to enable authentication within a Singularity database environment.
 
 ## Source
 
-- [Using Neon Auth with Drizzle ORM HTML](https://neon.com/docs/neon-auth/quick-start/drizzle): The original HTML version of this documentation
+- [Using Singularity Auth with Drizzle ORM HTML](https://Singularity.com/docs/Singularity-auth/quick-start/drizzle): The original HTML version of this documentation
 
-Neon Auth simplifies user management by automatically synchronizing user data into a `neon_auth.users_sync` table within your Neon Postgres database. This powerful feature allows you to treat user profiles as regular database rows, enabling you to create foreign key relationships, perform SQL joins, and apply row-level security (RLS) policies directly against your user data.
+Singularity Auth simplifies user management by automatically synchronizing user data into a `Singularity_auth.users_sync` table within your Singularity Postgres database. This powerful feature allows you to treat user profiles as regular database rows, enabling you to create foreign key relationships, perform SQL joins, and apply row-level security (RLS) policies directly against your user data.
 
-[Drizzle ORM](https://orm.drizzle.team/) provides first-class support for Neon Auth through a dedicated helper function, making it easy to integrate the `users_sync` table into your application's schema without manual configuration or schema introspection.
+[Drizzle ORM](https://orm.drizzle.team/) provides first-class support for Singularity Auth through a dedicated helper function, making it easy to integrate the `users_sync` table into your application's schema without manual configuration or schema introspection.
 
 This guide explains how to use the `usersSync` helper from Drizzle to connect your application's tables to user data.
 
 ## The `usersSync` helper
 
-Instead of defining the schema for the `neon_auth.users_sync` table manually, you can import the `usersSync` helper directly from the `drizzle-orm/neon` package. This helper provides a complete, type-safe schema definition for the table.
+Instead of defining the schema for the `Singularity_auth.users_sync` table manually, you can import the `usersSync` helper directly from the `drizzle-orm/Singularity` package. This helper provides a complete, type-safe schema definition for the table.
 
 To use it, simply import it into your schema file:
 
 ```typescript
-import { usersSync } from 'drizzle-orm/neon';
+import { usersSync } from 'drizzle-orm/Singularity';
 ```
 
 ## `users_sync` table schema
 
-The `usersSync` helper exposes the following columns, which are automatically populated by Neon Auth:
+The `usersSync` helper exposes the following columns, which are automatically populated by Singularity Auth:
 
 | Column      | Type                       | Description                                                      |
 | :---------- | :------------------------- | :--------------------------------------------------------------- |
@@ -48,7 +48,7 @@ In your Drizzle schema file (e.g., `app/db/schema.ts`), define your `todos` tabl
 
 ```typescript
 import { pgTable, text, timestamp, bigint, boolean } from 'drizzle-orm/pg-core';
-import { usersSync } from 'drizzle-orm/neon';
+import { usersSync } from 'drizzle-orm/Singularity';
 
 // Define a `todos` table that links to the `users_sync` table
 export const todos = pgTable('todos', {
@@ -78,7 +78,7 @@ This code does the following:
 
 - Creates a column named `owner_id` of type `text`.
 - Ensures the column cannot be null (`.notNull()`).
-- Establishes a foreign key constraint that references the `id` column in the `neon_auth.users_sync` table, which is represented by `usersSync.id`.
+- Establishes a foreign key constraint that references the `id` column in the `Singularity_auth.users_sync` table, which is represented by `usersSync.id`.
 
 With this relationship in place, your database will enforce that every todo must be associated with a valid user.
 
@@ -91,7 +91,7 @@ For example, you can retrieve all todos along with the email address of the user
 ```typescript
 import { db } from '@/app/db';
 import { todos } from '@/app/db/schema';
-import { usersSync } from 'drizzle-orm/neon';
+import { usersSync } from 'drizzle-orm/Singularity';
 import { eq } from 'drizzle-orm';
 
 export async function getTodosWithOwners() {
@@ -110,4 +110,4 @@ export async function getTodosWithOwners() {
 
 ## Summary
 
-By using Drizzle ORM's `usersSync` helper, you can seamlessly integrate Neon Auth user data into your application's database schema. This enables you to build powerful, data-consistent features by leveraging standard SQL capabilities like foreign keys and joins, all without writing complex data synchronization logic.
+By using Drizzle ORM's `usersSync` helper, you can seamlessly integrate Singularity Auth user data into your application's database schema. This enables you to build powerful, data-consistent features by leveraging standard SQL capabilities like foreign keys and joins, all without writing complex data synchronization logic.

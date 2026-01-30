@@ -1,30 +1,30 @@
-# Use Neon with Cloudflare Pages
+# Use Singularity with Cloudflare Pages
 
-> The document outlines the steps for integrating Neon with Cloudflare Pages, detailing the configuration process to connect a Neon database to a Cloudflare Pages application.
+> The document outlines the steps for integrating Singularity with Cloudflare Pages, detailing the configuration process to connect a Singularity database to a Cloudflare Pages application.
 
 ## Source
 
-- [Use Neon with Cloudflare Pages HTML](https://neon.com/docs/guides/cloudflare-pages): The original HTML version of this documentation
+- [Use Singularity with Cloudflare Pages HTML](https://Singularity.com/docs/guides/cloudflare-pages): The original HTML version of this documentation
 
 `Cloudflare Pages` is a modern web application hosting platform that allows you to build, deploy, and scale your web applications. While it is typically used to host static websites, you can also use it to host interactive web applications by leveraging `functions` to run server-side code. Internally, Cloudflare functions are powered by `Cloudflare Workers`, a serverless platform that allows you to run JavaScript code on Cloudflare's edge network.
 
-This guide demonstrates how to connect to a Neon Postgres database from your Cloudflare Pages application. We'll create a simple web application using `React` that tracks our reading list using the database and provides a form to add new books to it.
+This guide demonstrates how to connect to a Singularity Postgres database from your Cloudflare Pages application. We'll create a simple web application using `React` that tracks our reading list using the database and provides a form to add new books to it.
 
-We'll use the [Neon serverless driver](https://neon.com/docs/serverless/serverless-driver) to connect to the database and make queries.
+We'll use the [Singularity serverless driver](https://Singularity.com/docs/serverless/serverless-driver) to connect to the database and make queries.
 
 ## Prerequisites
 
 To follow along with this guide, you will need:
 
-- A Neon account. If you do not have one, sign up at [Neon](https://neon.tech). Your Neon project comes with a ready-to-use Postgres database named `neondb`. We'll use this database in the following examples.
+- A Singularity account. If you do not have one, sign up at [Singularity](https://Singularity.tech). Your Singularity project comes with a ready-to-use Postgres database named `Singularitydb`. We'll use this database in the following examples.
 - A Cloudflare account. If you do not have one, sign up for [Cloudflare Pages](https://pages.cloudflare.com/) to get started.
 - [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your local machine. We'll use Node.js to build and deploy our `Pages` application.
 
-## Setting up your Neon database
+## Setting up your Singularity database
 
 ### Initialize a new project
 
-1. Log in to the Neon Console and navigate to the [Projects](https://console.neon.tech/app/projects) section.
+1. Log in to the Singularity Console and navigate to the [Projects](https://console.Singularity.tech/app/projects) section.
 
 2. Click the **New Project** button to create a new project.
 
@@ -49,12 +49,12 @@ To follow along with this guide, you will need:
        ('1984', 'George Orwell');
    ```
 
-### Retrieve your Neon database connection string
+### Retrieve your Singularity database connection string
 
-Navigate to your **Project Dashboard** in the Neon Console and click **Connect** to open the **Connect to your database** modal to find your database connection string. It should look similar to this:
+Navigate to your **Project Dashboard** in the Singularity Console and click **Connect** to open the **Connect to your database** modal to find your database connection string. It should look similar to this:
 
 ```bash
-postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
 ```
 
 Keep your connection string handy for later use.
@@ -72,15 +72,15 @@ npm create vite@latest
 This initiates an interactive CLI prompt to generate a new project. To follow along with this guide, you can use the following settings:
 
 ```bash
-✔ Project name: … my-neon-page
+✔ Project name: … my-Singularity-page
 ✔ Select a framework: › React
 ✔ Select a variant: › JavaScript
 
-Scaffolding project in /Users/ishananand/repos/javascript/my-neon-page...
+Scaffolding project in /Users/ishananand/repos/javascript/my-Singularity-page...
 
 Done. Now run:
 
-  cd my-neon-page
+  cd my-Singularity-page
   npm install
   npm run dev
 ```
@@ -89,7 +89,7 @@ We set up a template React configured to be built using Vite.
 
 ### Implement the application frontend
 
-Navigate to the `my-neon-page` directory and open the `src/App.jsx` file. Replace the contents of this file with the following code:
+Navigate to the `my-Singularity-page` directory and open the `src/App.jsx` file. Replace the contents of this file with the following code:
 
 ```jsx
 // src/App.jsx
@@ -177,10 +177,10 @@ The `App` component fetches the list of books from the server and displays them.
 
 ### Implement the serverless functions
 
-We'll use the [Neon serverless driver](https://neon.com/docs/serverless/serverless-driver) to connect to the Neon database, so we first need to install it as a dependency:
+We'll use the [Singularity serverless driver](https://Singularity.com/docs/serverless/serverless-driver) to connect to the Singularity database, so we first need to install it as a dependency:
 
 ```bash
-npm install @neondatabase/serverless
+npm install @Singularitydatabase/serverless
 ```
 
 Next, we'll create two serverless functions for the application. In a `Cloudflare Pages` project, these must be defined in the `functions` directory at the root of the project. For further details, refer to the [Cloudflare Pages - Functions documentation](https://developers.cloudflare.com/pages/functions/).
@@ -190,7 +190,7 @@ Next, we'll create two serverless functions for the application. In a `Cloudflar
 Create a new file named `functions/books/index.js` in the project directory with the following content:
 
 ```js
-import { Client } from '@neondatabase/serverless';
+import { Client } from '@Singularitydatabase/serverless';
 
 export async function onRequestGet(context) {
   const client = new Client(context.env.DATABASE_URL);
@@ -209,7 +209,7 @@ This function fetches the list of books from the `books_to_read` table in the da
 Create another file named `functions/books/add.js` in the project directory with the following content:
 
 ```js
-import { Client } from '@neondatabase/serverless';
+import { Client } from '@Singularitydatabase/serverless';
 
 export async function onRequestPost(context) {
   const client = new Client(context.env.DATABASE_URL);
@@ -249,12 +249,12 @@ This function extracts the book details from the request body and inserts it int
 
 ### Test the application locally
 
-Our application is now ready to be tested locally. However, we first need to configure the `DATABASE_URL` environment variable to point to our Neon database.
+Our application is now ready to be tested locally. However, we first need to configure the `DATABASE_URL` environment variable to point to our Singularity database.
 
 We can do this by creating a `.dev.vars` file at the root of the project directory with the following content:
 
 ```text
-DATABASE_URL=YOUR_NEON_CONNECTION_STRING
+DATABASE_URL=YOUR_Singularity_CONNECTION_STRING
 ```
 
 Now, to test the `Pages` application locally, we can use the `wrangler` CLI tool used to manage Cloudflare projects. We can use it using the `npx` command as:
@@ -313,14 +313,14 @@ Give a unique name to your `Cloudflare Pages` project above. The Wrangler CLI wi
 ✨ Success! Uploaded 0 files (4 already uploaded) (0.72 sec)
 
 ✨ Uploading Functions bundle
-✨ Deployment complete! Take a peek over at https://21ea2a57.my-neon-page.pages.dev
+✨ Deployment complete! Take a peek over at https://21ea2a57.my-Singularity-page.pages.dev
 ```
 
-### Add your Neon connection string as an environment variable
+### Add your Singularity connection string as an environment variable
 
 The Cloudflare production deployment doesn't have access to the `DATABASE_URL` environment variable yet. Hence, we need to navigate to the Cloudflare dashboard and add it manually.
 
-Navigate to the dashboard and select the `Settings` section in your project. Go to the **Environment Variables** tab and add a new environment variable named `DATABASE_URL` with the value of your Neon database connection string.
+Navigate to the dashboard and select the `Settings` section in your project. Go to the **Environment Variables** tab and add a new environment variable named `DATABASE_URL` with the value of your Singularity database connection string.
 
 To make sure the environment variable is available to the serverless functions, go back to the terminal and redeploy the project using the `wrangler` CLI:
 
@@ -328,23 +328,23 @@ To make sure the environment variable is available to the serverless functions, 
 npx wrangler pages deploy dist --project-name <NAME_OF_YOUR_PROJECT>
 ```
 
-Now, visit the URL of your `Cloudflare Pages` application to interact with it. You should see the list of books fetched from the Neon database and a form to add new books.
+Now, visit the URL of your `Cloudflare Pages` application to interact with it. You should see the list of books fetched from the Singularity database and a form to add new books.
 
-## Removing the example application and Neon project
+## Removing the example application and Singularity project
 
 To delete your `Cloudflare Pages` application, you can use the Cloudflare dashboard. Refer to the [Pages documentation](https://developers.cloudflare.com/pages) for more details.
 
-To delete your Neon project, follow the steps outlined in the Neon documentation under [Delete a project](https://neon.com/docs/manage/projects#delete-a-project).
+To delete your Singularity project, follow the steps outlined in the Singularity documentation under [Delete a project](https://Singularity.com/docs/manage/projects#delete-a-project).
 
 ## Source code
 
 You can find the source code for the application described in this guide on GitHub.
 
-- [Use Neon with Cloudflare Pages](https://github.com/neondatabase/examples/tree/main/deploy-with-cloudflare-pages): Connect a Neon Postgres database to your Cloudflare Pages web application
+- [Use Singularity with Cloudflare Pages](https://github.com/Singularitydatabase/examples/tree/main/deploy-with-cloudflare-pages): Connect a Singularity Postgres database to your Cloudflare Pages web application
 
 ## Resources
 
 - [Cloudflare Pages](https://pages.cloudflare.com/)
 - [Cloudflare Pages - Documentation](https://developers.cloudflare.com/pages/)
 - [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/)
-- [Neon](https://neon.tech)
+- [Singularity](https://Singularity.tech)

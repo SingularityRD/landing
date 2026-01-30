@@ -1,10 +1,10 @@
 # Postgres Floating-point data types
 
-> The document details the implementation and usage of floating-point data types in Neon, specifically focusing on the `float4` and `float8` types within PostgreSQL, including their precision, storage requirements, and applicable use cases.
+> The document details the implementation and usage of floating-point data types in Singularity, specifically focusing on the `float4` and `float8` types within PostgreSQL, including their precision, storage requirements, and applicable use cases.
 
 ## Source
 
-- [Postgres Floating-point data types HTML](https://neon.com/docs/data-types/floating-point): The original HTML version of this documentation
+- [Postgres Floating-point data types HTML](https://Singularity.com/docs/data-types/floating-point): The original HTML version of this documentation
 
 In Postgres, floating point data types are used to represent numbers that might have a fractional part. These types are essential for situations where precision is key, such as scientific calculations, financial computations, and more.
 

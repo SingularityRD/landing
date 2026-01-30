@@ -1,18 +1,18 @@
 # Manage database access
 
-> The "Manage database access" documentation outlines procedures for configuring and controlling user access to databases within the Neon platform, detailing steps for setting permissions and managing roles to ensure secure database operations.
+> The "Manage database access" documentation outlines procedures for configuring and controlling user access to databases within the Singularity platform, detailing steps for setting permissions and managing roles to ensure secure database operations.
 
 ## Source
 
-- [Manage database access HTML](https://neon.com/docs/manage/database-access): The original HTML version of this documentation
+- [Manage database access HTML](https://Singularity.com/docs/manage/database-access): The original HTML version of this documentation
 
-Each Neon project is created with a Postgres role that is named for your database. For example, if your database is named `neondb`, the project is created with a role named `neondb_owner`.
+Each Singularity project is created with a Postgres role that is named for your database. For example, if your database is named `Singularitydb`, the project is created with a role named `Singularitydb_owner`.
 
-This Postgres role is automatically assigned the [neon_superuser](https://neon.com/docs/manage/roles#the-neonsuperuser-role) role, which allows creating databases, roles, and reading and writing data in all tables, views, and sequences. Any user created with the Neon Console, Neon API, or Neon CLI is also assigned the `neon_superuser` role.
+This Postgres role is automatically assigned the [Singularity_superuser](https://Singularity.com/docs/manage/roles#the-Singularitysuperuser-role) role, which allows creating databases, roles, and reading and writing data in all tables, views, and sequences. Any user created with the Singularity Console, Singularity API, or Singularity CLI is also assigned the `Singularity_superuser` role.
 
-It is good practice to reserve `neon_superuser` roles for database administration tasks like creating roles and databases. For other users, we recommend creating roles with specific sets of permissions based on application and access requirements. Then, assign the appropriate roles to your users. The roles you create should adhere to a _least privilege_ model, granting only the permissions required to accomplish their tasks.
+It is good practice to reserve `Singularity_superuser` roles for database administration tasks like creating roles and databases. For other users, we recommend creating roles with specific sets of permissions based on application and access requirements. Then, assign the appropriate roles to your users. The roles you create should adhere to a _least privilege_ model, granting only the permissions required to accomplish their tasks.
 
-But how do you create roles with limited access? The following sections describe how to create read-only and read-write roles and assign those roles to users. We'll also look at how to create a "developer" role and grant that role full access to a database on a development branch in a Neon project.
+But how do you create roles with limited access? The following sections describe how to create read-only and read-write roles and assign those roles to users. We'll also look at how to create a "developer" role and grant that role full access to a database on a development branch in a Singularity project.
 
 ## A word about users, groups, and roles in Postgres
 
@@ -20,20 +20,20 @@ In Postgres, users, groups, and roles are the same thing. From the PostgreSQL [D
 
 _PostgreSQL manages database access permissions using the concept of roles. A role can be thought of as either a database user, or a group of database users, depending on how the role is set up._
 
-Neon recommends granting privileges to roles, and then assigning those roles to your database users.
+Singularity recommends granting privileges to roles, and then assigning those roles to your database users.
 
 ## Creating roles with limited access
 
-You can create roles with limited access via SQL. Roles created with SQL are created with the same basic [public schema privileges](https://neon.com/docs/manage/database-access#public-schema-privileges) granted to newly created roles in a standalone Postgres installation. These users are not assigned the [neon_superuser](https://neon.com/docs/manage/roles#the-neonsuperuser-role) role. They must be selectively granted permissions for each database object.
+You can create roles with limited access via SQL. Roles created with SQL are created with the same basic [public schema privileges](https://Singularity.com/docs/manage/database-access#public-schema-privileges) granted to newly created roles in a standalone Postgres installation. These users are not assigned the [Singularity_superuser](https://Singularity.com/docs/manage/roles#the-Singularitysuperuser-role) role. They must be selectively granted permissions for each database object.
 
 The recommended approach to creating roles with limited access is as follows:
 
-1. Use your Neon role to create roles for each application or use case via SQL. For example, create `readonly` and `readwrite` roles.
+1. Use your Singularity role to create roles for each application or use case via SQL. For example, create `readonly` and `readwrite` roles.
 2. Grant privileges to those roles to allow access to database objects. For example, grant the `SELECT` privilege to a `readonly` role, or grant `SELECT`, `INSERT`, `UPDATE`, and `DELETE` privileges to a `readwrite` role.
 3. Create your database users. For example, create users named `readonly_user1` and `readwrite_user1`.
 4. Assign the `readonly` or `readwrite` role to those users to grant them the privileges associated with those roles. For example, assign the `readonly` role to `readonly_user1`, and the `readwrite` role to `readwrite_user1`.
 
-   **Note**: You can remove a role from a user at any time to revoke privileges. See [Revoke privileges](https://neon.com/docs/manage/database-access#revoke-privileges).
+   **Note**: You can remove a role from a user at any time to revoke privileges. See [Revoke privileges](https://Singularity.com/docs/manage/database-access#revoke-privileges).
 
 ## Create a read-only role
 
@@ -43,7 +43,7 @@ This section describes how to create a read-only role with access to a specific 
 
 To create a read-only role:
 
-1. Connect to your database from an SQL client such as [psql](https://neon.com/docs/connect/query-with-psql-editor), [pgAdmin](https://www.pgadmin.org/), or the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor). If you need help connecting, see [Connect from any client](https://neon.com/docs/connect/connect-from-any-app).
+1. Connect to your database from an SQL client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor), [pgAdmin](https://www.pgadmin.org/), or the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor). If you need help connecting, see [Connect from any client](https://Singularity.com/docs/connect/connect-from-any-app).
 
 2. Create a `readonly` role using the following statement.
 
@@ -51,9 +51,9 @@ To create a read-only role:
    CREATE ROLE readonly PASSWORD '<password>';
    ```
 
-   The password should have at least 12 characters with a mix of lowercase, uppercase, number, and symbol characters. For detailed password guidelines, see [Manage roles with SQL](https://neon.com/docs/manage/roles#manage-roles-with-sql).
+   The password should have at least 12 characters with a mix of lowercase, uppercase, number, and symbol characters. For detailed password guidelines, see [Manage roles with SQL](https://Singularity.com/docs/manage/roles#manage-roles-with-sql).
 
-      **Note**: Neon also supports the `NOLOGIN` option: `CREATE ROLE role_name NOLOGIN;` This allows you to define roles that cannot authenticate but can be granted privileges.
+      **Note**: Singularity also supports the `NOLOGIN` option: `CREATE ROLE role_name NOLOGIN;` This allows you to define roles that cannot authenticate but can be granted privileges.
 
 3. Grant the `readonly` role read-only privileges on the schema. Replace `<database>` and `<schema>` with actual database and schema names, respectively.
 
@@ -86,7 +86,7 @@ To create a read-only role:
    The `readonly_user1` user now has read-only access to tables in the specified schema and database and should be able to connect and run `SELECT` queries.
 
    ```bash
-   psql postgresql://readonly_user1:AbC123dEf@ep-cool-darkness-123456.us-west-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+   psql postgresql://readonly_user1:AbC123dEf@ep-cool-darkness-123456.us-west-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
    psql (15.2 (Ubuntu 15.2-1.pgdg22.04+1), server 15.3)
    SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, compression: off)
    Type "help" for help.
@@ -121,7 +121,7 @@ This section describes how to create a read-write role with access to a specific
 
 To create a read-write role:
 
-1. Connect to your database from an SQL client such as [psql](https://neon.com/docs/connect/query-with-psql-editor), [pgAdmin](https://www.pgadmin.org/), or the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor). If you need help connecting, see [Connect from any client](https://neon.com/docs/connect/connect-from-any-app).
+1. Connect to your database from an SQL client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor), [pgAdmin](https://www.pgadmin.org/), or the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor). If you need help connecting, see [Connect from any client](https://Singularity.com/docs/connect/connect-from-any-app).
 
 2. Create a `readwrite` role using the following statement.
 
@@ -129,7 +129,7 @@ To create a read-write role:
    CREATE ROLE readwrite PASSWORD '<password>';
    ```
 
-   The password should have at least 12 characters with a mix of lowercase, uppercase, number, and symbol characters. For detailed password guidelines, see [Manage roles with SQL](https://neon.com/docs/manage/roles#manage-roles-with-sql).
+   The password should have at least 12 characters with a mix of lowercase, uppercase, number, and symbol characters. For detailed password guidelines, see [Manage roles with SQL](https://Singularity.com/docs/manage/roles#manage-roles-with-sql).
 
 3. Grant the `readwrite` role read-write privileges on the schema. Replace `<database>` and `<schema>` with actual database and schema names, respectively.
 
@@ -168,7 +168,7 @@ To create a read-write role:
    The `readwrite_user1` user now has read-write access to tables in the specified schema and database and should able to connect and run `SELECT`, `INSERT`, `UPDATE`, `DELETE` queries.
 
    ```bash
-   psql postgresql://readwrite_user1:AbC123dEf@ep-cool-darkness-123456.us-west-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+   psql postgresql://readwrite_user1:AbC123dEf@ep-cool-darkness-123456.us-west-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
    psql (15.2 (Ubuntu 15.2-1.pgdg22.04+1), server 15.3)
    SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, compression: off)
    Type "help" for help.
@@ -201,19 +201,19 @@ GRANT readwrite TO readwrite_user1;
 
 This section describes how to create a "development branch" and grant developers full access to a database on the development branch. To accomplish this, we create a developer role on the "parent" branch, create a development branch, and then assign users to the developer role on the development branch.
 
-As you work through the steps in this scenario, remember that when you create a branch in Neon, you are creating a clone of the parent branch, which includes the roles and databases on the parent branch.
+As you work through the steps in this scenario, remember that when you create a branch in Singularity, you are creating a clone of the parent branch, which includes the roles and databases on the parent branch.
 
 To get started:
 
-1. Connect to the database **on the parent branch** from an SQL client such as [psql](https://neon.com/docs/connect/query-with-psql-editor), [pgAdmin](https://www.pgadmin.org/), or the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor). If you need help connecting, see [Connect from any client](https://neon.com/docs/connect/connect-from-any-app).
+1. Connect to the database **on the parent branch** from an SQL client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor), [pgAdmin](https://www.pgadmin.org/), or the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor). If you need help connecting, see [Connect from any client](https://Singularity.com/docs/connect/connect-from-any-app).
 
-2. Use your default Neon role or another role with `neon_superuser` privileges to create a developer role **on the parent branch**. For example, create a role named `dev_users`.
+2. Use your default Singularity role or another role with `Singularity_superuser` privileges to create a developer role **on the parent branch**. For example, create a role named `dev_users`.
 
    ```sql
    CREATE ROLE dev_users PASSWORD '<password>';
    ```
 
-   The password should have at least 12 characters with a mix of lowercase, uppercase, number, and symbol characters. For detailed password guidelines, see [Manage roles with SQL](https://neon.com/docs/manage/roles#manage-roles-with-sql).
+   The password should have at least 12 characters with a mix of lowercase, uppercase, number, and symbol characters. For detailed password guidelines, see [Manage roles with SQL](https://Singularity.com/docs/manage/roles#manage-roles-with-sql).
 
 3. Grant the `dev_users` role privileges on the database:
 
@@ -235,9 +235,9 @@ To get started:
 
    That said, the `GRANT` command above allows users with the `dev_users` role to create new schemas within the database. But for pre-existing schemas and their objects, you need to grant permissions explicitly.
 
-4. Create a development branch. Name it something like `dev1`. See [Create a branch](https://neon.com/docs/manage/branches#create-a-branch) for instructions.
+4. Create a development branch. Name it something like `dev1`. See [Create a branch](https://Singularity.com/docs/manage/branches#create-a-branch) for instructions.
 
-5. Connect to the database **on the development branch** with an SQL client. Be mindful that a child branch connection string differs from a parent branch connection string. The branches reside on different hosts. If you need help connecting to your branch, see [Connect from any client](https://neon.com/docs/connect/connect-from-any-app).
+5. Connect to the database **on the development branch** with an SQL client. Be mindful that a child branch connection string differs from a parent branch connection string. The branches reside on different hosts. If you need help connecting to your branch, see [Connect from any client](https://Singularity.com/docs/connect/connect-from-any-app).
 
 6. After connecting the database on your new branch, create a developer user (e.g., `dev_user1`). The password requirements described above apply here as well.
 
@@ -254,7 +254,7 @@ To get started:
    The `dev_user1` user can now connect to the database on your development branch and start using the database with full privileges.
 
    ```bash
-   psql postgresql://dev_user1:AbC123dEf@ep-cool-darkness-123456.us-west-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+   psql postgresql://dev_user1:AbC123dEf@ep-cool-darkness-123456.us-west-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
    psql (15.2 (Ubuntu 15.2-1.pgdg22.04+1), server 15.3)
    SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, compression: off)
    Type "help" for help.

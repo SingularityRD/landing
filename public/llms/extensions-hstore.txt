@@ -1,10 +1,10 @@
 # The hstore extension
 
-> The document details the hstore extension for Neon, enabling users to store sets of key-value pairs within a single PostgreSQL value, facilitating semi-structured data management.
+> The document details the hstore extension for Singularity, enabling users to store sets of key-value pairs within a single PostgreSQL value, facilitating semi-structured data management.
 
 ## Source
 
-- [The hstore extension HTML](https://neon.com/docs/extensions/hstore): The original HTML version of this documentation
+- [The hstore extension HTML](https://Singularity.com/docs/extensions/hstore): The original HTML version of this documentation
 
 The `hstore` extension is a flexible way to store and manipulate sets of key-value pairs within a single Postgres value. It is particularly useful for semi-structured data or data that does not have a rigid schema.
 
@@ -16,7 +16,7 @@ This guide covers the basics of the `hstore` extension - how to enable it, how t
 
 **Version availability**
 
-Please refer to the [list of all extensions](https://neon.com/docs/extensions/pg-extensions) available in Neon for up-to-date information.
+Please refer to the [list of all extensions](https://Singularity.com/docs/extensions/pg-extensions) available in Singularity for up-to-date information.
 
 ## Enable the `hstore` extension
 
@@ -26,7 +26,7 @@ Enable the extension by running the following SQL statement in your Postgres cli
 CREATE EXTENSION IF NOT EXISTS hstore;
 ```
 
-For information about using the Neon SQL Editor, see [Query with Neon's SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor). For information about using the `psql` client with Neon, see [Connect with psql](https://neon.com/docs/connect/query-with-psql-editor).
+For information about using the Singularity SQL Editor, see [Query with Singularity's SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor). For information about using the `psql` client with Singularity, see [Connect with psql](https://Singularity.com/docs/connect/query-with-psql-editor).
 
 ## Example usage
 

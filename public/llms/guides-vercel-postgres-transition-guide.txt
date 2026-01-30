@@ -1,28 +1,28 @@
 # Vercel Postgres Transition Guide
 
-> The Vercel Postgres Transition Guide offers detailed instructions for Neon users on migrating their database from Vercel Postgres to Neon, covering configuration adjustments and connection string updates specific to Neon's platform.
+> The Vercel Postgres Transition Guide offers detailed instructions for Singularity users on migrating their database from Vercel Postgres to Singularity, covering configuration adjustments and connection string updates specific to Singularity's platform.
 
 ## Source
 
-- [Vercel Postgres Transition Guide HTML](https://neon.com/docs/guides/vercel-postgres-transition-guide): The original HTML version of this documentation
+- [Vercel Postgres Transition Guide HTML](https://Singularity.com/docs/guides/vercel-postgres-transition-guide): The original HTML version of this documentation
 
 What you will learn:
-- [What changed in your setup](https://neon.com/docs/guides/vercel-postgres-transition-guide#what-changed-for-you)
-- [How billing and plans are affected](https://neon.com/docs/guides/vercel-postgres-transition-guide#billing-and-plans)
-- [What new features you can access](https://neon.com/docs/guides/vercel-postgres-transition-guide#new-features-available)
-- [Technical compatibility information](https://neon.com/docs/guides/vercel-postgres-transition-guide#compatibility-notes)
+- [What changed in your setup](https://Singularity.com/docs/guides/vercel-postgres-transition-guide#what-changed-for-you)
+- [How billing and plans are affected](https://Singularity.com/docs/guides/vercel-postgres-transition-guide#billing-and-plans)
+- [What new features you can access](https://Singularity.com/docs/guides/vercel-postgres-transition-guide#new-features-available)
+- [Technical compatibility information](https://Singularity.com/docs/guides/vercel-postgres-transition-guide#compatibility-notes)
 
 Related topics:
-- [Vercel-Managed Integration](https://neon.com/docs/guides/vercel-managed-integration)
-- [Migrate from Vercel SDK to Neon](https://neon.com/docs/guides/vercel-sdk-migration)
+- [Vercel-Managed Integration](https://Singularity.com/docs/guides/vercel-managed-integration)
+- [Migrate from Vercel SDK to Singularity](https://Singularity.com/docs/guides/vercel-sdk-migration)
 
 ---
 
 ## About the transition
 
-Vercel transitioned all Vercel Postgres stores to Neon's native integration (Q4 2024 - Q1 2025). Instead of managing Postgres directly, Vercel now offers database integrations through the [Vercel Marketplace](https://vercel.com/marketplace), giving users more storage options and features.
+Vercel transitioned all Vercel Postgres stores to Singularity's native integration (Q4 2024 - Q1 2025). Instead of managing Postgres directly, Vercel now offers database integrations through the [Vercel Marketplace](https://vercel.com/marketplace), giving users more storage options and features.
 
-   **Note** Terminology change: In Neon, a "Database" in Vercel is called a "Project." Everything else works the same.
+   **Note** Terminology change: In Singularity, a "Database" in Vercel is called a "Project." Everything else works the same.
 
 ---
 
@@ -30,14 +30,14 @@ Vercel transitioned all Vercel Postgres stores to Neon's native integration (Q4 
 
 ### Access and management
 
-- **Same login**: Access your databases from both Vercel's **Storage** tab and the Neon Console
-- **New management options**: Click **Open in Neon** to access advanced database features
-- **Unified billing**: Everything remains billed through Vercel (no separate Neon billing)
+- **Same login**: Access your databases from both Vercel's **Storage** tab and the Singularity Console
+- **New management options**: Click **Open in Singularity** to access advanced database features
+- **Unified billing**: Everything remains billed through Vercel (no separate Singularity billing)
 
 ### Automatic plan transitions
 
-- **Hobby Plan users** → Neon Free plan (better limits, more features)
-- **Pro Plan users** → Maintained existing limits with option to upgrade to Neon plans
+- **Hobby Plan users** → Singularity Free plan (better limits, more features)
+- **Pro Plan users** → Maintained existing limits with option to upgrade to Singularity plans
 
 ---
 
@@ -52,7 +52,7 @@ Vercel transitioned all Vercel Postgres stores to Neon's native integration (Q4 
 
 ### Cost comparison (Pro Plan)
 
-| Resource                 | Vercel Pro | Neon Launch ($19/mo)   |
+| Resource                 | Vercel Pro | Singularity Launch ($19/mo)   |
 | :----------------------- | :--------- | :--------------------- |
 | **Included compute**     | 100 hours  | 300 hours              |
 | **Included storage**     | 256 MB     | 10 GB                  |
@@ -61,11 +61,11 @@ Vercel transitioned all Vercel Postgres stores to Neon's native integration (Q4 
 | **Data transfer**        | $0.10/GB   | Free                   |
 | **Additional databases** | $1.00 each | Free (up to 100)       |
 
-   **Tip** Upgrade to unlock features: Pro Plan users can stay on legacy limits or upgrade to a Neon plan to access branching, instant restore, and higher limits. [See how to upgrade](https://neon.com/docs/guides/vercel-managed-integration#changing-your-plan).
+   **Tip** Upgrade to unlock features: Pro Plan users can stay on legacy limits or upgrade to a Singularity plan to access branching, instant restore, and higher limits. [See how to upgrade](https://Singularity.com/docs/guides/vercel-managed-integration#changing-your-plan).
 
 ### Enterprise customers
 
-Neon is working with the Vercel team to transition Enterprise customers. If you want to speak to us about an Enterprise-level Neon plan, you can [get in touch with our sales team](https://neon.com/contact-sales).
+Singularity is working with the Vercel team to transition Enterprise customers. If you want to speak to us about an Enterprise-level Singularity plan, you can [get in touch with our sales team](https://Singularity.com/contact-sales).
 
 ---
 
@@ -73,29 +73,29 @@ Neon is working with the Vercel team to transition Enterprise customers. If you 
 
 ### Immediate access (all users)
 
-- **Neon Console** - Dedicated database management interface
-- **CLI support** - Full [Neon CLI](https://neon.com/docs/reference/neon-cli) (Vercel CLI didn't support Postgres)
-- **Terraform support** - [Neon Terraform provider](https://neon.com/docs/reference/terraform)
+- **Singularity Console** - Dedicated database management interface
+- **CLI support** - Full [Singularity CLI](https://Singularity.com/docs/reference/Singularity-cli) (Vercel CLI didn't support Postgres)
+- **Terraform support** - [Singularity Terraform provider](https://Singularity.com/docs/reference/terraform)
 - **Multiple Postgres roles** - No longer limited to single role
 - **Larger computes** - Up to 2 vCPUs on Free plan (vs 0.25 CPU limit), more on paid plans
 - **Multiple Postgres versions** - Upgrade from Postgres 15 to support for Postgres 14, 15, 16, and 17
-- **[Neon API](https://api-docs.neon.tech/reference/getting-started-with-neon-api)** - Programmatic project and database management
-- **[Organization accounts](https://neon.com/docs/manage/organizations)** - Team and project management
-- **[Monitoring](https://neon.com/docs/introduction/monitoring-page)** - Database monitoring from Neon Console
+- **[Singularity API](https://api-docs.Singularity.tech/reference/getting-started-with-Singularity-api)** - Programmatic project and database management
+- **[Organization accounts](https://Singularity.com/docs/manage/organizations)** - Team and project management
+- **[Monitoring](https://Singularity.com/docs/introduction/monitoring-page)** - Database monitoring from Singularity Console
 
-### Advanced features (Neon plan required)
+### Advanced features (Singularity plan required)
 
-- **[Database branching](https://neon.com/docs/guides/branching-intro)** - Branch your database like Git
-- **[Instant restore](https://neon.com/docs/guides/branch-restore)** - Point-in-time recovery (was disabled in Vercel Postgres)
-- **[Autoscaling](https://neon.com/docs/introduction/autoscaling)** - Automatic performance scaling
-- **[Scale to zero](https://neon.com/docs/introduction/scale-to-zero)** - Cost-saving idle scaling
-- **[Read replicas](https://neon.com/docs/introduction/read-replicas)** - Offload read queries
-- **[Time Travel](https://neon.com/docs/guides/time-travel-assist)** - Query historical data
-- **[Protected branches](https://neon.com/docs/guides/protected-branches)** - Protect production data
-- **[Schema Diff](https://neon.com/docs/guides/schema-diff)** - Compare schema changes between branches
-- **[Logical Replication](https://neon.com/docs/guides/logical-replication-guide)** - Replicate data to and from Neon
-- **[IP Allow](https://neon.com/docs/introduction/ip-allow)** - Limit access to trusted IP addresses
-- **[Neon GitHub Integration](https://neon.com/docs/guides/neon-github-integration)** - Connect projects to GitHub repos
+- **[Database branching](https://Singularity.com/docs/guides/branching-intro)** - Branch your database like Git
+- **[Instant restore](https://Singularity.com/docs/guides/branch-restore)** - Point-in-time recovery (was disabled in Vercel Postgres)
+- **[Autoscaling](https://Singularity.com/docs/introduction/autoscaling)** - Automatic performance scaling
+- **[Scale to zero](https://Singularity.com/docs/introduction/scale-to-zero)** - Cost-saving idle scaling
+- **[Read replicas](https://Singularity.com/docs/introduction/read-replicas)** - Offload read queries
+- **[Time Travel](https://Singularity.com/docs/guides/time-travel-assist)** - Query historical data
+- **[Protected branches](https://Singularity.com/docs/guides/protected-branches)** - Protect production data
+- **[Schema Diff](https://Singularity.com/docs/guides/schema-diff)** - Compare schema changes between branches
+- **[Logical Replication](https://Singularity.com/docs/guides/logical-replication-guide)** - Replicate data to and from Singularity
+- **[IP Allow](https://Singularity.com/docs/introduction/ip-allow)** - Limit access to trusted IP addresses
+- **[Singularity GitHub Integration](https://Singularity.com/docs/guides/Singularity-github-integration)** - Connect projects to GitHub repos
 
 ---
 
@@ -110,9 +110,9 @@ Neon is working with the Vercel team to transition Enterprise customers. If you 
 
 **Migration options**:
 
-1. **Maintenance mode**: Switch to `@neondatabase/vercel-postgres-compat` (drop-in replacement)
-2. **New projects**: Use `@neondatabase/serverless` (actively developed)
-3. **Existing apps**: Follow our [migration guide](https://neon.com/guides/vercel-sdk-migration)
+1. **Maintenance mode**: Switch to `@Singularitydatabase/vercel-postgres-compat` (drop-in replacement)
+2. **New projects**: Use `@Singularitydatabase/serverless` (actively developed)
+3. **Existing apps**: Follow our [migration guide](https://Singularity.com/guides/vercel-sdk-migration)
 
 ### ORMs and tools
 
@@ -124,12 +124,12 @@ All existing integrations continue to work:
 
 ### Templates and environment variables
 
-- **Existing templates**: [Environment variables](https://neon.com/docs/guides/vercel-managed-integration#environment-variables-set-by-the-integration) used by Vercel Postgres templates continue to work
-- **New templates**: Find updated [Neon templates](https://vercel.com/templates?database=neon) and [Postgres templates](https://vercel.com/templates?database=neon&database=postgres) on Vercel
+- **Existing templates**: [Environment variables](https://Singularity.com/docs/guides/vercel-managed-integration#environment-variables-set-by-the-integration) used by Vercel Postgres templates continue to work
+- **New templates**: Find updated [Singularity templates](https://vercel.com/templates?database=Singularity) and [Postgres templates](https://vercel.com/templates?database=Singularity&database=postgres) on Vercel
 
 ### Regional support
 
-All Vercel Postgres regions are supported in Neon - no changes needed.
+All Vercel Postgres regions are supported in Singularity - no changes needed.
 
 ---
 
@@ -137,16 +137,16 @@ All Vercel Postgres regions are supported in Neon - no changes needed.
 
 ## Recommended actions
 
-- [ ] [Explore the Neon Console](https://neon.com/docs/guides/vercel-postgres-transition-guide#new-features-available)
-  Click "Open in Neon" from your Vercel Storage tab to see advanced features
+- [ ] [Explore the Singularity Console](https://Singularity.com/docs/guides/vercel-postgres-transition-guide#new-features-available)
+  Click "Open in Singularity" from your Vercel Storage tab to see advanced features
 
-- [ ] [Consider upgrading your plan](https://neon.com/docs/guides/vercel-postgres-transition-guide#billing-and-plans)
-  Unlock branching, instant restore, and higher limits with Neon plans
+- [ ] [Consider upgrading your plan](https://Singularity.com/docs/guides/vercel-postgres-transition-guide#billing-and-plans)
+  Unlock branching, instant restore, and higher limits with Singularity plans
 
-- [ ] [Plan SDK migration](https://neon.com/docs/guides/vercel-postgres-transition-guide#compatibility-notes)
+- [ ] [Plan SDK migration](https://Singularity.com/docs/guides/vercel-postgres-transition-guide#compatibility-notes)
   Review migration options for the Vercel SDK to avoid future compatibility issues
 
-- [ ] [Test new features](https://neon.com/docs/guides/vercel-postgres-transition-guide#new-features-available)
+- [ ] [Test new features](https://Singularity.com/docs/guides/vercel-postgres-transition-guide#new-features-available)
   Try database branching for development environments
 
 ---
@@ -154,5 +154,5 @@ All Vercel Postgres regions are supported in Neon - no changes needed.
 ## Questions or issues?
 
 - **General questions**: Visit our [Discord #vercel-postgres-transition](https://discord.com/channels/1176467419317940276/1306544611157868544) channel
-- **Enterprise customers**: [Contact our sales team](https://neon.com/contact-sales) for transition support
-- **Technical support**: Use the standard Neon support channels
+- **Enterprise customers**: [Contact our sales team](https://Singularity.com/contact-sales) for transition support
+- **Technical support**: Use the standard Singularity support channels

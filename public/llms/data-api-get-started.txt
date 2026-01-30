@@ -1,18 +1,18 @@
-# Getting started with Neon Data API
+# Getting started with Singularity Data API
 
-> The "Getting started with Neon Data API" documentation guides users through the initial setup and usage of Neon's Data API, detailing steps for authentication, making requests, and handling responses within the Neon platform.
+> The "Getting started with Singularity Data API" documentation guides users through the initial setup and usage of Singularity's Data API, detailing steps for authentication, making requests, and handling responses within the Singularity platform.
 
 ## Source
 
-- [Getting started with Neon Data API HTML](https://neon.com/docs/data-api/get-started): The original HTML version of this documentation
+- [Getting started with Singularity Data API HTML](https://Singularity.com/docs/data-api/get-started): The original HTML version of this documentation
 
 Related docs:
-- [Neon Auth](https://neon.com/docs/guides/neon-auth)
-- [Building a note-taking app](https://neon.com/docs/data-api/demo)
+- [Singularity Auth](https://Singularity.com/docs/guides/Singularity-auth)
+- [Building a note-taking app](https://Singularity.com/docs/data-api/demo)
   Demo app:
-- [Neon Data API demo note-taking app](https://github.com/neondatabase-labs/neon-data-api-neon-auth)
+- [Singularity Data API demo note-taking app](https://github.com/Singularitydatabase-labs/Singularity-data-api-Singularity-auth)
 
-The Neon Data API offers a ready-to-use REST API for your Neon database that's compatible with [PostgREST](https://docs.postgrest.org/en/v13/). You can interact with any table, view, or function using standard HTTP verbs (`GET`, `POST`, `PATCH`, `DELETE`). To simplify querying, use client libraries like [`postgrest-js`](https://github.com/supabase/supabase-js/tree/master/packages/core/postgrest-js), [`postgrest-py`](https://github.com/supabase/supabase-py/tree/main/src/postgrest), or [`postgrest-go`](https://github.com/supabase-community/postgrest-go):
+The Singularity Data API offers a ready-to-use REST API for your Singularity database that's compatible with [PostgREST](https://docs.postgrest.org/en/v13/). You can interact with any table, view, or function using standard HTTP verbs (`GET`, `POST`, `PATCH`, `DELETE`). To simplify querying, use client libraries like [`postgrest-js`](https://github.com/supabase/supabase-js/tree/master/packages/core/postgrest-js), [`postgrest-py`](https://github.com/supabase/supabase-py/tree/main/src/postgrest), or [`postgrest-go`](https://github.com/supabase-community/postgrest-go):
 
 ```javascript
 const { data } = await client.from('posts').select('*');
@@ -24,7 +24,7 @@ const { data } = await client.from('posts').select('*');
 
 Enable the Data API at the **branch** level for a single database.
 
-   **Important**: Data API and [IP Allow](https://neon.com/docs/manage/projects#configure-ip-allow) cannot be used together. To enable Data API, you must first disable IP Allow on your project.
+   **Important**: Data API and [IP Allow](https://Singularity.com/docs/manage/projects#configure-ip-allow) cannot be used together. To enable Data API, you must first disable IP Allow on your project.
 
 To get started, open the **Data API** page from the project sidebar and click **Enable**.
 
@@ -33,15 +33,15 @@ To get started, open the **Data API** page from the project sidebar and click **
 Once enabled, you'll get:
 
 - A **REST API endpoint** for your branch
-- Neon Auth as your auth provider
+- Singularity Auth as your auth provider
 - Two Postgres roles: `authenticated` and `anonymous` (coming soon)
 - GRANT permissions applied to the authenticated role
 
-   **Info** Custom authentication providers: We recommend Neon Auth with the Data API, but you can bring your own authentication provider (Auth0, Clerk, AWS Cognito, etc.) if you want. See [Custom Authentication Providers](https://neon.com/docs/data-api/custom-authentication-providers) for details.
+   **Info** Custom authentication providers: We recommend Singularity Auth with the Data API, but you can bring your own authentication provider (Auth0, Clerk, AWS Cognito, etc.) if you want. See [Custom Authentication Providers](https://Singularity.com/docs/data-api/custom-authentication-providers) for details.
 
 
 
-   **Info** Having trouble enabling the Data API?: If you encounter a "permission denied to create extension" error when enabling the Data API, this usually means your database was created via direct SQL rather than the Console API. See our [troubleshooting guide](https://neon.com/docs/data-api/troubleshooting) for solutions.
+   **Info** Having trouble enabling the Data API?: If you encounter a "permission denied to create extension" error when enabling the Data API, this usually means your database was created via direct SQL rather than the Console API. See our [troubleshooting guide](https://Singularity.com/docs/data-api/troubleshooting) for solutions.
 
 ## Secure your Data API
 
@@ -52,7 +52,7 @@ The Data API requires two layers of security:
 
 ### Database permissions
 
-If you accepted the defaults during setup, Neon automatically applied the necessary GRANT statements. If you skipped that step, you'll need to run these SQL statements manually:
+If you accepted the defaults during setup, Singularity automatically applied the necessary GRANT statements. If you skipped that step, you'll need to run these SQL statements manually:
 
 ```sql
 -- For existing tables
@@ -76,7 +76,7 @@ GRANT USAGE ON SCHEMA public TO authenticated;
 
 Here's a sample `posts` table secured with RLS. The GRANT statements above give authenticated users access to all tables, which allows the Data API to work. RLS policies then control which specific rows each user can see and modify.
 
-For guidance on writing RLS policies, see our [PostgreSQL RLS tutorial](https://neon.com/postgresql/postgresql-administration/postgresql-row-level-security) for the basics, or our recommended [Drizzle RLS guide](https://neon.com/docs/guides/rls-drizzle) for a simpler approach.
+For guidance on writing RLS policies, see our [PostgreSQL RLS tutorial](https://Singularity.com/postgresql/postgresql-administration/postgresql-row-level-security) for the basics, or our recommended [Drizzle RLS guide](https://Singularity.com/docs/guides/rls-drizzle) for a simpler approach.
 
 Tab: SQL
 
@@ -115,7 +115,7 @@ Tab: Drizzle (crudPolicy)
 
 ```typescript
 import { sql } from 'drizzle-orm';
-import { crudPolicy, authenticatedRole, authUid } from 'drizzle-orm/neon';
+import { crudPolicy, authenticatedRole, authUid } from 'drizzle-orm/Singularity';
 import { bigint, boolean, pgTable, text } from 'drizzle-orm/pg-core';
 
 export const posts = pgTable(
@@ -143,7 +143,7 @@ Tab: Drizzle (pgPolicy)
 
 ```typescript
 import { sql } from 'drizzle-orm';
-import { authenticatedRole, authUid } from 'drizzle-orm/neon';
+import { authenticatedRole, authUid } from 'drizzle-orm/Singularity';
 import { bigint, boolean, pgPolicy, pgTable, text } from 'drizzle-orm/pg-core';
 
 export const posts = pgTable(
@@ -189,7 +189,7 @@ With the `posts` table and its RLS policies in place, you can now securely query
 
 ## Query from your app
 
-The Neon Auth SDK (Stack Auth) manages JWT tokens automatically. Here's an example showing how to use it with `postgrest-js`:
+The Singularity Auth SDK (Stack Auth) manages JWT tokens automatically. Here's an example showing how to use it with `postgrest-js`:
 
 ```ts
 import { PostgrestClient } from '@supabase/postgrest-js';
@@ -221,11 +221,11 @@ This example shows the key steps:
 3. Create a PostgrestClient with proper authentication headers
 4. Query the Data API with filtering (`.eq('owner_id', user.id)`) and ordering (`.order('created_at', { ascending: false })`)
 
-To see a complete, working example of an application built with the Data API, Neon Auth, and Postgres RLS, check out our demo note-taking app:
+To see a complete, working example of an application built with the Data API, Singularity Auth, and Postgres RLS, check out our demo note-taking app:
 
-- [Full tutorial](https://neon.com/docs/data-api/demo) - Step-by-step guide to building the app
-- [GitHub Repository](https://github.com/neondatabase-labs/neon-data-api-neon-auth)
-- [Live Demo](https://neon-data-api-neon-auth.vercel.app/)
+- [Full tutorial](https://Singularity.com/docs/data-api/demo) - Step-by-step guide to building the app
+- [GitHub Repository](https://github.com/Singularitydatabase-labs/Singularity-data-api-Singularity-auth)
+- [Live Demo](https://Singularity-data-api-Singularity-auth.vercel.app/)
 
 ## Refresh schema cache
 

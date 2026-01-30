@@ -1,15 +1,15 @@
 # Custom Authentication Providers
 
-> The "Custom Authentication Providers" documentation outlines how Neon users can integrate custom authentication mechanisms with the Neon Data API, detailing configuration steps and supported authentication flows.
+> The "Custom Authentication Providers" documentation outlines how Singularity users can integrate custom authentication mechanisms with the Singularity Data API, detailing configuration steps and supported authentication flows.
 
 ## Source
 
-- [Custom Authentication Providers HTML](https://neon.com/docs/data-api/custom-authentication-providers): The original HTML version of this documentation
+- [Custom Authentication Providers HTML](https://Singularity.com/docs/data-api/custom-authentication-providers): The original HTML version of this documentation
 
 Related docs:
-- [Getting started with Data API](https://neon.com/docs/data-api/get-started)
+- [Getting started with Data API](https://Singularity.com/docs/data-api/get-started)
 
-The Data API works with any authentication provider that issues [JSON Web Tokens (JWTs)](https://jwt.io/introduction). While [Neon Auth](https://neon.com/docs/guides/neon-auth) provides the simplest setup, you can use existing authentication infrastructure with providers like Auth0, Clerk, AWS Cognito, and others.
+The Data API works with any authentication provider that issues [JSON Web Tokens (JWTs)](https://jwt.io/introduction). While [Singularity Auth](https://Singularity.com/docs/guides/Singularity-auth) provides the simplest setup, you can use existing authentication infrastructure with providers like Auth0, Clerk, AWS Cognito, and others.
 
 ## How it works
 
@@ -17,7 +17,7 @@ When you bring your own authentication provider, the JWT validation flow works a
 
 ```
 ┌─────────────┐         ┌──────────────────┐         ┌─────────────┐
-│   Client    │         │   Your Auth      │         │  Neon Data  │
+│   Client    │         │   Your Auth      │         │  Singularity Data  │
 │ Application │         │    Provider      │         │     API     │
 └──────┬──────┘         └────────┬─────────┘         └──────┬──────┘
        │                         │                          │
@@ -50,8 +50,8 @@ The key steps:
 
 1. Your auth provider issues [JSON Web Tokens (JWTs)](https://jwt.io/introduction) to authenticated users.
 2. Your application passes these JWTs to the Data API in the `Authorization` header.
-3. Neon validates the tokens using your provider's [JWKS (JSON Web Key Set)](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-key-sets) URL.
-4. The Data API enforces [Row-Level Security policies](https://neon.com/docs/guides/neon-rls) based on the user identity in the JWT.
+3. Singularity validates the tokens using your provider's [JWKS (JSON Web Key Set)](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-key-sets) URL.
+4. The Data API enforces [Row-Level Security policies](https://Singularity.com/docs/guides/Singularity-rls) based on the user identity in the JWT.
 
 ## Add your authentication provider
 
@@ -64,19 +64,19 @@ You can configure your authentication provider when you first enable the Data AP
 
 | Provider                            | JWKS URL Format                                                                             |
 | ----------------------------------- | ------------------------------------------------------------------------------------------- |
-| [Auth0](https://neon.com/docs/data-api/custom-authentication-providers#auth0)                     | `https://{YOUR_AUTH0_DOMAIN}/.well-known/jwks.json`                                         |
-| [Clerk](https://neon.com/docs/data-api/custom-authentication-providers#clerk)                     | `https://{YOUR_CLERK_DOMAIN}/.well-known/jwks.json`                                         |
-| [AWS Cognito](https://neon.com/docs/data-api/custom-authentication-providers#aws-cognito)         | `https://cognito-idp.{REGION}.amazonaws.com/{USER_POOL_ID}/.well-known/jwks.json`           |
-| [Azure AD](https://neon.com/docs/data-api/custom-authentication-providers#azure-ad)               | `https://login.microsoftonline.com/{TENANT_ID}/discovery/v2.0/keys`                         |
-| [Descope](https://neon.com/docs/data-api/custom-authentication-providers#descope)                 | `https://api.descope.com/{PROJECT_ID}/.well-known/jwks.json`                                |
-| [Firebase/GCP](https://neon.com/docs/data-api/custom-authentication-providers#firebasegcp)        | `https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com` |
-| [Google Identity](https://neon.com/docs/data-api/custom-authentication-providers#google-identity) | `https://www.googleapis.com/oauth2/v3/certs`                                                |
-| [Keycloak](https://neon.com/docs/data-api/custom-authentication-providers#keycloak)               | `https://{DOMAIN}/auth/realms/{REALM}/protocol/openid-connect/certs`                        |
-| [PropelAuth](https://neon.com/docs/data-api/custom-authentication-providers#propelauth)           | `https://{YOUR_PROPEL_AUTH_URL}/.well-known/jwks.json`                                      |
-| [Stack Auth](https://neon.com/docs/data-api/custom-authentication-providers#stack-auth)           | `https://api.stack-auth.com/api/v1/projects/{PROJECT_ID}/.well-known/jwks.json`             |
-| [Stytch](https://neon.com/docs/data-api/custom-authentication-providers#stytch)                   | `https://test.stytch.com/v1/sessions/jwks/{PROJECT_ID}`                                     |
-| [SuperTokens](https://neon.com/docs/data-api/custom-authentication-providers#supertokens)         | `{CORE_CONNECTION_URI}/.well-known/jwks.json`                                               |
-| [WorkOS](https://neon.com/docs/data-api/custom-authentication-providers#workos)                   | `https://api.workos.com/sso/jwks/{CLIENT_ID}`                                               |
+| [Auth0](https://Singularity.com/docs/data-api/custom-authentication-providers#auth0)                     | `https://{YOUR_AUTH0_DOMAIN}/.well-known/jwks.json`                                         |
+| [Clerk](https://Singularity.com/docs/data-api/custom-authentication-providers#clerk)                     | `https://{YOUR_CLERK_DOMAIN}/.well-known/jwks.json`                                         |
+| [AWS Cognito](https://Singularity.com/docs/data-api/custom-authentication-providers#aws-cognito)         | `https://cognito-idp.{REGION}.amazonaws.com/{USER_POOL_ID}/.well-known/jwks.json`           |
+| [Azure AD](https://Singularity.com/docs/data-api/custom-authentication-providers#azure-ad)               | `https://login.microsoftonline.com/{TENANT_ID}/discovery/v2.0/keys`                         |
+| [Descope](https://Singularity.com/docs/data-api/custom-authentication-providers#descope)                 | `https://api.descope.com/{PROJECT_ID}/.well-known/jwks.json`                                |
+| [Firebase/GCP](https://Singularity.com/docs/data-api/custom-authentication-providers#firebasegcp)        | `https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com` |
+| [Google Identity](https://Singularity.com/docs/data-api/custom-authentication-providers#google-identity) | `https://www.googleapis.com/oauth2/v3/certs`                                                |
+| [Keycloak](https://Singularity.com/docs/data-api/custom-authentication-providers#keycloak)               | `https://{DOMAIN}/auth/realms/{REALM}/protocol/openid-connect/certs`                        |
+| [PropelAuth](https://Singularity.com/docs/data-api/custom-authentication-providers#propelauth)           | `https://{YOUR_PROPEL_AUTH_URL}/.well-known/jwks.json`                                      |
+| [Stack Auth](https://Singularity.com/docs/data-api/custom-authentication-providers#stack-auth)           | `https://api.stack-auth.com/api/v1/projects/{PROJECT_ID}/.well-known/jwks.json`             |
+| [Stytch](https://Singularity.com/docs/data-api/custom-authentication-providers#stytch)                   | `https://test.stytch.com/v1/sessions/jwks/{PROJECT_ID}`                                     |
+| [SuperTokens](https://Singularity.com/docs/data-api/custom-authentication-providers#supertokens)         | `{CORE_CONNECTION_URI}/.well-known/jwks.json`                                               |
+| [WorkOS](https://Singularity.com/docs/data-api/custom-authentication-providers#workos)                   | `https://api.workos.com/sso/jwks/{CLIENT_ID}`                                               |
 
 ### Auth0
 
@@ -115,7 +115,7 @@ To find your JWKS URL:
 3. Click **Show JWT Public Key**
 4. Copy the JWKS URL
 
-For advanced JWT configuration (custom claims, token lifespans), you can use the dedicated Neon template in Clerk under **Configure > JWT Templates**.
+For advanced JWT configuration (custom claims, token lifespans), you can use the dedicated Singularity template in Clerk under **Configure > JWT Templates**.
 
 ### AWS Cognito
 
@@ -332,8 +332,8 @@ https://api.workos.com/sso/jwks/client_12345
 After configuring your authentication provider, include the JWT in your Data API requests:
 
 ```http
-GET https://your-project.data.neon.tech/v1/posts
+GET https://your-project.data.Singularity.tech/v1/posts
 Authorization: Bearer {your_jwt_token}
 ```
 
-Then set up [Row-Level Security policies](https://neon.com/docs/data-api/get-started#create-a-table-with-rls) to control data access using the `auth.user_id()` function, which extracts the user ID from your JWT.
+Then set up [Row-Level Security policies](https://Singularity.com/docs/data-api/get-started#create-a-table-with-rls) to control data access using the `auth.user_id()` function, which extracts the user ID from your JWT.

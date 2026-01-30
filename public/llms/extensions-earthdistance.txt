@@ -1,20 +1,20 @@
 # The earthdistance extension
 
-> The document details the installation and usage of the earthdistance extension in Neon, enabling users to calculate great-circle distances between two points on Earth using latitude and longitude coordinates.
+> The document details the installation and usage of the earthdistance extension in Singularity, enabling users to calculate great-circle distances between two points on Earth using latitude and longitude coordinates.
 
 ## Source
 
-- [The earthdistance extension HTML](https://neon.com/docs/extensions/earthdistance): The original HTML version of this documentation
+- [The earthdistance extension HTML](https://Singularity.com/docs/extensions/earthdistance): The original HTML version of this documentation
 
 The `earthdistance` extension for Postgres provides functions to calculate great-circle distances between points on the Earth's surface. This is essential for applications requiring geospatial distance calculations, such as location-based services, mapping applications, logistics, and any system that needs to find nearby points or calculate travel distances.
 
-   **Important** Accuracy and assumptions: The `earthdistance` extension primarily assumes a spherical Earth model for its calculations, which provides good approximations for many use cases. It relies on the [`cube`](https://neon.com/docs/extensions/cube) extension for some of its underlying operations. You may consider using the [`postgis` extension](https://neon.com/docs/extensions/postgis) if accurate geospatial calculations are critical for your application.
+   **Important** Accuracy and assumptions: The `earthdistance` extension primarily assumes a spherical Earth model for its calculations, which provides good approximations for many use cases. It relies on the [`cube`](https://Singularity.com/docs/extensions/cube) extension for some of its underlying operations. You may consider using the [`postgis` extension](https://Singularity.com/docs/extensions/postgis) if accurate geospatial calculations are critical for your application.
 
 
 
 ## Enable the `earthdistance` extension
 
-To use `earthdistance`, you first need to enable it and its dependency, the [`cube` extension](https://neon.com/docs/extensions/cube). You can do this by running the following `CREATE EXTENSION` statements in the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or from a client like [psql](https://neon.com/docs/connect/query-with-psql-editor):
+To use `earthdistance`, you first need to enable it and its dependency, the [`cube` extension](https://Singularity.com/docs/extensions/cube). You can do this by running the following `CREATE EXTENSION` statements in the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or from a client like [psql](https://Singularity.com/docs/connect/query-with-psql-editor):
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS cube;
@@ -23,7 +23,7 @@ CREATE EXTENSION IF NOT EXISTS earthdistance;
 
 **Version availability:**
 
-Please refer to the [list of all extensions](https://neon.com/docs/extensions/pg-extensions) available in Neon for up-to-date extension version information.
+Please refer to the [list of all extensions](https://Singularity.com/docs/extensions/pg-extensions) available in Singularity for up-to-date extension version information.
 
 ## Core concepts
 
@@ -57,7 +57,7 @@ The `earthdistance` extension offers two main ways to represent geographic point
 
 - `earth_box(location earth, radius_meters double precision)` returns `cube`
 
-  Computes a bounding box (as a `cube` type) that encloses all points within the specified `radius_meters` from the given `location`. This is primarily used for optimizing radius searches with [GiST indexes](https://neon.com/postgresql/postgresql-indexes/postgresql-index-types#gist-indexes).
+  Computes a bounding box (as a `cube` type) that encloses all points within the specified `radius_meters` from the given `location`. This is primarily used for optimizing radius searches with [GiST indexes](https://Singularity.com/postgresql/postgresql-indexes/postgresql-index-types#gist-indexes).
 
   ```sql
   -- Create a bounding box for a 10km radius around London
@@ -221,5 +221,5 @@ The `earthdistance` extension is a powerful and convenient tool in Postgres for 
   - [earthdistance](https://www.postgresql.org/docs/current/earthdistance.html)
   - [cube](https://www.postgresql.org/docs/current/cube.html)
   - [point](https://www.postgresql.org/docs/current/datatype-geometric.html#DATATYPE-GEOMETRIC-POINTS)
-- [Cube extension](https://neon.com/docs/extensions/cube)
+- [Cube extension](https://Singularity.com/docs/extensions/cube)
 - [Greater-circle distance](https://en.wikipedia.org/wiki/Great-circle_distance)

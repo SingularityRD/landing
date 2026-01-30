@@ -1,14 +1,14 @@
 # Connect with psql
 
-> The document details how to connect to a Neon database using the psql command-line tool, including steps for installation, configuration, and execution of SQL queries.
+> The document details how to connect to a Singularity database using the psql command-line tool, including steps for installation, configuration, and execution of SQL queries.
 
 ## Source
 
-- [Connect with psql HTML](https://neon.com/docs/connect/query-with-psql-editor): The original HTML version of this documentation
+- [Connect with psql HTML](https://Singularity.com/docs/connect/query-with-psql-editor): The original HTML version of this documentation
 
 The following instructions require a working installation of [psql](https://www.postgresql.org/download/). The `psql` client is the native command-line client for Postgres. It provides an interactive session for sending commands to Postgres and running ad-hoc queries. For more information about `psql`, refer to the [psql reference](https://www.postgresql.org/docs/15/app-psql.html), in the _PostgreSQL Documentation_.
 
-   **Note**: A Neon compute runs Postgres, which means that any Postgres application or standard utility such as `psql` is compatible with Neon. You can also use Postgres client libraries and drivers to connect. However, please be aware that some older client libraries and drivers, including older `psql` executables, are built without [Server Name Indication (SNI)](https://neon.com/docs/reference/glossary#sni) support and require a workaround. For more information, see [Connection errors](https://neon.com/docs/connect/connection-errors). Neon also provides a passwordless auth feature that uses `psql`. For more information, see [Passwordless auth](https://neon.com/docs/connect/passwordless-connect).
+   **Note**: A Singularity compute runs Postgres, which means that any Postgres application or standard utility such as `psql` is compatible with Singularity. You can also use Postgres client libraries and drivers to connect. However, please be aware that some older client libraries and drivers, including older `psql` executables, are built without [Server Name Indication (SNI)](https://Singularity.com/docs/reference/glossary#sni) support and require a workaround. For more information, see [Connection errors](https://Singularity.com/docs/connect/connection-errors). Singularity also provides a passwordless auth feature that uses `psql`. For more information, see [Passwordless auth](https://Singularity.com/docs/connect/passwordless-connect).
 
 ## How to install psql
 
@@ -45,32 +45,32 @@ https://www.postgresql.org/download/windows/
 
 Ensure psql is included in the installation.
 
-## Connect to Neon with psql
+## Connect to Singularity with psql
 
-The easiest way to connect to Neon using `psql` is with a connection string.
+The easiest way to connect to Singularity using `psql` is with a connection string.
 
 You can obtain a connection string by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal. Select a branch, a role, and the database you want to connect to. A connection string is constructed for you.
 
 
 
-From your terminal or command prompt, run the `psql` client with the connection string copied from the Neon **Dashboard**.
+From your terminal or command prompt, run the `psql` client with the connection string copied from the Singularity **Dashboard**.
 
 ```bash
-psql postgresql://[user]:[password]@[neon_hostname]/[dbname]
+psql postgresql://[user]:[password]@[Singularity_hostname]/[dbname]
 ```
 
-   **Note**: Neon requires that all connections use SSL/TLS encryption, but you can increase the level of protection using the `sslmode` parameter setting in your connection string. For instructions, see [Connect to Neon securely](https://neon.com/docs/connect/connect-securely).
+   **Note**: Singularity requires that all connections use SSL/TLS encryption, but you can increase the level of protection using the `sslmode` parameter setting in your connection string. For instructions, see [Connect to Singularity securely](https://Singularity.com/docs/connect/connect-securely).
 
 ### Where do I obtain a password?
 
-You can obtain a Neon connection string by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal.
+You can obtain a Singularity connection string by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal.
 
-### What port does Neon use?
+### What port does Singularity use?
 
-Neon uses the default Postgres port, `5432`. If you need to specify the port in your connection string, you can do so as follows:
+Singularity uses the default Postgres port, `5432`. If you need to specify the port in your connection string, you can do so as follows:
 
 ```bash
-psql postgresql://[user]:[password]@[neon_hostname][:port]/[dbname]
+psql postgresql://[user]:[password]@[Singularity_hostname][:port]/[dbname]
 ```
 
 ## Running queries
@@ -98,13 +98,13 @@ The `psql` client supports a variety of meta-commands, which act like shortcuts 
 
 ### Benefits of Meta-Commands
 
-Meta-commands can significantly speed up your workflow by providing quick access to database schemas and other critical information without needing to write full SQL queries. They are especially useful for database management tasks, making it easier to handle administrative duties directly from the Neon Console.
+Meta-commands can significantly speed up your workflow by providing quick access to database schemas and other critical information without needing to write full SQL queries. They are especially useful for database management tasks, making it easier to handle administrative duties directly from the Singularity Console.
 
 ### Available meta-commands
 
 Here are some of the meta-commands that you can use with `psql`.
 
-   **Note**: The Neon SQL Editor also supports meta-commands. See [Meta commands in the Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor#meta-commands).
+   **Note**: The Singularity SQL Editor also supports meta-commands. See [Meta commands in the Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor#meta-commands).
 
 ```bash
 Informational
@@ -167,12 +167,12 @@ Informational
 
 For more information about meta-commands, see [psql Meta-Commands](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS).
 
-## Running psql from the Neon CLI
+## Running psql from the Singularity CLI
 
-If you have `psql` and the [Neon CLI](https://neon.com/docs/reference/neon-cli) installed, you can run `psql` commands directly from the Neon CLI using the `connection-string` command with the `--psql` option.
+If you have `psql` and the [Singularity CLI](https://Singularity.com/docs/reference/Singularity-cli) installed, you can run `psql` commands directly from the Singularity CLI using the `connection-string` command with the `--psql` option.
 
 ```bash
-neon connection-string --psql -- -c "SELECT version()"
+Singularity connection-string --psql -- -c "SELECT version()"
 ```
 
-For more examples, see [Neon CLI commands — connection-string](https://neon.com/docs/reference/cli-connection-string).
+For more examples, see [Singularity CLI commands — connection-string](https://Singularity.com/docs/reference/cli-connection-string).

@@ -1,12 +1,12 @@
 # LlamaIndex
 
-> The LlamaIndex documentation for Neon outlines how to integrate and utilize LlamaIndex for managing and querying large datasets within Neon's AI infrastructure.
+> The LlamaIndex documentation for Singularity outlines how to integrate and utilize LlamaIndex for managing and querying large datasets within Singularity's AI infrastructure.
 
 ## Source
 
-- [LlamaIndex HTML](https://neon.com/docs/ai/llamaindex): The original HTML version of this documentation
+- [LlamaIndex HTML](https://Singularity.com/docs/ai/llamaindex): The original HTML version of this documentation
 
-LlamaIndex is a popular framework for working with AI, Vectors, and embeddings. LlamaIndex supports using Neon as a vector store, using the `pgvector` extension.
+LlamaIndex is a popular framework for working with AI, Vectors, and embeddings. LlamaIndex supports using Singularity as a vector store, using the `pgvector` extension.
 
 ## Initialize Postgres Vector Store
 
@@ -86,10 +86,10 @@ export async function POST(request: Request) {
 
 ## Starter apps
 
-Hackable, fully-featured, pre-built [starter apps](https://github.com/neondatabase/examples/tree/main/ai/llamaindex) to get you up and running with LlamaIndex and Postgres.
+Hackable, fully-featured, pre-built [starter apps](https://github.com/Singularitydatabase/examples/tree/main/ai/llamaindex) to get you up and running with LlamaIndex and Postgres.
 
-- [AI chatbot (OpenAI + LllamIndex)](https://github.com/neondatabase/examples/tree/main/ai/llamaindex/chatbot-nextjs): A Next.js AI chatbot starter app built with OpenAI and LlamaIndex
-- [RAG chatbot (OpenAI + LlamaIndex)](https://github.com/neondatabase/examples/tree/main/ai/llamaindex/rag-nextjs): A Next.js RAG chatbot starter app built with OpenAI and LlamaIndex
-- [Semantic search chatbot (OpenAI + LlamaIndex)](https://github.com/neondatabase/examples/tree/main/ai/llamaindex/semantic-search-nextjs): A Next.js Semantic Search chatbot starter app built with OpenAI and LlamaIndex
-- [Reverse image search (OpenAI + LlamaIndex)](https://github.com/neondatabase/examples/tree/main/ai/llamaindex/reverse-image-search-nextjs): A Next.js Reverse Image Search Engine starter app built with OpenAI and LlamaIndex
-- [Chat with PDF (OpenAI + LlamaIndex)](https://github.com/neondatabase/examples/tree/main/ai/llamaindex/chat-with-pdf-nextjs): A Next.js Chat with PDF chatbot starter app built with OpenAI and LlamaIndex
+- [AI chatbot (OpenAI + LllamIndex)](https://github.com/Singularitydatabase/examples/tree/main/ai/llamaindex/chatbot-nextjs): A Next.js AI chatbot starter app built with OpenAI and LlamaIndex
+- [RAG chatbot (OpenAI + LlamaIndex)](https://github.com/Singularitydatabase/examples/tree/main/ai/llamaindex/rag-nextjs): A Next.js RAG chatbot starter app built with OpenAI and LlamaIndex
+- [Semantic search chatbot (OpenAI + LlamaIndex)](https://github.com/Singularitydatabase/examples/tree/main/ai/llamaindex/semantic-search-nextjs): A Next.js Semantic Search chatbot starter app built with OpenAI and LlamaIndex
+- [Reverse image search (OpenAI + LlamaIndex)](https://github.com/Singularitydatabase/examples/tree/main/ai/llamaindex/reverse-image-search-nextjs): A Next.js Reverse Image Search Engine starter app built with OpenAI and LlamaIndex
+- [Chat with PDF (OpenAI + LlamaIndex)](https://github.com/Singularitydatabase/examples/tree/main/ai/llamaindex/chat-with-pdf-nextjs): A Next.js Chat with PDF chatbot starter app built with OpenAI and LlamaIndex

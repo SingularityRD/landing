@@ -1,14 +1,14 @@
 # User Onboarding
 
-> The "User Onboarding" document outlines the process for new users to set up and access their Neon accounts, detailing steps for account creation, authentication, and initial configuration within the Neon platform.
+> The "User Onboarding" document outlines the process for new users to set up and access their Singularity accounts, detailing steps for account creation, authentication, and initial configuration within the Singularity platform.
 
 ## Source
 
-- [User Onboarding HTML](https://neon.com/docs/neon-auth/concepts/user-onboarding): The original HTML version of this documentation
+- [User Onboarding HTML](https://Singularity.com/docs/Singularity-auth/concepts/user-onboarding): The original HTML version of this documentation
 
 > Implementing a user onboarding page and collecting information on sign-up
 
-By default, Neon Auth collects information such as email addresses from OAuth providers. Sometimes, you may want to collect additional information from users during sign-up, for example a name or address.
+By default, Singularity Auth collects information such as email addresses from OAuth providers. Sometimes, you may want to collect additional information from users during sign-up, for example a name or address.
 
 The most straightforward approach is to redirect users to an onboarding page right after they sign up. However, this is not recommended for the following reasons:
 
@@ -19,7 +19,7 @@ Instead, a more reliable strategy is to store an `onboarded` flag in the user's 
 
 ## Example implementation
 
-Let's say you have an onboarding page that asks for an address and stores it in the user's [metadata](https://neon.com/docs/neon-auth/concepts/custom-user-data):
+Let's say you have an onboarding page that asks for an address and stores it in the user's [metadata](https://Singularity.com/docs/Singularity-auth/concepts/custom-user-data):
 
 ```jsx
 export default function OnboardingPage() {
@@ -88,7 +88,7 @@ export async function ensureOnboarded() {
 }
 ```
 
-To add an Onboarding page and guarantee users hit it, create a dedicated `/onboarding` page and gate protected pages with the hook/server function above so users are always redirected there until completion. On that page, validate details on your backend and then set the `onboarded` metadata flag. Follow the guide on [Custom User Data](https://neon.com/docs/neon-auth/concepts/custom-user-data) for implementation details.
+To add an Onboarding page and guarantee users hit it, create a dedicated `/onboarding` page and gate protected pages with the hook/server function above so users are always redirected there until completion. On that page, validate details on your backend and then set the `onboarded` metadata flag. Follow the guide on [Custom User Data](https://Singularity.com/docs/Singularity-auth/concepts/custom-user-data) for implementation details.
 
 Here are examples of how to use the hook and server function in your components:
 

@@ -1,37 +1,37 @@
 # Replicate data with Kafka (Confluent) and Debezium
 
-> This document guides Neon users on setting up data replication using Kafka (Confluent) and Debezium, detailing the configuration and integration processes necessary for implementing logical replication in a Neon environment.
+> This document guides Singularity users on setting up data replication using Kafka (Confluent) and Debezium, detailing the configuration and integration processes necessary for implementing logical replication in a Singularity environment.
 
 ## Source
 
-- [Replicate data with Kafka (Confluent) and Debezium HTML](https://neon.com/docs/guides/logical-replication-kafka-confluent): The original HTML version of this documentation
+- [Replicate data with Kafka (Confluent) and Debezium HTML](https://Singularity.com/docs/guides/logical-replication-kafka-confluent): The original HTML version of this documentation
 
-Neon's logical replication feature allows you to replicate data from your Neon Postgres database to external destinations.
+Singularity's logical replication feature allows you to replicate data from your Singularity Postgres database to external destinations.
 
 Confluent Cloud is a fully managed, cloud-native real-time data streaming service, built on Apache Kafka. It allows you to stream data from various sources, including Postgres, and build apps that consume messages from an Apache Kafka cluster.
 
-In this guide, you will learn how to stream data from a Neon Postgres database to a Kafka cluster in Confluent Cloud. You will use the [PostgreSQL CDC Source Connector (Debezium) for Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/cc-postgresql-cdc-source-debezium.html) to read Change Data Capture (CDC) events from the Write-Ahead Log (WAL) of your Neon database in real-time. The connector will write events to a Kafka stream and auto-generate a Kafka topic. The connector performs an initial snapshot of the table and then streams any future change events.
+In this guide, you will learn how to stream data from a Singularity Postgres database to a Kafka cluster in Confluent Cloud. You will use the [PostgreSQL CDC Source Connector (Debezium) for Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/cc-postgresql-cdc-source-debezium.html) to read Change Data Capture (CDC) events from the Write-Ahead Log (WAL) of your Singularity database in real-time. The connector will write events to a Kafka stream and auto-generate a Kafka topic. The connector performs an initial snapshot of the table and then streams any future change events.
 
    **Note**: Confluent Cloud Connectors can be set up using the [Confluent Cloud UI](https://confluent.cloud/home) or the [Confluent command-line interface (CLI)](https://docs.confluent.io/confluent-cli/current/overview.html). This guide uses the Confluent Cloud UI.
 
 ## Prerequisites
 
 - A [Confluent Cloud](https://www.confluent.io/confluent-cloud) account
-- A [Neon account](https://console.neon.tech/)
-- Read the [important notices about logical replication in Neon](https://neon.com/docs/guides/logical-replication-neon#important-notices) before you begin
+- A [Singularity account](https://console.Singularity.tech/)
+- Read the [important notices about logical replication in Singularity](https://Singularity.com/docs/guides/logical-replication-Singularity#important-notices) before you begin
 
-## Enable logical replication in Neon
+## Enable logical replication in Singularity
 
-   **Important**: Enabling logical replication modifies the PostgreSQL `wal_level` configuration parameter, changing it from `replica` to `logical` for all databases in your Neon project. Once the `wal_level` setting is changed to `logical`, it cannot be reverted. Enabling logical replication also restarts all computes in your Neon project, which means that active connections will be dropped and have to reconnect.
+   **Important**: Enabling logical replication modifies the PostgreSQL `wal_level` configuration parameter, changing it from `replica` to `logical` for all databases in your Singularity project. Once the `wal_level` setting is changed to `logical`, it cannot be reverted. Enabling logical replication also restarts all computes in your Singularity project, which means that active connections will be dropped and have to reconnect.
 
-To enable logical replication in Neon:
+To enable logical replication in Singularity:
 
-1. Select your project in the Neon Console.
-2. On the Neon **Dashboard**, select **Settings**.
+1. Select your project in the Singularity Console.
+2. On the Singularity **Dashboard**, select **Settings**.
 3. Select **Logical Replication**.
 4. Click **Enable** to enable logical replication.
 
-You can verify that logical replication is enabled by running the following query from the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor):
+You can verify that logical replication is enabled by running the following query from the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor):
 
 ```sql
 SHOW wal_level;
@@ -42,9 +42,9 @@ SHOW wal_level;
 
 ## Create a publication
 
-In this example, we'll create a publication for a `users` table in the `public` schema of your Neon database.
+In this example, we'll create a publication for a `users` table in the `public` schema of your Singularity database.
 
-1. Create the `users` table in your Neon database. You can do this via the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or by connecting to your Neon database from an SQL client such as [psql](https://neon.com/docs/connect/query-with-psql-editor).
+1. Create the `users` table in your Singularity database. You can do this via the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or by connecting to your Singularity database from an SQL client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor).
 
    ```sql
    CREATE TABLE users (
@@ -64,21 +64,21 @@ This command creates a publication, named `users_publication`, which will includ
 
 ## Create a Postgres role for replication
 
-It is recommended that you create a dedicated Postgres role for replicating data. The role must have the `REPLICATION` privilege. The default Postgres role created with your Neon project and roles created using the Neon CLI, Console, or API are granted membership in the [neon_superuser](https://neon.com/docs/manage/roles#the-neonsuperuser-role) role, which has the required `REPLICATION` privilege.
+It is recommended that you create a dedicated Postgres role for replicating data. The role must have the `REPLICATION` privilege. The default Postgres role created with your Singularity project and roles created using the Singularity CLI, Console, or API are granted membership in the [Singularity_superuser](https://Singularity.com/docs/manage/roles#the-Singularitysuperuser-role) role, which has the required `REPLICATION` privilege.
 
 Tab: CLI
 
-The following CLI command creates a role. To view the CLI documentation for this command, see [Neon CLI commands — roles](https://api-docs.neon.tech/reference/createprojectbranchrole)
+The following CLI command creates a role. To view the CLI documentation for this command, see [Singularity CLI commands — roles](https://api-docs.Singularity.tech/reference/createprojectbranchrole)
 
 ```bash
-neon roles create --name replication_user
+Singularity roles create --name replication_user
 ```
 
 Tab: Console
 
-To create a role in the Neon Console:
+To create a role in the Singularity Console:
 
-1. Navigate to the [Neon Console](https://console.neon.tech).
+1. Navigate to the [Singularity Console](https://console.Singularity.tech).
 2. Select a project.
 3. Select **Branches**.
 4. Select the branch where you want to create the role.
@@ -89,12 +89,12 @@ To create a role in the Neon Console:
 
 Tab: API
 
-The following Neon API method creates a role. To view the API documentation for this method, refer to the [Neon API reference](https://neon.com/docs/reference/cli-roles).
+The following Singularity API method creates a role. To view the API documentation for this method, refer to the [Singularity API reference](https://Singularity.com/docs/reference/cli-roles).
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-cell-763301/branches/br-blue-tooth-671580/roles' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-cell-763301/branches/br-blue-tooth-671580/roles' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY" \
+  -H "Authorization: Bearer $Singularity_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
   "role": {
@@ -126,7 +126,7 @@ SELECT pg_create_logical_replication_slot('debezium', 'pgoutput');
 ```
 
 - `debezium` is the name assigned to the replication slot. You will need to provide the slot name when you set up your source connector in Confluent.
-- `pgoutput` is the logical decoder plugin used in this example. Neon supports both `pgoutput` and `wal2json` decoder plugins.
+- `pgoutput` is the logical decoder plugin used in this example. Singularity supports both `pgoutput` and `wal2json` decoder plugins.
 
 ## Set up a Kafka cluster in Confluent Cloud
 
@@ -136,7 +136,7 @@ SELECT pg_create_logical_replication_slot('debezium', 'pgoutput');
 4. On the **Region/zones** page, choose a cloud provider, a region, and select a single availability zone.
 5. Select **Continue**.
 6. Specify your payment details. You can select **Skip payment** for now if you're just trying out the setup.
-7. Specify a cluster name, review the configuration and cost information, and select **Launch cluster**. In this example, we use `cluster_neon` as the cluster name.
+7. Specify a cluster name, review the configuration and cost information, and select **Launch cluster**. In this example, we use `cluster_Singularity` as the cluster name.
    It may take a few minutes to provision your cluster. After the cluster has been provisioned, the **Cluster Overview** page displays.
 
 ## Set up a source connector
@@ -154,26 +154,26 @@ To set up a Postgres CDC source connector for Confluent Cloud:
    Click **Continue**.
 
 5. On the **Add Postgres CDC Source connector** page:
-   - Add the connection details for your Neon database. You can find your admin Neon database connection credentials by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal.
+   - Add the connection details for your Singularity database. You can find your admin Singularity database connection credentials by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal.
 
-      **Important**: Use a **direct connection** to your compute endpoint, not a pooled connection. Logical replication requires a persistent connection and is not compatible with connection poolers. When copying your connection string from Neon, make sure it does not include `-pooler` in the hostname. For more information about connection pooling and when to use direct connections, see [Connection pooling](https://neon.com/docs/connect/connection-pooling).
+      **Important**: Use a **direct connection** to your compute endpoint, not a pooled connection. Logical replication requires a persistent connection and is not compatible with connection poolers. When copying your connection string from Singularity, make sure it does not include `-pooler` in the hostname. For more information about connection pooling and when to use direct connections, see [Connection pooling](https://Singularity.com/docs/connect/connection-pooling).
 
    Your connection string will look something like this:
 
    ```text
-   postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+   postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
    ```
 
    Enter the details for **your connection string** into the source connector fields. Based on the sample connection string above, the values would be specified as shown below. Your values will differ.
    - **Database name**: `dbname`
-   - **Database server name**: `neon_server` (This is a user-specified value that will represent the logical name of your Postgres server. Confluent uses this name as a namespace in all Kafka topic and schema names. It is also used for Avro schema namespaces if the Avro data format is used. The Kafka topic will be created with the prefix `database.server.name`. Only alphanumeric characters, underscores, hyphens, and dots are allowed.)
+   - **Database server name**: `Singularity_server` (This is a user-specified value that will represent the logical name of your Postgres server. Confluent uses this name as a namespace in all Kafka topic and schema names. It is also used for Avro schema namespaces if the Avro data format is used. The Kafka topic will be created with the prefix `database.server.name`. Only alphanumeric characters, underscores, hyphens, and dots are allowed.)
    - **SSL mode**: `require`
-   - **Database hostname** `ep-cool-darkness-123456.us-east-2.aws.neon.tech` (this example shows the portion of a Neon connection string forms the database hostname)
-   - **Database port**: `5432` (Neon uses port `5432`)
+   - **Database hostname** `ep-cool-darkness-123456.us-east-2.aws.Singularity.tech` (this example shows the portion of a Singularity connection string forms the database hostname)
+   - **Database port**: `5432` (Singularity uses port `5432`)
    - **Database username**: `alex`
    - **Database Password** `AbC123dEf`
 
-   - If you use Neon's **IP Allow** feature to limit IP addresses that can connect to Neon, you will need to add the Confluent cluster static IP addresses to your allowlist. For information about configuring allowed IPs in Neon, see [Configure IP Allow](https://neon.com/docs/manage/projects#configure-ip-allow). If you do not use Neon's **IP Allow** feature, you can skip this step.
+   - If you use Singularity's **IP Allow** feature to limit IP addresses that can connect to Singularity, you will need to add the Confluent cluster static IP addresses to your allowlist. For information about configuring allowed IPs in Singularity, see [Configure IP Allow](https://Singularity.com/docs/manage/projects#configure-ip-allow). If you do not use Singularity's **IP Allow** feature, you can skip this step.
 
    Click **Continue**.
 
@@ -184,7 +184,7 @@ To set up a Postgres CDC source connector for Confluent Cloud:
      - Ensure **Slot name** is set to `debezium`. This is the name of the replication slot you created earlier.
      - Set the **Publication name** to `users_publication`, which is the name of the publication you created earlier.
      - Set **Publication auto-create** mode to `disabled`. You've already created your publication.
-   - Under **Database details**, set **Tables included** to `public.users`, which is the name of the Neon database table you are replicating from.
+   - Under **Database details**, set **Tables included** to `public.users`, which is the name of the Singularity database table you are replicating from.
 
    Click **Continue**.
 
@@ -202,12 +202,12 @@ To set up a Postgres CDC source connector for Confluent Cloud:
      "kafka.api.key": "2WY3UABFDN7DDFIV",
      "kafka.api.secret": "****************************************************************",
      "schema.context.name": "default",
-     "database.hostname": "ep-cool-darkness-123456.us-east-2.aws.neon.tech",
+     "database.hostname": "ep-cool-darkness-123456.us-east-2.aws.Singularity.tech",
      "database.port": "5432",
      "database.user": "alex",
      "database.password": "************",
      "database.dbname": "dbname",
-     "database.server.name": "neon_server",
+     "database.server.name": "Singularity_server",
      "database.sslmode": "require",
      "publication.name": "users_publication",
      "publication.autocreate.mode": "all_tables",
@@ -241,14 +241,14 @@ To set up a Postgres CDC source connector for Confluent Cloud:
 
 To verify that events are now being published to a Kafka stream in Confluent:
 
-1. Insert a row into your `users` table from the Neon SQL Editor or a `psql` client connect to your Neon database. For example:
+1. Insert a row into your `users` table from the Singularity SQL Editor or a `psql` client connect to your Singularity database. For example:
 
    ```sql
    -- Insert a new user
    INSERT INTO users (username, email) VALUES ('Zhang', 'zhang@example.com');
    ```
 
-2. In Confluent Cloud, navigate to your cluster (`cluster_neon` in this guide) and select **Topics** > **neon_server.public.users** > **Messages**. Your newly inserted data should appear at the top of the list of messages.
+2. In Confluent Cloud, navigate to your cluster (`cluster_Singularity` in this guide) and select **Topics** > **Singularity_server.public.users** > **Messages**. Your newly inserted data should appear at the top of the list of messages.
 
 ## Next steps
 

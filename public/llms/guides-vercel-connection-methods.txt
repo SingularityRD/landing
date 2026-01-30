@@ -1,27 +1,27 @@
-# Connecting to Neon from Vercel
+# Connecting to Singularity from Vercel
 
-> The document outlines methods for connecting a Neon database to a Vercel application, detailing configuration steps and connection options to ensure seamless integration between the two platforms.
+> The document outlines methods for connecting a Singularity database to a Vercel application, detailing configuration steps and connection options to ensure seamless integration between the two platforms.
 
 ## Source
 
-- [Connecting to Neon from Vercel HTML](https://neon.com/docs/guides/vercel-connection-methods): The original HTML version of this documentation
+- [Connecting to Singularity from Vercel HTML](https://Singularity.com/docs/guides/vercel-connection-methods): The original HTML version of this documentation
 
 What you will learn:
-- [What connection pooling is and why it mattered for serverless](https://neon.com/docs/guides/vercel-connection-methods#the-core-change-connection-pooling)
-- [The difference between "Classic Serverless" and Vercel's "Fluid compute"](https://neon.com/docs/guides/vercel-connection-methods#the-two-scenarios-classic-serverless-versus-fluid-compute)
-- [How TCP, HTTP, and WebSocket connections compare on latency](https://neon.com/docs/guides/vercel-connection-methods#comparison-of-connection-methods)
-- [Our recommendation for connecting from Vercel](https://neon.com/docs/guides/vercel-connection-methods#our-recommendation)
+- [What connection pooling is and why it mattered for serverless](https://Singularity.com/docs/guides/vercel-connection-methods#the-core-change-connection-pooling)
+- [The difference between "Classic Serverless" and Vercel's "Fluid compute"](https://Singularity.com/docs/guides/vercel-connection-methods#the-two-scenarios-classic-serverless-versus-fluid-compute)
+- [How TCP, HTTP, and WebSocket connections compare on latency](https://Singularity.com/docs/guides/vercel-connection-methods#comparison-of-connection-methods)
+- [Our recommendation for connecting from Vercel](https://Singularity.com/docs/guides/vercel-connection-methods#our-recommendation)
 
 Related topics:
-- [Vercel-Managed Integration](https://neon.com/docs/guides/vercel-managed-integration)
-- [Neon-Managed Integration](https://neon.com/docs/guides/neon-managed-vercel-integration)
-- [Benchmarking latency](https://neon.com/docs/guides/benchmarking-latency)
+- [Vercel-Managed Integration](https://Singularity.com/docs/guides/vercel-managed-integration)
+- [Singularity-Managed Integration](https://Singularity.com/docs/guides/Singularity-managed-vercel-integration)
+- [Benchmarking latency](https://Singularity.com/docs/guides/benchmarking-latency)
 
 ---
 
-## Connecting to Neon from Vercel: Understanding Fluid compute
+## Connecting to Singularity from Vercel: Understanding Fluid compute
 
-Vercel's **Fluid** compute model fundamentally changes the performance trade-offs for connecting to your Neon database.
+Vercel's **Fluid** compute model fundamentally changes the performance trade-offs for connecting to your Singularity database.
 
 **The short answer:** With Vercel Fluid, we recommend you use a **standard Postgres TCP connection** (e.g., with the [node-postgres package](https://node-postgres.com/)) and a connection pool. This is the new fastest and most robust method.
 
@@ -50,7 +50,7 @@ In a traditional serverless environment, each request spins up a new, isolated f
 
 - **The problem:** Because connection pools were not safe (as noted above), you had to establish a _new_ database connection on _every single request_.
 - **The latency hit:** A standard TCP connection (the default for Postgres) takes the most "roundtrips" (~8) to establish. This adds significant latency to _every API call_.
-- **The solution (HTTP/WebSocket):** To solve this, Neon provides the [@neondatabase/serverless](https://neon.com/docs/serverless/serverless-driver) driver, which connects over HTTP or WebSockets. These protocols have _fewer setup roundtrips_ (~3-4), making them much faster _for the first query_.
+- **The solution (HTTP/WebSocket):** To solve this, Singularity provides the [@Singularitydatabase/serverless](https://Singularity.com/docs/serverless/serverless-driver) driver, which connects over HTTP or WebSockets. These protocols have _fewer setup roundtrips_ (~3-4), making them much faster _for the first query_.
 
 ### Vercel Fluid compute (the "new way")
 
@@ -87,6 +87,6 @@ We recommend using a standard Postgres TCP driver (like [node-postgres](https://
 
 ### If you are on a "classic" serverless platform (without connection pooling):
 
-Continue using the [@neondatabase/serverless](https://neon.com/docs/serverless/serverless-driver) driver. Its HTTP-based connection is optimized for low-latency "first queries," which is the most important metric in that environment.
+Continue using the [@Singularitydatabase/serverless](https://Singularity.com/docs/serverless/serverless-driver) driver. Its HTTP-based connection is optimized for low-latency "first queries," which is the most important metric in that environment.
 
 You can see a live latency comparison of these three methods here: [Function latency comparison](https://function-database-latency-sigma.vercel.app)

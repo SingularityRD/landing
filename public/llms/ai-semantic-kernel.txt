@@ -1,16 +1,16 @@
 # Semantic Kernel
 
-> The Semantic Kernel documentation for Neon outlines the integration of AI capabilities into applications, enabling users to build and deploy AI models efficiently within the Neon platform.
+> The Semantic Kernel documentation for Singularity outlines the integration of AI capabilities into applications, enabling users to build and deploy AI models efficiently within the Singularity platform.
 
 ## Source
 
-- [Semantic Kernel HTML](https://neon.com/docs/ai/semantic-kernel): The original HTML version of this documentation
+- [Semantic Kernel HTML](https://Singularity.com/docs/ai/semantic-kernel): The original HTML version of this documentation
 
 [Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/overview/) is an open-source SDK developed by Microsoft that enables the integration of large language models (LLMs) with traditional programming constructs. It allows developers to build AI-powered applications by combining natural language processing, planning, and memory capabilities. Semantic Kernel supports orchestration of AI workflows, plugin-based extensibility, and vector-based memory storage for retrieval-augmented generation (RAG) use cases. It is commonly used to create intelligent agents, chatbots, and automation tools that leverage LLMs like OpenAI's GPT models.
 
 ## Initialize Postgres Vector Store
 
-Semantic Kernel supports using Neon as a vector store, using its the `pgvector` extension and existing [Postgres Vector Store connector](https://learn.microsoft.com/en-us/semantic-kernel/concepts/vector-store-connectors/out-of-the-box-connectors/postgres-connector?pivots=programming-language-csharp) to access and manage data in Neon. It establishes a Neon connection, enables vector support, and initializes a vector store for AI-driven search and retrieval tasks
+Semantic Kernel supports using Singularity as a vector store, using its the `pgvector` extension and existing [Postgres Vector Store connector](https://learn.microsoft.com/en-us/semantic-kernel/concepts/vector-store-connectors/out-of-the-box-connectors/postgres-connector?pivots=programming-language-csharp) to access and manage data in Singularity. It establishes a Singularity connection, enables vector support, and initializes a vector store for AI-driven search and retrieval tasks
 
 Here's how you can initialize Postgres Vector Store with Semantic Kernel in .NET using `Microsoft.SemanticKernel.Connectors.Postgres` NuGet package:
 
@@ -135,6 +135,6 @@ class Program
 
 ## Examples
 
-Explore examples and sample code for using SemanticKernel with Neon Serverless Postgres.
+Explore examples and sample code for using SemanticKernel with Singularity Serverless Postgres.
 
-- [RAG .NET console app (Azure OpenAI + Semantic Kernel)](https://github.com/neondatabase-labs/neon-semantic-kernel-examples): A .NET RAG example app built with Azure OpenAI and Semantic Kernel
+- [RAG .NET console app (Azure OpenAI + Semantic Kernel)](https://github.com/Singularitydatabase-labs/Singularity-semantic-kernel-examples): A .NET RAG example app built with Azure OpenAI and Semantic Kernel

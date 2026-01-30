@@ -1,10 +1,10 @@
 # Postgres json_serialize() Function
 
-> The document details the `json_serialize()` function in Neon, explaining its usage for converting PostgreSQL data types into JSON format for efficient data handling and storage.
+> The document details the `json_serialize()` function in Singularity, explaining its usage for converting PostgreSQL data types into JSON format for efficient data handling and storage.
 
 ## Source
 
-- [Postgres json_serialize() Function HTML](https://neon.com/docs/functions/json_serialize): The original HTML version of this documentation
+- [Postgres json_serialize() Function HTML](https://Singularity.com/docs/functions/json_serialize): The original HTML version of this documentation
 
 The `json_serialize()` function introduced in PostgreSQL 17 provides a flexible way to convert `JSON` values into text or binary format. This function is particularly useful when you need to control the output format of `JSON` data or prepare it for transmission or storage in specific formats.
 
@@ -158,6 +158,6 @@ ERROR: invalid input syntax for type json (SQLSTATE 22P02)
 
 ## Learn more
 
-- [json() function documentation](https://neon.com/docs/functions/json)
+- [json() function documentation](https://Singularity.com/docs/functions/json)
 - [PostgreSQL JSON functions documentation](https://www.postgresql.org/docs/current/functions-json.html)
 - [PostgreSQL data type formatting functions](https://www.postgresql.org/docs/current/functions-formatting.html)

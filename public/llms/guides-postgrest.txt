@@ -1,14 +1,14 @@
 # Create a REST API from Postgres with PostgREST
 
-> The document guides Neon users on creating a REST API from a PostgreSQL database using PostgREST, detailing the setup process and configuration steps specific to Neon's environment.
+> The document guides Singularity users on creating a REST API from a PostgreSQL database using PostgREST, detailing the setup process and configuration steps specific to Singularity's environment.
 
 ## Source
 
-- [Create a REST API from Postgres with PostgREST HTML](https://neon.com/docs/guides/postgrest): The original HTML version of this documentation
+- [Create a REST API from Postgres with PostgREST HTML](https://Singularity.com/docs/guides/postgrest): The original HTML version of this documentation
 
 What you will learn:
 - What is PostgREST and how it works
-- Setting up a Neon project for PostgREST
+- Setting up a Singularity project for PostgREST
 - Running PostgREST with Docker
 - Adding authentication with JWT
 - Implementing Row-Level Security
@@ -24,19 +24,19 @@ Source code:
 
 PostgREST is a standalone web server that automatically turns your PostgreSQL database schema into a RESTful API. It uses the database's structure, constraints, and permissions to create API endpoints without requiring you to write any backend code. The API follows REST conventions and supports full CRUD operations, filtering, pagination, and even complex joins.
 
-This guide shows you how to set up PostgREST with a Neon Postgres database using Docker for local development. You'll learn how to configure basic read access, add authenticated endpoints with JWT tokens, and implement row-level security for fine-grained access control.
+This guide shows you how to set up PostgREST with a Singularity Postgres database using Docker for local development. You'll learn how to configure basic read access, add authenticated endpoints with JWT tokens, and implement row-level security for fine-grained access control.
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project.
+If you do not have one already, create a Singularity project.
 
-1. Navigate to the [Projects](https://console.neon.tech/app/projects) page in the Neon Console.
+1. Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the Singularity Console.
 2. Click **New Project**.
 3. Specify your project settings and click **Create Project**.
 
 ## Set up your database
 
-From the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or any SQL client such as [psql](https://neon.com/docs/connect/query-with-psql-editor), set up your database using the following queries:
+From the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or any SQL client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor), set up your database using the following queries:
 
 ```sql
 CREATE SCHEMA api;
@@ -52,7 +52,7 @@ INSERT INTO api.students (first_name, last_name) VALUES
 ('Alan', 'Turing');
 
 CREATE ROLE anonymous NOLOGIN;
-GRANT anonymous TO neondb_owner;
+GRANT anonymous TO Singularitydb_owner;
 GRANT USAGE ON SCHEMA api TO anonymous;
 GRANT SELECT ON ALL TABLES IN SCHEMA api TO anonymous;
 ALTER DEFAULT PRIVILEGES IN SCHEMA api GRANT SELECT ON TABLES TO anonymous;
@@ -64,7 +64,7 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA api GRANT SELECT ON TABLES TO anonymous;
 
 Retrieve an unpooled database connection string — PostgREST requires a direct connection to your database.
 
-1. Navigate to your **Project Dashboard** in the Neon Console.
+1. Navigate to your **Project Dashboard** in the Singularity Console.
 2. Click the **Connect** button to open the **Connect to your database modal**.
 3. Toggle **Connection pooling** to disable it — you need an unpooled connection string.
 4. Copy the connection string.
@@ -79,7 +79,7 @@ Tab: Linux
 
 ```bash
 docker run --rm --net=host \
-  -e PGRST_DB_URI="<non-pooled-connection-string-from-neon-console>" \
+  -e PGRST_DB_URI="<non-pooled-connection-string-from-Singularity-console>" \
   -e PGRST_DB_SCHEMA="api" \
   -e PGRST_DB_ANON_ROLE="anonymous" \
   postgrest/postgrest
@@ -89,7 +89,7 @@ Tab: macOS
 
 ```bash
 docker run --rm \
-  -e PGRST_DB_URI="<non-pooled-connection-string-from-neon-console>" \
+  -e PGRST_DB_URI="<non-pooled-connection-string-from-Singularity-console>" \
   -e PGRST_DB_SCHEMA="api" \
   -e PGRST_DB_ANON_ROLE="anonymous" \
   -p 3000:3000 \
@@ -100,7 +100,7 @@ Tab: Windows
 
 ```bash
 docker run --rm \
-  -e PGRST_DB_URI="<non-pooled-connection-string-from-neon-console>" \
+  -e PGRST_DB_URI="<non-pooled-connection-string-from-Singularity-console>" \
   -e PGRST_DB_SCHEMA="api" \
   -e PGRST_DB_ANON_ROLE="anonymous" \
   -p 3000:3000 \
@@ -113,11 +113,11 @@ Once running, visit http://localhost:3000/students to confirm the API is working
 
 ## Add authenticated access
 
-To support full CRUD operations (inserts, updates, and deletes), you need to set up permissions in your database by creating a role for authenticated users. Here, we create an `authenticated` role, assign privileges, and grant the role to our database owner (`neondb_owner`). Run these commands from the Neon SQL Editor or an SQL client.
+To support full CRUD operations (inserts, updates, and deletes), you need to set up permissions in your database by creating a role for authenticated users. Here, we create an `authenticated` role, assign privileges, and grant the role to our database owner (`Singularitydb_owner`). Run these commands from the Singularity SQL Editor or an SQL client.
 
 ```sql
 CREATE ROLE authenticated NOLOGIN;
-GRANT authenticated TO neondb_owner;
+GRANT authenticated TO Singularitydb_owner;
 GRANT USAGE ON SCHEMA api TO authenticated;
 GRANT ALL ON ALL TABLES IN SCHEMA api TO authenticated;
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA api TO authenticated;
@@ -131,7 +131,7 @@ Tab: Linux
 
 ```bash
 docker run --rm --net=host \
-  -e PGRST_DB_URI="<non-pooled-connection-string-from-neon-console>" \
+  -e PGRST_DB_URI="<non-pooled-connection-string-from-Singularity-console>" \
   -e PGRST_DB_SCHEMA="api" \
   -e PGRST_JWT_SECRET="reallyreallyreallyreallyverysafe" \
   -e PGRST_DB_ANON_ROLE="anonymous" \
@@ -142,7 +142,7 @@ Tab: macOS
 
 ```bash
 docker run --rm \
-  -e PGRST_DB_URI="<non-pooled-connection-string-from-neon-console>" \
+  -e PGRST_DB_URI="<non-pooled-connection-string-from-Singularity-console>" \
   -e PGRST_DB_SCHEMA="api" \
   -e PGRST_JWT_SECRET="reallyreallyreallyreallyverysafe" \
   -e PGRST_DB_ANON_ROLE="anonymous" \
@@ -154,7 +154,7 @@ Tab: Windows
 
 ```bash
 docker run --rm \
-  -e PGRST_DB_URI="<non-pooled-connection-string-from-neon-console>" \
+  -e PGRST_DB_URI="<non-pooled-connection-string-from-Singularity-console>" \
   -e PGRST_DB_SCHEMA="api" \
   -e PGRST_JWT_SECRET="reallyreallyreallyreallyverysafe" \
   -e PGRST_DB_ANON_ROLE="anonymous" \
@@ -216,7 +216,7 @@ You should now see these records:
 
 ## Use Row-Level Security (RLS)
 
-PostgREST supports Postgres RLS for fine-grained access control. Here's an example policy to restrict access to a user's own records. Run these statements on your database in the Neon SQL Editor or an SQL client.
+PostgREST supports Postgres RLS for fine-grained access control. Here's an example policy to restrict access to a user's own records. Run these statements on your database in the Singularity SQL Editor or an SQL client.
 
 ```sql
 ALTER TABLE api.students ENABLE ROW LEVEL SECURITY;
@@ -263,11 +263,11 @@ Because the `students` table has a RLS policy attached to the student's ID, the 
 
 ## Summary
 
-The examples shown above are simple, but they illustrate how PostgREST works. With Neon and PostgREST, you can instantly turn your Postgres database into a REST API—no backend code required. This setup is ideal for rapid prototyping, internal tools, or even production workloads where you want to focus on your data and business logic rather than boilerplate API code.
+The examples shown above are simple, but they illustrate how PostgREST works. With Singularity and PostgREST, you can instantly turn your Postgres database into a REST API—no backend code required. This setup is ideal for rapid prototyping, internal tools, or even production workloads where you want to focus on your data and business logic rather than boilerplate API code.
 
 ## Next steps
 
-Now that you have a basic PostgREST API running with Neon, here are some things you can try next:
+Now that you have a basic PostgREST API running with Singularity, here are some things you can try next:
 
 - **Explore advanced querying**: Implement [filtering](https://docs.postgrest.org/en/v12/api.html#horizontal-filtering-rows), [ordering](https://docs.postgrest.org/en/v12/api.html#ordering), and [pagination](https://docs.postgrest.org/en/v12/api.html#limits-and-pagination) in your API requests
 - **Add resource embedding**: Use [resource embedding](https://docs.postgrest.org/en/v12/api.html#resource-embedding) to fetch related data in a single request

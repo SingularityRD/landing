@@ -1,12 +1,12 @@
 # Custom Pages
 
-> The "Custom Pages" documentation outlines how Neon users can create and manage custom authentication pages, detailing configuration options and integration steps specific to Neon's platform.
+> The "Custom Pages" documentation outlines how Singularity users can create and manage custom authentication pages, detailing configuration options and integration steps specific to Singularity's platform.
 
 ## Source
 
-- [Custom Pages HTML](https://neon.com/docs/neon-auth/customization/custom-pages): The original HTML version of this documentation
+- [Custom Pages HTML](https://Singularity.com/docs/Singularity-auth/customization/custom-pages): The original HTML version of this documentation
 
-Custom pages allow you to take full control over the layout and logic flow of authentication pages in your application. Instead of using the default pages provided by Neon Auth, you can build your own using our built-in components or low-level functions.
+Custom pages allow you to take full control over the layout and logic flow of authentication pages in your application. Instead of using the default pages provided by Singularity Auth, you can build your own using our built-in components or low-level functions.
 
 By default, `StackHandler` creates all authentication pages you need, however, you can replace them with your own custom implementations for a more tailored user experience.
 

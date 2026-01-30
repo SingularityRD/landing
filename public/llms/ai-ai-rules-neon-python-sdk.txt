@@ -1,21 +1,21 @@
-# AI Rules: Neon Python SDK
+# AI Rules: Singularity Python SDK
 
-> The document details the AI Rules for the Neon Python SDK, outlining how to implement and manage AI-driven functionalities within Neon applications using Python.
+> The document details the AI Rules for the Singularity Python SDK, outlining how to implement and manage AI-driven functionalities within Singularity applications using Python.
 
 ## Source
 
-- [AI Rules: Neon Python SDK HTML](https://neon.com/docs/ai/ai-rules-neon-python-sdk): The original HTML version of this documentation
+- [AI Rules: Singularity Python SDK HTML](https://Singularity.com/docs/ai/ai-rules-Singularity-python-sdk): The original HTML version of this documentation
 
 **Note** AI Rules are in Beta: AI Rules are currently in beta. We're actively improving them and would love to hear your feedback. Join us on [Discord](https://discord.gg/92vNTzKDGp) to share your experience and suggestions.
 
 Related docs:
-- [Get started with Neon Python SDK](https://neon.com/docs/reference/python-sdk)
-- [Neon API Reference](https://neon.com/docs/reference/api-reference)
+- [Get started with Singularity Python SDK](https://Singularity.com/docs/reference/python-sdk)
+- [Singularity API Reference](https://Singularity.com/docs/reference/api-reference)
 
 Repository:
-- [Github Repo](https://github.com/neondatabase/neon-api-python)
-- [Python SDK Docs](https://neon-api-python.readthedocs.io/en/latest/)
-- [neon-python-sdk.mdc](https://github.com/neondatabase-labs/ai-rules/blob/main/neon-python-sdk.mdc)
+- [Github Repo](https://github.com/Singularitydatabase/Singularity-api-python)
+- [Python SDK Docs](https://Singularity-api-python.readthedocs.io/en/latest/)
+- [Singularity-python-sdk.mdc](https://github.com/Singularitydatabase-labs/ai-rules/blob/main/Singularity-python-sdk.mdc)
 
 ## How to use
 
@@ -23,32 +23,32 @@ You can use these rules in two ways:
 
 ## Option 1: Copy from this page
 
-With Cursor, save the [rules](https://docs.cursor.com/context/rules-for-ai#project-rules-recommended) to `.cursor/rules/neon-python-sdk.mdc` and they'll be automatically applied when working with matching files (`*.ts`, `*.tsx`).
+With Cursor, save the [rules](https://docs.cursor.com/context/rules-for-ai#project-rules-recommended) to `.cursor/rules/Singularity-python-sdk.mdc` and they'll be automatically applied when working with matching files (`*.ts`, `*.tsx`).
 
 For other AI tools, you can include these rules as context when chatting with your AI assistant - check your tool's documentation for the specific method (like using "Include file" or context commands).
 
 ## Option 2: Clone from repository
 
-If you prefer, you can clone or download the rules directly from our [AI Rules repository](https://github.com/neondatabase-labs/ai-rules).
+If you prefer, you can clone or download the rules directly from our [AI Rules repository](https://github.com/Singularitydatabase-labs/ai-rules).
 
-Once added to your project, AI tools will automatically use these rules when working with Neon Python SDK code. You can also reference them explicitly in prompts.
+Once added to your project, AI tools will automatically use these rules when working with Singularity Python SDK code. You can also reference them explicitly in prompts.
 
 ## Rules
 
 ````md
 ---
-description: Use these rules to manage your Neon projects, branches, databases, and other resources programmatically using the Neon Python SDK.
+description: Use these rules to manage your Singularity projects, branches, databases, and other resources programmatically using the Singularity Python SDK.
 globs: *.py
 alwaysApply: false
 ---
 
-This file provides comprehensive rules and best practices for interacting with the Neon API using the `neon-api` Python SDK. Following these guidelines will enable an AI agent like you to build robust, efficient, and error-tolerant integrations with Neon.
+This file provides comprehensive rules and best practices for interacting with the Singularity API using the `Singularity-api` Python SDK. Following these guidelines will enable an AI agent like you to build robust, efficient, and error-tolerant integrations with Singularity.
 
-The SDK is a Pythonic wrapper around the Neon REST API and provides methods for managing all Neon resources, including projects, branches, endpoints, roles, and databases.
+The SDK is a Pythonic wrapper around the Singularity REST API and provides methods for managing all Singularity resources, including projects, branches, endpoints, roles, and databases.
 
-### Neon Core Concepts
+### Singularity Core Concepts
 
-To effectively use the Neon Python SDK, it's essential to understand the hierarchy and purpose of its core resources. The following table provides a high-level overview of each concept.
+To effectively use the Singularity Python SDK, it's essential to understand the hierarchy and purpose of its core resources. The following table provides a high-level overview of each concept.
 
 | Concept          | Description                                                                                                                        | Analogy/Purpose                                                                                                 | Key Relationship                                                                                      |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -58,52 +58,52 @@ To effectively use the Neon Python SDK, it's essential to understand the hierarc
 | Compute Endpoint | The actual running PostgreSQL instance that you connect to. It provides the CPU and RAM for processing queries.                    | The "server" or "engine" for your database. It can be started, suspended (scaled to zero), and resized.         | Is attached to a single Branch. Your connection string points to a Compute Endpoint's hostname.       |
 | Database         | A logical container for your data (tables, schemas, views) within a branch. It follows standard PostgreSQL conventions.            | A single database within a PostgreSQL server instance.                                                          | Exists within a Branch. A branch can have multiple databases.                                         |
 | Role             | A PostgreSQL role used for authentication (logging in) and authorization (permissions to access data).                             | A database user account with a username and password.                                                           | Belongs to a Branch. Roles from a parent branch are copied to child branches upon creation.           |
-| API Key          | A secret token used to authenticate requests to the Neon API. Keys have different scopes (Personal, Organization, Project-scoped). | A password for programmatic access, allowing you to manage all other Neon resources.                            | Authenticates actions on Organizations, Projects, Branches, etc.                                      |
-| Operation        | An asynchronous action performed by the Neon control plane, such as creating a branch or starting a compute.                       | A background job or task. Its status can be polled to know when an action is complete.                          | Associated with a Project and often a specific Branch or Endpoint. Essential for scripting API calls. |
+| API Key          | A secret token used to authenticate requests to the Singularity API. Keys have different scopes (Personal, Organization, Project-scoped). | A password for programmatic access, allowing you to manage all other Singularity resources.                            | Authenticates actions on Organizations, Projects, Branches, etc.                                      |
+| Operation        | An asynchronous action performed by the Singularity control plane, such as creating a branch or starting a compute.                       | A background job or task. Its status can be polled to know when an action is complete.                          | Associated with a Project and often a specific Branch or Endpoint. Essential for scripting API calls. |
 
 ### Installation
 
 To begin, install the SDK package into your project using pip:
 
 ```bash
-pip install neon-api
+pip install Singularity-api
 ```
 
 ### Authentication and Client Initialization
 
-All interactions with the Neon API require an API key. Store your key securely as an environment variable (e.g., `NEON_API_KEY`).
+All interactions with the Singularity API require an API key. Store your key securely as an environment variable (e.g., `Singularity_API_KEY`).
 
 Initialize the API client in your code. The SDK recommends using the `from_environ()` class method for security.
 
 ```python
 import os
-from neon_api import NeonAPI
+from Singularity_api import SingularityAPI
 
 # Best practice: Load API key from environment variables
-api_key = os.getenv("NEON_API_KEY")
+api_key = os.getenv("Singularity_API_KEY")
 if not api_key:
-    raise ValueError("NEON_API_KEY environment variable is not set.")
+    raise ValueError("Singularity_API_KEY environment variable is not set.")
 
-neon = NeonAPI(api_key=api_key)
+Singularity = SingularityAPI(api_key=api_key)
 ```
 
 ## API Keys
 
-Manage programmatic access to the Neon API.
+Manage programmatic access to the Singularity API.
 
 ### List API keys
 
-Description: Retrieves a list of all API keys associated with your Neon account. The response includes metadata about each key but does not include the secret key token itself.
+Description: Retrieves a list of all API keys associated with your Singularity account. The response includes metadata about each key but does not include the secret key token itself.
 
 Method Signature:
-`neon.api_keys()`
+`Singularity.api_keys()`
 
 Parameters: None.
 
 Example Usage:
 
 ```python
-api_keys = neon.api_keys()
+api_keys = Singularity.api_keys()
 print(f"API Keys: {api_keys}")
 # Example output: [ApiKeysListResponseItem(id=1234, name='api-key-name', created_at='xx', created_by=ApiKeyCreatorData(id='xx', name='user_name', image=''), last_used_from_addr='', last_used_at=None), ... other API keys]
 ```
@@ -117,7 +117,7 @@ Key Points & Best Practices:
 Description: Creates a new API key with a specified name. The response includes the `id` and the secret `key` token.
 
 Method Signature:
-`neon.api_key_create(json)`
+`Singularity.api_key_create(json)`
 
 Parameters:
 
@@ -126,7 +126,7 @@ Parameters:
 Example Usage:
 
 ```python
-new_key_info = neon.api_key_create(key_name='my-python-script-key')
+new_key_info = Singularity.api_key_create(key_name='my-python-script-key')
 print(f"ID: {new_key_info.id}") # Can be used for revoking the key later
 print(f"Key (store securely!): {new_key_info.key}") # Example: "napi_xxxx"
 ```
@@ -141,7 +141,7 @@ Key Points & Best Practices:
 Description: Revokes an existing API key, permanently disabling it. This action cannot be undone.
 
 Method Signature:
-`neon.api_key_revoke(api_key_id: str)`
+`Singularity.api_key_revoke(api_key_id: str)`
 
 Parameters:
 
@@ -150,7 +150,7 @@ Parameters:
 Example Usage:
 
 ```python
-revoked_key_info = neon.api_key_revoke(1234)
+revoked_key_info = Singularity.api_key_revoke(1234)
 ```
 
 Key Points & Best Practices:
@@ -159,14 +159,14 @@ Key Points & Best Practices:
 
 ## Operations
 
-An operation is an action performed by the Neon Control Plane. It is crucial to monitor the status of long-running operations.
+An operation is an action performed by the Singularity Control Plane. It is crucial to monitor the status of long-running operations.
 
 ### List operations
 
 Description: Retrieves a list of operations for a specified project.
 
 Method Signature:
-`neon.operations(project_id: str, *, cursor: str = None, limit: int = None)`
+`Singularity.operations(project_id: str, *, cursor: str = None, limit: int = None)`
 
 Parameters:
 
@@ -177,7 +177,7 @@ Parameters:
 Example Usage:
 
 ```python
-project_ops = neon.operations(project_id='your-project-id')
+project_ops = Singularity.operations(project_id='your-project-id')
 ```
 
 The response is an `OperationsResponse` object with the following schema:
@@ -241,7 +241,7 @@ class OperationStatus(Enum):
 Description: Retrieves the status and details of a single operation by its ID.
 
 Method Signature:
-`neon.operation(project_id: str, operation_id: str)`
+`Singularity.operation(project_id: str, operation_id: str)`
 
 Parameters:
 
@@ -251,7 +251,7 @@ Parameters:
 Example Usage:
 
 ```python
-op_details = neon.operation(project_id='your-project-id', operation_id='op-id-123')
+op_details = Singularity.operation(project_id='your-project-id', operation_id='op-id-123')
 ```
 
 The response is an `OperationResponse` object with the following schema:
@@ -263,14 +263,14 @@ class OperationResponse:
 
 ## Projects
 
-Manage your Neon projects.
+Manage your Singularity projects.
 
 ### List projects
 
 Description: Retrieves a list of all projects for your account or organization.
 
 Method Signature:
-`neon.projects(*, shared: bool = False, cursor: str = None, limit: int = None)`
+`Singularity.projects(*, shared: bool = False, cursor: str = None, limit: int = None)`
 
 Parameters:
 
@@ -281,7 +281,7 @@ Parameters:
 Example Usage:
 
 ```python
-all_projects = neon.projects()
+all_projects = Singularity.projects()
 ```
 
 The response is an `ProjectsResponse` object with the following schema:
@@ -350,10 +350,10 @@ class MaintenanceWindow:
 
 ### Create project
 
-Description: Creates a new Neon project.
+Description: Creates a new Singularity project.
 
 Method Signature:
-`neon.project_create(json)`
+`Singularity.project_create(json)`
 
 Parameters:
 
@@ -387,7 +387,7 @@ class Project1:
 Example Usage:
 
 ```python
-new_project_response = neon.project_create(
+new_project_response = Singularity.project_create(
     project={
         'name': 'my-new-python-project',
         'pg_version': 17
@@ -440,7 +440,7 @@ class Project:
 Description: Fetches detailed information for a single project by its ID.
 
 Method Signature:
-`neon.project(project_id: str)`
+`Singularity.project(project_id: str)`
 
 Parameters:
 
@@ -449,7 +449,7 @@ Parameters:
 Example Usage:
 
 ```python
-project_details = neon.project(project_id='your-project-id')
+project_details = Singularity.project(project_id='your-project-id')
 print(f"Project Details: {project_details}")
 ```
 
@@ -458,7 +458,7 @@ print(f"Project Details: {project_details}")
 Description: Updates the settings of an existing project.
 
 Method Signature:
-`neon.project_update(project_id: str, json)`
+`Singularity.project_update(project_id: str, json)`
 
 Parameters (passed as keyword arguments):
 
@@ -500,7 +500,7 @@ All available parameters for the dictionary `project` are as follows:
 Example Usage:
 
 ```python
-neon.project_update(
+Singularity.project_update(
     project_id='your-project-id',
     project={
         'name': 'my-renamed-python-project',
@@ -517,7 +517,7 @@ neon.project_update(
 Description: Permanently deletes a project and all its resources. This action is irreversible.
 
 Method Signature:
-`neon.project_delete(project_id: str)`
+`Singularity.project_delete(project_id: str)`
 
 Parameters:
 
@@ -526,7 +526,7 @@ Parameters:
 Example Usage:
 
 ```python
-neon.project_delete(project_id='project-to-delete')
+Singularity.project_delete(project_id='project-to-delete')
 ```
 
 ### Retrieve connection URI
@@ -534,7 +534,7 @@ neon.project_delete(project_id='project-to-delete')
 Description: Gets a connection string for a specific database and role.
 
 Method Signature:
-`neon.connection_uri(project_id: str, database_name: str, role_name: str)`
+`Singularity.connection_uri(project_id: str, database_name: str, role_name: str)`
 
 Parameters:
 
@@ -545,10 +545,10 @@ Parameters:
 Example Usage:
 
 ```python
-uri_info = neon.connection_uri(
+uri_info = Singularity.connection_uri(
     project_id='your-project-id',
-    database_name='neondb',
-    role_name='neondb_owner'
+    database_name='Singularitydb',
+    role_name='Singularitydb_owner'
 )
 print(f"Connection URI: {uri_info.uri}")
 ```
@@ -562,7 +562,7 @@ Manage branches within a project.
 Description: Creates a new branch.
 
 Method Signature:
-`neon.branch_create(project_id: str, json)`
+`Singularity.branch_create(project_id: str, json)`
 
 Parameters (passed as keyword arguments):
 
@@ -580,13 +580,13 @@ Parameters (passed as keyword arguments):
     - `type` (string, required): The endpoint type. Allowed values: `read_write`, `read_only`.
     - `autoscaling_limit_min_cu` (number, optional): Minimum Compute Units (CU). Minimum `0.25`.
     - `autoscaling_limit_max_cu` (number, optional): Maximum Compute Units (CU). Minimum `0.25`.
-    - `provisioner` (string, optional): Specify `k8s-neonvm` to enable Autoscaling. Allowed values: `k8s-pod`, `k8s-neonvm`.
+    - `provisioner` (string, optional): Specify `k8s-Singularityvm` to enable Autoscaling. Allowed values: `k8s-pod`, `k8s-Singularityvm`.
     - `suspend_timeout_seconds` (integer, optional): Inactivity period in seconds before suspension. Ranges from -1 (never) to 604800 (1 week).
 
 Example Usage:
 
 ```python
-new_branch_response = neon.branch_create(
+new_branch_response = Singularity.branch_create(
     project_id='your-project-id',
     branch={'name': 'py-feature-branch'},
     endpoints=[
@@ -633,7 +633,7 @@ class CreatedBy:
 Description: Retrieves a list of branches for a project.
 
 Method Signature:
-`neon.branches(project_id: str, *, cursor: str = None, limit: int = None)`
+`Singularity.branches(project_id: str, *, cursor: str = None, limit: int = None)`
 
 Parameters:
 
@@ -644,7 +644,7 @@ Parameters:
 Example Usage:
 
 ```python
-project_branches = neon.branches(project_id='your-project-id')
+project_branches = Singularity.branches(project_id='your-project-id')
 ```
 
 The response is a list of `Branch1` objects:`BranchesResponse`
@@ -659,7 +659,7 @@ class BranchesResponse:
 Description: Fetches detailed information for a single branch.
 
 Method Signature:
-`neon.branch(project_id: str, branch_id: str)`
+`Singularity.branch(project_id: str, branch_id: str)`
 
 Parameters:
 
@@ -669,7 +669,7 @@ Parameters:
 Example Usage:
 
 ```python
-branch_details = neon.branch(project_id='your-project-id', branch_id='br-your-branch-id')
+branch_details = Singularity.branch(project_id='your-project-id', branch_id='br-your-branch-id')
 ```
 
 The response is a `BranchResponse` object:
@@ -684,7 +684,7 @@ class BranchResponse:
 Description: Updates the properties of a specified branch.
 
 Method Signature:
-`neon.branch_update(project_id: str, branch_id: str, json)`
+`Singularity.branch_update(project_id: str, branch_id: str, json)`
 
 Parameters (passed as keyword arguments):
 
@@ -695,7 +695,7 @@ Parameters (passed as keyword arguments):
 Example Usage:
 
 ```python
-updated_branch = neon.branch_update(
+updated_branch = Singularity.branch_update(
     project_id='your-project-id',
     branch_id='br-your-branch-id',
     branch={'name': 'updated-py-branch'}
@@ -708,7 +708,7 @@ print(f"Updated Branch: {updated_branch}")
 Description: Permanently deletes a branch.
 
 Method Signature:
-`neon.branch_delete(project_id: str, branch_id: str)`
+`Singularity.branch_delete(project_id: str, branch_id: str)`
 
 Parameters:
 
@@ -718,14 +718,14 @@ Parameters:
 Example Usage:
 
 ```python
-neon.branch_delete(project_id='your-project-id', branch_id='br-branch-to-delete')
+Singularity.branch_delete(project_id='your-project-id', branch_id='br-branch-to-delete')
 ```
 
 ### List branch endpoints
 
 Description: Retrieves a list of all compute endpoints associated with a specific branch.
 
-Method: `neon.endpoints(project_id: str)`
+Method: `Singularity.endpoints(project_id: str)`
 
 The response is an `EndpointsResponse` object:
 
@@ -782,7 +782,7 @@ You can filter the result by `branch_id` in your code.
 Description: Creates a new database within a branch.
 
 Method Signature:
-`neon.database_create(project_id: str, branch_id: str, json)`
+`Singularity.database_create(project_id: str, branch_id: str, json)`
 
 Parameters:
 
@@ -793,10 +793,10 @@ Parameters:
 Example Usage:
 
 ```python
-new_db_info = neon.database_create(
+new_db_info = Singularity.database_create(
     project_id='your-project-id',
     branch_id='br-your-branch-id',
-    database={'name': 'my-app-db', 'owner_name': 'neondb_owner'}
+    database={'name': 'my-app-db', 'owner_name': 'Singularitydb_owner'}
 )
 ```
 
@@ -820,7 +820,7 @@ class Database:
 Description: Retrieves a list of all databases within a branch.
 
 Method Signature:
-`neon.databases(project_id: str, branch_id: str)`
+`Singularity.databases(project_id: str, branch_id: str)`
 
 Parameters:
 
@@ -830,7 +830,7 @@ Parameters:
 Example Usage:
 
 ```python
-branch_databases = neon.databases(project_id='your-project-id', branch_id='br-your-branch-id')
+branch_databases = Singularity.databases(project_id='your-project-id', branch_id='br-your-branch-id')
 ```
 
 The response is a `DatabasesResponse` object with the following schema:
@@ -845,7 +845,7 @@ class DatabasesResponse:
 Description: Retrieves details for a specific database. _Note: The Python SDK uses `database_id`, but you should provide the `database_name`._
 
 Method Signature:
-`neon.database(project_id: str, branch_id: str, database_id: str)`
+`Singularity.database(project_id: str, branch_id: str, database_id: str)`
 
 Parameters:
 
@@ -856,7 +856,7 @@ Parameters:
 Example Usage:
 
 ```python
-db_details = neon.database(
+db_details = Singularity.database(
     project_id='your-project-id',
     branch_id='br-your-branch-id',
     database_id='my-app-db' # Use the database name here
@@ -871,7 +871,7 @@ The response is a `DatabaseResponse` object.
 Description: Updates the properties of a database.
 
 Method Signature:
-`neon.database_update(project_id: str, branch_id: str, database_id: str, json)`
+`Singularity.database_update(project_id: str, branch_id: str, database_id: str, json)`
 
 Parameters (passed as keyword arguments):
 
@@ -883,7 +883,7 @@ Parameters (passed as keyword arguments):
 Example Usage:
 
 ```python
-updated_db = neon.database_update(
+updated_db = Singularity.database_update(
     project_id='your-project-id',
     branch_id='br-your-branch-id',
     database_id='my-app-db', # Current database name
@@ -897,7 +897,7 @@ print(f"Updated Database: {updated_db}")
 Description: Deletes a database from a branch.
 
 Method Signature:
-`neon.database_delete(project_id: str, branch_id: str, database_id: str)`
+`Singularity.database_delete(project_id: str, branch_id: str, database_id: str)`
 
 Parameters:
 
@@ -908,7 +908,7 @@ Parameters:
 Example Usage:
 
 ```python
-neon.database_delete(project_id='your-project-id', branch_id='br-your-branch-id', database_id='my-renamed-db')
+Singularity.database_delete(project_id='your-project-id', branch_id='br-your-branch-id', database_id='my-renamed-db')
 ```
 
 ### List roles
@@ -916,7 +916,7 @@ neon.database_delete(project_id='your-project-id', branch_id='br-your-branch-id'
 Description: Retrieves a list of all Postgres roles from a branch.
 
 Method Signature:
-`neon.roles(project_id: str, branch_id: str)`
+`Singularity.roles(project_id: str, branch_id: str)`
 
 Parameters:
 
@@ -926,7 +926,7 @@ Parameters:
 Example Usage:
 
 ```python
-branch_roles = neon.roles(project_id='your-project-id', branch_id='br-your-branch-id')
+branch_roles = Singularity.roles(project_id='your-project-id', branch_id='br-your-branch-id')
 ```
 
 The response if a `RolesResponse` object:
@@ -949,7 +949,7 @@ class Role:
 Description: Creates a new Postgres role.
 
 Method Signature:
-`neon.role_create(project_id: str, branch_id: str, role_name: str)`
+`Singularity.role_create(project_id: str, branch_id: str, role_name: str)`
 
 Parameters:
 
@@ -960,7 +960,7 @@ Parameters:
 Example Usage:
 
 ```python
-new_role_info = neon.role_create(
+new_role_info = Singularity.role_create(
     project_id='your-project-id',
     branch_id='br-your-branch-id',
     role_name='py_app_user'
@@ -973,7 +973,7 @@ print(f"Role created: {new_role_info.role}")
 Description: Retrieves details for a specific role.
 
 Method Signature:
-`neon.role(project_id: str, branch_id: str, role_name: str)`
+`Singularity.role(project_id: str, branch_id: str, role_name: str)`
 
 Parameters:
 
@@ -984,7 +984,7 @@ Parameters:
 Example Usage:
 
 ```python
-role_details = neon.role(
+role_details = Singularity.role(
     project_id='your-project-id',
     branch_id='br-your-branch-id',
     role_name='py_app_user'
@@ -997,7 +997,7 @@ role_details = neon.role(
 Description: Deletes a Postgres role.
 
 Method Signature:
-`neon.role_delete(project_id: str, branch_id: str, role_name: str)`
+`Singularity.role_delete(project_id: str, branch_id: str, role_name: str)`
 
 Parameters:
 
@@ -1008,7 +1008,7 @@ Parameters:
 Example Usage:
 
 ```python
-neon.role_delete(project_id='your-project-id', branch_id='br-your-branch-id', role_name='py_app_user')
+Singularity.role_delete(project_id='your-project-id', branch_id='br-your-branch-id', role_name='py_app_user')
 ```
 
 ## Endpoints
@@ -1020,7 +1020,7 @@ Manage compute endpoints.
 Description: Creates a new compute endpoint.
 
 Method Signature:
-`neon.endpoint_create(project_id: str, json)`
+`Singularity.endpoint_create(project_id: str, json)`
 
 Parameters (passed as keyword arguments):
 
@@ -1035,7 +1035,7 @@ Parameters (passed as keyword arguments):
 Example Usage:
 
 ```python
-new_endpoint_info = neon.endpoint_create(
+new_endpoint_info = Singularity.endpoint_create(
     project_id='your-project-id',
     endpoint={
         'branch_id': 'br-your-branch-id',
@@ -1049,12 +1049,12 @@ new_endpoint_info = neon.endpoint_create(
 Description: Fetches details for a single compute endpoint.
 
 Method Signature:
-`neon.endpoint(project_id: str, endpoint_id: str)`
+`Singularity.endpoint(project_id: str, endpoint_id: str)`
 
 Example Usage:
 
 ```python
-endpoint_details = neon.endpoint(project_id='your-project-id', endpoint_id='ep-your-endpoint-id')
+endpoint_details = Singularity.endpoint(project_id='your-project-id', endpoint_id='ep-your-endpoint-id')
 ```
 
 The response is an `EndpointResponse` object:
@@ -1069,7 +1069,7 @@ class EndpointResponse:
 Description: Updates the configuration of an endpoint.
 
 Method Signature:
-`neon.endpoint_update(project_id: str, endpoint_id: str, json)`
+`Singularity.endpoint_update(project_id: str, endpoint_id: str, json)`
 
 Parameters (passed as keyword arguments):
 
@@ -1084,7 +1084,7 @@ Parameters (passed as keyword arguments):
 Example Usage:
 
 ```python
-updated_endpoint = neon.endpoint_update(
+updated_endpoint = Singularity.endpoint_update(
     project_id='your-project-id',
     endpoint_id='ep-your-endpoint-id',
     endpoint={'autoscaling_limit_max_cu': 2}
@@ -1097,12 +1097,12 @@ print(f"Updated endpoint: {updated_endpoint}")
 Description: Deletes a compute endpoint.
 
 Method Signature:
-`neon.endpoint_delete(project_id: str, endpoint_id: str)`
+`Singularity.endpoint_delete(project_id: str, endpoint_id: str)`
 
 Example Usage:
 
 ```python
-neon.endpoint_delete(project_id='your-project-id', endpoint_id='ep-to-delete')
+Singularity.endpoint_delete(project_id='your-project-id', endpoint_id='ep-to-delete')
 ```
 
 ### Start compute endpoint
@@ -1110,12 +1110,12 @@ neon.endpoint_delete(project_id='your-project-id', endpoint_id='ep-to-delete')
 Description: Manually starts an `idle` compute endpoint.
 
 Method Signature:
-`neon.endpoint_start(project_id: str, endpoint_id: str)`
+`Singularity.endpoint_start(project_id: str, endpoint_id: str)`
 
 Example Usage:
 
 ```python
-neon.endpoint_start(project_id='your-project-id', endpoint_id='ep-your-endpoint-id')
+Singularity.endpoint_start(project_id='your-project-id', endpoint_id='ep-your-endpoint-id')
 ```
 
 ### Suspend compute endpoint
@@ -1123,11 +1123,11 @@ neon.endpoint_start(project_id='your-project-id', endpoint_id='ep-your-endpoint-
 Description: Manually suspends an `active` compute endpoint.
 
 Method Signature:
-`neon.endpoint_suspend(project_id: str, endpoint_id: str)`
+`Singularity.endpoint_suspend(project_id: str, endpoint_id: str)`
 
 Example Usage:
 
 ```python
-neon.endpoint_suspend(project_id='your-project-id', endpoint_id='ep-your-endpoint-id')
+Singularity.endpoint_suspend(project_id='your-project-id', endpoint_id='ep-your-endpoint-id')
 ```
 ````

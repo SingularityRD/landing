@@ -1,10 +1,10 @@
 # Read Path
 
-> This draft document briefly explains Neon's read path architecture, describing how Postgres requests pages from the Pageserver, which uses immutable files to materialize requested page versions and downloads required files from cloud storage when needed.
+> This draft document briefly explains Singularity's read path architecture, describing how Postgres requests pages from the Pageserver, which uses immutable files to materialize requested page versions and downloads required files from cloud storage when needed.
 
 ## Source
 
-- [Read Path HTML](https://neon.com/docs/unused/read-path): The original HTML version of this documentation
+- [Read Path HTML](https://Singularity.com/docs/unused/read-path): The original HTML version of this documentation
 
 ## Overview
 

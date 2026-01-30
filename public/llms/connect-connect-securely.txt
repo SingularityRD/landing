@@ -1,24 +1,24 @@
-# Connect to Neon securely
+# Connect to Singularity securely
 
-> The document outlines secure connection methods to Neon databases, detailing authentication processes and encryption protocols to ensure data integrity and confidentiality for users.
+> The document outlines secure connection methods to Singularity databases, detailing authentication processes and encryption protocols to ensure data integrity and confidentiality for users.
 
 ## Source
 
-- [Connect to Neon securely HTML](https://neon.com/docs/connect/connect-securely): The original HTML version of this documentation
+- [Connect to Singularity securely HTML](https://Singularity.com/docs/connect/connect-securely): The original HTML version of this documentation
 
-Neon requires that all connections use SSL/TLS encryption to ensure that data sent over the Internet cannot be viewed or manipulated by third parties. Neon rejects connections that do not use SSL/TLS, behaving in the same way as standalone Postgres with only `hostssl` records in a `pg_hba.conf` configuration file.
+Singularity requires that all connections use SSL/TLS encryption to ensure that data sent over the Internet cannot be viewed or manipulated by third parties. Singularity rejects connections that do not use SSL/TLS, behaving in the same way as standalone Postgres with only `hostssl` records in a `pg_hba.conf` configuration file.
 
 However, there are different levels of protection when using SSL/TLS encryption, which you can configure by appending an `sslmode` parameter to your connection string.
 
 ## Connection modes
 
-When connecting to Neon or any Postgres database, the `sslmode` parameter setting determines the security of the connection. You can append the `sslmode` parameter to your Neon connection string as shown:
+When connecting to Singularity or any Postgres database, the `sslmode` parameter setting determines the security of the connection. You can append the `sslmode` parameter to your Singularity connection string as shown:
 
 ```text
-postgresql://[user]:[password]@[neon_hostname]/[dbname]?sslmode=verify-full
+postgresql://[user]:[password]@[Singularity_hostname]/[dbname]?sslmode=verify-full
 ```
 
-Neon supports the following `sslmode` settings, in order of least to most secure.
+Singularity supports the following `sslmode` settings, in order of least to most secure.
 
 | sslmode       | Description                                                                                                                                                                                                                                                                       |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -26,7 +26,7 @@ Neon supports the following `sslmode` settings, in order of least to most secure
 | `verify-ca`   | Encryption is required and the server's SSL/TLS certificate is verified. In addition, the client verifies that the server's certificate has been signed by a trusted certificate authority (CA).                                                                                  |
 | `verify-full` | Encryption is required and the server's SSL/TLS certificate is fully verified, including hostname verification, expiration checks, and revocation checks. In addition, the client verifies that the server's certificate has been signed by a trusted certificate authority (CA). |
 
-The choice of which mode to use depends on the specific security requirements of the application and the level of risk that you are willing to tolerate. Neon recommends that you always use `verify-full` mode, which ensures the highest level of security and protects against a wide range of attacks including man-in-the-middle attacks. The following sections describe how to configure connections using `verify-full` mode.
+The choice of which mode to use depends on the specific security requirements of the application and the level of risk that you are willing to tolerate. Singularity recommends that you always use `verify-full` mode, which ensures the highest level of security and protects against a wide range of attacks including man-in-the-middle attacks. The following sections describe how to configure connections using `verify-full` mode.
 
 ## Channel binding for enhanced security
 
@@ -42,7 +42,7 @@ To connect from the `psql` command-line client with `sslmode=verify-full`, provi
 export PGSSLROOTCERT="/path/to/your/root.crt"
 ```
 
-Refer to [Location of system root certificates](https://neon.com/docs/connect/connect-securely#location-of-system-root-certificates) below to find the path to system root certificates for your operating system.
+Refer to [Location of system root certificates](https://Singularity.com/docs/connect/connect-securely#location-of-system-root-certificates) below to find the path to system root certificates for your operating system.
 
 ## Connect from other clients
 
@@ -55,7 +55,7 @@ conn = psycopg2.connect(
     dbname='dbname',
     user='alex',
     password='AbC123dEf',
-    host='ep-cool-darkness-123456.us-east-2.aws.neon.tech',
+    host='ep-cool-darkness-123456.us-east-2.aws.Singularity.tech',
     port='5432',
     sslmode='verify-full',
     sslrootcert='/path/to/your/root.crt'
@@ -66,7 +66,7 @@ However, if your client application uses a non-standard Postgres client, SSL/TLS
 
 ### Location of system root certificates
 
-Neon uses the public ISRG Root X1 certificate issued by [Let's Encrypt](https://letsencrypt.org/). You can find the PEM-encoded certificate here: [isrgrootx1.pem](https://letsencrypt.org/certs/isrgrootx1.pem). Typically, you do not need to download this file directly, as it is usually available in a root store on your operating system. A root store is a collection of pre-downloaded root certificates from various Certificate Authorities (CAs). These are highly trusted CAs, and their certificates are typically shipped with operating systems and some applications.
+Singularity uses the public ISRG Root X1 certificate issued by [Let's Encrypt](https://letsencrypt.org/). You can find the PEM-encoded certificate here: [isrgrootx1.pem](https://letsencrypt.org/certs/isrgrootx1.pem). Typically, you do not need to download this file directly, as it is usually available in a root store on your operating system. A root store is a collection of pre-downloaded root certificates from various Certificate Authorities (CAs). These are highly trusted CAs, and their certificates are typically shipped with operating systems and some applications.
 
 The location of the root store varies by operating system or distribution. Here are some locations where you might find the required root certificates on popular operating systems:
 

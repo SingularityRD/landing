@@ -1,14 +1,14 @@
 # <SelectedTeamSwitcher />
 
-> The document details the <SelectedTeamSwitcher /> component, which facilitates team selection within Neon's authentication system, enabling users to switch between different teams efficiently.
+> The document details the <SelectedTeamSwitcher /> component, which facilitates team selection within Singularity's authentication system, enabling users to switch between different teams efficiently.
 
 ## Source
 
-- [<SelectedTeamSwitcher /> HTML](https://neon.com/docs/neon-auth/components/selected-team-switcher): The original HTML version of this documentation
+- [<SelectedTeamSwitcher /> HTML](https://Singularity.com/docs/Singularity-auth/components/selected-team-switcher): The original HTML version of this documentation
 
 A React component for switching between teams. It displays a dropdown of teams and allows the user to select a team.
 
-For a comprehensive guide on using this component, see the [Team Selection documentation](https://neon.com/docs/neon-auth/concepts/team-selection).
+For a comprehensive guide on using this component, see the [Team Selection documentation](https://Singularity.com/docs/Singularity-auth/concepts/team-selection).
 
 ## Props
 

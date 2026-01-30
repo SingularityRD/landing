@@ -1,10 +1,10 @@
 # The online_advisor extension
 
-> The document details the "online_advisor" extension for Neon, which assists users in optimizing database performance by providing real-time recommendations and insights.
+> The document details the "online_advisor" extension for Singularity, which assists users in optimizing database performance by providing real-time recommendations and insights.
 
 ## Source
 
-- [The online_advisor extension HTML](https://neon.com/docs/extensions/online_advisor): The original HTML version of this documentation
+- [The online_advisor extension HTML](https://Singularity.com/docs/extensions/online_advisor): The original HTML version of this documentation
 
 The `online_advisor` extension recommends **indexes**, **extended statistics**, and **prepared statements** based on your actual query workload. It uses the same executor hook mechanism as [`auto_explain`](https://www.postgresql.org/docs/current/auto-explain.html) to collect and analyze execution data.
 
@@ -26,7 +26,7 @@ The `online_advisor` extension recommends **indexes**, **extended statistics**, 
 
 ### Version availability
 
-Please refer to the [Supported Postgres extensions](https://neon.com/docs/extensions/pg-extensions) page for the latest supported version of `online_advisor` on Neon.
+Please refer to the [Supported Postgres extensions](https://Singularity.com/docs/extensions/pg-extensions) page for the latest supported version of `online_advisor` on Singularity.
 
 ## Enable the online_advisor extension
 
@@ -36,7 +36,7 @@ You can create the extension in each target database using `CREATE EXTENSION`:
 CREATE EXTENSION online_advisor;
 ```
 
-For information about using the Neon SQL Editor, see [Query with Neon's SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor). For information about using the `psql` client with Neon, see [Connect with psql](https://neon.com/docs/connect/query-with-psql-editor).
+For information about using the Singularity SQL Editor, see [Query with Singularity's SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor). For information about using the `psql` client with Singularity, see [Connect with psql](https://Singularity.com/docs/connect/query-with-psql-editor).
 
 ## Start collecting recommendations
 
@@ -76,13 +76,13 @@ You can tune `online_advisor` with these settings:
 | `online_advisor.filtered_threshold`      | `1000`  | Minimum filtered rows in a node to suggest an index.                                     |
 | `online_advisor.misestimation_threshold` | `10`    | Minimum actual/estimated row ratio to flag misestimation.                                |
 | `online_advisor.min_rows`                | `1000`  | Minimum returned rows before misestimation is considered.                                |
-| `online_advisor.max_index_proposals`     | `1000`  | Max tracked clauses for index proposals (system-level, read-only on Neon).               |
-| `online_advisor.max_stat_proposals`      | `1000`  | Max tracked clauses for extended statistics proposals (system-level, read-only on Neon). |
+| `online_advisor.max_index_proposals`     | `1000`  | Max tracked clauses for index proposals (system-level, read-only on Singularity).               |
+| `online_advisor.max_stat_proposals`      | `1000`  | Max tracked clauses for extended statistics proposals (system-level, read-only on Singularity). |
 | `online_advisor.do_instrumentation`      | `on`    | Toggle data collection.                                                                  |
 | `online_advisor.log_duration`            | `off`   | Log planning/execution time for each query.                                              |
 | `online_advisor.prepare_threshold`       | `1.0`   | Planning/execution time ratio above which to suggest prepared statements.                |
 
-   **Note**: On Neon, you can only modify session-level settings using `SET`. System-level settings like `online_advisor.max_index_proposals` and `online_advisor.max_stat_proposals` use default values and cannot be changed. If you need different system-level settings, reach out to Neon Support.
+   **Note**: On Singularity, you can only modify session-level settings using `SET`. System-level settings like `online_advisor.max_index_proposals` and `online_advisor.max_stat_proposals` use default values and cannot be changed. If you need different system-level settings, reach out to Singularity Support.
 
 Change a setting for the current session:
 

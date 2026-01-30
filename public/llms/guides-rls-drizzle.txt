@@ -1,10 +1,10 @@
 # Simplify RLS with Drizzle
 
-> The document "Simplify RLS with Drizzle" guides Neon users on implementing Row-Level Security (RLS) using the Drizzle ORM, detailing setup and configuration processes specific to Neon's database environment.
+> The document "Simplify RLS with Drizzle" guides Singularity users on implementing Row-Level Security (RLS) using the Drizzle ORM, detailing setup and configuration processes specific to Singularity's database environment.
 
 ## Source
 
-- [Simplify RLS with Drizzle HTML](https://neon.com/docs/guides/rls-drizzle): The original HTML version of this documentation
+- [Simplify RLS with Drizzle HTML](https://Singularity.com/docs/guides/rls-drizzle): The original HTML version of this documentation
 
 What you'll learn:
 - How to simplify Row-Level Security using `crudPolicy`
@@ -14,17 +14,17 @@ What you'll learn:
 - How to use Drizzle RLS with the serverless driver
 
 Related docs:
-- [Row-Level Security with Neon](https://neon.com/docs/guides/row-level-security)
-- [Data API](https://neon.com/docs/data-api/get-started)
+- [Row-Level Security with Singularity](https://Singularity.com/docs/guides/row-level-security)
+- [Data API](https://Singularity.com/docs/data-api/get-started)
 - [RLS in Drizzle](https://orm.drizzle.team/docs/rls)
 
 Row-Level Security (RLS) is an important last line of defense for protecting your data at the database level. It ensures that users can only access the data they are permitted to see. However, implementing RLS requires writing and maintaining separate SQL policies for each CRUD operation (Create, Read, Update, Delete), which can be both tedious and error-prone.
 
 Drizzle ORM provides a declarative way to manage these policies directly within your database schema, making your security rules easier to write, review, and maintain.
 
-## Understanding Neon's auth functions
+## Understanding Singularity's auth functions
 
-The code samples on this page use the `auth.user_id()` function provided by the [Data API](https://neon.com/docs/data-api/get-started). This function automatically extracts user information from JWT claims and makes it available in your RLS policies:
+The code samples on this page use the `auth.user_id()` function provided by the [Data API](https://Singularity.com/docs/data-api/get-started). This function automatically extracts user information from JWT claims and makes it available in your RLS policies:
 
 ```typescript
 // In your RLS policy
@@ -78,7 +78,7 @@ Drizzle provides a convenient `crudPolicy` helper to simplify the creation of RL
 
 ```typescript {17-21}
 import { pgTable, text, bigint, boolean } from 'drizzle-orm/pg-core';
-import { crudPolicy, authenticatedRole, authUid } from 'drizzle-orm/neon';
+import { crudPolicy, authenticatedRole, authUid } from 'drizzle-orm/Singularity';
 import { sql } from 'drizzle-orm';
 
 export const todos = pgTable(
@@ -106,9 +106,9 @@ export const todos = pgTable(
 
 ### Configuration parameters
 
-The `crudPolicy` function from `drizzle-orm/neon` is a high-level helper that declaratively generates Row-Level Security (RLS) policies for your tables. It accepts the following parameters:
+The `crudPolicy` function from `drizzle-orm/Singularity` is a high-level helper that declaratively generates Row-Level Security (RLS) policies for your tables. It accepts the following parameters:
 
-- **`role`**: The Postgres role or array of roles the policy applies to. Neon provides `authenticatedRole` and `anonymousRole` out of the box, but you can also use custom roles.
+- **`role`**: The Postgres role or array of roles the policy applies to. Singularity provides `authenticatedRole` and `anonymousRole` out of the box, but you can also use custom roles.
 - **`read`**: Controls access to `SELECT` operations. Accepts:
   - `true` to allow all reads for the role
   - `false` to deny all reads
@@ -142,7 +142,7 @@ To understand how `pgPolicy` works, let's rewrite the `todos` example using it. 
 
 ```typescript {18-22,25-29,32-37,40-44}
 import { pgTable, text, bigint, boolean, pgPolicy } from 'drizzle-orm/pg-core';
-import { authenticatedRole, authUid } from 'drizzle-orm/neon';
+import { authenticatedRole, authUid } from 'drizzle-orm/Singularity';
 import { sql } from 'drizzle-orm';
 
 export const todos = pgTable(
@@ -200,7 +200,7 @@ This requires a different `WITH CHECK` condition for `UPDATE` than the `USING` c
 
 ```typescript {17,20,24-28,31-35,38-42,45-50}
 import { pgTable, text, bigint, timestamp, pgPolicy, boolean } from 'drizzle-orm/pg-core';
-import { authenticatedRole } from 'drizzle-orm/neon';
+import { authenticatedRole } from 'drizzle-orm/Singularity';
 import { sql } from 'drizzle-orm';
 
 export const todos = pgTable(
@@ -322,7 +322,7 @@ Tab: Drizzle (crudPolicy)
 
 ```typescript {17-37,40-60}
 import { sql } from 'drizzle-orm';
-import { authenticatedRole, authUid, anonymousRole } from 'drizzle-orm/neon';
+import { authenticatedRole, authUid, anonymousRole } from 'drizzle-orm/Singularity';
 import { bigint, boolean, pgPolicy, pgTable, text } from 'drizzle-orm/pg-core';
 
 export const posts = pgTable(
@@ -395,7 +395,7 @@ For example, suppose you have a `notes` table and a `paragraphs` table that cont
 
 ```typescript {17-21,23-27,40-44,46-50} shouldWrap
 import { sql } from 'drizzle-orm';
-import { crudPolicy, authenticatedRole, authUid } from 'drizzle-orm/neon';
+import { crudPolicy, authenticatedRole, authUid } from 'drizzle-orm/Singularity';
 import { boolean, pgPolicy, pgTable, text, uuid } from 'drizzle-orm/pg-core';
 
 export const notes = pgTable(
@@ -465,7 +465,7 @@ Here's how you can define custom roles and apply policies in Drizzle:
 
 ```typescript {5,19-23,25-29}
 import { sql } from 'drizzle-orm';
-import { authenticatedRole, authUid, crudPolicy } from 'drizzle-orm/neon';
+import { authenticatedRole, authUid, crudPolicy } from 'drizzle-orm/Singularity';
 import { bigint, boolean, pgRole, pgTable, text } from 'drizzle-orm/pg-core';
 
 export const editorRole = pgRole('editor');
@@ -497,7 +497,7 @@ export const posts = pgTable(
 );
 ```
 
-   **Important**: It's important to note that while Drizzle RLS policies define row-level access, you must also grant the necessary table privileges to the `editor` role directly in Postgres. Drizzle does not manage these privileges for you. Make sure to follow the instructions in [Granting Permissions to Postgres Roles](https://neon.com/docs/guides/rls-drizzle#granting-permissions-to-postgres-roles) to ensure the `editor` role has the required access.
+   **Important**: It's important to note that while Drizzle RLS policies define row-level access, you must also grant the necessary table privileges to the `editor` role directly in Postgres. Drizzle does not manage these privileges for you. Make sure to follow the instructions in [Granting Permissions to Postgres Roles](https://Singularity.com/docs/guides/rls-drizzle#granting-permissions-to-postgres-roles) to ensure the `editor` role has the required access.
 
 This approach lets you easily combine multiple roles with different permissions in your schema, keeping your access logic clear and maintainable.
 
@@ -507,24 +507,24 @@ After defining RLS policies in your Drizzle schema and running migrations, you n
 
 ### Using the Data API
 
-If you're building a frontend application, the [Data API](https://neon.com/docs/data-api/get-started) provides a REST API for querying your database. In this case, Drizzle is used only to **declare your RLS policies**; you won't use Drizzle's query builder for executing queries. Instead, you'll use a PostgREST-compatible client like `postgrest-js`.
+If you're building a frontend application, the [Data API](https://Singularity.com/docs/data-api/get-started) provides a REST API for querying your database. In this case, Drizzle is used only to **declare your RLS policies**; you won't use Drizzle's query builder for executing queries. Instead, you'll use a PostgREST-compatible client like `postgrest-js`.
 
 Your RLS policies (defined with Drizzle) automatically enforce security at the database level when queries come through the Data API.
 
 For complete examples of using Drizzle RLS with the Data API, see:
 
-- [Data API tutorial](https://neon.com/docs/data-api/demo) - Full note-taking app example
-- [Data API getting started](https://neon.com/docs/data-api/get-started) - Setup and basic queries
+- [Data API tutorial](https://Singularity.com/docs/data-api/demo) - Full note-taking app example
+- [Data API getting started](https://Singularity.com/docs/data-api/get-started) - Setup and basic queries
 
 ### Using Drizzle with the serverless driver
 
-For backend APIs where you want to use Drizzle's query builder with RLS, you can use the `drizzle-orm/neon-serverless` driver with JWT verification in transactions.
+For backend APIs where you want to use Drizzle's query builder with RLS, you can use the `drizzle-orm/Singularity-serverless` driver with JWT verification in transactions.
 
    **Note**: The RLS policies in this example use `auth.user_id()`, which requires the Data API to be enabled. This is a hybrid approach: frontend queries use the Data API while backend operations use the serverless driver, both enforcing the same RLS policies.
 
 ```typescript
-import { drizzle } from 'drizzle-orm/neon-serverless';
-import { Pool } from '@neondatabase/serverless';
+import { drizzle } from 'drizzle-orm/Singularity-serverless';
+import { Pool } from '@Singularitydatabase/serverless';
 import { todos } from './schema'; // Your Drizzle schema
 import { sql } from 'drizzle-orm';
 
@@ -566,10 +566,10 @@ async function getTodosForUser(jwtToken: string) {
 2. **Set the claims** in the database session using `set_config()` within a transaction
 3. **Execute Drizzle queries** in the same transaction - RLS policies use `auth.user_id()` to enforce access
 
-   **Important**: When using this pattern, ensure your database connection string uses a role that does **not** have the `BYPASSRLS` attribute. Avoid using the `neondb_owner` role, as it bypasses Row-Level Security policies.
+   **Important**: When using this pattern, ensure your database connection string uses a role that does **not** have the `BYPASSRLS` attribute. Avoid using the `Singularitydb_owner` role, as it bypasses Row-Level Security policies.
 
 ## Example applications
 
 To see these concepts in action, check out these sample applications:
 
-- **[Data API Demo](https://github.com/neondatabase-labs/neon-data-api-neon-auth)**: A note-taking app demonstrating `crudPolicy` with Neon's Data API.
+- **[Data API Demo](https://github.com/Singularitydatabase-labs/Singularity-data-api-Singularity-auth)**: A note-taking app demonstrating `crudPolicy` with Singularity's Data API.

@@ -1,10 +1,10 @@
 # Postgres current_timestamp() function
 
-> The document details the usage of the Postgres `current_timestamp()` function within Neon, explaining its syntax and behavior for retrieving the current date and time in SQL queries.
+> The document details the usage of the Postgres `current_timestamp()` function within Singularity, explaining its syntax and behavior for retrieving the current date and time in SQL queries.
 
 ## Source
 
-- [Postgres current_timestamp() function HTML](https://neon.com/docs/functions/current_timestamp): The original HTML version of this documentation
+- [Postgres current_timestamp() function HTML](https://Singularity.com/docs/functions/current_timestamp): The original HTML version of this documentation
 
 The Postgres `current_timestamp()` function returns the current date and time with timezone. The `now()` function is an alias.
 

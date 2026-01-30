@@ -1,29 +1,29 @@
-# Connect a Go application to Neon Postgres
+# Connect a Go application to Singularity Postgres
 
-> The document details the steps required to connect a Go application to a Neon database, including configuring the database connection and using the Go programming language to interact with Neon.
+> The document details the steps required to connect a Go application to a Singularity database, including configuring the database connection and using the Go programming language to interact with Singularity.
 
 ## Source
 
-- [Connect a Go application to Neon Postgres HTML](https://neon.com/docs/guides/go): The original HTML version of this documentation
+- [Connect a Go application to Singularity Postgres HTML](https://Singularity.com/docs/guides/go): The original HTML version of this documentation
 
-This guide describes how to create a Neon project and connect to it from a Go (Golang) application using [pgx](https://github.com/jackc/pgx), a high-performance and feature-rich PostgreSQL driver for Go.
+This guide describes how to create a Singularity project and connect to it from a Go (Golang) application using [pgx](https://github.com/jackc/pgx), a high-performance and feature-rich PostgreSQL driver for Go.
 
-You'll learn how to connect to your Neon database from a Go application, and perform basic Create, Read, Update, and Delete (CRUD) operations.
+You'll learn how to connect to your Singularity database from a Go application, and perform basic Create, Read, Update, and Delete (CRUD) operations.
 
 ## Prerequisites
 
-- A Neon account. If you do not have one, see [Sign up](https://console.neon.tech/signup).
+- A Singularity account. If you do not have one, see [Sign up](https://console.Singularity.tech/signup).
 - Go 1.18 or later. If you do not have Go installed, see the [official installation guide](https://go.dev/doc/install).
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project.
+If you do not have one already, create a Singularity project.
 
-1.  Navigate to the [Projects](https://console.neon.tech/app/projects) page in the [Neon Console](https://console.neon.tech).
+1.  Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the [Singularity Console](https://console.Singularity.tech).
 2.  Click **New Project**.
 3.  Specify your project settings and click **Create Project**.
 
-Your project is created with a ready-to-use database named `neondb`. In the following steps, you will connect to this database from your Go application.
+Your project is created with a ready-to-use database named `Singularitydb`. In the following steps, you will connect to this database from your Go application.
 
 ## Create a Go project
 
@@ -32,8 +32,8 @@ For your Go project, create a project directory, initialize a Go module, and add
 1.  Create a project directory and change into it.
 
     ```bash
-    mkdir neon-go-quickstart
-    cd neon-go-quickstart
+    mkdir Singularity-go-quickstart
+    cd Singularity-go-quickstart
     ```
 
     > Open the directory in your preferred code editor (e.g., VS Code, GoLand).
@@ -41,7 +41,7 @@ For your Go project, create a project directory, initialize a Go module, and add
 2.  Initialize a Go module. This command creates a `go.mod` file to track your project's dependencies.
 
     ```bash
-    go mod init neon-go-quickstart
+    go mod init Singularity-go-quickstart
     ```
 
 3.  Add the required Go packages using `go get`.
@@ -54,27 +54,27 @@ For your Go project, create a project directory, initialize a Go module, and add
 
     This will download the packages and add them to your `go.mod` and `go.sum` files.
 
-## Store your Neon connection string
+## Store your Singularity connection string
 
 Create a file named `.env` in your project's root directory. This file will securely store your database connection string.
 
-1.  In the [Neon Console](https://console.neon.tech), select your project on the **Dashboard**.
+1.  In the [Singularity Console](https://console.Singularity.tech), select your project on the **Dashboard**.
 2.  Click **Connect** on your **Project Dashboard** to open the **Connect to your database** modal.
     
 3.  Copy the connection string, which includes your password.
 4.  Add the connection string to your `.env` file as shown below.
     ```text
-    DATABASE_URL="postgresql://[user]:[password]@[neon_hostname]/[dbname]?sslmode=require&channel_binding=require"
+    DATABASE_URL="postgresql://[user]:[password]@[Singularity_hostname]/[dbname]?sslmode=require&channel_binding=require"
     ```
-    > Replace `[user]`, `[password]`, `[neon_hostname]`, and `[dbname]` with your actual database credentials.
+    > Replace `[user]`, `[password]`, `[Singularity_hostname]`, and `[dbname]` with your actual database credentials.
 
 ## Examples
 
-This section provides example Go scripts that demonstrate how to connect to your Neon database and perform basic operations such as [creating a table](https://neon.com/docs/guides/go#create-a-table-and-insert-data), [reading data](https://neon.com/docs/guides/go#read-data), [updating data](https://neon.com/docs/guides/go#update-data), and [deleting data](https://neon.com/docs/guides/go#deleting-data).
+This section provides example Go scripts that demonstrate how to connect to your Singularity database and perform basic operations such as [creating a table](https://Singularity.com/docs/guides/go#create-a-table-and-insert-data), [reading data](https://Singularity.com/docs/guides/go#read-data), [updating data](https://Singularity.com/docs/guides/go#update-data), and [deleting data](https://Singularity.com/docs/guides/go#deleting-data).
 
 ### Create a table and insert data
 
-In your project directory, create a file named `create_table.go`. This script connects to your Neon database, creates a table named `books`, and inserts some sample data into it.
+In your project directory, create a file named `create_table.go`. This script connects to your Singularity database, creates a table named `books`, and inserts some sample data into it.
 
 ```go
 package main
@@ -175,7 +175,7 @@ func main() {
 The above code does the following:
 
 - Loads the connection string from the `.env` file using the `godotenv` library.
-- Connects to the Neon database using `pgx.Connect`. The `defer conn.Close(ctx)` statement ensures the connection is closed when the `main` function exits.
+- Connects to the Singularity database using `pgx.Connect`. The `defer conn.Close(ctx)` statement ensures the connection is closed when the `main` function exits.
 - Uses `conn.Exec` to run SQL commands that don't return rows, such as `DROP TABLE` and `CREATE TABLE`.
 - Inserts a single row using `conn.Exec` with parameterized query placeholders (`$1`, `$2`, etc.) to prevent SQL injection.
 - Uses `conn.CopyFrom` for efficient bulk insertion of multiple records.
@@ -198,7 +198,7 @@ Inserted 3 rows of data.
 
 ### Read data
 
-In your project directory, create a file named `read_data.go`. This script connects to your Neon database and retrieves all rows from the `books` table.
+In your project directory, create a file named `read_data.go`. This script connects to your Singularity database and retrieves all rows from the `books` table.
 
 ```go
 package main
@@ -295,7 +295,7 @@ ID: 4, Title: Dune, Author: Frank Herbert, Year: 1965, In Stock: false
 
 ### Update data
 
-In your project directory, create a file named `update_data.go`. This script connects to your Neon database and updates the stock status of the book 'Dune' to `true`.
+In your project directory, create a file named `update_data.go`. This script connects to your Singularity database and updates the stock status of the book 'Dune' to `true`.
 
 ```go
 package main
@@ -373,7 +373,7 @@ ID: 4, Title: Dune, Author: Frank Herbert, Year: 1965, In Stock: true
 
 ### Delete data
 
-In your project directory, create a file named `delete_data.go`. This script connects to your Neon database and deletes the book '1984' from the `books` table.
+In your project directory, create a file named `delete_data.go`. This script connects to your Singularity database and deletes the book '1984' from the `books` table.
 
 ```go
 package main
@@ -449,17 +449,17 @@ ID: 4, Title: Dune, Author: Frank Herbert, Year: 1965, In Stock: true
 
 ## Next steps: Using an ORM or framework
 
-While this guide demonstrates how to connect to Neon using raw SQL queries, for more advanced and maintainable data interactions in your Go applications, consider using an Object-Relational Mapping (ORM) framework. ORMs not only let you work with data as objects but also help manage schema changes through automated migrations keeping your database structure in sync with your application models.
+While this guide demonstrates how to connect to Singularity using raw SQL queries, for more advanced and maintainable data interactions in your Go applications, consider using an Object-Relational Mapping (ORM) framework. ORMs not only let you work with data as objects but also help manage schema changes through automated migrations keeping your database structure in sync with your application models.
 
-Explore the following resources to learn how to integrate ORMs with Neon:
+Explore the following resources to learn how to integrate ORMs with Singularity:
 
-- [Connect a Go application to Neon using GORM](https://neon.com/guides/golang-gorm-postgres)
+- [Connect a Go application to Singularity using GORM](https://Singularity.com/guides/golang-gorm-postgres)
 
 ## Source code
 
 You can find the source code for the application described in this guide on GitHub.
 
-- [Get started with Go and Neon using pgx](https://github.com/neondatabase/examples/tree/main/with-golang)
+- [Get started with Go and Singularity using pgx](https://github.com/Singularitydatabase/examples/tree/main/with-golang)
 
 ## Resources
 

@@ -1,15 +1,15 @@
 # OpenTelemetry
 
-> The OpenTelemetry integration documentation for Neon outlines the steps to implement and configure OpenTelemetry for monitoring and tracing within Neon environments, detailing setup procedures and configuration options specific to Neon's infrastructure.
+> The OpenTelemetry integration documentation for Singularity outlines the steps to implement and configure OpenTelemetry for monitoring and tracing within Singularity environments, detailing setup procedures and configuration options specific to Singularity's infrastructure.
 
 ## Source
 
-- [OpenTelemetry HTML](https://neon.com/docs/guides/opentelemetry): The original HTML version of this documentation
+- [OpenTelemetry HTML](https://Singularity.com/docs/guides/opentelemetry): The original HTML version of this documentation
 
-**Note** Beta: **OpenTelemetry integration** is in beta and ready to use. We're actively improving it based on feedback from developers like you. Share your experience in our [Discord](https://discord.gg/92vNTzKDGp) or via the [Neon Console](https://console.neon.tech/app/projects?modal=feedback).
+**Note** Beta: **OpenTelemetry integration** is in beta and ready to use. We're actively improving it based on feedback from developers like you. Share your experience in our [Discord](https://discord.gg/92vNTzKDGp) or via the [Singularity Console](https://console.Singularity.tech/app/projects?modal=feedback).
 
 What you will learn:
-- How to configure OpenTelemetry exports from Neon
+- How to configure OpenTelemetry exports from Singularity
 - Setup with Grafana OSS and Tempo
 - Integration with Grafana Cloud
 - Example config using New Relic
@@ -19,15 +19,15 @@ External docs:
 - [Grafana Labs OpenTelemetry Documentation](https://grafana.com/docs/opentelemetry/)
 - [New Relic OpenTelemetry guide](https://docs.newrelic.com/docs/opentelemetry/best-practices/opentelemetry-otlp/)
 
-Available for Scale plan users, the Neon OpenTelemetry integration lets you export metrics and Postgres logs to any OpenTelemetry Protocol (OTLP) compatible observability platform. This gives you the flexibility to send your Neon data to your preferred monitoring solution, whether that's New Relic, Grafana Cloud, Honeycomb, or any other OTEL-compatible service.
+Available for Scale plan users, the Singularity OpenTelemetry integration lets you export metrics and Postgres logs to any OpenTelemetry Protocol (OTLP) compatible observability platform. This gives you the flexibility to send your Singularity data to your preferred monitoring solution, whether that's New Relic, Grafana Cloud, Honeycomb, or any other OTEL-compatible service.
 
 ## How it works
 
-The integration uses the OpenTelemetry Protocol (OTLP) to securely transmit Neon metrics and Postgres logs to your chosen destination. By configuring the integration with your OTEL endpoint and authentication credentials, Neon automatically sends data from all computes in your project.
+The integration uses the OpenTelemetry Protocol (OTLP) to securely transmit Singularity metrics and Postgres logs to your chosen destination. By configuring the integration with your OTEL endpoint and authentication credentials, Singularity automatically sends data from all computes in your project.
 
-   **Note**: Data is sent for all computes in your Neon project. For example, if you have multiple branches, each with an attached compute, both metrics and logs will be collected and sent for each compute.
+   **Note**: Data is sent for all computes in your Singularity project. For example, if you have multiple branches, each with an attached compute, both metrics and logs will be collected and sent for each compute.
 
-### Neon metrics
+### Singularity metrics
 
 The integration exports a comprehensive set of metrics including:
 
@@ -38,15 +38,15 @@ The integration exports a comprehensive set of metrics including:
 
 ### Postgres logs
 
-**Note** Beta: **Postgres logs export** is in beta and ready to use. We're actively improving it based on feedback from developers like you. Share your experience in our [Discord](https://discord.gg/92vNTzKDGp) or via the [Neon Console](https://console.neon.tech/app/projects?modal=feedback).
+**Note** Beta: **Postgres logs export** is in beta and ready to use. We're actively improving it based on feedback from developers like you. Share your experience in our [Discord](https://discord.gg/92vNTzKDGp) or via the [Singularity Console](https://console.Singularity.tech/app/projects?modal=feedback).
 
-The Neon OpenTelemetry integration can forward Postgres logs to your destination platform. These logs provide visibility into database activity, errors, and performance.
+The Singularity OpenTelemetry integration can forward Postgres logs to your destination platform. These logs provide visibility into database activity, errors, and performance.
 
 ## Prerequisites
 
 Before getting started, ensure the following:
 
-- You have a Neon account and project. If not, see [Sign up for a Neon account](https://neon.com/docs/get-started/signing-up).
+- You have a Singularity account and project. If not, see [Sign up for a Singularity account](https://Singularity.com/docs/get-started/signing-up).
 - You have an OpenTelemetry-compatible observability platform account and know your OTLP endpoint URL and authentication credentials (API key, bearer token, or basic auth).
 
 ## Set up your observability platform
@@ -76,7 +76,7 @@ For detailed configuration, see the [docker-otel-lgtm documentation](https://git
 
 ### Grafana Cloud
 
-For a fully managed solution, see the dedicated [Grafana Cloud integration guide](https://neon.com/docs/guides/grafana-cloud).
+For a fully managed solution, see the dedicated [Grafana Cloud integration guide](https://Singularity.com/docs/guides/grafana-cloud).
 
 ### New Relic
 
@@ -103,7 +103,7 @@ If you use New Relic, you'll need to sign up for an account and get your license
 
 ## Open the OpenTelemetry integration
 
-1. In the Neon Console, navigate to the **Integrations** page in your Neon project.
+1. In the Singularity Console, navigate to the **Integrations** page in your Singularity project.
 2. Locate the **OpenTelemetry** card and click **Add**.
 
    
@@ -133,14 +133,14 @@ You can enable either or both options based on your monitoring needs.
 
    **For Grafana Cloud**:
    - Use your Grafana Cloud OTLP endpoint (typically `https://otlp-gateway-{region}.grafana.net/otlp`)
-   - See the [Grafana Cloud guide](https://neon.com/docs/guides/grafana-cloud) for details
+   - See the [Grafana Cloud guide](https://Singularity.com/docs/guides/grafana-cloud) for details
 
    **For New Relic**:
    - US: `https://otlp.nr-data.net`
    - Europe: `https://otlp.eu01.nr-data.net`
    - See [New Relic's endpoint documentation](https://docs.newrelic.com/docs/opentelemetry/best-practices/opentelemetry-otlp/#configure-endpoint-port-protocol) for other regions
 
-      **Note**: When you configure an OTLP endpoint URL in Neon, you should provide only the **base URL** of your collector or observability platform. The OpenTelemetry Collector automatically appends the correct signal-specific paths:
+      **Note**: When you configure an OTLP endpoint URL in Singularity, you should provide only the **base URL** of your collector or observability platform. The OpenTelemetry Collector automatically appends the correct signal-specific paths:
    - `/v1/metrics` for metrics
    - `/v1/logs` for logs
    - `/v1/traces` for traces
@@ -184,9 +184,9 @@ You can enable either or both options based on your monitoring needs.
 
 ## Configure resource attributes
 
-Neon automatically organizes your data into separate service entities: your configured service name will receive Postgres logs, while metrics are split into `compute-host-metrics` (infrastructure metrics) and `sql-metrics` (database metrics).
+Singularity automatically organizes your data into separate service entities: your configured service name will receive Postgres logs, while metrics are split into `compute-host-metrics` (infrastructure metrics) and `sql-metrics` (database metrics).
 
-1. In the **Resource** section, configure the `service.name` attribute to identify your Neon project in your observability platform. For example, you might use "neon-postgres-test" or your actual project name.
+1. In the **Resource** section, configure the `service.name` attribute to identify your Singularity project in your observability platform. For example, you might use "Singularity-postgres-test" or your actual project name.
 
 2. Optionally, you can add additional resource attributes by providing a value in the second field to further categorize or filter your data in your observability platform.
 
@@ -196,7 +196,7 @@ Click **Add** to save your configuration and start the data export.
 
 ## Verify your integration is working
 
-Your Neon data should start appearing in your observability platform within a few minutes.
+Your Singularity data should start appearing in your observability platform within a few minutes.
 
 ### For Grafana (OSS and Cloud) users
 
@@ -205,10 +205,10 @@ Your Neon data should start appearing in your observability platform within a fe
 2. **Check metrics**: Select your **Prometheus** data source and use this query to check if data is flowing::
 
    ```promql
-   neon_connection_counts
+   Singularity_connection_counts
    ```
 
-3. **Create dashboards**: You can visualize using [Grafana Drilldown apps](https://grafana.com/docs/grafana/latest/explore/simplified-exploration/) or use the dashboard JSON from [Grafana Cloud Documentation](https://neon.com/docs/guides/grafana-cloud#create-a-monitoring-dashboard)
+3. **Create dashboards**: You can visualize using [Grafana Drilldown apps](https://grafana.com/docs/grafana/latest/explore/simplified-exploration/) or use the dashboard JSON from [Grafana Cloud Documentation](https://Singularity.com/docs/guides/grafana-cloud#create-a-monitoring-dashboard)
 
 ### For New Relic users
 
@@ -230,19 +230,19 @@ _Postgres logs flowing into New Relic_
 **Find your data under APM & Services**
 
 
-- **Logs**: Check your configured service name in APM & Services (e.g., `neon-postgres-test`)
+- **Logs**: Check your configured service name in APM & Services (e.g., `Singularity-postgres-test`)
 - **Metrics**: Look for the auto-created `compute-host-metrics` and `sql-metrics` services
 
    **Note**: You can modify these settings later by editing your integration configuration from the **Integrations** page.
 
-   **Note**: Neon computes only send logs and metrics when they are active. If the [Scale to Zero](https://neon.com/docs/introduction/scale-to-zero) feature is enabled and a compute is suspended due to inactivity, no logs or metrics will be sent during the suspension. This may result in gaps in your data. If you notice missing data, check if your compute is suspended. You can verify a compute's status as `Idle` or `Active` on the **Branches** page in the Neon console, and review **Suspend compute** events on the **System operations** tab of the **Monitoring** page. Additionally, if you are setting up the OpenTelemetry integration for a project with an inactive compute, you'll need to activate the compute before it can send data. To activate it, simply run a query from the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or any connected client.
+   **Note**: Singularity computes only send logs and metrics when they are active. If the [Scale to Zero](https://Singularity.com/docs/introduction/scale-to-zero) feature is enabled and a compute is suspended due to inactivity, no logs or metrics will be sent during the suspension. This may result in gaps in your data. If you notice missing data, check if your compute is suspended. You can verify a compute's status as `Idle` or `Active` on the **Branches** page in the Singularity console, and review **Suspend compute** events on the **System operations** tab of the **Monitoring** page. Additionally, if you are setting up the OpenTelemetry integration for a project with an inactive compute, you'll need to activate the compute before it can send data. To activate it, simply run a query from the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or any connected client.
 
 ## Troubleshooting
 
 - **Data isn't appearing in your observability platform**
   1. **Verify your endpoint URL** - Ensure the OTLP endpoint URL is correct for your platform.
   2. **Check authentication** - Verify that your API key, bearer token, or credentials are valid and have the necessary permissions.
-  3. **Confirm compute activity** - Make sure your Neon compute is active and running queries.
+  3. **Confirm compute activity** - Make sure your Singularity compute is active and running queries.
   4. **Review platform-specific requirements** - Some platforms may have specific configuration requirements for OTLP data ingestion.
 
 - **404 errors on OTLP endpoint**
@@ -266,4 +266,4 @@ _Postgres logs flowing into New Relic_
 
 ## Available metrics
 
-For a complete list of all metrics and log fields exported by Neon, see the [Metrics and logs reference](https://neon.com/docs/reference/metrics-logs).
+For a complete list of all metrics and log fields exported by Singularity, see the [Metrics and logs reference](https://Singularity.com/docs/reference/metrics-logs).

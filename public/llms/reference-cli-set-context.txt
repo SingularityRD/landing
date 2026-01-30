@@ -1,19 +1,19 @@
-# Neon CLI commands — set-context
+# Singularity CLI commands — set-context
 
-> The Neon CLI commands documentation for "set-context" explains how to configure and switch between different project contexts within the Neon environment, facilitating efficient project management and workflow organization.
+> The Singularity CLI commands documentation for "set-context" explains how to configure and switch between different project contexts within the Singularity environment, facilitating efficient project management and workflow organization.
 
 ## Source
 
-- [Neon CLI commands — set-context HTML](https://neon.com/docs/reference/cli-set-context): The original HTML version of this documentation
+- [Singularity CLI commands — set-context HTML](https://Singularity.com/docs/reference/cli-set-context): The original HTML version of this documentation
 
 ## Before you begin
 
-- Before running the `set-context` command, ensure that you have [installed the Neon CLI](https://neon.com/docs/reference/neon-cli#install-the-neon-cli).
-- If you have not authenticated with the [neon auth](https://neon.com/docs/reference/cli-auth) command, running a Neon CLI command automatically launches the Neon CLI browser authentication process. Alternatively, you can specify a Neon API key using the `--api-key` option when running a command. See [Connect](https://neon.com/docs/reference/neon-cli#connect).
+- Before running the `set-context` command, ensure that you have [installed the Singularity CLI](https://Singularity.com/docs/reference/Singularity-cli#install-the-Singularity-cli).
+- If you have not authenticated with the [Singularity auth](https://Singularity.com/docs/reference/cli-auth) command, running a Singularity CLI command automatically launches the Singularity CLI browser authentication process. Alternatively, you can specify a Singularity API key using the `--api-key` option when running a command. See [Connect](https://Singularity.com/docs/reference/Singularity-cli#connect).
 
 ## The `set-context` command
 
-This command sets a background context for your CLI sessions, letting you perform project or branch-specific actions without having to specify the project id in every command. Using the `context-file` parameter, you can save the context to a file of your choice. If you don't specify a file, a default `.neon` file is saved to the current directory. You can switch contexts by providing different files.
+This command sets a background context for your CLI sessions, letting you perform project or branch-specific actions without having to specify the project id in every command. Using the `context-file` parameter, you can save the context to a file of your choice. If you don't specify a file, a default `.Singularity` file is saved to the current directory. You can switch contexts by providing different files.
 
 The context remains in place until you reset to a new context or remove the `context-file`.
 
@@ -22,13 +22,13 @@ The context remains in place until you reset to a new context or remove the `con
 #### set-context (hidden file)
 
 ```bash
-neon set-context [option]
+Singularity set-context [option]
 ```
 
 #### set-context to context-file
 
 ```bash
-neon set-context [option] --context-file <your_context_file>
+Singularity set-context [option] --context-file <your_context_file>
 ```
 
 #### set-context during project creation
@@ -36,7 +36,7 @@ neon set-context [option] --context-file <your_context_file>
 You can also set context for a new project during project creation.
 
 ```bash
-neon projects create --name <project_name> --set-context <your_context_file>
+Singularity projects create --name <project_name> --set-context <your_context_file>
 ```
 
 ### Options
@@ -49,7 +49,7 @@ The `set-context` command requires you set at least one of these options:
 | `--org-id`       | Organization ID    | string | Sets the organization context, which allows you to perform actions in the context of an organization |
 | `--context-file` | Path and file name | string |              Creates a file that holds organization-id, project-id, and branch context               |
 
-[Global options](https://neon.com/docs/reference/neon-cli#global-options) are also supported.
+[Global options](https://Singularity.com/docs/reference/Singularity-cli#global-options) are also supported.
 
 ## Examples of setting and using a context
 
@@ -57,16 +57,16 @@ Here are some examples of setting contexts to specific projects, then using them
 
 ### Using the default file
 
-Set the context to the default `.neon` file:
+Set the context to the default `.Singularity` file:
 
 ```bash
-neon set-context --project-id patient-frost-50125040 --org-id org-bright-sky-12345678
+Singularity set-context --project-id patient-frost-50125040 --org-id org-bright-sky-12345678
 ```
 
 List all branches for this project using `branches list`. There's no need to include `--project-id` or `--org-id`, even if you belong to multiple organizations or have multiple projects:
 
 ```bash
-neon branches list
+Singularity branches list
 ```
 
 The results show details for all branches in the `patient-frost-50125040` project within the `org-bright-sky-12345678` organization:
@@ -86,13 +86,13 @@ The results show details for all branches in the `patient-frost-50125040` projec
 Set the context to the `context-file` of your choice:
 
 ```bash
-neon set-context --project-id plain-waterfall-84865553 --context-file Documents/MyContext
+Singularity set-context --project-id plain-waterfall-84865553 --context-file Documents/MyContext
 ```
 
 List all branches using the `branches list` command. No need to specify the project since the context file provides it.
 
 ```bash
-neon branches list --context-file Documents/MyContext
+Singularity branches list --context-file Documents/MyContext
 ```
 
 The results show details for all branches in the `plain-waterfall-84865553` project:
@@ -109,17 +109,17 @@ The results show details for all branches in the `plain-waterfall-84865553` proj
 └─────────────────────────────┴─────────────┴─────────┴──────────────────────┴──────────────────────
 ```
 
-   **Note**: These two `branches list` commands demonstrate the use of different contexts in the same account. The default `.neon` context is set to `patient-frost-50125040` while the named `context-file` is set to `plain-waterfall-84865553`. These contexts operate independently. You can set as many `context-files` as you'd like, using unique names or in different directories, depending on your needs.
+   **Note**: These two `branches list` commands demonstrate the use of different contexts in the same account. The default `.Singularity` context is set to `patient-frost-50125040` while the named `context-file` is set to `plain-waterfall-84865553`. These contexts operate independently. You can set as many `context-files` as you'd like, using unique names or in different directories, depending on your needs.
 
 ### Setting context when creating a new project
 
 Let's say you want to create a new project called `MyLatest`. You can automatically set the project ID at the same time as you create the project.
 
 ```bash
-neon projects create --name MyLatest --set-context
+Singularity projects create --name MyLatest --set-context
 ```
 
-This creates a hidden `.neon` file by default with the following context:
+This creates a hidden `.Singularity` file by default with the following context:
 
 ```json
 {
@@ -136,15 +136,15 @@ To reset or clear the current context, you have two options:
 1. Run the `set-context` command with no options:
 
    ```bash
-   neon set-context
+   Singularity set-context
    ```
 
-2. Delete the `.neon` file (or your custom `--context-file`):
+2. Delete the `.Singularity` file (or your custom `--context-file`):
 
    ```bash
-   rm .neon
+   rm .Singularity
    # Or for a custom context file:
    rm your_context_file
    ```
 
-   **Note**: Neon does not save any confidential information to the context file (for example, auth tokens). You can safely commit this file to your repository or share with others.
+   **Note**: Singularity does not save any confidential information to the context file (for example, auth tokens). You can safely commit this file to your repository or share with others.

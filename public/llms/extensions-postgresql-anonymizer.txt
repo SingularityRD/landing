@@ -1,33 +1,33 @@
 # The anon extension
 
-> The document details the integration and usage of the anon extension in Neon, enabling PostgreSQL databases to anonymize sensitive data efficiently.
+> The document details the integration and usage of the anon extension in Singularity, enabling PostgreSQL databases to anonymize sensitive data efficiently.
 
 ## Source
 
-- [The anon extension HTML](https://neon.com/docs/extensions/postgresql-anonymizer): The original HTML version of this documentation
+- [The anon extension HTML](https://Singularity.com/docs/extensions/postgresql-anonymizer): The original HTML version of this documentation
 
 The `anon` extension ([PostgreSQL Anonymizer](https://postgresql-anonymizer.readthedocs.io)) provides data masking and anonymization capabilities to protect sensitive data in Postgres databases. It helps protect personally identifiable information (PII) and other sensitive data, facilitating compliance with regulations such as [GDPR](https://gdpr-info.eu/).
 
    **Note**: This extension comes from the [PostgreSQL Anonymizer](https://postgresql-anonymizer.readthedocs.io) open source project (`postgresql_anonymizer`). This is distinct from other tools such as `pg_anon`. The extension is installed using `CREATE EXTENSION anon`.
 
-   **Tip** Looking for a practical guide?: For complete step-by-step workflows on anonymizing data in Neon branches, including manual procedures and GitHub Actions automation, see [data anonymization](https://neon.com/docs/workflows/data-anonymization).
+   **Tip** Looking for a practical guide?: For complete step-by-step workflows on anonymizing data in Singularity branches, including manual procedures and GitHub Actions automation, see [data anonymization](https://Singularity.com/docs/workflows/data-anonymization).
 
 ## Enable the extension
 
-   **Note**: This extension is currently [experimental](https://neon.com/docs/extensions/pg-extensions#experimental-extensions) and may change in future releases.
+   **Note**: This extension is currently [experimental](https://Singularity.com/docs/extensions/pg-extensions#experimental-extensions) and may change in future releases.
 
-When using the Neon Console or API for anonymization workflows, the extension is enabled automatically. It can also be enabled manually using SQL commands.
+When using the Singularity Console or API for anonymization workflows, the extension is enabled automatically. It can also be enabled manually using SQL commands.
 
 ### Enable via SQL
 
-When working with SQL-based workflows (such as using `psql` or other SQL clients), enable the `anon` extension in your Neon database by following these steps:
+When working with SQL-based workflows (such as using `psql` or other SQL clients), enable the `anon` extension in your Singularity database by following these steps:
 
-1. Connect to your Neon database using either the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or an SQL client like [psql](https://neon.com/docs/connect/query-with-psql-editor)
+1. Connect to your Singularity database using either the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or an SQL client like [psql](https://Singularity.com/docs/connect/query-with-psql-editor)
 
 2. Enable experimental extensions:
 
    ```sql
-   SET neon.allow_unstable_extensions='true';
+   SET Singularity.allow_unstable_extensions='true';
    ```
 
 3. Install the extension:
@@ -36,7 +36,7 @@ When working with SQL-based workflows (such as using `psql` or other SQL clients
    CREATE EXTENSION IF NOT EXISTS anon;
    ```
 
-   **Tip**: When using the Neon Console or API to create branches, the extension is enabled automatically. See the [data anonymization workflow guide](https://neon.com/docs/workflows/data-anonymization) for details.
+   **Tip**: When using the Singularity Console or API to create branches, the extension is enabled automatically. See the [data anonymization workflow guide](https://Singularity.com/docs/workflows/data-anonymization) for details.
 
 ## Masking rules
 
@@ -67,7 +67,7 @@ Static masking permanently modifies the original data in your tables. This appro
 
 ### Branch operations and static masking
 
-When using Neon's branch features with static masking:
+When using Singularity's branch features with static masking:
 
 - Creating a child branch copies all data as-is from the parent
 - Resetting a branch from the parent replaces all branch data with the parent's current state
@@ -75,7 +75,7 @@ When using Neon's branch features with static masking:
 
 ## Practical examples
 
-For complete implementation examples showing how to apply these masking functions in real workflows, see the [data anonymization guide](https://neon.com/docs/workflows/data-anonymization), which covers:
+For complete implementation examples showing how to apply these masking functions in real workflows, see the [data anonymization guide](https://Singularity.com/docs/workflows/data-anonymization), which covers:
 
 - Creating and anonymizing development branches
 - Applying different masking strategies to protect sensitive data
@@ -84,9 +84,9 @@ For complete implementation examples showing how to apply these masking function
 
 ## Limitations
 
-- Neon currently only supports static masking with this extension
+- Singularity currently only supports static masking with this extension
 - With static masking, branch reset operations restore original data, requiring anonymization to be run again
-- Additional `pg_catalog` functions cannot be declared as `TRUSTED` in Neon's implementation
+- Additional `pg_catalog` functions cannot be declared as `TRUSTED` in Singularity's implementation
 
 ## Conclusion
 
@@ -95,7 +95,7 @@ By defining appropriate masking rules, you can create anonymized datasets that m
 
 ## Reference
 
-- [Data anonymization workflow guide](https://neon.com/docs/workflows/data-anonymization) - Practical guide for anonymizing data in Neon branches
+- [Data anonymization workflow guide](https://Singularity.com/docs/workflows/data-anonymization) - Practical guide for anonymizing data in Singularity branches
 - [PostgreSQL Anonymizer Repository](https://gitlab.com/dalibo/postgresql_anonymizer)
 - [Official Documentation](https://postgresql-anonymizer.readthedocs.io/en/latest/)
 - [Masking Functions Reference](https://postgresql-anonymizer.readthedocs.io/en/latest/masking_functions/)

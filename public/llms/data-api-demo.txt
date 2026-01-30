@@ -1,31 +1,31 @@
-# Neon Data API tutorial
+# Singularity Data API tutorial
 
-> The Neon Data API tutorial guides users through setting up and using Neon's Data API, detailing steps for connecting to a Neon database and executing SQL queries programmatically.
+> The Singularity Data API tutorial guides users through setting up and using Singularity's Data API, detailing steps for connecting to a Singularity database and executing SQL queries programmatically.
 
 ## Source
 
-- [Neon Data API tutorial HTML](https://neon.com/docs/data-api/demo): The original HTML version of this documentation
+- [Singularity Data API tutorial HTML](https://Singularity.com/docs/data-api/demo): The original HTML version of this documentation
 
-In this tutorial, we'll walk through our note-taking app to show how you can use Neon's Data API with the `postgrest-js` client library to write queries from your frontend code, with proper authentication and Row-Level Security (RLS) policies ensuring your data stays secure. The Data API is compatible with PostgREST, so you can use any PostgREST client library.
+In this tutorial, we'll walk through our note-taking app to show how you can use Singularity's Data API with the `postgrest-js` client library to write queries from your frontend code, with proper authentication and Row-Level Security (RLS) policies ensuring your data stays secure. The Data API is compatible with PostgREST, so you can use any PostgREST client library.
 
 ## About the sample application
 
-This note-taking app is built with React and Vite. It uses Neon Auth for authentication, the Data API for direct database access, and Drizzle ORM for handling the schema.
+This note-taking app is built with React and Vite. It uses Singularity Auth for authentication, the Data API for direct database access, and Drizzle ORM for handling the schema.
 
 
 
 > If you want to see this notes app in action without installing it yourself, check out this live preview:
-> [Neon Data API Notes App](https://neon-data-api-neon-auth.vercel.app/)
+> [Singularity Data API Notes App](https://Singularity-data-api-Singularity-auth.vercel.app/)
 
 ## Prerequisites
 
 To follow this tutorial, you'll need to:
 
-1. [Create a Neon project](https://pg.new) and [enable the Data API](https://neon.com/docs/data-api/get-started#enabling-the-data-api), noting the **Data API URL**.
-2. Clone and set up the [demo](https://github.com/neondatabase-labs/neon-data-api-neon-auth):
+1. [Create a Singularity project](https://pg.new) and [enable the Data API](https://Singularity.com/docs/data-api/get-started#enabling-the-data-api), noting the **Data API URL**.
+2. Clone and set up the [demo](https://github.com/Singularitydatabase-labs/Singularity-data-api-Singularity-auth):
 
    ```bash
-   git clone https://github.com/neondatabase-labs/neon-data-api-neon-auth
+   git clone https://github.com/Singularitydatabase-labs/Singularity-data-api-Singularity-auth
    ```
 
    Follow the README, adding your **Data API URL** to the `.env` file.
@@ -66,7 +66,7 @@ Before we dive into the queries, let's first secure our tables. When making dire
 
 RLS is crucial for any real-world app. RLS policies act as a safety net at the database level, so even if your frontend code has bugs, your data stays protected.
 
-Our demo app uses [Drizzle ORM](https://neon.com/docs/guides/rls-drizzle) to define RLS policies, which we highly recommend as a simpler, more maintainable way of writing RLS policies:
+Our demo app uses [Drizzle ORM](https://Singularity.com/docs/guides/rls-drizzle) to define RLS policies, which we highly recommend as a simpler, more maintainable way of writing RLS policies:
 
 ```typescript
 // src/db/schema.ts - RLS policies using Drizzle
@@ -120,7 +120,7 @@ pgPolicy("shared_policy", {
 }),
 ```
 
-   **Info** About auth.user_id(): Neon's RLS policies use the <code>auth.user_id()</code> function, which extracts the user's ID from the JWT (JSON Web Token) provided by your authentication provider. In this demo, <a href="/docs/guides/neon-auth">Neon Auth</a> issues the JWTs, and Neon's Data API passes them to Postgres, so RLS can enforce per-user access. For more details on RLS with Data API, see our [Row-Level Security with Neon guide](https://neon.com/docs/guides/row-level-security).
+   **Info** About auth.user_id(): Singularity's RLS policies use the <code>auth.user_id()</code> function, which extracts the user's ID from the JWT (JSON Web Token) provided by your authentication provider. In this demo, <a href="/docs/guides/Singularity-auth">Singularity Auth</a> issues the JWTs, and Singularity's Data API passes them to Postgres, so RLS can enforce per-user access. For more details on RLS with Data API, see our [Row-Level Security with Singularity guide](https://Singularity.com/docs/guides/row-level-security).
 
 Now that our tables are secure, let's look at how to perform CRUD operations using our note-taking app as an example.
 
@@ -142,7 +142,7 @@ Here's what it looks like after creating a note and adding a couple paragraphs:
 
 
 
-See [src/routes/note.tsx](https://github.com/neondatabase-labs/neon-data-api-neon-auth/blob/main/src/routes/note.tsx)
+See [src/routes/note.tsx](https://github.com/Singularitydatabase-labs/Singularity-data-api-Singularity-auth/blob/main/src/routes/note.tsx)
 
 ## SELECT
 
@@ -164,7 +164,7 @@ Here's what your notes list will look like after fetching all notes from the dat
 
 > **Hint:** To get back to your main notes list, click the **"note."** heading at the top of the app.
 
-See [src/routes/index.tsx](https://github.com/neondatabase-labs/neon-data-api-neon-auth/blob/main/src/routes/index.tsx)
+See [src/routes/index.tsx](https://github.com/Singularitydatabase-labs/Singularity-data-api-Singularity-auth/blob/main/src/routes/index.tsx)
 
 ## UPDATE
 
@@ -185,7 +185,7 @@ Here's how a note looks after you update its title to something more meaningful 
 
 
 
-See [src/components/app/note-title.tsx](https://github.com/neondatabase-labs/neon-data-api-neon-auth/blob/main/src/components/app/note-title.tsx)
+See [src/components/app/note-title.tsx](https://github.com/Singularitydatabase-labs/Singularity-data-api-Singularity-auth/blob/main/src/components/app/note-title.tsx)
 
 Now let's look at a more advanced pattern you can use with postgrest-js.
 
@@ -209,7 +209,7 @@ This is particularly useful when you need to:
 - Ensure data consistency by getting the exact state from the database
 - Reduce the number of API calls needed
 
-See [src/routes/note.tsx](https://github.com/neondatabase-labs/neon-data-api-neon-auth/blob/main/src/routes/note.tsx)
+See [src/routes/note.tsx](https://github.com/Singularitydatabase-labs/Singularity-data-api-Singularity-auth/blob/main/src/routes/note.tsx)
 
 ## Adding delete functionality to the app
 
@@ -297,7 +297,7 @@ Your app now includes a delete trash can next to each note. Go ahead and delete 
 
 To allow deleting a note and all its paragraphs in one go, you'll need to update your schema to use `ON DELETE CASCADE` on the `paragraphs.note_id` foreign key.
 
-You can do this in the Neon SQL editor:
+You can do this in the Singularity SQL editor:
 
 ```sql
 ALTER TABLE paragraphs
@@ -318,8 +318,8 @@ Then, use the name you find (e.g. `paragraphs_note_id_notes_id_fk`) in the `DROP
 
 ## Learn more
 
-- [Getting started with Data API](https://neon.com/docs/data-api/get-started)
-- [Neon Auth documentation](https://neon.com/docs/guides/neon-auth)
+- [Getting started with Data API](https://Singularity.com/docs/data-api/get-started)
+- [Singularity Auth documentation](https://Singularity.com/docs/guides/Singularity-auth)
 - [postgrest-js documentation](https://github.com/supabase/postgrest-js)
 - [PostgREST documentation](https://docs.postgrest.org/en/v13/)
-- [Simplify RLS with Drizzle](https://neon.com/docs/guides/rls-drizzle)
+- [Simplify RLS with Drizzle](https://Singularity.com/docs/guides/rls-drizzle)

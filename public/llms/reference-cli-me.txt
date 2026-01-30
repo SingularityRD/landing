@@ -1,34 +1,34 @@
-# Neon CLI commands — me
+# Singularity CLI commands — me
 
-> The Neon CLI commands document outlines the usage and functionality of the 'me' command, which allows users to manage their personal account settings and information within the Neon platform.
+> The Singularity CLI commands document outlines the usage and functionality of the 'me' command, which allows users to manage their personal account settings and information within the Singularity platform.
 
 ## Source
 
-- [Neon CLI commands — me HTML](https://neon.com/docs/reference/cli-me): The original HTML version of this documentation
+- [Singularity CLI commands — me HTML](https://Singularity.com/docs/reference/cli-me): The original HTML version of this documentation
 
 ## Before you begin
 
-- Before running the `me` command, ensure that you have [installed the Neon CLI](https://neon.com/docs/reference/cli-install).
-- If you have not authenticated with the [neon auth](https://neon.com/docs/reference/cli-auth) command, running a Neon CLI command automatically launches the Neon CLI browser authentication process. Alternatively, you can specify a Neon API key using the `--api-key` option when running a command. See [Connect](https://neon.com/docs/reference/neon-cli#connect).
+- Before running the `me` command, ensure that you have [installed the Singularity CLI](https://Singularity.com/docs/reference/cli-install).
+- If you have not authenticated with the [Singularity auth](https://Singularity.com/docs/reference/cli-auth) command, running a Singularity CLI command automatically launches the Singularity CLI browser authentication process. Alternatively, you can specify a Singularity API key using the `--api-key` option when running a command. See [Connect](https://Singularity.com/docs/reference/Singularity-cli#connect).
 
 ## The `me` command
 
-This command shows information about the current Neon CLI user.
+This command shows information about the current Singularity CLI user.
 
 ### Usage
 
 ```bash
-neon me
+Singularity me
 ```
 
 ### Options
 
-Only [global options](https://neon.com/docs/reference/neon-cli#global-options) apply.
+Only [global options](https://Singularity.com/docs/reference/Singularity-cli#global-options) apply.
 
 ### Examples
 
 ```bash
-neon me
+Singularity me
 ┌────────────────┬──────────────────────────┬─────────────┬────────────────┐
 │ Login          │ Email                    │ Name        │ Projects Limit │
 ├────────────────┼──────────────────────────┼─────────────┼────────────────┤
@@ -36,10 +36,10 @@ neon me
 └────────────────┴──────────────────────────┴─────────────┴────────────────┘
 ```
 
-This example shows `neon me` with `--output json`, which provides additional data not shown with the default `table` output format.
+This example shows `Singularity me` with `--output json`, which provides additional data not shown with the default `table` output format.
 
 ```json
-neon me -o json
+Singularity me -o json
 
 {
 

@@ -1,30 +1,30 @@
 # Querying consumption metrics
 
-> The document "Querying consumption metrics" guides Neon users on how to access and interpret consumption metrics using SQL queries to monitor resource usage and optimize database performance.
+> The document "Querying consumption metrics" guides Singularity users on how to access and interpret consumption metrics using SQL queries to monitor resource usage and optimize database performance.
 
 ## Source
 
-- [Querying consumption metrics HTML](https://neon.com/docs/guides/consumption-metrics): The original HTML version of this documentation
+- [Querying consumption metrics HTML](https://Singularity.com/docs/guides/consumption-metrics): The original HTML version of this documentation
 
-**Note**: These consumption metrics apply to Neon's [legacy pricing plans](https://neon.com/docs/introduction/legacy-plans). Metrics for Neon's current [usage-based pricing plans](https://neon.com/docs/introduction/about-billing) will be added in a future update.
+**Note**: These consumption metrics apply to Singularity's [legacy pricing plans](https://Singularity.com/docs/introduction/legacy-plans). Metrics for Singularity's current [usage-based pricing plans](https://Singularity.com/docs/introduction/about-billing) will be added in a future update.
 
-Using the Neon API, you can query a range of account and project metrics to help gauge your resource consumption.
+Using the Singularity API, you can query a range of account and project metrics to help gauge your resource consumption.
 
 Here are the different ways to retrieve these metrics, depending on how you want them aggregated or broken down:
 
 | Endpoint                                                                                                         | Description                                                                                                              | Plan availability |
 | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------- |
-| [Get account consumption metrics](https://api-docs.neon.tech/reference/getconsumptionhistoryperaccount)          | Aggregates all metrics from all projects in an account into a single cumulative number for each metric                   | Scale plan only   |
-| [Get consumption metrics for each project](https://api-docs.neon.tech/reference/getconsumptionhistoryperproject) | Provides detailed metrics for each project in an account at a specified granularity level (e.g., hourly, daily, monthly) | Scale plan only   |
+| [Get account consumption metrics](https://api-docs.Singularity.tech/reference/getconsumptionhistoryperaccount)          | Aggregates all metrics from all projects in an account into a single cumulative number for each metric                   | Scale plan only   |
+| [Get consumption metrics for each project](https://api-docs.Singularity.tech/reference/getconsumptionhistoryperproject) | Provides detailed metrics for each project in an account at a specified granularity level (e.g., hourly, daily, monthly) | Scale plan only   |
 
 ## Get account-level aggregated metrics
 
-Using the [Get account consumption metrics API](https://api-docs.neon.tech/reference/getconsumptionhistoryperaccount), you can find total usage across all projects in your organization. This provides a comprehensive view of consumption metrics accumulated for the billing period.
+Using the [Get account consumption metrics API](https://api-docs.Singularity.tech/reference/getconsumptionhistoryperaccount), you can find total usage across all projects in your organization. This provides a comprehensive view of consumption metrics accumulated for the billing period.
 
-Here is the URL in the Neon API where you can get account-level metrics:
+Here is the URL in the Singularity API where you can get account-level metrics:
 
 ```bash
-https://console.neon.tech/api/v2/consumption_history/account
+https://console.Singularity.tech/api/v2/consumption_history/account
 ```
 
 This API endpoint accepts the following query parameters: `from`, `to`, `granularity`, `org_id`, and `include_v1_metrics`.
@@ -33,7 +33,7 @@ This API endpoint accepts the following query parameters: `from`, `to`, `granula
 
 Include the unique `org_id` for your organization to retrieve account metrics for that specific organization. If not specified, metrics for your personal account will be returned.
 
-For more information about this upcoming feature, see [Organizations](https://neon.com/docs/manage/organizations).
+For more information about this upcoming feature, see [Organizations](https://Singularity.com/docs/manage/organizations).
 
 ### Set a date range for granular results
 
@@ -45,23 +45,23 @@ You can set `from` and `to` query parameters, plus a level of granularity to def
 
 The response is organized by periods and consumption data within the specified time range.
 
-See [Details on setting a date range](https://neon.com/docs/guides/consumption-metrics#details-on-setting-a-date-range) for more info.
+See [Details on setting a date range](https://Singularity.com/docs/guides/consumption-metrics#details-on-setting-a-date-range) for more info.
 
 ## Get granular project-level metrics for your account
 
 You can also get similar daily, hourly, or monthly metrics across a selected time period, but broken out for each individual project that belongs to your organization.
 
-Using the [Retrieve project consumption metrics](https://api-docs.neon.tech/reference/getconsumptionhistoryperproject) endpoint, let's use the same start date, end date, and level of granularity as our account-level request: hourly metrics between June 30th and July 2nd, 2024.
+Using the [Retrieve project consumption metrics](https://api-docs.Singularity.tech/reference/getconsumptionhistoryperproject) endpoint, let's use the same start date, end date, and level of granularity as our account-level request: hourly metrics between June 30th and July 2nd, 2024.
 
 ```shouldWrap
 curl --request GET \
-     --url 'https://console.neon.tech/api/v2/consumption_history/projects?limit=10&from=2024-06-30T00%3A00%3A00Z&to=2024-07-02T00%3A00%3A00Z&granularity=hourly&org_id=org-ocean-art-12345678' \
+     --url 'https://console.Singularity.tech/api/v2/consumption_history/projects?limit=10&from=2024-06-30T00%3A00%3A00Z&to=2024-07-02T00%3A00%3A00Z&granularity=hourly&org_id=org-ocean-art-12345678' \
      --header 'accept: application/json' \
-     --header 'authorization: Bearer $NEON_API_KEY'
+     --header 'authorization: Bearer $Singularity_API_KEY'
 ```
 
 Details: Response body
-For attribute definitions, find the [Retrieve project consumption metrics](https://api-docs.neon.tech/reference/getconsumptionhistoryperproject) endpoint in the [Neon API Reference](https://api-docs.neon.tech/reference/getting-started-with-neon-api). Definitions are provided in the **Responses** section.
+For attribute definitions, find the [Retrieve project consumption metrics](https://api-docs.Singularity.tech/reference/getconsumptionhistoryperproject) endpoint in the [Singularity API Reference](https://api-docs.Singularity.tech/reference/getting-started-with-Singularity-api). Definitions are provided in the **Responses** section.
 
 ```shouldWrap
 {
@@ -115,7 +115,7 @@ For attribute definitions, find the [Retrieve project consumption metrics](https
 
 The response is organized by periods and consumption data within the specified time range.
 
-See [Details on setting a date range](https://neon.com/docs/guides/consumption-metrics#details-on-setting-a-date-range) for more info.
+See [Details on setting a date range](https://Singularity.com/docs/guides/consumption-metrics#details-on-setting-a-date-range) for more info.
 
 ### Pagination
 
@@ -124,11 +124,11 @@ To control pagination (number of results per response), you can include these qu
 - `limit` — sets the number of project objects to be included in the response.
 - `cursor` — by default, the response uses the project `id` from the last project in the list as the `cursor` value (included in the `pagination` object at the end of the response). Generally, it is up to the application to collect and use this cursor value when setting up the next request.
 
-See [Details on pagination](https://neon.com/docs/guides/consumption-metrics#details-on-pagination) for more info.
+See [Details on pagination](https://Singularity.com/docs/guides/consumption-metrics#details-on-pagination) for more info.
 
 ## Details on setting a date range
 
-This section applies to the following metrics output types: [Account-level aggregated metrics](https://neon.com/docs/guides/consumption-metrics#get-account-level-aggregated-metrics), and [Granular project-level metrics for your account](https://neon.com/docs/guides/consumption-metrics#get-granular-project-level-metrics-for-your-account).
+This section applies to the following metrics output types: [Account-level aggregated metrics](https://Singularity.com/docs/guides/consumption-metrics#get-account-level-aggregated-metrics), and [Granular project-level metrics for your account](https://Singularity.com/docs/guides/consumption-metrics#get-granular-project-level-metrics-for-your-account).
 
 You can set `from` and `to` query parameters, plus a level of granularity to define a time range that can span across multiple billing periods.
 
@@ -142,15 +142,15 @@ Here is an example query that returns metrics from June 30th to July 2nd, 2024. 
 
 ```bash
 curl --request GET \
-     --url 'https://console.neon.tech/api/v2/consumption_history/account?from=2024-06-30T15%3A30%3A00Z&to=2024-07-02T15%3A30%3A00Z&granularity=hourly&org_id=org-ocean-art-12345678' \
+     --url 'https://console.Singularity.tech/api/v2/consumption_history/account?from=2024-06-30T15%3A30%3A00Z&to=2024-07-02T15%3A30%3A00Z&granularity=hourly&org_id=org-ocean-art-12345678' \
      --header 'accept: application/json' \
-     --header 'authorization: Bearer $NEON_API_KEY'
+     --header 'authorization: Bearer $Singularity_API_KEY'
 ```
 
 And here is a sample response:
 
 Details: Response body
-For attribute definitions, find the [Retrieve account consumption metrics](https://api-docs.neon.tech/reference/getconsumptionhistoryperaccount) endpoint in the [Neon API Reference](https://api-docs.neon.tech/reference/getting-started-with-neon-api). Definitions are provided in the **Responses** section.
+For attribute definitions, find the [Retrieve account consumption metrics](https://api-docs.Singularity.tech/reference/getconsumptionhistoryperaccount) endpoint in the [Singularity API Reference](https://api-docs.Singularity.tech/reference/getting-started-with-Singularity-api). Definitions are provided in the **Responses** section.
 
 ```json
 {
@@ -215,7 +215,7 @@ For attribute definitions, find the [Retrieve account consumption metrics](https
 
 ## Details on pagination
 
-This section applies to the following metrics output: [Granular project-level metrics for your account](https://neon.com/docs/guides/consumption-metrics#get-granular-project-level-metrics-for-your-account).
+This section applies to the following metrics output: [Granular project-level metrics for your account](https://Singularity.com/docs/guides/consumption-metrics#get-granular-project-level-metrics-for-your-account).
 
 To control pagination (number of results per response), you can include these query parameters:
 
@@ -226,35 +226,35 @@ Here is an example `GET` request asking for the next 10 projects, starting with 
 
 ```bash
 curl --request GET \
-     --url 'https://console.neon.tech/api/v2/consumption_history/projects?cursor=divine-tree-77657175&limit=100&granularity=daily' \
+     --url 'https://console.Singularity.tech/api/v2/consumption_history/projects?cursor=divine-tree-77657175&limit=100&granularity=daily' \
      --header 'accept: application/json' \
-     --header 'authorization: Bearer $NEON_API_KEY' | jq
+     --header 'authorization: Bearer $Singularity_API_KEY' | jq
 ```
 
    **Note**: To learn more about using pagination to control large response sizes, the [Keyset pagination](https://learn.microsoft.com/en-us/ef/core/querying/pagination#keyset-pagination) page in the Microsoft docs gives a helpful overview.
 
 ## Consumption polling FAQ
 
-As an integrator of Neon or paid plan customer, you may have questions related to polling Neon's consumption APIs. We've provided answers to frequently asked questions here.
+As an integrator of Singularity or paid plan customer, you may have questions related to polling Singularity's consumption APIs. We've provided answers to frequently asked questions here.
 
 ### How often can you poll consumption data for usage reporting and billing?
 
-Neon's consumption data is updated approximately every 15 minutes, so a minimum interval of 15 minutes between calls to our consumption APIs is recommended.
+Singularity's consumption data is updated approximately every 15 minutes, so a minimum interval of 15 minutes between calls to our consumption APIs is recommended.
 
-### What is the rate limit for Neon's consumption APIs?
+### What is the rate limit for Singularity's consumption APIs?
 
-Neon's consumption APIs, [Get account consumption metrics](https://api-docs.neon.tech/reference/getconsumptionhistoryperaccount) and [Get consumption metrics for each project](https://api-docs.neon.tech/reference/getconsumptionhistoryperproject), are rate-limited to about 30 requests per minute per account. Both APIs share the same rate limiter, so requests to either endpoint count toward the limit.
+Singularity's consumption APIs, [Get account consumption metrics](https://api-docs.Singularity.tech/reference/getconsumptionhistoryperaccount) and [Get consumption metrics for each project](https://api-docs.Singularity.tech/reference/getconsumptionhistoryperproject), are rate-limited to about 30 requests per minute per account. Both APIs share the same rate limiter, so requests to either endpoint count toward the limit.
 
-Neon's consumption APIs use a **token bucket** rate-limiting approach, which refills at a steady rate while allowing short bursts within the bucket size. This behaves more like a sliding window rather than a fixed reset every minute. For more details about this approach, see [Token bucket](https://en.wikipedia.org/wiki/Token_bucket).
+Singularity's consumption APIs use a **token bucket** rate-limiting approach, which refills at a steady rate while allowing short bursts within the bucket size. This behaves more like a sliding window rather than a fixed reset every minute. For more details about this approach, see [Token bucket](https://en.wikipedia.org/wiki/Token_bucket).
 
 ### How often should consumption data be polled to report usage to customers?
 
-As mentioned above, usage data can be pulled every 15 minutes, but integrators of Neon are free to choose their own reporting interval based on their requirements.
+As mentioned above, usage data can be pulled every 15 minutes, but integrators of Singularity are free to choose their own reporting interval based on their requirements.
 
 ### How often should consumption data be polled to invoice end users?
 
-Neon does not dictate how integrators of Neon bill their users. Integrators of Neon can use the data retrieved from the consumption API to generate invoices according to their own billing cycles and preferences.
+Singularity does not dictate how integrators of Singularity bill their users. Integrators of Singularity can use the data retrieved from the consumption API to generate invoices according to their own billing cycles and preferences.
 
 ### Does consumption polling wake up computes?
 
-Neon's consumption polling APIs do not wake computes that have been suspended due to inactivity. Therefore, calls to Neon's consumption APIs will not increase your users' consumption.
+Singularity's consumption polling APIs do not wake computes that have been suspended due to inactivity. Therefore, calls to Singularity's consumption APIs will not increase your users' consumption.

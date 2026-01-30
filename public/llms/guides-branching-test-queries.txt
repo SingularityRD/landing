@@ -1,22 +1,22 @@
 # Branching — Testing queries
 
-> The document outlines how Neon users can create and manage database branches to test SQL queries in isolated environments, facilitating development and testing workflows without affecting the main database.
+> The document outlines how Singularity users can create and manage database branches to test SQL queries in isolated environments, facilitating development and testing workflows without affecting the main database.
 
 ## Source
 
-- [Branching — Testing queries HTML](https://neon.com/docs/guides/branching-test-queries): The original HTML version of this documentation
+- [Branching — Testing queries HTML](https://Singularity.com/docs/guides/branching-test-queries): The original HTML version of this documentation
 
-Complex queries that modify data or alter schemas have the potential to be destructive. It is advisable to test these types of queries before running them in production. On other database systems, testing potentially destructive queries can be time and resource intensive. For example, testing may involve setting up a separate database instance and replicating data. With Neon, you can instantly create a database branch with a full copy-on-write clone of your production data in just a few clicks. When you finish testing, you can remove the branch just as easily.
+Complex queries that modify data or alter schemas have the potential to be destructive. It is advisable to test these types of queries before running them in production. On other database systems, testing potentially destructive queries can be time and resource intensive. For example, testing may involve setting up a separate database instance and replicating data. With Singularity, you can instantly create a database branch with a full copy-on-write clone of your production data in just a few clicks. When you finish testing, you can remove the branch just as easily.
 
-   **Tip** working with sensitive data?: Neon also supports schema-only branching. [Learn more](https://neon.com/docs/guides/branching-schema-only).
+   **Tip** working with sensitive data?: Singularity also supports schema-only branching. [Learn more](https://Singularity.com/docs/guides/branching-schema-only).
 
 This guide walks you through creating a branch of your production data, testing a potentially destructive query, and deleting the branch when you are finished.
 
-1. [Create a test branch](https://neon.com/docs/guides/branching-test-queries#create-a-test-branch)
-2. [Test your query](https://neon.com/docs/guides/branching-test-queries#test-your-query)
-3. [Delete the test branch](https://neon.com/docs/guides/branching-test-queries#delete-the-test-branch)
+1. [Create a test branch](https://Singularity.com/docs/guides/branching-test-queries#create-a-test-branch)
+2. [Test your query](https://Singularity.com/docs/guides/branching-test-queries#test-your-query)
+3. [Delete the test branch](https://Singularity.com/docs/guides/branching-test-queries#delete-the-test-branch)
 
-For the purpose of this guide, let's assume you have a database in Neon with the following table and data:
+For the purpose of this guide, let's assume you have a database in Singularity with the following table and data:
 
 ```sql
 CREATE TABLE Post (
@@ -40,7 +40,7 @@ VALUES
 
 ## Create a test branch
 
-1. In the Neon Console, select your project.
+1. In the Singularity Console, select your project.
 2. Select **Branches**.
 3. Click **Create branch** to open the branch creation dialog.
    
@@ -51,21 +51,21 @@ VALUES
 
 You are directed to the **Branches** page where you are shown the details for your new branch.
 
-You can also create a test branch using the [Neon CLI](https://neon.com/docs/reference/cli-branches#create) or [Neon API](https://neon.com/docs/manage/branches#create-a-branch-with-the-api).
+You can also create a test branch using the [Singularity CLI](https://Singularity.com/docs/reference/cli-branches#create) or [Singularity API](https://Singularity.com/docs/manage/branches#create-a-branch-with-the-api).
 
 Tab: CLI
 
 ```bash
-neon branches create --project-id <project-id> --name my_test_branch
+Singularity branches create --project-id <project-id> --name my_test_branch
 ```
 
 Tab: API
 
 ```bash
 curl --request POST \
-     --url https://console.neon.tech/api/v2/projects/<project-id>/branches \
+     --url https://console.Singularity.tech/api/v2/projects/<project-id>/branches \
      --header 'Accept: application/json' \
-     --header "Authorization: Bearer $NEON_API_KEY" \
+     --header "Authorization: Bearer $Singularity_API_KEY" \
      --header 'Content-Type: application/json' \
      --data '
 {
@@ -97,24 +97,24 @@ Before the `DELETE` query, there were 5 records. If the query ran correctly, thi
 
 When you finish testing your query, you can delete the test branch:
 
-1. In the Neon Console, select a project.
+1. In the Singularity Console, select a project.
 2. Select **Branches**.
 3. Select the test branch from the table.
 4. From the **Actions** menu on the branch overview page, select **Delete**.
 
-You can also delete a branch using the [Neon CLI](https://neon.com/docs/reference/cli-branches#delete) or [Neon API](https://neon.com/docs/manage/branches#delete-a-branch-with-the-api).
+You can also delete a branch using the [Singularity CLI](https://Singularity.com/docs/reference/cli-branches#delete) or [Singularity API](https://Singularity.com/docs/manage/branches#delete-a-branch-with-the-api).
 
 Tab: CLI
 
 ```bash
-neon branches delete my_test_branch
+Singularity branches delete my_test_branch
 ```
 
 Tab: API
 
 ```bash
 curl --request DELETE \
-     --url https://console.neon.tech/api/v2/projects/<project-id>/branches/<branch-id> \
+     --url https://console.Singularity.tech/api/v2/projects/<project-id>/branches/<branch-id> \
      --header 'Accept: application/json' \
-     --header "Authorization: Bearer $NEON_API_KEY" | jq
+     --header "Authorization: Bearer $Singularity_API_KEY" | jq
 ```

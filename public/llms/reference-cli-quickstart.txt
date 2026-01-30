@@ -1,35 +1,35 @@
-# Neon CLI Quickstart
+# Singularity CLI Quickstart
 
-> The Neon CLI Quickstart document guides users through the installation and basic usage of the Neon Command Line Interface, enabling efficient management and interaction with Neon databases.
+> The Singularity CLI Quickstart document guides users through the installation and basic usage of the Singularity Command Line Interface, enabling efficient management and interaction with Singularity databases.
 
 ## Source
 
-- [Neon CLI Quickstart HTML](https://neon.com/docs/reference/cli-quickstart): The original HTML version of this documentation
+- [Singularity CLI Quickstart HTML](https://Singularity.com/docs/reference/cli-quickstart): The original HTML version of this documentation
 
-The Neon CLI is a command-line interface that lets you manage Neon directly from the terminal. This guide will help you quickly set up and start using the Neon CLI.
+The Singularity CLI is a command-line interface that lets you manage Singularity directly from the terminal. This guide will help you quickly set up and start using the Singularity CLI.
 
 ## Install the CLI
 
-Choose your platform and install the Neon CLI:
+Choose your platform and install the Singularity CLI:
 
 Tab: macOS
 
 **Install with Homebrew**
 
 ```bash
-brew install neonctl
+brew install Singularityctl
 ```
 
 **Install via npm**
 
 ```shell
-npm i -g neonctl
+npm i -g Singularityctl
 ```
 
 **Install with bun**
 
 ```bash
-bun install -g neonctl
+bun install -g Singularityctl
 ```
 
 Tab: Windows
@@ -37,13 +37,13 @@ Tab: Windows
 **Install via npm**
 
 ```shell
-npm i -g neonctl
+npm i -g Singularityctl
 ```
 
 **Install with bun**
 
 ```bash
-bun install -g neonctl
+bun install -g Singularityctl
 ```
 
 Tab: Linux
@@ -51,75 +51,75 @@ Tab: Linux
 **Install via npm**
 
 ```shell
-npm i -g neonctl
+npm i -g Singularityctl
 ```
 
 **Install with bun**
 
 ```bash
-bun install -g neonctl
+bun install -g Singularityctl
 ```
 
 Verify the installation by checking the CLI version:
 
 ```bash
-neon --version
+Singularity --version
 ```
 
-For the latest version, refer to the [Neon CLI GitHub repository](https://github.com/neondatabase/neonctl)
+For the latest version, refer to the [Singularity CLI GitHub repository](https://github.com/Singularitydatabase/Singularityctl)
 
 ## Authenticate
 
-Authenticate with your Neon account using one of these methods:
+Authenticate with your Singularity account using one of these methods:
 
 **Web Authentication (recommended)**
 
 Run the command below to authenticate through your browser:
 
 ```bash
-neon auth
+Singularity auth
 ```
 
-This will open a browser window where you can authorize the CLI to access your Neon account.
+This will open a browser window where you can authorize the CLI to access your Singularity account.
 
 **API Key Authentication**
 
-Alternatively, you can use a personal Neon API key. You can create one in the Neon Console. See [Create a personal API key](https://neon.com/docs/manage/api-keys#create-a-personal-api-key).
+Alternatively, you can use a personal Singularity API key. You can create one in the Singularity Console. See [Create a personal API key](https://Singularity.com/docs/manage/api-keys#create-a-personal-api-key).
 
 ```bash
-neon projects list --api-key <your-api-key>
+Singularity projects list --api-key <your-api-key>
 ```
 
 To avoid entering your API key with each command, you can set it as an environment variable:
 
 ```bash
-export NEON_API_KEY=<your-api-key>
+export Singularity_API_KEY=<your-api-key>
 ```
 
-For more about authenticating, see [Neon CLI commands — auth](https://neon.com/docs/reference/cli-auth).
+For more about authenticating, see [Singularity CLI commands — auth](https://Singularity.com/docs/reference/cli-auth).
 
 ## Set up your context file
 
 Context files allow you to use CLI commands without specifying your project ID or organization ID with each command.
 
-To set the context for your Neon project:
+To set the context for your Singularity project:
 
 ```bash
-neon set-context --project-id <your-project-id>
+Singularity set-context --project-id <your-project-id>
 ```
 
-To set the context for your both your Neon organization and a Neon project:
+To set the context for your both your Singularity organization and a Singularity project:
 
 ```bash
-neon set-context --org-id <your-org-id> --project-id <your-project-id>
+Singularity set-context --org-id <your-org-id> --project-id <your-project-id>
 ```
 
-   **Info**: You can find your organization ID in the Neon Console by selecting your organization and navigating to **Settings**. You can find your Neon project ID by opening your project in the Neon Console and navigating to **Settings** > **General**.
+   **Info**: You can find your organization ID in the Singularity Console by selecting your organization and navigating to **Settings**. You can find your Singularity project ID by opening your project in the Singularity Console and navigating to **Settings** > **General**.
 
-The `set-context` command creates a `.neon` file in your current directory with your project context.
+The `set-context` command creates a `.Singularity` file in your current directory with your project context.
 
 ```bash
-$ cat .neon
+$ cat .Singularity
 
 {
   "projectId": "broad-surf-52155946",
@@ -130,16 +130,16 @@ $ cat .neon
 You can also create named context files for different organization and project contexts:
 
 ```bash
-neon set-context --org-id <your-org-id> --project-id <your-project-id> --context-file dev_project
+Singularity set-context --org-id <your-org-id> --project-id <your-project-id> --context-file dev_project
 ```
 
 To switch contexts, add the `--context-file` option to any command, specifying your context file:
 
 ```bash
-neon branches list --context-file Documents/dev_project
+Singularity branches list --context-file Documents/dev_project
 ```
 
-For more about the `set-context` command, see [Neon CLI commands — set-context](https://neon.com/docs/reference/cli-set-context).
+For more about the `set-context` command, see [Singularity CLI commands — set-context](https://Singularity.com/docs/reference/cli-set-context).
 
 ## Enable shell completion
 
@@ -148,67 +148,67 @@ Next, you can set up autocompletion to make using the CLI faster:
 Tab: Bash
 
 ```bash
-neon completion >> ~/.bashrc
+Singularity completion >> ~/.bashrc
 source ~/.bashrc
 ```
 
 Tab: Zsh
 
 ```bash
-neon completion >> ~/.zshrc
+Singularity completion >> ~/.zshrc
 source ~/.zshrc
 ```
 
-Now you can press **Tab** to complete Neon CLI commands and options. For further details, see [Neon CLI commands — completion](https://neon.com/docs/reference/cli-completion).
+Now you can press **Tab** to complete Singularity CLI commands and options. For further details, see [Singularity CLI commands — completion](https://Singularity.com/docs/reference/cli-completion).
 
 ## Common operations
 
-Here are some common operations you can perform with the Neon CLI:
+Here are some common operations you can perform with the Singularity CLI:
 
 ### List your projects
 
 ```bash
-neon projects list
+Singularity projects list
 ```
 
-If you want to list projects in your organization, don't forget to set your organization context or specify `--org-id <your-org-id>`. Otherwise, you'll list the projects in your personal Neon account.
+If you want to list projects in your organization, don't forget to set your organization context or specify `--org-id <your-org-id>`. Otherwise, you'll list the projects in your personal Singularity account.
 
-For more about the `projects` command, see [Neon CLI commands — projects](https://neon.com/docs/reference/cli-projects).
+For more about the `projects` command, see [Singularity CLI commands — projects](https://Singularity.com/docs/reference/cli-projects).
 
 ### Create a branch
 
 ```bash
-neon branches create --name <branch-name>
+Singularity branches create --name <branch-name>
 ```
 
-Set your project context or specify `--project-id <your-project-id>` if you have more than one Neon project.
+Set your project context or specify `--project-id <your-project-id>` if you have more than one Singularity project.
 
-For more about the `branches` command, see [Neon CLI commands — branches](https://neon.com/docs/reference/cli-branches).
+For more about the `branches` command, see [Singularity CLI commands — branches](https://Singularity.com/docs/reference/cli-branches).
 
 ### Get a connection string
 
 This will give you the connection string for the default branch in your project:
 
 ```bash
-neon connection-string
+Singularity connection-string
 ```
 
 For a specific branch, specify the branch name:
 
 ```bash
-neon connection-string <branch-name>
+Singularity connection-string <branch-name>
 ```
 
-There's lots more you can do with the `connection-string` command. See [Neon CLI commands — connection-string](https://neon.com/docs/reference/cli-connection-string).
+There's lots more you can do with the `connection-string` command. See [Singularity CLI commands — connection-string](https://Singularity.com/docs/reference/cli-connection-string).
 
 ## Next steps
 
-Now that you're set up with the Neon CLI, you can:
+Now that you're set up with the Singularity CLI, you can:
 
-- Create more Neon projects with `neon projects create`
-- Manage your branches with various `neon branches` commands such as `reset`, `restore`, `rename`, `schema-diff`, and more
-- Create and manage databases with `neon databases` commands
-- Create and manage roles with `neon roles` commands
-- View the full set of Neon CLI commands available to you with `neon --help`
+- Create more Singularity projects with `Singularity projects create`
+- Manage your branches with various `Singularity branches` commands such as `reset`, `restore`, `rename`, `schema-diff`, and more
+- Create and manage databases with `Singularity databases` commands
+- Create and manage roles with `Singularity roles` commands
+- View the full set of Singularity CLI commands available to you with `Singularity --help`
 
-For more details on all available commands, see the [CLI Reference](https://neon.com/docs/reference/neon-cli).
+For more details on all available commands, see the [CLI Reference](https://Singularity.com/docs/reference/Singularity-cli).

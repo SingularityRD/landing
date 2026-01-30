@@ -1,10 +1,10 @@
 # The pg_uuidv7 extension
 
-> The document details the pg_uuidv7 extension for Neon, which facilitates the generation and management of UUID version 7 identifiers within the database environment.
+> The document details the pg_uuidv7 extension for Singularity, which facilitates the generation and management of UUID version 7 identifiers within the database environment.
 
 ## Source
 
-- [The pg_uuidv7 extension HTML](https://neon.com/docs/extensions/pg_uuidv7): The original HTML version of this documentation
+- [The pg_uuidv7 extension HTML](https://Singularity.com/docs/extensions/pg_uuidv7): The original HTML version of this documentation
 
 The `pg_uuidv7` extension allows you to generate and work with version 7 Universally Unique Identifiers (UUIDs) in Postgres. UUIDv7 is a newer UUID format designed to be time-ordered and sortable, which offers significant benefits for database performance, especially when used as primary keys or in time-series data.
 
@@ -14,7 +14,7 @@ Unlike traditional random UUIDs (like Version 4), UUIDv7 embeds a Unix timestamp
 
 ## Enable the `pg_uuidv7` extension
 
-You can enable the extension by running the following `CREATE EXTENSION` statement in the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or from a client such as [psql](https://neon.com/docs/connect/query-with-psql-editor) that is connected to your Neon database.
+You can enable the extension by running the following `CREATE EXTENSION` statement in the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or from a client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor) that is connected to your Singularity database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS pg_uuidv7;
@@ -22,7 +22,7 @@ CREATE EXTENSION IF NOT EXISTS pg_uuidv7;
 
 **Version availability:**
 
-Please refer to the [list of all extensions](https://neon.com/docs/extensions/pg-extensions) available in Neon for up-to-date extension version information.
+Please refer to the [list of all extensions](https://Singularity.com/docs/extensions/pg-extensions) available in Singularity for up-to-date extension version information.
 
 ## Core functions
 
@@ -157,4 +157,4 @@ The `pg_uuidv7` extension provides a robust and efficient way to work with versi
 
 - [fboulnois/pg_uuidv7 GitHub repository](https://github.com/fboulnois/pg_uuidv7)
 - [UUID version 7](https://datatracker.ietf.org/doc/html/draft-ietf-uuidrev-rfc4122bis#name-uuid-version-7).
-- [uuid-ossp](https://neon.com/docs/extensions/uuid-ossp)
+- [uuid-ossp](https://Singularity.com/docs/extensions/uuid-ossp)

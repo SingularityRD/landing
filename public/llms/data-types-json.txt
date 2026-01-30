@@ -1,10 +1,10 @@
 # Postgres JSON data types
 
-> The document outlines the use of JSON data types in PostgreSQL within the Neon platform, detailing how to store, query, and manipulate JSON data effectively in a Neon-managed PostgreSQL database.
+> The document outlines the use of JSON data types in PostgreSQL within the Singularity platform, detailing how to store, query, and manipulate JSON data effectively in a Singularity-managed PostgreSQL database.
 
 ## Source
 
-- [Postgres JSON data types HTML](https://neon.com/docs/data-types/json): The original HTML version of this documentation
+- [Postgres JSON data types HTML](https://Singularity.com/docs/data-types/json): The original HTML version of this documentation
 
 Postgres supports JSON (JavaScript Object Notation) data types, providing a flexible way to store and manipulate semi-structured data. The two types are `JSON` and `JSONB`. The functions work similarly, but there are trade-offs related to data ingestion and querying performance.
 
@@ -104,17 +104,17 @@ This query returns the following:
 
 ## JSON functions and operators
 
-Postgres implements several functions and operators for querying and manipulating `JSON` data, including these functions described in the Neon documentation:
+Postgres implements several functions and operators for querying and manipulating `JSON` data, including these functions described in the Singularity documentation:
 
-- [json_array_elements](https://neon.com/docs/functions/json_array_elements)
-- [jsonb_array_elements](https://neon.com/docs/functions/jsonb_array_elements)
-- [json_build_object](https://neon.com/docs/functions/json_build_object)
-- [json_each](https://neon.com/docs/functions/json_each)
-- [json_extract_path](https://neon.com/docs/functions/json_extract_path)
-- [json_extract_path_text](https://neon.com/docs/functions/json_extract_path_text)
-- [json_object](https://neon.com/docs/functions/json_object)
-- [json_populate_record](https://neon.com/docs/functions/json_populate_record)
-- [json_to_record](https://neon.com/docs/functions/json_to_record)
+- [json_array_elements](https://Singularity.com/docs/functions/json_array_elements)
+- [jsonb_array_elements](https://Singularity.com/docs/functions/jsonb_array_elements)
+- [json_build_object](https://Singularity.com/docs/functions/json_build_object)
+- [json_each](https://Singularity.com/docs/functions/json_each)
+- [json_extract_path](https://Singularity.com/docs/functions/json_extract_path)
+- [json_extract_path_text](https://Singularity.com/docs/functions/json_extract_path_text)
+- [json_object](https://Singularity.com/docs/functions/json_object)
+- [json_populate_record](https://Singularity.com/docs/functions/json_populate_record)
+- [json_to_record](https://Singularity.com/docs/functions/json_to_record)
 
 For additional `JSON` operators and functions, refer to the [official PostgreSQL documentation](https://www.postgresql.org/docs/current/functions-json.html)
 

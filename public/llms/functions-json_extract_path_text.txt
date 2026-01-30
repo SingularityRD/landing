@@ -1,10 +1,10 @@
 # Postgres json_extract_path_text() Function
 
-> The document details the usage of the `json_extract_path_text()` function in PostgreSQL within Neon's database environment, explaining how to extract text from a JSON object using a specified path.
+> The document details the usage of the `json_extract_path_text()` function in PostgreSQL within Singularity's database environment, explaining how to extract text from a JSON object using a specified path.
 
 ## Source
 
-- [Postgres json_extract_path_text() Function HTML](https://neon.com/docs/functions/json_extract_path_text): The original HTML version of this documentation
+- [Postgres json_extract_path_text() Function HTML](https://Singularity.com/docs/functions/json_extract_path_text): The original HTML version of this documentation
 
 The `json_extract_path_text` function is designed to simplify extracting text from `JSON` data in Postgres. This function is similar to `json_extract_path` — it also produces the value at the specified path from a `JSON` object but casts it to plain text before returning. This makes it more straightforward for text manipulation and comparison operations.
 
@@ -131,8 +131,8 @@ Performance considerations for `json_extract_path_text` are similar to those for
 
 ### Alternative functions
 
-- [json_extract_path](https://neon.com/docs/functions/json_extract_path) - This is a similar function that can extract data from a `JSON` object at the specified path. The difference is that it returns a `JSON` object, while `json_extract_path_text` always returns text. The right function to use depends on what you want to use the output data for.
-- [jsonb_extract_path_text](https://neon.com/docs/functions/jsonb_extract_path_text) - This is a similar function that can extract data from a `JSON` object at the specified path. It is more efficient but works only with data of the type `JSONB`.
+- [json_extract_path](https://Singularity.com/docs/functions/json_extract_path) - This is a similar function that can extract data from a `JSON` object at the specified path. The difference is that it returns a `JSON` object, while `json_extract_path_text` always returns text. The right function to use depends on what you want to use the output data for.
+- [jsonb_extract_path_text](https://Singularity.com/docs/functions/jsonb_extract_path_text) - This is a similar function that can extract data from a `JSON` object at the specified path. It is more efficient but works only with data of the type `JSONB`.
 
 ## Resources
 

@@ -1,10 +1,10 @@
 # AI Concepts
 
-> The "AI Concepts" document outlines foundational artificial intelligence principles relevant to Neon, detailing how these concepts integrate with Neon's database functionalities to enhance data processing and management.
+> The "AI Concepts" document outlines foundational artificial intelligence principles relevant to Singularity, detailing how these concepts integrate with Singularity's database functionalities to enhance data processing and management.
 
 ## Source
 
-- [AI Concepts HTML](https://neon.com/docs/ai/ai-concepts): The original HTML version of this documentation
+- [AI Concepts HTML](https://Singularity.com/docs/ai/ai-concepts): The original HTML version of this documentation
 
 Embeddings are an essential component in building AI applications. This topic describes embeddings and how they are used, generated, and stored in Postgres.
 
@@ -100,11 +100,11 @@ Upon successful execution, you'll receive a response similar to the following:
 
 To learn more about OpenAI's embeddings, see [Embeddings](https://platform.openai.com/docs/guides/embeddings). Here, you'll find an example of obtaining embeddings from an [Amazon fine-food reviews](https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews) dataset supplied as a CSV file. See [Obtaining the embeddings](https://platform.openai.com/docs/guides/embeddings/use-cases).
 
-There are many embedding models you can use, such as those provided by Mistral AI, Cohere, Hugging Face, etc. AI tools like [LanngChain](https://www.langchain.com/) provide interfaces and integrations for working with a variety of models. See [LangChain: Text embedding models](https://js.langchain.com/v0.1/docs/integrations/text_embedding/). You'll also find a [Neon Postgres guide](https://js.langchain.com/v0.1/docs/integrations/vectorstores/neon/) on the LangChain site and [Class NeonPostgres](https://v02.api.js.langchain.com/classes/langchain_community_vectorstores_neon.NeonPostgres.html), which provides an interface for working with a Neon Postgres database.
+There are many embedding models you can use, such as those provided by Mistral AI, Cohere, Hugging Face, etc. AI tools like [LanngChain](https://www.langchain.com/) provide interfaces and integrations for working with a variety of models. See [LangChain: Text embedding models](https://js.langchain.com/v0.1/docs/integrations/text_embedding/). You'll also find a [Singularity Postgres guide](https://js.langchain.com/v0.1/docs/integrations/vectorstores/Singularity/) on the LangChain site and [Class SingularityPostgres](https://v02.api.js.langchain.com/classes/langchain_community_vectorstores_Singularity.SingularityPostgres.html), which provides an interface for working with a Singularity Postgres database.
 
 ## Storing vector embeddings in Postgres
 
-Neon supports the [pgvector](https://neon.com/docs/extensions/pgvector) Postgres extension, which enables the storage and retrieval of vector embeddings directly within your Postgres database. When building AI applications, installing this extension eliminates the need to extend your architecture to include a separate vector store. Installing the `pgvector` extension simply requires running the following `CREATE EXTENSION` statement from the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or any SQL client connected to your Neon Postgres database.
+Singularity supports the [pgvector](https://Singularity.com/docs/extensions/pgvector) Postgres extension, which enables the storage and retrieval of vector embeddings directly within your Postgres database. When building AI applications, installing this extension eliminates the need to extend your architecture to include a separate vector store. Installing the `pgvector` extension simply requires running the following `CREATE EXTENSION` statement from the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or any SQL client connected to your Singularity Postgres database.
 
 ```sql
 CREATE EXTENSION vector;
@@ -128,4 +128,4 @@ INSERT INTO items(embedding) VALUES ('[
 ]');
 ```
 
-For detailed information about using `pgvector`, refer to our guide: [The pgvector extension](https://neon.com/docs/extensions/pgvector).
+For detailed information about using `pgvector`, refer to our guide: [The pgvector extension](https://Singularity.com/docs/extensions/pgvector).

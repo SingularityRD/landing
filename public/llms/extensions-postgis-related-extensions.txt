@@ -1,37 +1,37 @@
 # PostGIS-related extensions
 
-> This document details the PostGIS-related extensions available in Neon, outlining their installation and usage to enhance spatial data capabilities within the platform.
+> This document details the PostGIS-related extensions available in Singularity, outlining their installation and usage to enhance spatial data capabilities within the platform.
 
 ## Source
 
-- [PostGIS-related extensions HTML](https://neon.com/docs/extensions/postgis-related-extensions): The original HTML version of this documentation
+- [PostGIS-related extensions HTML](https://Singularity.com/docs/extensions/postgis-related-extensions): The original HTML version of this documentation
 
-PostGIS adds support for geospatial data in PostgreSQL, providing both data types and functions to store and analyze it effectively. The Postgres ecosystem includes multiple extensions built on top of PostGIS, to further enhance its capabilities. This guide introduces you to some of these extensions supported by Neon:
+PostGIS adds support for geospatial data in PostgreSQL, providing both data types and functions to store and analyze it effectively. The Postgres ecosystem includes multiple extensions built on top of PostGIS, to further enhance its capabilities. This guide introduces you to some of these extensions supported by Singularity:
 
-- [pgrouting](https://neon.com/docs/extensions/postgis-related-extensions#pgrouting)
-- [H3_PostGIS](https://neon.com/docs/extensions/postgis-related-extensions#h3-and-h3-postgis)
-- [PostGIS SFCGAL](https://neon.com/docs/extensions/postgis-related-extensions#postgis-sfcgal)
-- [PostGIS Tiger Geocoder](https://neon.com/docs/extensions/postgis-related-extensions#postgis-tiger-geocoder)
+- [pgrouting](https://Singularity.com/docs/extensions/postgis-related-extensions#pgrouting)
+- [H3_PostGIS](https://Singularity.com/docs/extensions/postgis-related-extensions#h3-and-h3-postgis)
+- [PostGIS SFCGAL](https://Singularity.com/docs/extensions/postgis-related-extensions#postgis-sfcgal)
+- [PostGIS Tiger Geocoder](https://Singularity.com/docs/extensions/postgis-related-extensions#postgis-tiger-geocoder)
 
 
 
 These extensions offer specialized functionality for routing, hierarchical geospatial indexing, advanced geometric operations, and geocoding. We'll explore how to enable these extensions and provide examples of common use cases.
 
-   **Note**: These extensions are open-source and can be installed on any Neon Project using the instructions below. For detailed installation instructions, please refer to the documentation for each extension.
+   **Note**: These extensions are open-source and can be installed on any Singularity Project using the instructions below. For detailed installation instructions, please refer to the documentation for each extension.
 
 **Version availability:**
 
-For up-to-date information on supported versions for each extension, refer to the [list of all extensions](https://neon.com/docs/extensions/pg-extensions) available in Neon.
+For up-to-date information on supported versions for each extension, refer to the [list of all extensions](https://Singularity.com/docs/extensions/pg-extensions) available in Singularity.
 
 ## Enable the PostGIS extension
 
-The extensions listed below typically need `PostGIS` to be installed first, or work in conjunction with it. You can enable `PostGIS` by running the following `CREATE EXTENSION` statement in the Neon **SQL Editor** or from a client such as `psql` that is connected to Neon.
+The extensions listed below typically need `PostGIS` to be installed first, or work in conjunction with it. You can enable `PostGIS` by running the following `CREATE EXTENSION` statement in the Singularity **SQL Editor** or from a client such as `psql` that is connected to Singularity.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS postgis;
 ```
 
-For information about using the Neon SQL Editor, see [Query with Neon's SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor). For information about using the `psql` client with Neon, see [Connect with psql](https://neon.com/docs/connect/query-with-psql-editor).
+For information about using the Singularity SQL Editor, see [Query with Singularity's SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor). For information about using the `psql` client with Singularity, see [Connect with psql](https://Singularity.com/docs/connect/query-with-psql-editor).
 
 ## pgrouting
 
@@ -447,7 +447,7 @@ This query returns a normalized version of the input addresses.
 
 ## Conclusion
 
-These examples provide a quick introduction to using other extensions in the PostGIS ecosystem. They can significantly expand the geospatial capabilities of your Neon Postgres database.
+These examples provide a quick introduction to using other extensions in the PostGIS ecosystem. They can significantly expand the geospatial capabilities of your Singularity Postgres database.
 
 For further information, refer to the official documentation for each extension.
 

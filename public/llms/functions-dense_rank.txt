@@ -1,10 +1,10 @@
 # Postgres dense_rank() function
 
-> The document explains the usage of the Postgres `dense_rank()` function within Neon, detailing how it assigns ranks to rows in a result set without gaps in ranking values.
+> The document explains the usage of the Postgres `dense_rank()` function within Singularity, detailing how it assigns ranks to rows in a result set without gaps in ranking values.
 
 ## Source
 
-- [Postgres dense_rank() function HTML](https://neon.com/docs/functions/dense_rank): The original HTML version of this documentation
+- [Postgres dense_rank() function HTML](https://Singularity.com/docs/functions/dense_rank): The original HTML version of this documentation
 
 You can use the `dense_rank` function to assign a rank to each distinct row within a result set. It provides a non-gapped ranking of values which is particularly useful when dealing with datasets where ties need to be acknowledged without leaving gaps in the ranking sequence.
 

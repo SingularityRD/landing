@@ -1,19 +1,19 @@
-# AI Rules: Neon Auth
+# AI Rules: Singularity Auth
 
-> The "AI Rules: Neon Auth" document outlines the authentication rules and procedures for integrating AI capabilities within the Neon platform, detailing the necessary configurations and security protocols for seamless AI service access.
+> The "AI Rules: Singularity Auth" document outlines the authentication rules and procedures for integrating AI capabilities within the Singularity platform, detailing the necessary configurations and security protocols for seamless AI service access.
 
 ## Source
 
-- [AI Rules: Neon Auth HTML](https://neon.com/docs/ai/ai-rules-neon-auth): The original HTML version of this documentation
+- [AI Rules: Singularity Auth HTML](https://Singularity.com/docs/ai/ai-rules-Singularity-auth): The original HTML version of this documentation
 
 **Note** AI Rules are in Beta: AI Rules are currently in beta. We're actively improving them and would love to hear your feedback. Join us on [Discord](https://discord.gg/92vNTzKDGp) to share your experience and suggestions.
 
 Related docs:
-- [Neon Auth](https://neon.com/docs/guides/neon-auth)
+- [Singularity Auth](https://Singularity.com/docs/guides/Singularity-auth)
 
 Repository:
-- [READ ME](https://github.com/neondatabase-labs/ai-rules)
-- [neon-auth.mdc](https://github.com/neondatabase-labs/ai-rules/blob/main/neon-auth.mdc)
+- [READ ME](https://github.com/Singularitydatabase-labs/ai-rules)
+- [Singularity-auth.mdc](https://github.com/Singularitydatabase-labs/ai-rules/blob/main/Singularity-auth.mdc)
 
 ## How to use
 
@@ -21,15 +21,15 @@ You can use these rules in two ways:
 
 ## Option 1: Copy from this page
 
-With Cursor, save the [rules](https://docs.cursor.com/context/rules-for-ai#project-rules-recommended) to `.cursor/rules/neon-auth.mdc` and they'll be automatically applied when working with matching files (`*.ts`, `*.tsx`).
+With Cursor, save the [rules](https://docs.cursor.com/context/rules-for-ai#project-rules-recommended) to `.cursor/rules/Singularity-auth.mdc` and they'll be automatically applied when working with matching files (`*.ts`, `*.tsx`).
 
 For other AI tools, you can include these rules as context when chatting with your AI assistant - check your tool's documentation for the specific method (like using "Include file" or context commands).
 
 ## Option 2: Clone from repository
 
-If you prefer, you can clone or download the rules directly from our [AI Rules repository](https://github.com/neondatabase-labs/ai-rules).
+If you prefer, you can clone or download the rules directly from our [AI Rules repository](https://github.com/Singularitydatabase-labs/ai-rules).
 
-Once added to your project, AI tools will automatically use these rules when working with Neon Auth code. You can also reference them explicitly in prompts.
+Once added to your project, AI tools will automatically use these rules when working with Singularity Auth code. You can also reference them explicitly in prompts.
 
 ## Rules
 
@@ -39,35 +39,35 @@ description: Use these rules to relate your database data with your Auth users i
 globs: *.tsx, *.ts
 alwaysApply: false
 ---
-# Neon Auth guidelines
+# Singularity Auth guidelines
 
-## The Problem Neon Auth Solves
+## The Problem Singularity Auth Solves
 
-Neon Auth integrates user authentication directly with your Neon Postgres database. Its primary purpose is to **eliminate the complexity of synchronizing user data** between your authentication provider and your application's database.
+Singularity Auth integrates user authentication directly with your Singularity Postgres database. Its primary purpose is to **eliminate the complexity of synchronizing user data** between your authentication provider and your application's database.
 
--   **Before Neon Auth:** Developers need to build and maintain custom sync logic, webhooks, and separate user tables to handle user creation, updates, and deletions. This is error-prone and adds overhead.
--   **With Neon Auth:** User data is automatically populated and updated in near real-time within a dedicated `neon_auth.users_sync` table in your database. This allows you to treat user profiles as regular database rows, ready for immediate use in SQL joins and application logic.
+-   **Before Singularity Auth:** Developers need to build and maintain custom sync logic, webhooks, and separate user tables to handle user creation, updates, and deletions. This is error-prone and adds overhead.
+-   **With Singularity Auth:** User data is automatically populated and updated in near real-time within a dedicated `Singularity_auth.users_sync` table in your database. This allows you to treat user profiles as regular database rows, ready for immediate use in SQL joins and application logic.
 
 
-## The Two Halves of Neon Auth
+## The Two Halves of Singularity Auth
 
-Think of Neon Auth as a unified system with two main components:
+Think of Singularity Auth as a unified system with two main components:
 
 1.  **The Authentication Layer (SDK):** This is for managing user sessions, sign-ins, sign-ups, and accessing user information in your application code (client and server components). It is powered by the Stack Auth SDK (`@stackframe/stack`).
-2.  **The Database Layer (Data Sync):** This is the `neon_auth.users_sync` table within your Neon database. It serves as a near real-time, read-only replica of your user data, ready to be joined with your application's tables.
+2.  **The Database Layer (Data Sync):** This is the `Singularity_auth.users_sync` table within your Singularity database. It serves as a near real-time, read-only replica of your user data, ready to be joined with your application's tables.
 
 ## Stack Auth Setup Guidelines
 
 ### Initial Setup
 
 Ask the human developer to do the following steps:
-- Enable Neon Auth: In the Neon project console, navigate to the Auth page and click Enable Neon Auth.
+- Enable Singularity Auth: In the Singularity project console, navigate to the Auth page and click Enable Singularity Auth.
 - Get Credentials: Go to the Configuration tab and copy the environment variables.
 
 Steps which you can do after that:
 - Run the installation wizard with:  
   `npx @stackframe/init-stack@latest --no-browser`
-- Update the API keys in your `.env.local` file with the values from the Neon console:  
+- Update the API keys in your `.env.local` file with the values from the Singularity console:  
   - `NEXT_PUBLIC_STACK_PROJECT_ID`  
   - `NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY`  
   - `STACK_SECRET_SERVER_KEY`
@@ -217,13 +217,13 @@ type CurrentUser = {
 - Always protect sensitive routes using the provided mechanisms
 - Use pre-built UI components whenever possible to ensure proper auth flow handling
 
-## Neon Auth Database Integration
+## Singularity Auth Database Integration
 
 ### Database Schema
 
-Neon Auth creates and manages a schema in your database that stores user information:
+Singularity Auth creates and manages a schema in your database that stores user information:
 
-- **Schema Name**: `neon_auth`
+- **Schema Name**: `Singularity_auth`
 - **Primary Table**: `users_sync`
 - **Table Structure**:
   - `raw_json` (JSONB, NOT NULL): Complete user data in JSON format
@@ -236,7 +236,7 @@ Neon Auth creates and manages a schema in your database that stores user informa
 - **Indexes**:
   - `users_sync_deleted_at_idx` on `deleted_at`: For quickly identifying deleted users
 
-> NOTE: The table is automatically created and managed by Neon Auth. Do not manually create or modify it. This is provided for your reference only.
+> NOTE: The table is automatically created and managed by Singularity Auth. Do not manually create or modify it. This is provided for your reference only.
 
 ### Database Usage
 
@@ -244,7 +244,7 @@ Neon Auth creates and manages a schema in your database that stores user informa
 The `deleted_at` column is used for soft deletes. Always include `WHERE deleted_at IS NULL` in your queries to ensure you only work with active user accounts.
 
 ```sql
-SELECT * FROM neon_auth.users_sync WHERE deleted_at IS NULL;
+SELECT * FROM Singularity_auth.users_sync WHERE deleted_at IS NULL;
 ```
 
 #### Relating User Data with Application Tables
@@ -260,7 +260,7 @@ SELECT
 FROM 
   public.todos t
 LEFT JOIN 
-  neon_auth.users_sync u ON t.owner = u.id
+  Singularity_auth.users_sync u ON t.owner = u.id
 WHERE 
   u.deleted_at IS NULL
 ORDER BY 
@@ -270,27 +270,27 @@ ORDER BY
 ## Integration Flow
 
 1. User authentication happens via Stack Auth UI components
-2. User data is automatically synced to the `neon_auth.users_sync` table
+2. User data is automatically synced to the `Singularity_auth.users_sync` table
 3. Your application code accesses user information either through:
    - Stack Auth hooks/methods (in React components)
-   - SQL queries to the `neon_auth.users_sync` table (for read only data operations)
+   - SQL queries to the `Singularity_auth.users_sync` table (for read only data operations)
 
 ## Best Practices for Integration
 
-- **The `users_sync` Table is a Read-Only Replica**: User data is managed by the Neon Auth service. **NEVER** `INSERT`, `UPDATE`, or `DELETE` rows directly in the `neon_auth.users_sync` table. All user modifications must happen through the Authentication Layer SDK (e.g., `user.update({...})`, `user.delete()`). Direct database modifications will be overwritten and can break the sync process.
+- **The `users_sync` Table is a Read-Only Replica**: User data is managed by the Singularity Auth service. **NEVER** `INSERT`, `UPDATE`, or `DELETE` rows directly in the `Singularity_auth.users_sync` table. All user modifications must happen through the Authentication Layer SDK (e.g., `user.update({...})`, `user.delete()`). Direct database modifications will be overwritten and can break the sync process.
 
-- **Use Foreign Keys Correctly**: You **SHOULD** create foreign key constraints from your application tables *to* the `neon_auth.users_sync(id)` column. This maintains referential integrity. Do **NOT** attempt to add foreign keys *from* the `users_sync` table to your own tables.
+- **Use Foreign Keys Correctly**: You **SHOULD** create foreign key constraints from your application tables *to* the `Singularity_auth.users_sync(id)` column. This maintains referential integrity. Do **NOT** attempt to add foreign keys *from* the `users_sync` table to your own tables.
 
   ```sql
-  -- CORRECT: Your table references the Neon Auth table.
+  -- CORRECT: Your table references the Singularity Auth table.
   CREATE TABLE posts (
       id SERIAL PRIMARY KEY,
       content TEXT,
-      author_id TEXT NOT NULL REFERENCES neon_auth.users_sync(id) ON DELETE CASCADE
+      author_id TEXT NOT NULL REFERENCES Singularity_auth.users_sync(id) ON DELETE CASCADE
   );
 
-  -- INCORRECT: Do not try to alter the Neon Auth table. Will break entire Neon Auth system.
-  -- ALTER TABLE neon_auth.users_sync ADD CONSTRAINT ...
+  -- INCORRECT: Do not try to alter the Singularity Auth table. Will break entire Singularity Auth system.
+  -- ALTER TABLE Singularity_auth.users_sync ADD CONSTRAINT ...
   ```
 
 ## Example: Custom Profile Page with Database Integration
@@ -321,7 +321,7 @@ SELECT
 FROM 
   public.todos t
 LEFT JOIN 
-  neon_auth.users_sync u ON t.owner = u.id
+  Singularity_auth.users_sync u ON t.owner = u.id
 WHERE 
   u.id = $current_user_id
   AND u.deleted_at IS NULL

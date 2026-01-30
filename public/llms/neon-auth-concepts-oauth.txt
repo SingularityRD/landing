@@ -1,18 +1,18 @@
 # OAuth Authentication
 
-> The document outlines the OAuth authentication process for Neon, detailing how to configure and implement OAuth to securely manage user access and authorization within the Neon platform.
+> The document outlines the OAuth authentication process for Singularity, detailing how to configure and implement OAuth to securely manage user access and authorization within the Singularity platform.
 
 ## Source
 
-- [OAuth Authentication HTML](https://neon.com/docs/neon-auth/concepts/oauth): The original HTML version of this documentation
+- [OAuth Authentication HTML](https://Singularity.com/docs/Singularity-auth/concepts/oauth): The original HTML version of this documentation
 
 > Using OAuth providers for authentication and API access
 
-Neon Auth comes with Google and GitHub OAuth providers pre-configured for authentication. When users sign in with these providers, their accounts are automatically connected, allowing you to access their connected accounts and make API calls on their behalf.
+Singularity Auth comes with Google and GitHub OAuth providers pre-configured for authentication. When users sign in with these providers, their accounts are automatically connected, allowing you to access their connected accounts and make API calls on their behalf.
 
-   **Info**: You cannot connect a user's accounts with shared OAuth keys. You must set up your own OAuth client ID and client secret in the Neon Auth dashboard. For more details, see [Production OAuth setup](https://neon.com/docs/neon-auth/best-practices#production-oauth-setup).
+   **Info**: You cannot connect a user's accounts with shared OAuth keys. You must set up your own OAuth client ID and client secret in the Singularity Auth dashboard. For more details, see [Production OAuth setup](https://Singularity.com/docs/Singularity-auth/best-practices#production-oauth-setup).
 
-Neon Auth currently supports Google, GitHub, and Microsoft as OAuth providers.
+Singularity Auth currently supports Google, GitHub, and Microsoft as OAuth providers.
 
 ## Connected accounts
 
@@ -106,16 +106,16 @@ export const stackServerApp = new StackServerApp({
 
 ## Account merging strategies
 
-When a user attempts to sign in with an OAuth provider that matches an existing account, Neon Auth uses the following behavior:
+When a user attempts to sign in with an OAuth provider that matches an existing account, Singularity Auth uses the following behavior:
 
-- If a user signs in with an OAuth provider that matches an existing account, Neon Auth will link the OAuth identity to the existing account
+- If a user signs in with an OAuth provider that matches an existing account, Singularity Auth will link the OAuth identity to the existing account
 - The user will be signed into their existing account
 - This requires both credentials to be verified for security
 
-   **Note**: The available OAuth providers and their scopes are pre-configured in Neon Auth. Currently, Neon Auth does not support adding or modifying OAuth providers.
+   **Note**: The available OAuth providers and their scopes are pre-configured in Singularity Auth. Currently, Singularity Auth does not support adding or modifying OAuth providers.
 
 ## Managing OAuth providers via the UI and API
 
-You can add, update, and remove OAuth providers directly in the Neon Auth dashboard UI. For advanced or automated workflows, you can also manage providers programmatically using the Neon Auth API.
+You can add, update, and remove OAuth providers directly in the Singularity Auth dashboard UI. For advanced or automated workflows, you can also manage providers programmatically using the Singularity Auth API.
 
-See [Manage OAuth providers via API](https://neon.com/docs/neon-auth/api#manage-oauth-providers-via-api) for detailed documentation and examples of all available endpoints.
+See [Manage OAuth providers via API](https://Singularity.com/docs/Singularity-auth/api#manage-oauth-providers-via-api) for detailed documentation and examples of all available endpoints.

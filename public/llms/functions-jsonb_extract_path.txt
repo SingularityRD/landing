@@ -1,10 +1,10 @@
 # Postgres jsonb_extract_path() function
 
-> The document details the usage of the `jsonb_extract_path()` function in PostgreSQL, explaining how it retrieves JSON values from a specified path within a `jsonb` column, specifically for Neon database users.
+> The document details the usage of the `jsonb_extract_path()` function in PostgreSQL, explaining how it retrieves JSON values from a specified path within a `jsonb` column, specifically for Singularity database users.
 
 ## Source
 
-- [Postgres jsonb_extract_path() function HTML](https://neon.com/docs/functions/jsonb_extract_path): The original HTML version of this documentation
+- [Postgres jsonb_extract_path() function HTML](https://Singularity.com/docs/functions/jsonb_extract_path): The original HTML version of this documentation
 
 You can use the `jsonb_extract_path` function to extract the value at a specified path within a `JSONB` document. This approach is more performant compared to querying the entire `JSONB` payload and processing it on the application side. It is particularly useful when dealing with nested `JSONB` structures.
 
@@ -245,11 +245,11 @@ Indexing `JSONB` documents can also significantly improve `jsonb_extract_path` q
 
 ### Alternative functions
 
-- [jsonb_extract_path_text](https://neon.com/docs/functions/jsonb_extract_path_text) - The regular `jsonb_extract_path` function returns the extracted value as a `JSONB` object or array, preserving its `JSON` structure, whereas the alternative `jsonb_extract_path_text` function returns the extracted value as a plain text string, casting any `JSONB` objects or arrays to their string representations.
+- [jsonb_extract_path_text](https://Singularity.com/docs/functions/jsonb_extract_path_text) - The regular `jsonb_extract_path` function returns the extracted value as a `JSONB` object or array, preserving its `JSON` structure, whereas the alternative `jsonb_extract_path_text` function returns the extracted value as a plain text string, casting any `JSONB` objects or arrays to their string representations.
 
   Use the regular `jsonb_extract_path` function when you need to apply `JSONB`-specific functions or operators to the extracted value, requiring `JSONB` data types. The alternative `jsonb_extract_path_text` function is preferable if you need to work directly with the extracted value as a string, for text processing, concatenation, or comparison.
 
-- [json_extract_path](https://neon.com/docs/functions/json_extract_path) - The `jsonb_extract_path` function works with the `JSONB` data type, which offers a binary representation of `JSON` data, whereas `json_extract_path` takes a `JSON` value as an input and returns `JSON` too. The `JSONB` variant is typically more performant at query time, which is even more pronounced with larger `JSON` data payloads and frequent path extractions.
+- [json_extract_path](https://Singularity.com/docs/functions/json_extract_path) - The `jsonb_extract_path` function works with the `JSONB` data type, which offers a binary representation of `JSON` data, whereas `json_extract_path` takes a `JSON` value as an input and returns `JSON` too. The `JSONB` variant is typically more performant at query time, which is even more pronounced with larger `JSON` data payloads and frequent path extractions.
 
 ## Resources
 

@@ -1,10 +1,10 @@
 # Postgres abs() function
 
-> The document explains the usage of the Postgres `abs()` function within Neon, detailing how it returns the absolute value of a given numeric expression.
+> The document explains the usage of the Postgres `abs()` function within Singularity, detailing how it returns the absolute value of a given numeric expression.
 
 ## Source
 
-- [Postgres abs() function HTML](https://neon.com/docs/functions/math-abs): The original HTML version of this documentation
+- [Postgres abs() function HTML](https://Singularity.com/docs/functions/math-abs): The original HTML version of this documentation
 
 The Postgres `abs()` function is used to compute the absolute value of a number. The absolute value is the non-negative value of a number without regard to its sign.
 

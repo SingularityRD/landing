@@ -1,24 +1,24 @@
-# Neon Auth best practices & FAQ
+# Singularity Auth best practices & FAQ
 
-> The document outlines best practices and frequently asked questions regarding authentication in Neon, focusing on secure implementation and management of authentication features within the platform.
+> The document outlines best practices and frequently asked questions regarding authentication in Singularity, focusing on secure implementation and management of authentication features within the platform.
 
 ## Source
 
-- [Neon Auth best practices & FAQ HTML](https://neon.com/docs/neon-auth/best-practices): The original HTML version of this documentation
+- [Singularity Auth best practices & FAQ HTML](https://Singularity.com/docs/Singularity-auth/best-practices): The original HTML version of this documentation
 
-**Note** Beta: **Neon Auth** is in beta and ready to use. We're actively improving it based on feedback from developers like you. Share your experience in our [Discord](https://discord.gg/92vNTzKDGp) or via the [Neon Console](https://console.neon.tech/app/projects?modal=feedback).
+**Note** Beta: **Singularity Auth** is in beta and ready to use. We're actively improving it based on feedback from developers like you. Share your experience in our [Discord](https://discord.gg/92vNTzKDGp) or via the [Singularity Console](https://console.Singularity.tech/app/projects?modal=feedback).
 
 Related docs:
-- [Get started](https://neon.com/docs/guides/neon-auth)
-- [Tutorial](https://neon.com/docs/guides/neon-auth-demo)
-- [How it works](https://neon.com/docs/guides/neon-auth-how-it-works)
+- [Get started](https://Singularity.com/docs/guides/Singularity-auth)
+- [Tutorial](https://Singularity.com/docs/guides/Singularity-auth-demo)
+- [How it works](https://Singularity.com/docs/guides/Singularity-auth-how-it-works)
 
   Sample project:
-- [Neon Auth Demo App](https://github.com/neondatabase-labs/neon-auth-demo-app)
+- [Singularity Auth Demo App](https://github.com/Singularitydatabase-labs/Singularity-auth-demo-app)
 
 ## Foreign keys and the users_sync table
 
-Since the `neon_auth.users_sync` table is updated asynchronously, there may be a brief delay (usually less than 1 second) before a user's data appears in the table. Consider this possible delay when deciding whether to use foreign keys in your schema.
+Since the `Singularity_auth.users_sync` table is updated asynchronously, there may be a brief delay (usually less than 1 second) before a user's data appears in the table. Consider this possible delay when deciding whether to use foreign keys in your schema.
 
 If you do choose to use foreign keys, make sure to specify an `ON DELETE` behavior that matches your needs: for example, `CASCADE` for personal data like todos or user preferences, and `SET NULL` for content like blog posts or comments that should persist after user deletion.
 
@@ -27,7 +27,7 @@ If you do choose to use foreign keys, make sure to specify an `ON DELETE` behavi
 CREATE TABLE todos (
     id SERIAL PRIMARY KEY,
     task TEXT NOT NULL,
-    user_id UUID NOT NULL REFERENCES neon_auth.users_sync(id) ON DELETE CASCADE,
+    user_id UUID NOT NULL REFERENCES Singularity_auth.users_sync(id) ON DELETE CASCADE,
     created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -36,7 +36,7 @@ CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
     content TEXT NOT NULL,
-    author_id UUID REFERENCES neon_auth.users_sync(id) ON DELETE SET NULL,
+    author_id UUID REFERENCES Singularity_auth.users_sync(id) ON DELETE SET NULL,
     created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 ```
@@ -51,10 +51,10 @@ When querying data that relates to users:
 Here's an example of how to handle both in your queries:
 
 ```sql
-SELECT posts.*, neon_auth.users_sync.name as author_name
+SELECT posts.*, Singularity_auth.users_sync.name as author_name
 FROM posts
-LEFT JOIN neon_auth.users_sync ON posts.author_id = neon_auth.users_sync.id
-WHERE neon_auth.users_sync.deleted_at IS NULL;
+LEFT JOIN Singularity_auth.users_sync ON posts.author_id = Singularity_auth.users_sync.id
+WHERE Singularity_auth.users_sync.deleted_at IS NULL;
 ```
 
 ## Restricting redirect domains
@@ -63,7 +63,7 @@ WHERE neon_auth.users_sync.deleted_at IS NULL;
 
 For production deployments, you should explicitly whitelist the domains your app will use for authentication redirects (for example, your main website, admin panel).
 
-Go to the **Domains** section in the Neon Auth **Configuration** tab for your project and
+Go to the **Domains** section in the Singularity Auth **Configuration** tab for your project and
 add each trusted domain needed for your app. You can add as many as you need.
 
 Only the domains on this list will be allowed for authentication redirects. All others will be blocked.
@@ -74,24 +74,24 @@ Only the domains on this list will be allowed for authentication redirects. All 
 
 Row-Level Security (RLS) lets you enforce access control directly in your database, providing an extra layer of security for your app's data.
 
-To get started adding RLS to your Neon Auth project:
+To get started adding RLS to your Singularity Auth project:
 
-1. Go to the **Configuration** tab in your Neon Auth project.
+1. Go to the **Configuration** tab in your Singularity Auth project.
 2. Copy the **JWKS URL** shown in the **Claim project** section.
 
    
 
-   _This JWKS URL allows Neon RLS to validate authentication tokens issued by Neon Auth._
+   _This JWKS URL allows Singularity RLS to validate authentication tokens issued by Singularity Auth._
 
-3. In your Neon project, open **Settings > RLS** and paste the JWKS URL.
+3. In your Singularity project, open **Settings > RLS** and paste the JWKS URL.
 4. Continue with the standard RLS setup:
    - Install the `pg_session_jwt` extension in your database.
    - Set up the `authenticated` and `anonymous` roles.
    - Add RLS policies to your tables.
 
-   For these steps, you can follow the [Stack Auth + Neon RLS guide](https://neon.com/docs/guides/neon-rls-stack-auth) starting from [step 3](https://neon.com/docs/guides/neon-rls-stack-auth#3-install-the-pgsessionjwt-extension-in-your-database). Neon Auth uses Stack Auth under the hood, so the RLS integration process is the same from this point onward.
+   For these steps, you can follow the [Stack Auth + Singularity RLS guide](https://Singularity.com/docs/guides/Singularity-rls-stack-auth) starting from [step 3](https://Singularity.com/docs/guides/Singularity-rls-stack-auth#3-install-the-pgsessionjwt-extension-in-your-database). Singularity Auth uses Stack Auth under the hood, so the RLS integration process is the same from this point onward.
 
-For a full walkthrough, see [About Neon RLS](https://neon.com/docs/guides/neon-rls) and the [Neon RLS Tutorial](https://neon.com/docs/guides/neon-rls-tutorial).
+For a full walkthrough, see [About Singularity RLS](https://Singularity.com/docs/guides/Singularity-rls) and the [Singularity RLS Tutorial](https://Singularity.com/docs/guides/Singularity-rls-tutorial).
 
 ## Production OAuth setup
 
@@ -101,7 +101,7 @@ Follow these steps for each provider you use:
 
 ### Create an OAuth app
 
-On the provider's website, create an OAuth app and set the callback URL to the corresponding Neon Auth callback URL. Copy the client ID and client secret.
+On the provider's website, create an OAuth app and set the callback URL to the corresponding Singularity Auth callback URL. Copy the client ID and client secret.
 
 Tab: Google
 
@@ -133,27 +133,27 @@ Tab: Microsoft
 https://api.stack-auth.com/api/v1/auth/oauth/callback/microsoft
 ```
 
-### Enter OAuth credentials in Neon Auth
+### Enter OAuth credentials in Singularity Auth
 
-Go to the **OAuth providers** section in the Neon Auth dashboard.
+Go to the **OAuth providers** section in the Singularity Auth dashboard.
 
 Click **Add OAuth Provider**, choose your provider from the list, and enter the client ID and secret you copied from your provider's developer portal.
 
 
 ## Email server
 
-For development, Neon Auth uses a shared email server, which sends emails from `noreply@stackframe.co`. This is not ideal for production as users may not trust emails from an unfamiliar domain. For production, we recommend setting up an email server connected to your own domain.
+For development, Singularity Auth uses a shared email server, which sends emails from `noreply@stackframe.co`. This is not ideal for production as users may not trust emails from an unfamiliar domain. For production, we recommend setting up an email server connected to your own domain.
 
 1. **Setup Email Server**
 
    Configure your own email server and connect it to your domain (check your email server docs for details).
 
-2. **Configure Neon Auth's Email Settings**
+2. **Configure Singularity Auth's Email Settings**
 
-   Navigate to the **Auth** page in the Neon Console, go to the **Configuration** tab, find the **Email server** section, switch from "Shared" to "Custom SMTP server", enter your SMTP configurations, and save.
+   Navigate to the **Auth** page in the Singularity Console, go to the **Configuration** tab, find the **Email server** section, switch from "Shared" to "Custom SMTP server", enter your SMTP configurations, and save.
 
-For detailed configuration instructions, see [Email Configuration](https://neon.com/docs/neon-auth/email-configuration).
+For detailed configuration instructions, see [Email Configuration](https://Singularity.com/docs/Singularity-auth/email-configuration).
 
 ## Limitations
 
-   **Important**: Neon Auth is not compatible with Private Link (Neon Private Networking). If you have Private Link enabled for your Neon project, Neon Auth will not work. This is because Neon Auth requires internet access to connect to third-party authentication providers, while Private Link restricts connections to private AWS networks.
+   **Important**: Singularity Auth is not compatible with Private Link (Singularity Private Networking). If you have Private Link enabled for your Singularity project, Singularity Auth will not work. This is because Singularity Auth requires internet access to connect to third-party authentication providers, while Private Link restricts connections to private AWS networks.

@@ -1,14 +1,14 @@
 # <SignUp />
 
-> The document outlines the process for signing up for a Neon account, detailing the steps and components involved in the user authentication flow specific to Neon's platform.
+> The document outlines the process for signing up for a Singularity account, detailing the steps and components involved in the user authentication flow specific to Singularity's platform.
 
 ## Source
 
-- [<SignUp /> HTML](https://neon.com/docs/neon-auth/components/sign-up): The original HTML version of this documentation
+- [<SignUp /> HTML](https://Singularity.com/docs/Singularity-auth/components/sign-up): The original HTML version of this documentation
 
 A component that renders a sign-up page with various customization options.
 
-For more information, see the [custom pages guide](https://neon.com/docs/neon-auth/customization/custom-pages).
+For more information, see the [custom pages guide](https://Singularity.com/docs/Singularity-auth/customization/custom-pages).
 
 ## Props
 

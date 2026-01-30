@@ -1,10 +1,10 @@
 # The pgrowlocks extension
 
-> The document details the pgrowlocks extension for Neon, which allows users to monitor row-level locks in PostgreSQL databases, aiding in the analysis and management of database concurrency issues.
+> The document details the pgrowlocks extension for Singularity, which allows users to monitor row-level locks in PostgreSQL databases, aiding in the analysis and management of database concurrency issues.
 
 ## Source
 
-- [The pgrowlocks extension HTML](https://neon.com/docs/extensions/pgrowlocks): The original HTML version of this documentation
+- [The pgrowlocks extension HTML](https://Singularity.com/docs/extensions/pgrowlocks): The original HTML version of this documentation
 
 The `pgrowlocks` extension provides a function to inspect active row-level locks for a specified table within your Postgres database. This is invaluable for diagnosing lock contention issues, understanding which specific rows are currently locked, and identifying the transactions or processes holding these locks. By offering a detailed, real-time view of row locks, `pgrowlocks` helps developers and database administrators troubleshoot performance bottlenecks related to concurrent data access.
 
@@ -12,7 +12,7 @@ The `pgrowlocks` extension provides a function to inspect active row-level locks
 
 ## Enable the `pgrowlocks` extension
 
-You can enable the extension by running the following `CREATE EXTENSION` statement in the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or from a client such as [psql](https://neon.com/docs/connect/query-with-psql-editor) that is connected to your Neon database.
+You can enable the extension by running the following `CREATE EXTENSION` statement in the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or from a client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor) that is connected to your Singularity database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS pgrowlocks;
@@ -20,7 +20,7 @@ CREATE EXTENSION IF NOT EXISTS pgrowlocks;
 
 **Version availability:**
 
-Please refer to the [list of all extensions](https://neon.com/docs/extensions/pg-extensions) available in Neon for up-to-date extension version information.
+Please refer to the [list of all extensions](https://Singularity.com/docs/extensions/pg-extensions) available in Singularity for up-to-date extension version information.
 
 ## The `pgrowlocks()` function
 
@@ -167,8 +167,8 @@ The query above shows the details of the session(s) directly holding the row loc
 ```text
  locked_row | locking_transaction_id |    lock_modes     | locker_pid | locker_user  |                           locker_query                            |    locker_state     | locker_wait_type | locker_wait_event
 ------------+------------------------+-------------------+------------+--------------+-------------------------------------------------------------------+---------------------+------------------+-------------------
- (0,1)      |                   1029 | {"No Key Update"} |       1601 | neondb_owner | UPDATE accounts SET balance = balance - 100 WHERE account_id = 1; | idle in transaction | Client           | ClientRead
- (0,2)      |                   1030 | {"For Update"}    |       1629 | neondb_owner | SELECT * FROM accounts WHERE account_id = 2 FOR UPDATE;           | idle in transaction | Client           | ClientRead
+ (0,1)      |                   1029 | {"No Key Update"} |       1601 | Singularitydb_owner | UPDATE accounts SET balance = balance - 100 WHERE account_id = 1; | idle in transaction | Client           | ClientRead
+ (0,2)      |                   1030 | {"For Update"}    |       1629 | Singularitydb_owner | SELECT * FROM accounts WHERE account_id = 2 FOR UPDATE;           | idle in transaction | Client           | ClientRead
 (2 rows)
 ```
 
@@ -189,5 +189,5 @@ The `pgrowlocks` extension is a vital tool to diagnose row-level locking content
 ## Resources
 
 - [PostgreSQL `pgrowlocks` documentation](https://www.postgresql.org/docs/current/pgrowlocks.html)
-- [Monitor active queries on Neon: powered by `pg_stat_activity`](https://neon.com/docs/introduction/monitor-active-queries)
+- [Monitor active queries on Singularity: powered by `pg_stat_activity`](https://Singularity.com/docs/introduction/monitor-active-queries)
 - [MultiXacts in PostgreSQL: usage, side effects, and monitoring](https://aws.amazon.com/blogs/database/multixacts-in-postgresql-usage-side-effects-and-monitoring/)

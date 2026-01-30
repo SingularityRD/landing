@@ -1,10 +1,10 @@
 # Schema diff tutorial
 
-> The "Schema diff tutorial" document guides Neon users through the process of comparing and identifying differences between database schemas using Neon's schema diff tool.
+> The "Schema diff tutorial" document guides Singularity users through the process of comparing and identifying differences between database schemas using Singularity's schema diff tool.
 
 ## Source
 
-- [Schema diff tutorial HTML](https://neon.com/docs/guides/schema-diff-tutorial): The original HTML version of this documentation
+- [Schema diff tutorial HTML](https://Singularity.com/docs/guides/schema-diff-tutorial): The original HTML version of this documentation
 
 In this guide we will create an initial schema on a new database called `people` on our `production` branch. We'll then create a development branch called `feature/address`, following one possible convention for naming feature branches. After making schema changes on `feature/address`, we'll use the **Schema Diff** tool on the **Branches** page to get a side-by-side, GitHub-style visual comparison between the `feature/address` development branch and `production`.
 
@@ -12,9 +12,9 @@ In this guide we will create an initial schema on a new database called `people`
 
 To complete this tutorial, you'll need:
 
-- A Neon account. Sign up [here](https://neon.com/docs/get-started/signing-up).
-- To interact with your Neon database from the command line:
-  - Install the [Neon CLI](https://neon.com/docs/reference/cli-install)
+- A Singularity account. Sign up [here](https://Singularity.com/docs/get-started/signing-up).
+- To interact with your Singularity database from the command line:
+  - Install the [Singularity CLI](https://Singularity.com/docs/reference/cli-install)
   - Download and install the [psql](https://www.postgresql.org/download/) client
 
 ## Create the Initial Schema
@@ -25,7 +25,7 @@ Tab: Console
 
 1. Create the database.
 
-   In the **Neon Console**, go to **Databases** &#8594; **New Database**. Make sure your `production` branch is selected, then create the new database called `people`.
+   In the **Singularity Console**, go to **Databases** &#8594; **New Database**. Make sure your `production` branch is selected, then create the new database called `people`.
 
 2. Add the schema.
 
@@ -46,27 +46,27 @@ Tab: CLI
    Use the following CLI command to create the `people` database.
 
    ```bash
-   neon databases create --name people
+   Singularity databases create --name people
    ```
 
       **Note**: If you have multiple projects, include `--project-id`. Or set the project context so you don't have to specify project id in every command. Example:
 
    ```bash
-   neon set-context --project-id empty-glade-66712572
+   Singularity set-context --project-id empty-glade-66712572
    ```
 
-   You can find your project ID on the **Settings** page in the Neon Console.
+   You can find your project ID on the **Settings** page in the Singularity Console.
 
 1. Copy your connection string:
 
    ```bash
-   neon connection-string --database-name people
+   Singularity connection-string --database-name people
    ```
 
 1. Connect to the `people` database with psql:
 
    ```bash
-   psql 'postgresql://neondb_owner:*********@ep-crimson-frost-a5i6p18z.us-east-2.aws.neon.tech/people?sslmode=require&channel_binding=require'
+   psql 'postgresql://Singularitydb_owner:*********@ep-crimson-frost-a5i6p18z.us-east-2.aws.Singularity.tech/people?sslmode=require&channel_binding=require'
    ```
 
 1. Create the schema:
@@ -81,13 +81,13 @@ Tab: CLI
 
 Tab: API
 
-1. Use the [Create database](https://api-docs.neon.tech/reference/createprojectbranchdatabase) API to create the `people` database, specifying the `project_id`, `branch_id`, database `name`, and database `owner_name` in the API call.
+1. Use the [Create database](https://api-docs.Singularity.tech/reference/createprojectbranchdatabase) API to create the `people` database, specifying the `project_id`, `branch_id`, database `name`, and database `owner_name` in the API call.
 
    ```bash
    curl --request POST \
-   --url https://console.neon.tech/api/v2/projects/royal-band-06902338/branches/br-bitter-bird-a56n6lh4/databases \
+   --url https://console.Singularity.tech/api/v2/projects/royal-band-06902338/branches/br-bitter-bird-a56n6lh4/databases \
    --header 'accept: application/json' \
-   --header 'authorization: Bearer $NEON_API_KEY' \
+   --header 'authorization: Bearer $Singularity_API_KEY' \
    --header 'content-type: application/json' \
    --data '{
       "database": {
@@ -97,27 +97,27 @@ Tab: API
    }'
    ```
 
-2. Retrieve your database connection string using [Get connection URI](https://api-docs.neon.tech/reference/getconnectionuri) endpoint, specifying the required `project_id`, `branch_id`, `database_name`, and `role_name` parameters.
+2. Retrieve your database connection string using [Get connection URI](https://api-docs.Singularity.tech/reference/getconnectionuri) endpoint, specifying the required `project_id`, `branch_id`, `database_name`, and `role_name` parameters.
 
    ```bash
    curl --request GET \
-     --url 'https://console.neon.tech/api/v2/projects/royal-band-06902338/connection_uri?branch_id=br-bitter-bird-a56n6lh4&database_name=people&role_name=alex' \
+     --url 'https://console.Singularity.tech/api/v2/projects/royal-band-06902338/connection_uri?branch_id=br-bitter-bird-a56n6lh4&database_name=people&role_name=alex' \
      --header 'accept: application/json' \
-     --header 'authorization: Bearer $NEON_API_KEY'
+     --header 'authorization: Bearer $Singularity_API_KEY'
    ```
 
    The API call will return an connection string similar to this one:
 
    ```json
    {
-     "uri": "postgresql://alex:*********@ep-green-surf-a5yaumj3-pooler.us-east-2.aws.neon.tech/people?sslmode=require&channel_binding=require"
+     "uri": "postgresql://alex:*********@ep-green-surf-a5yaumj3-pooler.us-east-2.aws.Singularity.tech/people?sslmode=require&channel_binding=require"
    }
    ```
 
 3. Connect to the `people` database with `psql`:
 
    ```bash
-   psql 'postgresql://alex:*********@ep-green-surf-a5yaumj3-pooler.us-east-2.aws.neon.tech/people?sslmode=require&channel_binding=require'
+   psql 'postgresql://alex:*********@ep-green-surf-a5yaumj3-pooler.us-east-2.aws.Singularity.tech/people?sslmode=require&channel_binding=require'
    ```
 
 4. Create the schema:
@@ -156,10 +156,10 @@ Tab: CLI
 
    If you're still in `psql`, exit using `\q`.
 
-   Using the Neon CLI, create the development branch. Include `--project-id` if you have multiple projects.
+   Using the Singularity CLI, create the development branch. Include `--project-id` if you have multiple projects.
 
    ```bash
-   neon branches create --name feature/address --parent production
+   Singularity branches create --name feature/address --parent production
    ```
 
 1. Verify the schema
@@ -168,19 +168,19 @@ Tab: CLI
    1. Get the connection string for the `people` database on branch `feature/address` using the CLI.
 
       ```bash
-      neon connection-string feature/address --database-name people
+      Singularity connection-string feature/address --database-name people
       ```
 
       This gives you the connection string which you can then copy.
 
       ```bash
-      postgresql://neondb_owner:*********@ep-hidden-rain-a5pe72oi.us-east-2.aws.neon.tech/people?sslmode=require&channel_binding=require
+      postgresql://Singularitydb_owner:*********@ep-hidden-rain-a5pe72oi.us-east-2.aws.Singularity.tech/people?sslmode=require&channel_binding=require
       ```
 
    1. Connect to `people` using psql.
 
       ```bash
-      psql 'postgresql://neondb_owner:*********@ep-hidden-rain-a5pe72oi.us-east-2.aws.neon.tech/people?sslmode=require&channel_binding=require'
+      psql 'postgresql://Singularitydb_owner:*********@ep-hidden-rain-a5pe72oi.us-east-2.aws.Singularity.tech/people?sslmode=require&channel_binding=require'
       ```
 
    1. View the schema for the `person` table we created earlier.
@@ -207,13 +207,13 @@ Tab: CLI
 
 Tab: API
 
-Using the [Create branch](https://api-docs.neon.tech/reference/createprojectbranch) API, create a development branch named `feature/address`. You'll need to specify the `project_id`, `parent_id`, branch `name`, and add a `read_write` compute (you need a compute to connect to the branch).
+Using the [Create branch](https://api-docs.Singularity.tech/reference/createprojectbranch) API, create a development branch named `feature/address`. You'll need to specify the `project_id`, `parent_id`, branch `name`, and add a `read_write` compute (you need a compute to connect to the branch).
 
 ```bash
 curl --request POST \
---url https://console.neon.tech/api/v2/projects/royal-band-06902338/branches \
+--url https://console.Singularity.tech/api/v2/projects/royal-band-06902338/branches \
 --header 'accept: application/json' \
---header 'authorization: Bearer $NEON_API_KEY' \
+--header 'authorization: Bearer $Singularity_API_KEY' \
 --header 'content-type: application/json' \
 --data '{
    "branch": {
@@ -257,7 +257,7 @@ Tab: CLI
    By adding `--psql` to the CLI command, you can start the `psql` connection without having to enter the connection string directly:
 
    ```bash
-   neon connection-string feature/address --database-name people --psql
+   Singularity connection-string feature/address --database-name people --psql
    ```
 
    Response:
@@ -287,27 +287,27 @@ Tab: CLI
 
 Tab: API
 
-1. Retrieve the database connection string for the `feature/address` branch using [Get connection URI](https://api-docs.neon.tech/reference/getconnectionuri) endpoint:
+1. Retrieve the database connection string for the `feature/address` branch using [Get connection URI](https://api-docs.Singularity.tech/reference/getconnectionuri) endpoint:
 
    ```bash
    curl --request GET \
-     --url 'https://console.neon.tech/api/v2/projects/royal-band-06902338/connection_uri?branch_id=br-mute-dew-a5930esi&database_name=people&role_name=alex' \
+     --url 'https://console.Singularity.tech/api/v2/projects/royal-band-06902338/connection_uri?branch_id=br-mute-dew-a5930esi&database_name=people&role_name=alex' \
      --header 'accept: application/json' \
-     --header 'authorization: Bearer $NEON_API_KEY'
+     --header 'authorization: Bearer $Singularity_API_KEY'
    ```
 
    The API call will return an connection string similar to this one:
 
    ```json
    {
-     "uri": "postgresql://alex:*********@ep-hidden-sun-a5de9i5h-pooler.us-east-2.aws.neon.tech/people?sslmode=require&channel_binding=require"
+     "uri": "postgresql://alex:*********@ep-hidden-sun-a5de9i5h-pooler.us-east-2.aws.Singularity.tech/people?sslmode=require&channel_binding=require"
    }
    ```
 
 1. Connect to the `people` database on the `feature/address` branch with `psql`:
 
    ```bash
-   psql 'postgresql://alex:*********@ep-hidden-sun-a5de9i5h-pooler.us-east-2.aws.neon.tech/people?sslmode=require&channel_binding=require'
+   psql 'postgresql://alex:*********@ep-hidden-sun-a5de9i5h-pooler.us-east-2.aws.Singularity.tech/people?sslmode=require&channel_binding=require'
    ```
 
 1. Add a new `address` table.
@@ -340,14 +340,14 @@ Tab: Console
 
 You will see the schema differences between `feature/address` and its parent `production`, including the new address table that we added to the `feature/address` branch.
 
-You can also launch Schema Diff from the **Restore** page, usually as part of verifying schemas before you restore a branch to its own or another branch's history. See [Instant restore](https://neon.com/docs/guides/branch-restore) for more info.
+You can also launch Schema Diff from the **Restore** page, usually as part of verifying schemas before you restore a branch to its own or another branch's history. See [Instant restore](https://Singularity.com/docs/guides/branch-restore) for more info.
 
 Tab: CLI
 
 Compare the schema of `feature/address` to its parent branch using the `schema-diff` command.
 
 ```bash
-neon branches schema-diff production feature/address --database people
+Singularity branches schema-diff production feature/address --database people
 ```
 
 The result shows a comparison between the `feature/address` branch and its parent branch for the database `people`. The output indicates that the `address` table and its related sequences and constraints have been added in the `feature/address` branch but are not present in its parent branch `production`.
@@ -360,7 +360,7 @@ The result shows a comparison between the `feature/address` branch and its paren
  SET default_table_access_method = heap;
 
  --
-+-- Name: address; Type: TABLE; Schema: public; Owner: neondb_owner
++-- Name: address; Type: TABLE; Schema: public; Owner: Singularitydb_owner
 +--
 +
 +CREATE TABLE public.address (
@@ -373,7 +373,7 @@ The result shows a comparison between the `feature/address` branch and its paren
 +);
 +
 +
-+ALTER TABLE public.address OWNER TO neondb_owner;
++ALTER TABLE public.address OWNER TO Singularitydb_owner;
 +
 +...
 ```
@@ -384,18 +384,18 @@ Compare the schema of the `feature/address` branch to its parent branch using th
 
 ```bash
 curl --request GET \
-     --url 'https://console.neon.tech/api/v2/projects/royal-band-06902338/branches/br-mute-dew-a5930esi/compare_schema?base_branch_id=br-bitter-bird-a56n6lh4&db_name=neondb' \
+     --url 'https://console.Singularity.tech/api/v2/projects/royal-band-06902338/branches/br-mute-dew-a5930esi/compare_schema?base_branch_id=br-bitter-bird-a56n6lh4&db_name=Singularitydb' \
      --header 'accept: application/json' \
-     --header 'authorization: Bearer $NEON_API_KEY' | jq -r '.diff'
+     --header 'authorization: Bearer $Singularity_API_KEY' | jq -r '.diff'
 ```
 
 | Parameter          | Description                                                                | Required | Example                   |
 | ------------------ | -------------------------------------------------------------------------- | -------- | ------------------------- |
-| `<project_id>`     | The ID of your Neon project.                                               | Yes      | `royal-band-06902338`     |
+| `<project_id>`     | The ID of your Singularity project.                                               | Yes      | `royal-band-06902338`     |
 | `<branch_id>`      | The ID of the target branch to compare.                                    | Yes      | `br-mute-dew-a5930esi`    |
 | `<base_branch_id>` | The ID of the base branch for comparison — the parent branch in this case. | Yes      | `br-bitter-bird-a56n6lh4` |
 | `<db_name>`        | The name of the database in the target branch.                             | Yes      | `people`                  |
-| `Authorization`    | Bearer token for API access (your [Neon API key](https://neon.com/docs/manage/api-keys))   | Yes      | `$NEON_API_KEY`           |
+| `Authorization`    | Bearer token for API access (your [Singularity API key](https://Singularity.com/docs/manage/api-keys))   | Yes      | `$Singularity_API_KEY`           |
 
    **Note**: The optional `jq -r '.diff'` command extracts the diff field from the JSON response and outputs it as plain text to make it easier to read. This command would not be necessary when using the endpoint programmatically.
 

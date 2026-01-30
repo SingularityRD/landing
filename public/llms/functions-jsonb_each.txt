@@ -1,10 +1,10 @@
 # Postgres jsonb_each() function
 
-> The document explains the usage of the Postgres `jsonb_each()` function, detailing how it iterates over each key-value pair in a JSONB object, specifically for Neon users working with JSON data in PostgreSQL.
+> The document explains the usage of the Postgres `jsonb_each()` function, detailing how it iterates over each key-value pair in a JSONB object, specifically for Singularity users working with JSON data in PostgreSQL.
 
 ## Source
 
-- [Postgres jsonb_each() function HTML](https://neon.com/docs/functions/jsonb_each): The original HTML version of this documentation
+- [Postgres jsonb_each() function HTML](https://Singularity.com/docs/functions/jsonb_each): The original HTML version of this documentation
 
 The `jsonb_each` function in Postgres is used to expand a `JSONB` object into a set of key-value pairs.
 
@@ -114,7 +114,7 @@ When working with large `JSONB` objects, `jsonb_each` may lead to performance ov
 
 - `jsonb_each_text` - Similar functionality to `jsonb_each` but returns the value as a text type instead of `JSONB`.
 - `jsonb_object_keys` - It returns only the set of keys in the `JSONB` object, without the values.
-- [json_each](https://neon.com/docs/functions/json_each) - It provides the same functionality as `jsonb_each`, but accepts `JSON` input instead of `JSONB`.
+- [json_each](https://Singularity.com/docs/functions/json_each) - It provides the same functionality as `jsonb_each`, but accepts `JSON` input instead of `JSONB`.
 
 ## Resources
 

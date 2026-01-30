@@ -1,18 +1,18 @@
-# Query with Neon's SQL Editor
+# Query with Singularity's SQL Editor
 
-> The document "Query with Neon's SQL Editor" guides users on executing SQL queries using Neon's integrated SQL Editor, detailing steps for accessing the editor, running queries, and managing query results within the Neon platform.
+> The document "Query with Singularity's SQL Editor" guides users on executing SQL queries using Singularity's integrated SQL Editor, detailing steps for accessing the editor, running queries, and managing query results within the Singularity platform.
 
 ## Source
 
-- [Query with Neon's SQL Editor HTML](https://neon.com/docs/get-started/query-with-neon-sql-editor): The original HTML version of this documentation
+- [Query with Singularity's SQL Editor HTML](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor): The original HTML version of this documentation
 
-The Neon SQL Editor allows you to run queries on your Neon databases directly from the Neon Console. In addition, the editor keeps a query history, permits saving queries, and provides [**Explain**](https://www.postgresql.org/docs/current/sql-explain.html) and [**Analyze**](https://www.postgresql.org/docs/current/using-explain.html#USING-EXPLAIN-ANALYZE) features.
+The Singularity SQL Editor allows you to run queries on your Singularity databases directly from the Singularity Console. In addition, the editor keeps a query history, permits saving queries, and provides [**Explain**](https://www.postgresql.org/docs/current/sql-explain.html) and [**Analyze**](https://www.postgresql.org/docs/current/using-explain.html#USING-EXPLAIN-ANALYZE) features.
 
 
 
 To use the SQL Editor:
 
-1. Navigate to the [Neon Console](https://console.neon.tech/).
+1. Navigate to the [Singularity Console](https://console.Singularity.tech/).
 2. Select your project.
 3. Select **SQL Editor**.
 4. Select a branch and database.
@@ -23,10 +23,10 @@ To use the SQL Editor:
 You can use the following query to try the SQL Editor. The query creates a table, adds data, and retrieves the data from the table.
 
 ```sql
-CREATE TABLE IF NOT EXISTS playing_with_neon(id SERIAL PRIMARY KEY, name TEXT NOT NULL, value REAL);
-INSERT INTO playing_with_neon(name, value)
+CREATE TABLE IF NOT EXISTS playing_with_Singularity(id SERIAL PRIMARY KEY, name TEXT NOT NULL, value REAL);
+INSERT INTO playing_with_Singularity(name, value)
 SELECT LEFT(md5(i::TEXT), 10), random() FROM generate_series(1, 10) s(i);
-SELECT * FROM playing_with_neon;
+SELECT * FROM playing_with_Singularity;
 ```
 
 Running multiple query statements at once returns a separate result set for each statement. The result sets are displayed in separate tabs, numbered in order of execution, as shown above.
@@ -53,11 +53,11 @@ You can rename or delete a saved query by selecting **Rename** or **Delete** fro
 
 The SQL Editor maintains a query history for the project. To view your query history, select **History** in the left pane of the SQL Editor. You can click an item in the **History** list to view the query that was run.
 
-   **Note**: Queries saved to **History** are limited to 9 KB in length. While you can execute longer queries from the SQL Editor, any query exceeding 9 KB will be truncated when saved. A `-- QUERY TRUNCATED` comment is added at the beginning of these queries to indicate truncation. Additionally, if you input a query longer than 9 KB in the Neon SQL Editor, a warning similar to the following will appear: `This query will still run, but the last 1234 characters will be truncated from query history`.
+   **Note**: Queries saved to **History** are limited to 9 KB in length. While you can execute longer queries from the SQL Editor, any query exceeding 9 KB will be truncated when saved. A `-- QUERY TRUNCATED` comment is added at the beginning of these queries to indicate truncation. Additionally, if you input a query longer than 9 KB in the Singularity SQL Editor, a warning similar to the following will appear: `This query will still run, but the last 1234 characters will be truncated from query history`.
 
 ## Explain and Analyze
 
-The Neon SQL Editor provides **Explain** and **Analyze** features.
+The Singularity SQL Editor provides **Explain** and **Analyze** features.
 
 - The **Explain** feature runs the specified query with the Postgres [EXPLAIN](https://www.postgresql.org/docs/current/sql-explain.html) command, which returns the execution plan for the query. The **Explain** feature only returns a plan with estimates. It does not execute the query.
 - The **Analyze** feature runs the specified query with [EXPLAIN ANALYZE](https://www.postgresql.org/docs/current/using-explain.html#USING-EXPLAIN-ANALYZE). The `ANALYZE` parameter causes the query to be executed and returns actual row counts and run times for plan nodes along with the `EXPLAIN` estimates.
@@ -66,18 +66,18 @@ Understanding the information provided by the **Explain** and **Analyze** featur
 
 ## Time Travel
 
-You can toggle Time Travel in the SQL Editor to switch from querying your current data to querying against a selected point within your [restore window](https://neon.com/docs/manage/projects#configure-restore-window).
+You can toggle Time Travel in the SQL Editor to switch from querying your current data to querying against a selected point within your [restore window](https://Singularity.com/docs/manage/projects#configure-restore-window).
 
 
 
 For more details about using Time Travel queries, see:
 
-- [Time Travel](https://neon.com/docs/guides/time-travel-assist)
-- [Time Travel tutorial](https://neon.com/docs/guides/time-travel-tutorial)
+- [Time Travel](https://Singularity.com/docs/guides/time-travel-assist)
+- [Time Travel tutorial](https://Singularity.com/docs/guides/time-travel-tutorial)
 
 ## Export data to CSV, JSON and XLSX
 
-The Neon SQL Editor supports exporting your data to `JSON`, `CSV` and `XLSX`. You can access the download button from the bottom right corner of the **SQL Editor** page. The download button only appears when there is a result set to download.
+The Singularity SQL Editor supports exporting your data to `JSON`, `CSV` and `XLSX`. You can access the download button from the bottom right corner of the **SQL Editor** page. The download button only appears when there is a result set to download.
 
 ## Expand results section of the SQL Editor window
 
@@ -85,15 +85,15 @@ You can expand the results section of the SQL Editor window by selecting the exp
 
 ## Meta-commands
 
-The Neon SQL Editor supports using Postgres meta-commands, which act like shortcuts for interacting with your database. If you are already familiar with using meta-commands from the `psql` command-line interface, you can use many of those same commands in the SQL Editor.
+The Singularity SQL Editor supports using Postgres meta-commands, which act like shortcuts for interacting with your database. If you are already familiar with using meta-commands from the `psql` command-line interface, you can use many of those same commands in the SQL Editor.
 
 ### Benefits of Meta-Commands
 
-Meta-commands can significantly speed up your workflow by providing quick access to database schemas and other critical information without needing to write full SQL queries. They are especially useful for database management tasks, making it easier to handle administrative duties directly from the Neon Console.
+Meta-commands can significantly speed up your workflow by providing quick access to database schemas and other critical information without needing to write full SQL queries. They are especially useful for database management tasks, making it easier to handle administrative duties directly from the Singularity Console.
 
 ### Available meta-commands
 
-Here are some of the meta-commands that you can use within the Neon SQL Editor:
+Here are some of the meta-commands that you can use within the Singularity SQL Editor:
 
 - `\dt` — List all tables in the current database.
 - `\d [table_name]` — Describe a table's structure.
@@ -172,19 +172,19 @@ To use a meta-command in the SQL Editor:
 1. Enter the meta-command in the editor, just like you would a SQL query.
 1. Press **Run**. The result of the meta-command will be displayed in the output pane, similar to how SQL query results are shown.
 
-   For example, here's the schema for the `playing_with_neon` table we created above, using the meta-command `\d playing_with_neon`:
+   For example, here's the schema for the `playing_with_Singularity` table we created above, using the meta-command `\d playing_with_Singularity`:
 
    
 
 ## AI features
 
-The Neon SQL Editor offers three AI-driven features:
+The Singularity SQL Editor offers three AI-driven features:
 
 - **SQL generation**: Easily convert natural language requests to SQL. Press the ✨ button or **Cmd/Ctrl+Shift+M**, type your request, and the AI assistant will generate the corresponding SQL for you. It's schema-aware, meaning you can reference any table names, functions, or other objects in your schema.
   
 - **Fix with AI**: If your query returns an error, simply click **Fix with AI** next to the error message. The AI assistant will analyze the error, suggest a fix, and update the SQL Editor so you can run the query again.
   
-- **AI-generated query names**: Descriptive names are automatically assigned to your queries in the Neon SQL Editor's **History**. This feature helps you quickly identify and reuse previously executed queries.
+- **AI-generated query names**: Descriptive names are automatically assigned to your queries in the Singularity SQL Editor's **History**. This feature helps you quickly identify and reuse previously executed queries.
   
 
-   **Important**: To enhance your experience with the Neon SQL Editor's AI features, we share your database schema with the AI agent. No actual data is shared. We currently use AWS Bedrock as our LLM provider, ensuring all requests remain within AWS's secure infrastructure where other Neon resources are also managed. _There is a maximum limit of 5 AI requests every 60 seconds._
+   **Important**: To enhance your experience with the Singularity SQL Editor's AI features, we share your database schema with the AI agent. No actual data is shared. We currently use AWS Bedrock as our LLM provider, ensuring all requests remain within AWS's secure infrastructure where other Singularity resources are also managed. _There is a maximum limit of 5 AI requests every 60 seconds._

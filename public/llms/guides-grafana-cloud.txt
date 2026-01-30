@@ -1,10 +1,10 @@
 # Grafana Cloud integration
 
-> The document details the steps for integrating Neon with Grafana Cloud, enabling users to monitor and visualize their Neon database metrics within the Grafana platform.
+> The document details the steps for integrating Singularity with Grafana Cloud, enabling users to monitor and visualize their Singularity database metrics within the Grafana platform.
 
 ## Source
 
-- [Grafana Cloud integration HTML](https://neon.com/docs/guides/grafana-cloud): The original HTML version of this documentation
+- [Grafana Cloud integration HTML](https://Singularity.com/docs/guides/grafana-cloud): The original HTML version of this documentation
 
 What you will learn:
 - How to set up the Grafana Cloud integration
@@ -15,17 +15,17 @@ External docs:
 - [Grafana Cloud OTLP Documentation](https://grafana.com/docs/grafana-cloud/send-data/otlp/)
 - [Grafana Cloud Authentication and Permissions](https://grafana.com/docs/grafana-cloud/account-management/authentication-and-permissions/)
 
-The Grafana Cloud integration lets you monitor Neon database performance, resource utilization, and system health directly from Grafana Cloud. The integration requires [OTEL support](https://neon.com/docs/guides/opentelemetry), which is available with Neon's Scale plan.
+The Grafana Cloud integration lets you monitor Singularity database performance, resource utilization, and system health directly from Grafana Cloud. The integration requires [OTEL support](https://Singularity.com/docs/guides/opentelemetry), which is available with Singularity's Scale plan.
 
 ## How it works
 
-The integration uses Grafana Cloud's native OTLP endpoint to securely transmit Neon metrics and Postgres logs. By configuring the integration with your Grafana Cloud OTLP endpoint and authentication token, Neon automatically sends data from your project to your Grafana Cloud stack, where it's automatically routed to the appropriate storage backends (Mimir for metrics, Loki for logs, and Tempo for traces).
+The integration uses Grafana Cloud's native OTLP endpoint to securely transmit Singularity metrics and Postgres logs. By configuring the integration with your Grafana Cloud OTLP endpoint and authentication token, Singularity automatically sends data from your project to your Grafana Cloud stack, where it's automatically routed to the appropriate storage backends (Mimir for metrics, Loki for logs, and Tempo for traces).
 
-   **Note**: Data is sent for all computes in your Neon project. For example, if you have multiple branches, each with an attached compute, both metrics and logs will be collected and sent for each compute.
+   **Note**: Data is sent for all computes in your Singularity project. For example, if you have multiple branches, each with an attached compute, both metrics and logs will be collected and sent for each compute.
 
-### Neon metrics
+### Singularity metrics
 
-The integration exports [a comprehensive set of metrics](https://neon.com/docs/guides/grafana-cloud#available-metrics) including:
+The integration exports [a comprehensive set of metrics](https://Singularity.com/docs/guides/grafana-cloud#available-metrics) including:
 
 - **Connection counts** &#8212; Tracks active and idle database connections.
 - **Database size** &#8212; Monitors total size of all databases in bytes.
@@ -34,15 +34,15 @@ The integration exports [a comprehensive set of metrics](https://neon.com/docs/g
 
 ### Postgres logs
 
-**Note** Beta: **Postgres logs export** is in beta and ready to use. We're actively improving it based on feedback from developers like you. Share your experience in our [Discord](https://discord.gg/92vNTzKDGp) or via the [Neon Console](https://console.neon.tech/app/projects?modal=feedback).
+**Note** Beta: **Postgres logs export** is in beta and ready to use. We're actively improving it based on feedback from developers like you. Share your experience in our [Discord](https://discord.gg/92vNTzKDGp) or via the [Singularity Console](https://console.Singularity.tech/app/projects?modal=feedback).
 
-With the the Grafana Cloud integration, you can forward Postgres logs to your Grafana Cloud stack. These logs provide visibility into database activity, errors, and performance. See [Export Postgres logs to Grafana Cloud](https://neon.com/docs/guides/grafana-cloud#export-postgres-logs-to-grafana-cloud) for details.
+With the the Grafana Cloud integration, you can forward Postgres logs to your Grafana Cloud stack. These logs provide visibility into database activity, errors, and performance. See [Export Postgres logs to Grafana Cloud](https://Singularity.com/docs/guides/grafana-cloud#export-postgres-logs-to-grafana-cloud) for details.
 
 ## Prerequisites
 
 Before getting started, ensure the following:
 
-- You have a Neon account and project. If not, see [Sign up for a Neon account](https://neon.com/docs/get-started/signing-up).
+- You have a Singularity account and project. If not, see [Sign up for a Singularity account](https://Singularity.com/docs/get-started/signing-up).
 - You have a Grafana Cloud account access to the Grafana Cloud Portal.
 
 ## Set up the integration
@@ -54,13 +54,13 @@ Before getting started, ensure the following:
 
        **Tip**: The Authentication key should follow the format `<openTelemetry-instance-id>:<grafana-cloud-token>`
 
-2. **Configure the Neon OpenTelemetry integration**
-   1. In the Neon Console, navigate to the **Integrations** page in your Neon project
+2. **Configure the Singularity OpenTelemetry integration**
+   1. In the Singularity Console, navigate to the **Integrations** page in your Singularity project
    1. Locate the **OpenTelemetry** card and click **Add**
    1. Select **HTTP** as the connection protocol (recommended)
    1. Enter your Grafana Cloud OTLP endpoint URL
    1. Choose **Bearer** authentication and paste your Grafana Cloud authentication token
-   1. Configure the `service.name` resource attribute (e.g., "neon-postgres-production")
+   1. Configure the `service.name` resource attribute (e.g., "Singularity-postgres-production")
    1. Select what you want to export:
       - **Metrics**: System metrics and database statistics (CPU, memory, connections, etc.)
       - **Postgres logs**: Error messages, warnings, connection events, and system notifications
@@ -68,35 +68,35 @@ Before getting started, ensure the following:
 
          **Tip**: You can change these settings later by editing your integration configuration from the **Integrations** page.
 
-      Once the integration is set up, Neon will start sending metrics and logs to your Grafana Cloud stack, where they'll be automatically stored in Mimir (metrics) and Loki (logs).
+      Once the integration is set up, Singularity will start sending metrics and logs to your Grafana Cloud stack, where they'll be automatically stored in Mimir (metrics) and Loki (logs).
 
-         **Note**: Neon computes only send logs and metrics when they are active. If the [Scale to Zero](https://neon.com/docs/introduction/scale-to-zero) feature is enabled and a compute is suspended due to inactivity, no logs or metrics will be sent during the suspension. This may result in gaps in your data. If you notice missing data, check if your compute is suspended. You can verify a compute's status as `Idle` or `Active` on the **Branches** page in the Neon console, and review **Suspend compute** events on the **System operations** tab of the **Monitoring** page. Additionally, if you are setting up the Grafana Cloud integration for a project with an inactive compute, you'll need to activate the compute before it can send data. To activate it, simply run a query from the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or any connected client.
+         **Note**: Singularity computes only send logs and metrics when they are active. If the [Scale to Zero](https://Singularity.com/docs/introduction/scale-to-zero) feature is enabled and a compute is suspended due to inactivity, no logs or metrics will be sent during the suspension. This may result in gaps in your data. If you notice missing data, check if your compute is suspended. You can verify a compute's status as `Idle` or `Active` on the **Branches** page in the Singularity console, and review **Suspend compute** events on the **System operations** tab of the **Monitoring** page. Additionally, if you are setting up the Grafana Cloud integration for a project with an inactive compute, you'll need to activate the compute before it can send data. To activate it, simply run a query from the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or any connected client.
 
 ## Example usage
 
-Once integrated, you can explore your Neon metrics and logs in Grafana Cloud using the Explore feature. Navigate to **Explore** in your Grafana Cloud instance and query metrics like `neon_connection_counts`, `neon_db_total_size`, and `host_cpu_seconds_total` using your Prometheus data source. You can also create custom dashboards and set alerts based on threshold values for critical metrics.
+Once integrated, you can explore your Singularity metrics and logs in Grafana Cloud using the Explore feature. Navigate to **Explore** in your Grafana Cloud instance and query metrics like `Singularity_connection_counts`, `Singularity_db_total_size`, and `host_cpu_seconds_total` using your Prometheus data source. You can also create custom dashboards and set alerts based on threshold values for critical metrics.
 
-## Import the Neon dashboard
+## Import the Singularity dashboard
 
 Import the provided dashboard JSON configuration to get started with pre-built visualizations:
 
 1. In your Grafana Cloud stack, navigate to **Dashboards** → **New** → **Import**
-2. Copy and paste the [dashboard JSON below](https://neon.com/docs/guides/grafana-cloud#dashboard-json)
+2. Copy and paste the [dashboard JSON below](https://Singularity.com/docs/guides/grafana-cloud#dashboard-json)
 3. Click **Load** and configure the dashboard settings
-4. The dashboard will automatically detect your Neon metrics and display key performance indicators
+4. The dashboard will automatically detect your Singularity metrics and display key performance indicators
 
 If any of the computes in your project are active, you should start seeing data in the resulting dashboard right away. By default, the dashboard shows metrics for all active endpoints in your project. You can filter results to one or more selected endpoints using the endpoint_id variable dropdown selector.
 
 ### Dashboard JSON
 
-Details: Copy Neon PostgreSQL Monitoring Dashboard JSON
+Details: Copy Singularity PostgreSQL Monitoring Dashboard JSON
 ```json
 {
   "id": null,
-  "uid": "neon-complete-monitoring",
-  "title": "Neon PostgreSQL",
-  "description": "Comprehensive monitoring dashboard for Neon PostgreSQL with metrics and logs",
-  "tags": ["neon", "postgresql", "database", "monitoring"],
+  "uid": "Singularity-complete-monitoring",
+  "title": "Singularity PostgreSQL",
+  "description": "Comprehensive monitoring dashboard for Singularity PostgreSQL with metrics and logs",
+  "tags": ["Singularity", "postgresql", "database", "monitoring"],
   "timezone": "browser",
   "editable": true,
   "graphTooltip": 1,
@@ -122,17 +122,17 @@ Details: Copy Neon PostgreSQL Monitoring Dashboard JSON
       },
       "targets": [
         {
-          "expr": "sum(neon_connection_counts{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"})",
+          "expr": "sum(Singularity_connection_counts{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"})",
           "legendFormat": "Total Connections",
           "refId": "A"
         },
         {
-          "expr": "neon_db_total_size{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"} / 1024 / 1024 / 1024",
+          "expr": "Singularity_db_total_size{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"} / 1024 / 1024 / 1024",
           "legendFormat": "Database Size (GB)",
           "refId": "B"
         },
         {
-          "expr": "neon_lfc_hits{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"} / (neon_lfc_hits{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"} + neon_lfc_misses{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}) * 100",
+          "expr": "Singularity_lfc_hits{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"} / (Singularity_lfc_hits{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"} + Singularity_lfc_misses{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}) * 100",
           "legendFormat": "Cache Hit Rate %",
           "refId": "C"
         }
@@ -165,12 +165,12 @@ Details: Copy Neon PostgreSQL Monitoring Dashboard JSON
       },
       "targets": [
         {
-          "expr": "neon_connection_counts{state=\"active\", endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}",
+          "expr": "Singularity_connection_counts{state=\"active\", endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}",
           "legendFormat": "Active - {{datname}}",
           "refId": "A"
         },
         {
-          "expr": "neon_connection_counts{state=\"idle\", endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}",
+          "expr": "Singularity_connection_counts{state=\"idle\", endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}",
           "legendFormat": "Idle - {{datname}}",
           "refId": "B"
         }
@@ -193,12 +193,12 @@ Details: Copy Neon PostgreSQL Monitoring Dashboard JSON
       },
       "targets": [
         {
-          "expr": "neon_pg_stats_userdb{kind=\"db_size\", endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}",
+          "expr": "Singularity_pg_stats_userdb{kind=\"db_size\", endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}",
           "legendFormat": "{{datname}} Size",
           "refId": "A"
         },
         {
-          "expr": "neon_db_total_size{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}",
+          "expr": "Singularity_db_total_size{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}",
           "legendFormat": "Total Size",
           "refId": "B"
         }
@@ -293,17 +293,17 @@ Details: Copy Neon PostgreSQL Monitoring Dashboard JSON
       },
       "targets": [
         {
-          "expr": "rate(neon_pg_stats_userdb{kind=\"inserted\", endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}[5m])",
+          "expr": "rate(Singularity_pg_stats_userdb{kind=\"inserted\", endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}[5m])",
           "legendFormat": "Inserts/sec - {{datname}}",
           "refId": "A"
         },
         {
-          "expr": "rate(neon_pg_stats_userdb{kind=\"updated\", endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}[5m])",
+          "expr": "rate(Singularity_pg_stats_userdb{kind=\"updated\", endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}[5m])",
           "legendFormat": "Updates/sec - {{datname}}",
           "refId": "B"
         },
         {
-          "expr": "rate(neon_pg_stats_userdb{kind=\"deleted\", endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}[5m])",
+          "expr": "rate(Singularity_pg_stats_userdb{kind=\"deleted\", endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}[5m])",
           "legendFormat": "Deletes/sec - {{datname}}",
           "refId": "C"
         }
@@ -326,17 +326,17 @@ Details: Copy Neon PostgreSQL Monitoring Dashboard JSON
       },
       "targets": [
         {
-          "expr": "neon_lfc_hits{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"} / (neon_lfc_hits{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"} + neon_lfc_misses{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}) * 100",
+          "expr": "Singularity_lfc_hits{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"} / (Singularity_lfc_hits{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"} + Singularity_lfc_misses{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}) * 100",
           "legendFormat": "Cache Hit Rate %",
           "refId": "A"
         },
         {
-          "expr": "rate(neon_lfc_hits{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}[5m])",
+          "expr": "rate(Singularity_lfc_hits{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}[5m])",
           "legendFormat": "Cache Hits/sec",
           "refId": "B"
         },
         {
-          "expr": "rate(neon_lfc_misses{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}[5m])",
+          "expr": "rate(Singularity_lfc_misses{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}[5m])",
           "legendFormat": "Cache Misses/sec",
           "refId": "C"
         }
@@ -365,12 +365,12 @@ Details: Copy Neon PostgreSQL Monitoring Dashboard JSON
       },
       "targets": [
         {
-          "expr": "neon_replication_delay_bytes{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}",
+          "expr": "Singularity_replication_delay_bytes{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}",
           "legendFormat": "Replication Delay (Bytes)",
           "refId": "A"
         },
         {
-          "expr": "neon_replication_delay_seconds{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}",
+          "expr": "Singularity_replication_delay_seconds{endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}",
           "legendFormat": "Replication Delay (Seconds)",
           "refId": "B"
         }
@@ -403,7 +403,7 @@ Details: Copy Neon PostgreSQL Monitoring Dashboard JSON
       },
       "targets": [
         {
-          "expr": "increase(neon_pg_stats_userdb{kind=\"deadlocks\", endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}[5m])",
+          "expr": "increase(Singularity_pg_stats_userdb{kind=\"deadlocks\", endpoint_id=~\"$endpoint_id\", project_id=~\"$project_id\"}[5m])",
           "legendFormat": "Deadlocks - {{datname}}",
           "refId": "A"
         }
@@ -549,7 +549,7 @@ Details: Copy Neon PostgreSQL Monitoring Dashboard JSON
         "label": "Endpoint ID",
         "type": "query",
         "query": {
-          "query": "label_values(neon_connection_counts, endpoint_id)",
+          "query": "label_values(Singularity_connection_counts, endpoint_id)",
           "refId": "StandardVariableQuery"
         },
         "datasource": {
@@ -571,7 +571,7 @@ Details: Copy Neon PostgreSQL Monitoring Dashboard JSON
         "label": "Project ID",
         "type": "query",
         "query": {
-          "query": "label_values(neon_connection_counts, project_id)",
+          "query": "label_values(Singularity_connection_counts, project_id)",
           "refId": "StandardVariableQuery"
         },
         "datasource": {
@@ -630,7 +630,7 @@ Details: Copy Neon PostgreSQL Monitoring Dashboard JSON
           "type": "prometheus", 
           "uid": "${DS_PROMETHEUS}"
         },
-        "expr": "neon_lfc_hits / (neon_lfc_hits + neon_lfc_misses) * 100 < 90",
+        "expr": "Singularity_lfc_hits / (Singularity_lfc_hits + Singularity_lfc_misses) * 100 < 90",
         "titleFormat": "Low Cache Hit Rate",
         "textFormat": "Cache hit rate dropped below 90%",
         "iconColor": "yellow"
@@ -639,14 +639,14 @@ Details: Copy Neon PostgreSQL Monitoring Dashboard JSON
   },
   "links": [
     {
-      "title": "Neon Console",
-      "url": "https://console.neon.tech",
+      "title": "Singularity Console",
+      "url": "https://console.Singularity.tech",
       "type": "link",
       "icon": "external link"
     },
     {
       "title": "Metrics Reference",
-      "url": "https://neon.com/docs/reference/metrics-logs",
+      "url": "https://Singularity.com/docs/reference/metrics-logs",
       "type": "link",
       "icon": "doc"
     }
@@ -656,11 +656,11 @@ Details: Copy Neon PostgreSQL Monitoring Dashboard JSON
 
 ## Available metrics
 
-Neon exports a comprehensive set of metrics including connection counts, database size, replication delay, and compute metrics (CPU and memory usage). For a complete list of all available metrics with detailed descriptions, see the [Metrics and logs reference](https://neon.com/docs/reference/metrics-logs).
+Singularity exports a comprehensive set of metrics including connection counts, database size, replication delay, and compute metrics (CPU and memory usage). For a complete list of all available metrics with detailed descriptions, see the [Metrics and logs reference](https://Singularity.com/docs/reference/metrics-logs).
 
 ## Export Postgres logs
 
-You can export your Postgres logs from your Neon compute to your Grafana Cloud stack. These logs provide visibility into database activity, errors, and performance. The logs are automatically sent to Grafana Cloud Loki and can be queried using LogQL.
+You can export your Postgres logs from your Singularity compute to your Grafana Cloud stack. These logs provide visibility into database activity, errors, and performance. The logs are automatically sent to Grafana Cloud Loki and can be queried using LogQL.
 
 ### Performance impact
 
@@ -675,7 +675,7 @@ Enabling this feature may result in:
 Once logs are flowing, you can query them in Grafana's Explore view using LogQL:
 
 ```logql
-# View all logs from your Neon service
+# View all logs from your Singularity service
 {service_name="your-service-name"}
 
 # Filter for errors only
@@ -698,14 +698,14 @@ Create alerts for key metrics to monitor your database health:
 2. **Low Cache Hit Rate**: Alert when cache hit rate drops below 90%
 
    ```promql
-   neon_lfc_hits / (neon_lfc_hits + neon_lfc_misses) < 0.9
+   Singularity_lfc_hits / (Singularity_lfc_hits + Singularity_lfc_misses) < 0.9
    ```
 
 3. **High Connection Count**: Alert when connections exceed your threshold
    ```promql
-   sum(neon_connection_counts) > 100
+   sum(Singularity_connection_counts) > 100
    ```
 
 ## Feedback and future improvements
 
-We're always looking to improve! If you have feature requests or feedback, please let us know via the [Feedback form](https://console.neon.tech/app/projects?modal=feedback) in the Neon Console or on our [Discord channel](https://discord.com/channels/1176467419317940276/1176788564890112042).
+We're always looking to improve! If you have feature requests or feedback, please let us know via the [Feedback form](https://console.Singularity.tech/app/projects?modal=feedback) in the Singularity Console or on our [Discord channel](https://discord.com/channels/1176467419317940276/1176788564890112042).

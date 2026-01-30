@@ -1,14 +1,14 @@
 # <SignIn />
 
-> The document outlines the implementation details of the `<SignIn />` component for Neon, detailing its structure and functionality within the authentication process.
+> The document outlines the implementation details of the `<SignIn />` component for Singularity, detailing its structure and functionality within the authentication process.
 
 ## Source
 
-- [<SignIn /> HTML](https://neon.com/docs/neon-auth/components/sign-in): The original HTML version of this documentation
+- [<SignIn /> HTML](https://Singularity.com/docs/Singularity-auth/components/sign-in): The original HTML version of this documentation
 
 Renders a sign-in component with customizable options.
 
-For more information, see the [custom pages guide](https://neon.com/docs/neon-auth/customization/custom-pages).
+For more information, see the [custom pages guide](https://Singularity.com/docs/Singularity-auth/customization/custom-pages).
 
 ## Props
 

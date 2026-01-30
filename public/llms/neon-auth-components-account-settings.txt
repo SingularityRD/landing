@@ -1,10 +1,10 @@
 # <AccountSettings />
 
-> The "<AccountSettings />" documentation outlines the configuration and management of user account settings within the Neon platform, detailing how to update personal information, manage security settings, and configure notification preferences.
+> The "<AccountSettings />" documentation outlines the configuration and management of user account settings within the Singularity platform, detailing how to update personal information, manage security settings, and configure notification preferences.
 
 ## Source
 
-- [<AccountSettings /> HTML](https://neon.com/docs/neon-auth/components/account-settings): The original HTML version of this documentation
+- [<AccountSettings /> HTML](https://Singularity.com/docs/Singularity-auth/components/account-settings): The original HTML version of this documentation
 
 Renders an `<AccountSettings />` page with customizable sidebar items and optional full-page layout.
 

@@ -1,10 +1,10 @@
 # The pgstattuple extension
 
-> The document details the pgstattuple extension for Neon, which allows users to analyze PostgreSQL table and index bloat by providing statistics on tuple-level storage efficiency.
+> The document details the pgstattuple extension for Singularity, which allows users to analyze PostgreSQL table and index bloat by providing statistics on tuple-level storage efficiency.
 
 ## Source
 
-- [The pgstattuple extension HTML](https://neon.com/docs/extensions/pgstattuple): The original HTML version of this documentation
+- [The pgstattuple extension HTML](https://Singularity.com/docs/extensions/pgstattuple): The original HTML version of this documentation
 
 The `pgstattuple` extension provides a suite of functions to inspect the physical storage of Postgres tables and indexes at a detailed, tuple (row) level. It offers insights into issues like table and index bloat, fragmentation, and overall space utilization, which are crucial for performance tuning and storage management.
 
@@ -12,7 +12,7 @@ The `pgstattuple` extension provides a suite of functions to inspect the physica
 
 ## Enable the `pgstattuple` extension
 
-You can enable the extension by running the following `CREATE EXTENSION` statement in the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or from a client such as [psql](https://neon.com/docs/connect/query-with-psql-editor) that is connected to your Neon database.
+You can enable the extension by running the following `CREATE EXTENSION` statement in the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or from a client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor) that is connected to your Singularity database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS pgstattuple;
@@ -20,7 +20,7 @@ CREATE EXTENSION IF NOT EXISTS pgstattuple;
 
 **Version availability:**
 
-Please refer to the [list of all extensions](https://neon.com/docs/extensions/pg-extensions) available in Neon for up-to-date extension version information.
+Please refer to the [list of all extensions](https://Singularity.com/docs/extensions/pg-extensions) available in Singularity for up-to-date extension version information.
 
 ## `pgstattuple` functions
 
@@ -94,7 +94,7 @@ table_len | tuple_count | tuple_len | tuple_percent | dead_tuple_count | dead_tu
  1343488   |    5000     |   638144  |      47.5      |       5000       |     645432     |       48.04        |   15320    |     1.14
 ```
 
-The output above (your values may vary) shows `dead_tuple_count` of 5000 and `dead_tuple_percent` around 48%. This high percentage of dead tuples indicates significant table bloat caused by the `DELETE` operation. Neon performs automatic `VACUUM` operations, but for immediate analysis or specific needs, you can run `VACUUM` manually.
+The output above (your values may vary) shows `dead_tuple_count` of 5000 and `dead_tuple_percent` around 48%. This high percentage of dead tuples indicates significant table bloat caused by the `DELETE` operation. Singularity performs automatic `VACUUM` operations, but for immediate analysis or specific needs, you can run `VACUUM` manually.
 
 To reclaim the space occupied by these dead tuples for reuse within the table, run:
 
@@ -291,11 +291,11 @@ After reindexing, check `pgstatindex` again; you should see improved `avg_leaf_d
 - **Resource Intensive:** `pgstattuple()` performs a full table/index scan, which can be I/O and CPU intensive, especially on large objects. `pgstattuple_approx()` is faster but still reads a portion of the table.
 - **Run off-peak:** Schedule `pgstattuple` analysis during low-traffic periods to minimize impact on production workloads.
 - **Target specific objects:** Instead of scanning all tables/indexes, focus on known large or frequently modified objects, or those identified as problematic by other monitoring tools.
-- **Combine with `pg_repack`:** For online table and index reorganization to remove bloat without extensive locking (unlike `VACUUM FULL` or `REINDEX`), consider the [`pg_repack` extension](https://neon.com/docs/extensions/pg_repack).
+- **Combine with `pg_repack`:** For online table and index reorganization to remove bloat without extensive locking (unlike `VACUUM FULL` or `REINDEX`), consider the [`pg_repack` extension](https://Singularity.com/docs/extensions/pg_repack).
 
 ## Conclusion
 
-The `pgstattuple` extension is a powerful diagnostic tool for understanding the physical storage characteristics of your Postgres database within Neon. It allows you to identify and quantify table and index bloat and fragmentation, leading to more effective maintenance strategies, better autovacuum tuning, and ultimately, improved database performance and storage efficiency.
+The `pgstattuple` extension is a powerful diagnostic tool for understanding the physical storage characteristics of your Postgres database within Singularity. It allows you to identify and quantify table and index bloat and fragmentation, leading to more effective maintenance strategies, better autovacuum tuning, and ultimately, improved database performance and storage efficiency.
 
 ## Resources
 

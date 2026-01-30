@@ -1,50 +1,50 @@
-# Use Neon read replicas with Prisma
+# Use Singularity read replicas with Prisma
 
-> The document explains how to configure and use Neon read replicas with Prisma, detailing the steps to set up read replicas for scaling read operations in a Neon database environment.
+> The document explains how to configure and use Singularity read replicas with Prisma, detailing the steps to set up read replicas for scaling read operations in a Singularity database environment.
 
 ## Source
 
-- [Use Neon read replicas with Prisma HTML](https://neon.com/docs/guides/read-replica-prisma): The original HTML version of this documentation
+- [Use Singularity read replicas with Prisma HTML](https://Singularity.com/docs/guides/read-replica-prisma): The original HTML version of this documentation
 
-A Neon read replica is an independent read-only compute that performs read operations on the same data as your primary read-write compute, which means adding a read replica to a Neon project requires no additional storage.
+A Singularity read replica is an independent read-only compute that performs read operations on the same data as your primary read-write compute, which means adding a read replica to a Singularity project requires no additional storage.
 
 A key benefit of read replicas is that you can distribute read requests to one or more read replicas, enabling you to easily scale your applications and achieve higher throughput for both read-write and read-only workloads.
 
-For more information about Neon's read replica feature, see [Read replicas](https://neon.com/docs/introduction/read-replicas).
+For more information about Singularity's read replica feature, see [Read replicas](https://Singularity.com/docs/introduction/read-replicas).
 
-In this guide, we'll show you how you can leverage Neon read replicas to efficiently scale Prisma applications using Prisma Client's read replica extension: [@prisma/extension-read-replicas](https://github.com/prisma/extension-read-replicas).
+In this guide, we'll show you how you can leverage Singularity read replicas to efficiently scale Prisma applications using Prisma Client's read replica extension: [@prisma/extension-read-replicas](https://github.com/prisma/extension-read-replicas).
 
 ## Prerequisites
 
-- An application that uses Prisma with a Neon database.
+- An application that uses Prisma with a Singularity database.
 
 ## Create a read replica
 
-You can create read replicas for any branch in your Neon project.
+You can create read replicas for any branch in your Singularity project.
 
    **Note**: The Free plan is limited to a maximum of 3 read replica computes per project.
 
 You can add a read replica by following these steps:
 
-1. In the Neon Console, select **Branches**.
+1. In the Singularity Console, select **Branches**.
 2. Select the branch where your database resides.
 3. Click **Add Read Replica**.
 4. On the **Add new compute** dialog, select **Read replica** as the **Compute type**.
 5. Specify the **Compute size settings** options. You can configure a **Fixed Size** compute with a specific amount of vCPU and RAM (the default) or enable autoscaling by configuring a minimum and maximum compute size. You can also configure the **Scale to zero** setting, which controls whether your read replica compute is automatically suspended due to inactivity after 5 minutes.
-      **Note**: The compute size configuration determines the processing power of your database. More vCPU and memory means more processing power but also higher compute costs. For information about compute costs, see [Billing metrics](https://neon.com/docs/introduction/billing).
+      **Note**: The compute size configuration determines the processing power of your database. More vCPU and memory means more processing power but also higher compute costs. For information about compute costs, see [Billing metrics](https://Singularity.com/docs/introduction/billing).
 6. When you finish making selections, click **Create**.
 
    Your read replica compute is provisioned and appears on the **Computes** tab of the **Branches** page.
 
-Alternatively, you can create read replicas using the [Neon API](https://api-docs.neon.tech/reference/createprojectendpoint) or [Neon CLI](https://neon.com/docs/reference/cli-branches#create).
+Alternatively, you can create read replicas using the [Singularity API](https://api-docs.Singularity.tech/reference/createprojectendpoint) or [Singularity CLI](https://Singularity.com/docs/reference/cli-branches#create).
 
 Tab: API
 
 ```bash
 curl --request POST \
-     --url https://console.neon.tech/api/v2/projects/late-bar-27572981/endpoints \
+     --url https://console.Singularity.tech/api/v2/projects/late-bar-27572981/endpoints \
      --header 'Accept: application/json' \
-     --header "Authorization: Bearer $NEON_API_KEY" \
+     --header "Authorization: Bearer $Singularity_API_KEY" \
      --header 'Content-Type: application/json' \
      --data '
 {
@@ -59,19 +59,19 @@ curl --request POST \
 Tab: CLI
 
 ```bash
-neon branches add-compute mybranch --type read_only
+Singularity branches add-compute mybranch --type read_only
 ```
 
 ## Retrieve the connection string for your read replica
 
-Connecting to a read replica is the same as connecting to any branch in a Neon project, except you connect via a read replica compute instead of your primary read-write compute. The following steps describe how to retrieve the connection string (the URL) for a read replica from the Neon Console.
+Connecting to a read replica is the same as connecting to any branch in a Singularity project, except you connect via a read replica compute instead of your primary read-write compute. The following steps describe how to retrieve the connection string (the URL) for a read replica from the Singularity Console.
 
 1. Click the **Connect** button on your **Project Dashboard**. On the **Connect to your database modal**, select the branch, the database, and the role you want to connect with.
 1. Under **Compute**, select a **Replica** compute.
 1. Select the connection string and copy it. This is the information you need to connect to the read replica from your Prisma Client. The connection string appears similar to the following:
 
    ```bash
-   postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+   postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
    ```
 
    If you expect a high number of connections, enable the **Connection pooling** toggle to add the `-pooler` flag to the connection string.
@@ -81,15 +81,15 @@ Connecting to a read replica is the same as connecting to any branch in a Neon p
 In your `.env` file, set a `DATABASE_REPLICA_URL` environment variable to the connection string of your read replica. Your `.env` file should look something like this, with your regular `DATABASE_URL` and the newly added `DATABASE_REPLICA_URL`.
 
 ```text
-DATABASE_URL="postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require"
-DATABASE_REPLICA_URL="postgresql://alex:AbC123dEf@ep-damp-cell-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require"
+DATABASE_URL="postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require"
+DATABASE_REPLICA_URL="postgresql://alex:AbC123dEf@ep-damp-cell-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require"
 ```
 
 Notice that the `endpoint_id` (`ep-damp-cell-123456`) for the read replica compute differs. The read replica is a different compute and therefore has a different `endpoint_id`.
 
 ## Configure Prisma Client to use a read replica
 
-[@prisma/extension-read-replicas](https://github.com/prisma/extension-read-replicas) adds support to Prisma Client for read replicas. The following steps show you how to install the extension and configure it to use a Neon read replica.
+[@prisma/extension-read-replicas](https://github.com/prisma/extension-read-replicas) adds support to Prisma Client for read replicas. The following steps show you how to install the extension and configure it to use a Singularity read replica.
 
 1. Install the extension in your Prisma project:
 
@@ -110,7 +110,7 @@ Notice that the `endpoint_id` (`ep-damp-cell-123456`) for the read replica compu
    );
    ```
 
-      **Note**: You can also pass an array of read replica connection strings if you want to use multiple read replicas. Neon supports adding multiple read replicas to a database branch.
+      **Note**: You can also pass an array of read replica connection strings if you want to use multiple read replicas. Singularity supports adding multiple read replicas to a database branch.
 
    ```javascript
    // lib/prisma.ts

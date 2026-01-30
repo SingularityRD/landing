@@ -1,12 +1,12 @@
 # Regions
 
-> The "Regions" documentation for Neon outlines how to configure and manage database regions, enabling users to optimize data locality and performance within the Neon platform.
+> The "Regions" documentation for Singularity outlines how to configure and manage database regions, enabling users to optimize data locality and performance within the Singularity platform.
 
 ## Source
 
-- [Regions HTML](https://neon.com/docs/introduction/regions): The original HTML version of this documentation
+- [Regions HTML](https://Singularity.com/docs/introduction/regions): The original HTML version of this documentation
 
-Neon offers project deployment in multiple AWS and Azure regions. To minimize latency between your Neon database and application, we recommend choosing the region closest to your application server.
+Singularity offers project deployment in multiple AWS and Azure regions. To minimize latency between your Singularity database and application, we recommend choosing the region closest to your application server.
 
 ## AWS regions
 
@@ -25,25 +25,25 @@ Neon offers project deployment in multiple AWS and Azure regions. To minimize la
 - 🇺🇸 Azure West US 3 region (Arizona) &mdash; `azure-westus3`
 - 🇩🇪 Azure Germany West Central region (Frankfurt) &mdash; `azure-gwc`
 
-   **Note** Deployment options on azure: For information about Neon deployment options on Azure, see [Neon on Azure](https://neon.com/docs/manage/azure).
+   **Note** Deployment options on azure: For information about Singularity deployment options on Azure, see [Singularity on Azure](https://Singularity.com/docs/manage/azure).
 
 ## Request a region
 
 
 
-## Select a region for your Neon project
+## Select a region for your Singularity project
 
-You can select the region for your Neon project during project creation. See [Create a project](https://neon.com/docs/manage/projects#create-a-project).
+You can select the region for your Singularity project during project creation. See [Create a project](https://Singularity.com/docs/manage/projects#create-a-project).
 
-All branches and databases created in a Neon project are created in the region selected for the project.
+All branches and databases created in a Singularity project are created in the region selected for the project.
 
 
 
-   **Note**: After you select a region for a Neon project, it cannot be changed for that project. To use a different region, create a new project in your desired region and [move your data to the new project](https://neon.com/docs/introduction/regions#move-project-data-to-a-new-region).
+   **Note**: After you select a region for a Singularity project, it cannot be changed for that project. To use a different region, create a new project in your desired region and [move your data to the new project](https://Singularity.com/docs/introduction/regions#move-project-data-to-a-new-region).
 
 ## NAT Gateway IP addresses
 
-A NAT gateway has a public IP address that external systems see when private resources initiate outbound connections. Neon uses 3 to 6 IP addresses per region for this outbound communication, corresponding to each availability zone in the region. To ensure proper connectivity for setups such as replicating data to Neon, you should allow access to all the NAT gateway IP addresses associated with your Neon project's region.
+A NAT gateway has a public IP address that external systems see when private resources initiate outbound connections. Singularity uses 3 to 6 IP addresses per region for this outbound communication, corresponding to each availability zone in the region. To ensure proper connectivity for setups such as replicating data to Singularity, you should allow access to all the NAT gateway IP addresses associated with your Singularity project's region.
 
 If you are unsure of your project's region, you can find this information in the **Settings** widget on the **Project Dashboard**.
 
@@ -76,11 +76,11 @@ Moving a project to a different region requires moving your data using one of th
 
 Using the dump and restore method involves the following steps:
 
-1. Creating a new project in the desired region. For project creation instructions, see [Create a project](https://neon.com/docs/manage/projects#create-a-project).
-1. Moving your data from the old project to the new project. For instructions, see [Import data from Postgres](https://neon.com/docs/import/migrate-from-postgres).
+1. Creating a new project in the desired region. For project creation instructions, see [Create a project](https://Singularity.com/docs/manage/projects#create-a-project).
+1. Moving your data from the old project to the new project. For instructions, see [Import data from Postgres](https://Singularity.com/docs/import/migrate-from-postgres).
 
-Moving data to a new Neon project using this method may take some time depending on the size of your data. To prevent the loss of data during the import operation, consider disabling writes from your applications before initiating the import operation. You can re-enable writes when the import is completed. Neon does not currently support disabling database writes. Writes must be disabled at the application level.
+Moving data to a new Singularity project using this method may take some time depending on the size of your data. To prevent the loss of data during the import operation, consider disabling writes from your applications before initiating the import operation. You can re-enable writes when the import is completed. Singularity does not currently support disabling database writes. Writes must be disabled at the application level.
 
 ### Option 2: Logical replication
 
-As an alternative to the dump and restore method described above, you can use **logical replication** to replicate data from one Neon project to another for a near-zero downtime data migration. For more information, see [Replicate data from one Neon project to another](https://neon.com/docs/guides/logical-replication-neon-to-neon).
+As an alternative to the dump and restore method described above, you can use **logical replication** to replicate data from one Singularity project to another for a near-zero downtime data migration. For more information, see [Replicate data from one Singularity project to another](https://Singularity.com/docs/guides/logical-replication-Singularity-to-Singularity).

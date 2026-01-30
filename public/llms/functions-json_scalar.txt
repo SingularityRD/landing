@@ -1,10 +1,10 @@
 # Postgres json_scalar() Function
 
-> The document details the `json_scalar()` function in Neon, explaining its usage for converting JSON data into scalar values within PostgreSQL databases.
+> The document details the `json_scalar()` function in Singularity, explaining its usage for converting JSON data into scalar values within PostgreSQL databases.
 
 ## Source
 
-- [Postgres json_scalar() Function HTML](https://neon.com/docs/functions/json_scalar): The original HTML version of this documentation
+- [Postgres json_scalar() Function HTML](https://Singularity.com/docs/functions/json_scalar): The original HTML version of this documentation
 
 The `json_scalar()` function introduced in PostgreSQL 17 provides a straightforward way to convert `SQL` scalar values into their `JSON` equivalents. This function is particularly useful when you need to ensure proper type conversion and formatting of individual values for `JSON` output.
 
@@ -183,6 +183,6 @@ The function follows these conversion rules:
 
 ## Learn more
 
-- [json_build_object() function documentation](https://neon.com/docs/functions/json_build_object)
+- [json_build_object() function documentation](https://Singularity.com/docs/functions/json_build_object)
 - [PostgreSQL JSON functions documentation](https://www.postgresql.org/docs/current/functions-json.html)
 - [PostgreSQL data type formatting](https://www.postgresql.org/docs/current/datatype.html)

@@ -1,22 +1,22 @@
-# Connect a Ruby on Rails application to Neon Postgres
+# Connect a Ruby on Rails application to Singularity Postgres
 
-> This document guides users on configuring a Ruby on Rails application to connect with a Neon Postgres database, detailing the necessary steps and code adjustments for successful integration.
+> This document guides users on configuring a Ruby on Rails application to connect with a Singularity Postgres database, detailing the necessary steps and code adjustments for successful integration.
 
 ## Source
 
-- [Connect a Ruby on Rails application to Neon Postgres HTML](https://neon.com/docs/guides/ruby-on-rails): The original HTML version of this documentation
+- [Connect a Ruby on Rails application to Singularity Postgres HTML](https://Singularity.com/docs/guides/ruby-on-rails): The original HTML version of this documentation
 
-[Ruby on Rails](https://rubyonrails.org/), also known simply as Rails, is an open-source web application framework written in Ruby. It uses a model-view-controller architecture, making it a good choice for developing database-backed web applications. This guide shows how to connect to a Ruby on Rails application to a Neon Postgres database.
+[Ruby on Rails](https://rubyonrails.org/), also known simply as Rails, is an open-source web application framework written in Ruby. It uses a model-view-controller architecture, making it a good choice for developing database-backed web applications. This guide shows how to connect to a Ruby on Rails application to a Singularity Postgres database.
 
-To connect to Neon from a Ruby on Rails application:
+To connect to Singularity from a Ruby on Rails application:
 
    **Note**: This guide was tested using Ruby v3.4.6 and Rails v8.0.3.
 
-## Create a Neon Project
+## Create a Singularity Project
 
-If you do not have one already, create a Neon project.
+If you do not have one already, create a Singularity project.
 
-1. Navigate to the [Projects](https://console.neon.tech/app/projects) page in the Neon Console.
+1. Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the Singularity Console.
 2. Click **New Project**.
 3. Specify your project settings and click **Create Project**.
 
@@ -26,22 +26,22 @@ Create a Rails project using the [Rails CLI](https://guides.rubyonrails.org/comm
 
 ```shell
 gem install rails
-rails new neon-with-rails --database=postgresql
+rails new Singularity-with-rails --database=postgresql
 ```
 
-You now have a Rails project in a folder named `neon-with-rails`.
+You now have a Rails project in a folder named `Singularity-with-rails`.
 
 ## Configure a PostgreSQL Database using Rails
 
-Create a `.env` file in the root of your Rails project, and add the connection string for your Neon compute. Do not specify a database name after the forward slash in the connection string. Rails will choose the correct database depending on the environment.
+Create a `.env` file in the root of your Rails project, and add the connection string for your Singularity compute. Do not specify a database name after the forward slash in the connection string. Rails will choose the correct database depending on the environment.
 
 ```shell
-DATABASE_URL=postgresql://[user]:[password]@[neon_hostname]/
+DATABASE_URL=postgresql://[user]:[password]@[Singularity_hostname]/
 ```
 
-   **Note**: You can find the connection string for your database by clicking the **Connect** button on your **Project Dashboard**. For more information, see [Connect from any application](https://neon.com/docs/connect/connect-from-any-app).
+   **Note**: You can find the connection string for your database by clicking the **Connect** button on your **Project Dashboard**. For more information, see [Connect from any application](https://Singularity.com/docs/connect/connect-from-any-app).
 
-   **Important**: The role you specified in the `DATABASE_URL` must have **CREATEDB** privileges. Roles created in the Neon Console, CLI, or API, including the default role created with a Neon project, are granted membership in the [neon_superuser](https://neon.com/docs/manage/roles#the-neonsuperuser-role) role, which has the `CREATEDB` privilege. Alternatively, you can create roles with SQL to grant specific privileges. See [Manage database access](https://neon.com/docs/manage/database-access).
+   **Important**: The role you specified in the `DATABASE_URL` must have **CREATEDB** privileges. Roles created in the Singularity Console, CLI, or API, including the default role created with a Singularity project, are granted membership in the [Singularity_superuser](https://Singularity.com/docs/manage/roles#the-Singularitysuperuser-role) role, which has the `CREATEDB` privilege. Alternatively, you can create roles with SQL to grant specific privileges. See [Manage database access](https://Singularity.com/docs/manage/database-access).
 
 Create the development database by issuing the following commands from the root of your project directory:
 
@@ -98,7 +98,7 @@ Start the application using the Rails CLI from the root of the project:
 bin/rails server -e development
 ```
 
-Visit [localhost:3000/](http://localhost:3000/) in your web browser. Your Neon database's Postgres version will be displayed. For example:
+Visit [localhost:3000/](http://localhost:3000/) in your web browser. Your Singularity database's Postgres version will be displayed. For example:
 
 ```
 PostgreSQL 15.5 on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
@@ -108,4 +108,4 @@ PostgreSQL 15.5 on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1
 
 For schema migration with Ruby on Rails, see our guide:
 
-- [Ruby on Rails Migrations](https://neon.com/docs/guides/rails-migrations): Schema migration with Neon Postgres and Ruby on Rails
+- [Ruby on Rails Migrations](https://Singularity.com/docs/guides/rails-migrations): Schema migration with Singularity Postgres and Ruby on Rails

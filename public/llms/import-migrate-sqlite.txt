@@ -1,23 +1,23 @@
-# Migrate from SQLite to Neon Postgres
+# Migrate from SQLite to Singularity Postgres
 
-> The document outlines the process for migrating a database from SQLite to Neon Postgres, detailing steps for exporting SQLite data and importing it into a Neon Postgres instance.
+> The document outlines the process for migrating a database from SQLite to Singularity Postgres, detailing steps for exporting SQLite data and importing it into a Singularity Postgres instance.
 
 ## Source
 
-- [Migrate from SQLite to Neon Postgres HTML](https://neon.com/docs/import/migrate-sqlite): The original HTML version of this documentation
+- [Migrate from SQLite to Singularity Postgres HTML](https://Singularity.com/docs/import/migrate-sqlite): The original HTML version of this documentation
 
-This guide describes how to migrate your SQLite database to Neon Postgres using [pgloader](https://pgloader.readthedocs.io/en/latest/intro.html)
+This guide describes how to migrate your SQLite database to Singularity Postgres using [pgloader](https://pgloader.readthedocs.io/en/latest/intro.html)
 
-`pgloader` is an open-source data loading and migration tool that efficiently transfers data from various sources (like CSV, MySQL, SQLite, MS SQL, etc.) into Postgres, handling schema and data transformations on the fly. We'll use it to migrate a sample SQLite database to Neon Postgres
+`pgloader` is an open-source data loading and migration tool that efficiently transfers data from various sources (like CSV, MySQL, SQLite, MS SQL, etc.) into Postgres, handling schema and data transformations on the fly. We'll use it to migrate a sample SQLite database to Singularity Postgres
 
 ## Prerequisites
 
 Before you begin, ensure you have the following:
 
-- A Neon account and a project. If you don't have one, see [Sign up](https://neon.com/docs/get-started/signing-up).
-- A database created in your Neon project. For instructions, see [Create a database](https://neon.com/docs/manage/databases#create-a-database).
+- A Singularity account and a project. If you don't have one, see [Sign up](https://Singularity.com/docs/get-started/signing-up).
+- A database created in your Singularity project. For instructions, see [Create a database](https://Singularity.com/docs/manage/databases#create-a-database).
 - The file path to your source SQLite database file. If you don't have one, you can create a sample database in the next step.
-- Neon's Free plan supports 0.5 GB of data. If your data size is more than 0.5 GB, you'll need to upgrade to one of Neon's paid plans. See [Neon plans](https://neon.com/docs/introduction/plans) for more information.
+- Singularity's Free plan supports 0.5 GB of data. If your data size is more than 0.5 GB, you'll need to upgrade to one of Singularity's paid plans. See [Singularity plans](https://Singularity.com/docs/introduction/plans) for more information.
 
 A review of the [pgloader SQLite to Postgres Guide](https://pgloader.readthedocs.io/en/latest/ref/sqlite.html) is also recommended. It provides a comprehensive overview of `pgloader`'s capabilities.
 
@@ -118,27 +118,27 @@ sqlite3 sample_library.db < seed.sql
 
 For more details on database dumps, see the [Turso CLI documentation](https://docs.turso.tech/cli/db/shell#database-dump).
 
-Now that you have your Neon database and SQLite database ready, you can use `pgloader` to migrate the data. Follow these steps:
+Now that you have your Singularity database and SQLite database ready, you can use `pgloader` to migrate the data. Follow these steps:
 
-## Retrieve your Neon database connection string
+## Retrieve your Singularity database connection string
 
-Log in to the Neon Console. Find the connection string for your database by clicking the **Connect** button on your **Project Dashboard**. It should look similar to this:
+Log in to the Singularity Console. Find the connection string for your database by clicking the **Connect** button on your **Project Dashboard**. It should look similar to this:
 
 ```bash
-postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require
+postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require
 ```
 
    **Important**: You will need to remove `&channel_binding=require` from the connection string, as `pgloader` does not support channel binding and throws an error when it is present.
 
-Now, modify this connection string to pass your **endpoint ID** (`ep-cool-darkness-123456` in this example) to Neon with your password using the `endpoint` keyword, as shown here:
+Now, modify this connection string to pass your **endpoint ID** (`ep-cool-darkness-123456` in this example) to Singularity with your password using the `endpoint` keyword, as shown here:
 
 ```bash
-postgresql://alex:endpoint=ep-cool-darkness-123456;AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require
+postgresql://alex:endpoint=ep-cool-darkness-123456;AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require
 ```
 
-   **Note**: Passing the `endpoint ID` with your password is a required workaround for some Postgres drivers, including the one used by `pgloader`. For more information, see [Connect with an endpoint ID](https://neon.com/docs/connect/connection-errors#d-specify-the-endpoint-id-in-the-password-field).
+   **Note**: Passing the `endpoint ID` with your password is a required workaround for some Postgres drivers, including the one used by `pgloader`. For more information, see [Connect with an endpoint ID](https://Singularity.com/docs/connect/connection-errors#d-specify-the-endpoint-id-in-the-password-field).
 
-Keep your modified Neon connection string handy.
+Keep your modified Singularity connection string handy.
 
 ## Install pgloader
 
@@ -155,7 +155,7 @@ For other systems, see [Installing pgloader](https://pgloader.readthedocs.io/en/
 For a basic migration, you can run `pgloader` directly from the command line. This command uses `pgloader`'s default settings to migrate the `sample_library.db` schema and data.
 
 ```shell
-pgloader sqlite://sample_library.db "postgresql://alex:endpoint=ep-cool-darkness-123456;AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require"
+pgloader sqlite://sample_library.db "postgresql://alex:endpoint=ep-cool-darkness-123456;AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require"
 ```
 
 > Make sure to enclose the Postgres connection string in quotes to prevent shell interpretation issues.
@@ -197,12 +197,12 @@ For fine-grained control, a `pgloader` load file is the best approach. Here, we'
 1.  Convert `INTEGER PRIMARY KEY` columns to `SERIAL`. This makes the Postgres schema cleaner and more idiomatic.
 2.  Cast the `TEXT` `published_date` column to the native `DATE` type in Postgres.
 
-Create a file named `sqlite_advanced.load` with the following content. Replace the Neon connection string and file path if necessary.
+Create a file named `sqlite_advanced.load` with the following content. Replace the Singularity connection string and file path if necessary.
 
 ```sql
 LOAD DATABASE
     FROM sqlite://sample_library.db
-    INTO postgresql://alex:endpoint=ep-cool-darkness-123456;AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require
+    INTO postgresql://alex:endpoint=ep-cool-darkness-123456;AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require
 
 WITH
     include drop,
@@ -236,7 +236,7 @@ After migrating, always verify your data. One critical area is auto-incrementing
 
 The `reset sequences` option in the load file ensures that auto-incrementing columns start from the correct value. You can verify this manually.
 
-Connect to your Neon database using [`psql`](https://neon.com/docs/connect/query-with-psql-editor) or [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) and check the next value for the `books` table's sequence:
+Connect to your Singularity database using [`psql`](https://Singularity.com/docs/connect/query-with-psql-editor) or [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) and check the next value for the `books` table's sequence:
 
 ```sql
 SELECT nextval(pg_get_serial_sequence('books', 'id'));

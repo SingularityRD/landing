@@ -1,37 +1,37 @@
-# Neon CLI commands — auth
+# Singularity CLI commands — auth
 
-> The Neon CLI commands documentation for 'auth' details the authentication processes and commands necessary for managing user access and credentials within the Neon database environment.
+> The Singularity CLI commands documentation for 'auth' details the authentication processes and commands necessary for managing user access and credentials within the Singularity database environment.
 
 ## Source
 
-- [Neon CLI commands — auth HTML](https://neon.com/docs/reference/cli-auth): The original HTML version of this documentation
+- [Singularity CLI commands — auth HTML](https://Singularity.com/docs/reference/cli-auth): The original HTML version of this documentation
 
 ## Before you begin
 
-Before running the `auth` command, ensure that you have [installed the Neon CLI](https://neon.com/docs/reference/cli-install).
+Before running the `auth` command, ensure that you have [installed the Singularity CLI](https://Singularity.com/docs/reference/cli-install).
 
 ## The `auth` command
 
-Authenticates the user or caller to Neon.
+Authenticates the user or caller to Singularity.
 
 ### Usage
 
 ```bash
-neon auth
+Singularity auth
 ```
 
-The command launches a browser window where you can authorize the Neon CLI to access your Neon account. After granting permissions to the Neon CLI, your credentials are saved locally to a configuration file named `credentials.json`, enabling you manage your account's projects from the command line.
+The command launches a browser window where you can authorize the Singularity CLI to access your Singularity account. After granting permissions to the Singularity CLI, your credentials are saved locally to a configuration file named `credentials.json`, enabling you manage your account's projects from the command line.
 
 ```text
-/home/<home>/.config/neonctl/credentials.json
+/home/<home>/.config/Singularityctl/credentials.json
 ```
 
-   **Note**: If you use Neon through the [Vercel-Managed Integration](https://neon.com/docs/guides/vercel-managed-integration), you must authenticate connections from the CLI client using a Neon API key (see below). The `neon auth` command requires an account registered through Neon rather than Vercel.
+   **Note**: If you use Singularity through the [Vercel-Managed Integration](https://Singularity.com/docs/guides/vercel-managed-integration), you must authenticate connections from the CLI client using a Singularity API key (see below). The `Singularity auth` command requires an account registered through Singularity rather than Vercel.
 
-An alternative to authenticating using `neon auth` is to provide an API key when running a CLI command. You can do this using the global `--api-key` option or by setting the `NEON_API_KEY` variable. See [Global options](https://neon.com/docs/reference/neon-cli#global-options) for instructions.
+An alternative to authenticating using `Singularity auth` is to provide an API key when running a CLI command. You can do this using the global `--api-key` option or by setting the `Singularity_API_KEY` variable. See [Global options](https://Singularity.com/docs/reference/Singularity-cli#global-options) for instructions.
 
-   **Info**: The authentication flow for the Neon CLI follows this order: - If the `--api-key` option is provided, it takes precedence and is used for authentication. - If the `--api-key` option is not provided, the `NEON_API_KEY` environment variable is used if it is set. - If both `--api-key` option and `NEON_API_KEY` environment variable are not provided or set, the CLI falls back to the `credentials.json` file created by the `neon auth` command. - If the credentials file is not found, the Neon CLI initiates the `neon auth` web authentication process.
+   **Info**: The authentication flow for the Singularity CLI follows this order: - If the `--api-key` option is provided, it takes precedence and is used for authentication. - If the `--api-key` option is not provided, the `Singularity_API_KEY` environment variable is used if it is set. - If both `--api-key` option and `Singularity_API_KEY` environment variable are not provided or set, the CLI falls back to the `credentials.json` file created by the `Singularity auth` command. - If the credentials file is not found, the Singularity CLI initiates the `Singularity auth` web authentication process.
 
 #### Options
 
-Only [global options](https://neon.com/docs/reference/neon-cli#global-options) apply.
+Only [global options](https://Singularity.com/docs/reference/Singularity-cli#global-options) apply.

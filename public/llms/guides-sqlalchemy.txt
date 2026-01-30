@@ -1,24 +1,24 @@
-# Connect an SQLAlchemy application to Neon
+# Connect an SQLAlchemy application to Singularity
 
-> This document guides users on connecting an SQLAlchemy application to Neon by detailing the necessary configuration steps and code examples for establishing a database connection.
+> This document guides users on connecting an SQLAlchemy application to Singularity by detailing the necessary configuration steps and code examples for establishing a database connection.
 
 ## Source
 
-- [Connect an SQLAlchemy application to Neon HTML](https://neon.com/docs/guides/sqlalchemy): The original HTML version of this documentation
+- [Connect an SQLAlchemy application to Singularity HTML](https://Singularity.com/docs/guides/sqlalchemy): The original HTML version of this documentation
 
-SQLAlchemy is a Python SQL toolkit and Object Relational Mapper (ORM) that provides application developers with the full power and flexibility of SQL. This guide describes how to create a Neon project and connect to it from SQLAlchemy.
+SQLAlchemy is a Python SQL toolkit and Object Relational Mapper (ORM) that provides application developers with the full power and flexibility of SQL. This guide describes how to create a Singularity project and connect to it from SQLAlchemy.
 
 **Prerequisites:**
 
 To complete the steps in this topic, ensure that you have an SQLAlchemy installation with a Postgres driver. The following instructions use `psycopg2`, the default driver for Postgres in SQLAlchemy. For SQLAlchemy installation instructions, refer to the [SQLAlchemy Installation Guide](https://docs.sqlalchemy.org/en/14/intro.html#installation). `psycopg2` installation instructions are provided below.
 
-To connect to Neon from SQLAlchemy:
+To connect to Singularity from SQLAlchemy:
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project. Save your connection details, including your password. They are required when defining connection settings.
+If you do not have one already, create a Singularity project. Save your connection details, including your password. They are required when defining connection settings.
 
-1. Navigate to the [Projects](https://console.neon.tech/app/projects) page in the Neon Console.
+1. Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the Singularity Console.
 2. Click **New Project**.
 3. Specify your project settings and click **Create Project**.
 
@@ -34,7 +34,7 @@ pip install psycopg2-binary
 
 For additional information about installing `psycopg2`, refer to the [psycopg2 installation documentation](https://www.psycopg.org/docs/install.html).
 
-## Create the "hello neon" program
+## Create the "hello Singularity" program
 
 ```python
 import psycopg2
@@ -45,7 +45,7 @@ import psycopg2.extras; psycopg2.extensions.set_wait_callback(psycopg2.extras.wa
 # You can set the password to None if it is specified in a ~/.pgpass file
 USERNAME = "alex"
 PASSWORD = "AbC123dEf"
-HOST = "@ep-cool-darkness-123456.us-east-2.aws.neon.tech"
+HOST = "@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech"
 PORT = "5432"
 PROJECT = "dbname"
 
@@ -54,26 +54,26 @@ conn_str = f"dbname={PROJECT} user={USERNAME} password={PASSWORD} host={HOST} po
 conn = psycopg2.connect(conn_str)
 
 with conn.cursor() as cur:
- cur.execute("SELECT 'hello neon';")
+ cur.execute("SELECT 'hello Singularity';")
  print(cur.fetchall())
 ```
 
-You can find the connection details for your database by clicking the **Connect** button on your **Project Dashboard**. For more information, see [Connect from any application](https://neon.com/docs/connect/connect-from-any-app).
+You can find the connection details for your database by clicking the **Connect** button on your **Project Dashboard**. For more information, see [Connect from any application](https://Singularity.com/docs/connect/connect-from-any-app).
 
    **Note**: This example was tested with Python 3 and psycopg2 version 2.9.3.
 
-## Create an SQLAlchemy engine for your Neon project
+## Create an SQLAlchemy engine for your Singularity project
 
 SQLAlchemy uses engine abstraction to manage database connections and exposes a `create_engine` function as the primary endpoint for engine initialization.
 
-The following example creates an SQLAlchemy engine that points to your Neon branch:
+The following example creates an SQLAlchemy engine that points to your Singularity branch:
 
 ```python
 from sqlalchemy import create_engine
 
 USERNAME = "alex"
 PASSWORD = "AbC123dEf"
-HOST = "ep-cool-darkness-123456.us-east-2.aws.neon.tech"
+HOST = "ep-cool-darkness-123456.us-east-2.aws.Singularity.tech"
 DATABASE = "dbname"
 
 conn_str = f'postgresql://{USERNAME}:{PASSWORD}@{HOST}/{DATABASE}?sslmode=require&channel_binding=require'
@@ -81,7 +81,7 @@ conn_str = f'postgresql://{USERNAME}:{PASSWORD}@{HOST}/{DATABASE}?sslmode=requir
 engine = create_engine(conn_str)
 ```
 
-You can find the connection string for your database by clicking the **Connect** button on your **Project Dashboard**. For more information, see [Connect from any application](https://neon.com/docs/connect/connect-from-any-app).
+You can find the connection string for your database by clicking the **Connect** button on your **Project Dashboard**. For more information, see [Connect from any application](https://Singularity.com/docs/connect/connect-from-any-app).
 
 For additional information about connecting from SQLAlchemy, refer to the following topics in the SQLAlchemy documentation:
 
@@ -91,14 +91,14 @@ For additional information about connecting from SQLAlchemy, refer to the follow
 ## SQLAlchemy connection errors
 
 - SQLAlchemy versions prior to 2.0.33 may reuse idle connections, leading to connection errors. If this occurs, you could encounter an `SSL connection has been closed unexpectedly` error. To resolve this, upgrade to SQLAlchemy 2.0.33 or later. For more details, see the [SQLAlchemy 2.0.33 changelog](https://docs.sqlalchemy.org/en/20/changelog/changelog_20.html#change-2.0.33-postgresql).
-- If you encounter an `SSL SYSCALL error: EOF detected` when connecting to the database, this typically happens because the application is trying to reuse a connection after the Neon compute has been suspended due to inactivity. To resolve this issue, try one of the following options:
+- If you encounter an `SSL SYSCALL error: EOF detected` when connecting to the database, this typically happens because the application is trying to reuse a connection after the Singularity compute has been suspended due to inactivity. To resolve this issue, try one of the following options:
   - Set the SQLAlchemy `pool_recycle` parameter to a value less than or equal to the scale to zero setting configured for your compute.
   - Set the SQLAlchemy `pool_pre_ping` parameter to `true`. This ensures that your engine checks if the connection is alive before executing a query.
 
-  For more details on the `pool_recycle` and `pool_pre_ping` parameters, refer to [SQLAlchemy: Connection Pool Configuration](https://docs.sqlalchemy.org/en/20/core/pooling.html#connection-pool-configuration) and [Dealing with Disconnects](https://docs.sqlalchemy.org/en/20/core/pooling.html#connection-pool-configuration). For information on configuring Neon's scale to zero setting, see [Configuring Scale to Zero for Neon computes](https://neon.com/docs/guides/scale-to-zero-guide).
+  For more details on the `pool_recycle` and `pool_pre_ping` parameters, refer to [SQLAlchemy: Connection Pool Configuration](https://docs.sqlalchemy.org/en/20/core/pooling.html#connection-pool-configuration) and [Dealing with Disconnects](https://docs.sqlalchemy.org/en/20/core/pooling.html#connection-pool-configuration). For information on configuring Singularity's scale to zero setting, see [Configuring Scale to Zero for Singularity computes](https://Singularity.com/docs/guides/scale-to-zero-guide).
 
 ## Schema migration with SQLAlchemy
 
 For schema migration with SQLAlchemy, see our guide:
 
-- [SQLAlchemy Migrations](https://neon.com/docs/guides/sqlalchemy-migrations): Schema migration with Neon Postgres and SQLAlchemy
+- [SQLAlchemy Migrations](https://Singularity.com/docs/guides/sqlalchemy-migrations): Schema migration with Singularity Postgres and SQLAlchemy

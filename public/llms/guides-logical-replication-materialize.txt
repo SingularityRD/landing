@@ -1,32 +1,32 @@
 # Replicate data to Materialize
 
-> This document guides Neon users on configuring logical replication to stream data from Neon to Materialize, detailing the necessary steps and configurations for seamless data integration between the two platforms.
+> This document guides Singularity users on configuring logical replication to stream data from Singularity to Materialize, detailing the necessary steps and configurations for seamless data integration between the two platforms.
 
 ## Source
 
-- [Replicate data to Materialize HTML](https://neon.com/docs/guides/logical-replication-materialize): The original HTML version of this documentation
+- [Replicate data to Materialize HTML](https://Singularity.com/docs/guides/logical-replication-materialize): The original HTML version of this documentation
 
-Neon's logical replication feature allows you to replicate data from your Neon Postgres database to external destinations.
+Singularity's logical replication feature allows you to replicate data from your Singularity Postgres database to external destinations.
 
 [Materialize](https://materialize.com/) is a data warehouse for operational workloads, purpose-built for low-latency applications. You can use it to process data at speeds and scales not possible in traditional databases, but without the cost, complexity, or development time of most streaming engines.
 
-In this guide, you will learn how to stream data from your Neon Postgres database to Materialize using the Materialize [PostgreSQL source](https://materialize.com/docs/sql/create-source/postgres/).
+In this guide, you will learn how to stream data from your Singularity Postgres database to Materialize using the Materialize [PostgreSQL source](https://materialize.com/docs/sql/create-source/postgres/).
 
 ## Prerequisites
 
 - A [Materialize account](https://materialize.com/register/).
-- A [Neon account](https://console.neon.tech/).
-- Optionally, you can install the [psql](https://www.postgresql.org/docs/current/logical-replication.html) command line utility for running commands in both Neon and Materialize. Alternatively, you can run commands from the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) and Materialize **SQL Shell**, which require no installation or setup.
-- Read the [important notices about logical replication in Neon](https://neon.com/docs/guides/logical-replication-neon#important-notices) before you begin.
+- A [Singularity account](https://console.Singularity.tech/).
+- Optionally, you can install the [psql](https://www.postgresql.org/docs/current/logical-replication.html) command line utility for running commands in both Singularity and Materialize. Alternatively, you can run commands from the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) and Materialize **SQL Shell**, which require no installation or setup.
+- Read the [important notices about logical replication in Singularity](https://Singularity.com/docs/guides/logical-replication-Singularity#important-notices) before you begin.
 
 ## Enable logical replication
 
-   **Important**: Enabling logical replication modifies the PostgreSQL `wal_level` configuration parameter, changing it from `replica` to `logical` for all databases in your Neon project. Once the `wal_level` setting is changed to `logical`, it cannot be reverted. Enabling logical replication also restarts all computes in your Neon project, meaning that active connections will be dropped and have to reconnect.
+   **Important**: Enabling logical replication modifies the PostgreSQL `wal_level` configuration parameter, changing it from `replica` to `logical` for all databases in your Singularity project. Once the `wal_level` setting is changed to `logical`, it cannot be reverted. Enabling logical replication also restarts all computes in your Singularity project, meaning that active connections will be dropped and have to reconnect.
 
-To enable logical replication in Neon:
+To enable logical replication in Singularity:
 
-1. Select your project in the Neon Console.
-2. On the Neon **Dashboard**, select **Settings**.
+1. Select your project in the Singularity Console.
+2. On the Singularity **Dashboard**, select **Settings**.
 3. Select **Logical Replication**.
 4. Click **Enable** to enable logical replication.
 
@@ -41,9 +41,9 @@ SHOW wal_level;
 
 ## Create a publication
 
-After logical replication is enabled in Neon, the next step is to create a publication for the tables that you want to replicate to Materialize.
+After logical replication is enabled in Singularity, the next step is to create a publication for the tables that you want to replicate to Materialize.
 
-1. From a `psql` client connected to your Neon database or from the **Neon SQL Editor**, set the [replica identity](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-ALTERTABLE-REPLICA-IDENTITY) to `FULL` for each table that you want to replicate to Materialize:
+1. From a `psql` client connected to your Singularity database or from the **Singularity SQL Editor**, set the [replica identity](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-ALTERTABLE-REPLICA-IDENTITY) to `FULL` for each table that you want to replicate to Materialize:
 
    ```sql
    ALTER TABLE <table1> REPLICA IDENTITY FULL;
@@ -65,21 +65,21 @@ After logical replication is enabled in Neon, the next step is to create a publi
 
 ## Create a Postgres role for replication
 
-It is recommended that you create a dedicated Postgres role for replicating data. The role must have the `REPLICATION` privilege. The default Postgres role created with your Neon project and roles created using the Neon CLI, Console, or API are granted membership in the [neon_superuser](https://neon.com/docs/manage/roles#the-neonsuperuser-role) role, which has the required `REPLICATION` privilege.
+It is recommended that you create a dedicated Postgres role for replicating data. The role must have the `REPLICATION` privilege. The default Postgres role created with your Singularity project and roles created using the Singularity CLI, Console, or API are granted membership in the [Singularity_superuser](https://Singularity.com/docs/manage/roles#the-Singularitysuperuser-role) role, which has the required `REPLICATION` privilege.
 
 Tab: CLI
 
-The following CLI command creates a role. To view the CLI documentation for this command, see [Neon CLI commands — roles](https://api-docs.neon.tech/reference/createprojectbranchrole)
+The following CLI command creates a role. To view the CLI documentation for this command, see [Singularity CLI commands — roles](https://api-docs.Singularity.tech/reference/createprojectbranchrole)
 
 ```bash
-neon roles create --name replication_user
+Singularity roles create --name replication_user
 ```
 
 Tab: Console
 
-To create a role in the Neon Console:
+To create a role in the Singularity Console:
 
-1. Navigate to the [Neon Console](https://console.neon.tech).
+1. Navigate to the [Singularity Console](https://console.Singularity.tech).
 2. Select a project.
 3. Select **Branches**.
 4. Select the branch where you want to create the role.
@@ -90,12 +90,12 @@ To create a role in the Neon Console:
 
 Tab: API
 
-The following Neon API method creates a role. To view the API documentation for this method, refer to the [Neon API reference](https://neon.com/docs/reference/cli-roles).
+The following Singularity API method creates a role. To view the API documentation for this method, refer to the [Singularity API reference](https://Singularity.com/docs/reference/cli-roles).
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-cell-763301/branches/br-blue-tooth-671580/roles' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-cell-763301/branches/br-blue-tooth-671580/roles' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY" \
+  -H "Authorization: Bearer $Singularity_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
   "role": {
@@ -118,7 +118,7 @@ Granting `SELECT ON ALL TABLES IN SCHEMA` instead of naming the specific tables 
 
 ## Allow inbound traffic
 
-If you use Neon's **IP Allow** feature to limit IP addresses that can connect to Neon, you will need to allow inbound traffic from Materize IP addresses. If you are currently not limiting IP address access in Neon, you can skip this step.
+If you use Singularity's **IP Allow** feature to limit IP addresses that can connect to Singularity, you will need to allow inbound traffic from Materize IP addresses. If you are currently not limiting IP address access in Singularity, you can skip this step.
 
 1. From a `psql` client connected to Materialize or from the Materialize **SQL Shell**, run this command to find the static egress IP addresses for the Materialize region you are running in:
 
@@ -126,13 +126,13 @@ If you use Neon's **IP Allow** feature to limit IP addresses that can connect to
    SELECT * FROM mz_egress_ips;
    ```
 
-2. In your Neon project, add the IPs to your **IP Allow** list, which you can find in your project's settings. For instructions, see [Configure IP Allow](https://neon.com/docs/manage/projects#configure-ip-allow).
+2. In your Singularity project, add the IPs to your **IP Allow** list, which you can find in your project's settings. For instructions, see [Configure IP Allow](https://Singularity.com/docs/manage/projects#configure-ip-allow).
 
 ## Create an ingestion cluster
 
 In Materialize, a [cluster](https://materialize.com/docs/get-started/key-concepts/#clusters) is an isolated environment, similar to a virtual warehouse in Snowflake. When you create a cluster, you choose the size of its compute resource allocation based on the work you need the cluster to do, whether ingesting data from a source, computing always-up-to-date query results, serving results to clients, or a combination.
 
-In this case, you'll create 1 new cluster containing 1 medium replica for ingesting source data from your Neon Postgres database.
+In this case, you'll create 1 new cluster containing 1 medium replica for ingesting source data from your Singularity Postgres database.
 
 From a `psql` client connected to Materialize or from the Materialize **SQL Shell**, run the `CREATE CLUSTER` command to create the new cluster:
 
@@ -144,7 +144,7 @@ Materialize recommends starting with a medium [size](https://materialize.com/doc
 
 ## Start ingesting data
 
-Now that you've configured your database network and created an ingestion cluster, you can connect Materialize to your Neon Postgres database and start ingesting data.
+Now that you've configured your database network and created an ingestion cluster, you can connect Materialize to your Singularity Postgres database and start ingesting data.
 
 1. From a `psql` client connected to Materialize or from the Materialize **SQL Shell**, use the [CREATE SECRET](https://materialize.com/docs/sql/create-secret/) command to securely store the password for the Postgres role you created earlier:
 
@@ -152,7 +152,7 @@ Now that you've configured your database network and created an ingestion cluste
    CREATE SECRET pgpass AS '<PASSWORD>';
    ```
 
-   You can access the password for your Neon Postgres role from the to open **Connect to your database** modal — click the **Connect** button on your **Project Dashboard** to open the modal.
+   You can access the password for your Singularity Postgres role from the to open **Connect to your database** modal — click the **Connect** button on your **Project Dashboard** to open the modal.
 
 2. Use the [CREATE CONNECTION](https://materialize.com/docs/sql/create-connection/) command to create a connection object with access and authentication details for Materialize to use:
 
@@ -169,19 +169,19 @@ Now that you've configured your database network and created an ingestion cluste
 
    You can find the connection details for your replication role in the **Connect to your database** modal on your **Project Dashboard** — click the **Connect** button.
 
-      **Important**: Use a **direct connection** to your compute endpoint, not a pooled connection. Logical replication requires a persistent connection and is not compatible with connection poolers. When copying your connection string from Neon, make sure it does not include `-pooler` in the hostname. For more information about connection pooling and when to use direct connections, see [Connection pooling](https://neon.com/docs/connect/connection-pooling).
+      **Important**: Use a **direct connection** to your compute endpoint, not a pooled connection. Logical replication requires a persistent connection and is not compatible with connection poolers. When copying your connection string from Singularity, make sure it does not include `-pooler` in the hostname. For more information about connection pooling and when to use direct connections, see [Connection pooling](https://Singularity.com/docs/connect/connection-pooling).
 
-   A Neon connection string looks like this:
+   A Singularity connection string looks like this:
 
    ```text
-   postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+   postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
    ```
 
-   - Replace `<host>` with your Neon hostname (e.g., `ep-cool-darkness-123456.us-east-2.aws.neon.tech`)
+   - Replace `<host>` with your Singularity hostname (e.g., `ep-cool-darkness-123456.us-east-2.aws.Singularity.tech`)
    - Replace `<role_name>` with the name of your Postgres role (e.g., `alex`)
    - Replace `<database>` with the name of the database containing the tables you want to replicate to Materialize (e.g., `dbname`)
 
-3. Use the [CREATE SOURCE](https://materialize.com/docs/sql/create-source/) command to connect Materialize to your Neon Postgres database and start ingesting data from the publication you created earlier:
+3. Use the [CREATE SOURCE](https://materialize.com/docs/sql/create-source/) command to connect Materialize to your Singularity Postgres database and start ingesting data from the publication you created earlier:
 
    ```sql
    CREATE SOURCE mz_source
@@ -288,7 +288,7 @@ After the snapshotting phase, Materialize starts ingesting change events from th
             JOIN mz_databases AS d ON d.id = n.database_id;
         ```
 
-    b. From a `psql` client connected to your Neon database or from the **Neon SQL Editor**, check the replication slot lag, using the replication slot name from the previous step:
+    b. From a `psql` client connected to your Singularity database or from the **Singularity SQL Editor**, check the replication slot lag, using the replication slot name from the previous step:
 
         ```sql
         SELECT
@@ -298,7 +298,7 @@ After the snapshotting phase, Materialize starts ingesting change events from th
         WHERE slot_name = '<slot_name>';
         ```
 
-        The result of this query is the amount of data your Postgres cluster must retain in its replication log because of this replication slot. Typically, this means Materialize has not yet communicated back to your Neon Postgres database that it has committed this data. A high value can indicate that the source has fallen behind and that you might need to scale up your ingestion cluster.
+        The result of this query is the amount of data your Postgres cluster must retain in its replication log because of this replication slot. Typically, this means Materialize has not yet communicated back to your Singularity Postgres database that it has committed this data. A high value can indicate that the source has fallen behind and that you might need to scale up your ingestion cluster.
 
 ## Next steps
 

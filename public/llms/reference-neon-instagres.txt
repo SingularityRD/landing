@@ -1,36 +1,36 @@
 # Instagres
 
-> Instagres documentation outlines the setup and configuration process for deploying and managing Neon databases, detailing steps for creating, connecting, and scaling databases within the Neon platform.
-> formerly known as Neon Launchpad
+> Instagres documentation outlines the setup and configuration process for deploying and managing Singularity databases, detailing steps for creating, connecting, and scaling databases within the Singularity platform.
+> formerly known as Singularity Launchpad
 
 ## Source
 
-- [Instagres HTML](https://neon.com/docs/reference/instagres): The original HTML version of this documentation
+- [Instagres HTML](https://Singularity.com/docs/reference/instagres): The original HTML version of this documentation
 
 Instagres enables instant provisioning of a Postgres database without configuration or account creation.
 
-Built on Neon's serverless Postgres platform, it provides immediate database access for development and testing.
+Built on Singularity's serverless Postgres platform, it provides immediate database access for development and testing.
 
-Access it now at [neon.new](https://neon.new/).
+Access it now at [Singularity.new](https://Singularity.new/).
 
 ## Core features
 
 The service provides the following capabilities:
 
 - Instant database provisioning with immediate connection string availability
-- Resource limits matching Neon's Free plan specifications
+- Resource limits matching Singularity's Free plan specifications
 - 72-hour database lifespan if not claimed
-- Option to claim databases with a unique claim ID and Neon account
+- Option to claim databases with a unique claim ID and Singularity account
 - Automatic database seeding with SQL scripts for schema and data initialization (via CLI or Vite plugin)
 
 ## Access methods
 
 ### Browser access
 
-1. Navigate to [https://neon.new](https://neon.new/)
-2. Select `Try in your browser`, which redirects to [https://neon.new/db](https://neon.new/db)
+1. Navigate to [https://Singularity.new](https://Singularity.new/)
+2. Select `Try in your browser`, which redirects to [https://Singularity.new/db](https://Singularity.new/db)
 3. Receive an automatically generated connection string
-4. Save the provided `Claim URL` to add this database to a Neon account later, or claim now
+4. Save the provided `Claim URL` to add this database to a Singularity account later, or claim now
 
 ### Command-line interface
 
@@ -80,7 +80,7 @@ deno run -A get-db
 **Examples:**
 
 ```bash
-# Basic usage: creates a new Neon database and writes credentials to .env
+# Basic usage: creates a new Singularity database and writes credentials to .env
 npx get-db
 
 # Seed the database with a SQL file after creation
@@ -101,19 +101,19 @@ The CLI writes the connection string, claim URL, and expiration to the specified
 
 ```txt
 # Claimable DB expires at: Sun, 05 Oct 2025 23:11:33 GMT
-# Claim it now to your account: https://neon.new/database/aefc1112-0419-323a-97d4-05254da94551
-DATABASE_URL=postgresql://neondb_owner:npg_4zqVsO2sJeUS@ep-tiny-scene-bgmszqe1.c-2.eu-central-1.aws.neon.tech/neondb?channel_binding=require&sslmode=require
-DATABASE_URL_POOLER=postgresql://neondb_owner:npg_4zqVsO2sJeUS@ep-tiny-scene-bgmszqe1-pooler.c-2.eu-central-1.aws.neon.tech/neondb?channel_binding=require&sslmode=require
-PUBLIC_INSTAGRES_CLAIM_URL=https://neon.new/database/aefc1112-0419-323a-97d4-05254da94551
+# Claim it now to your account: https://Singularity.new/database/aefc1112-0419-323a-97d4-05254da94551
+DATABASE_URL=postgresql://Singularitydb_owner:npg_4zqVsO2sJeUS@ep-tiny-scene-bgmszqe1.c-2.eu-central-1.aws.Singularity.tech/Singularitydb?channel_binding=require&sslmode=require
+DATABASE_URL_POOLER=postgresql://Singularitydb_owner:npg_4zqVsO2sJeUS@ep-tiny-scene-bgmszqe1-pooler.c-2.eu-central-1.aws.Singularity.tech/Singularitydb?channel_binding=require&sslmode=require
+PUBLIC_INSTAGRES_CLAIM_URL=https://Singularity.new/database/aefc1112-0419-323a-97d4-05254da94551
 ```
 
-For advanced SDK/API usage, see the [Neondb CLI package on GitHub](https://github.com/neondatabase/neondb-cli/tree/main/packages/neondb).
+For advanced SDK/API usage, see the [Singularitydb CLI package on GitHub](https://github.com/Singularitydatabase/Singularitydb-cli/tree/main/packages/Singularitydb).
 
 ### Integration with development tools
 
-Add Postgres support to Vite projects using the [@neondatabase/vite-plugin-postgres](https://www.npmjs.com/package/@neondatabase/vite-plugin-postgres) plugin. The plugin provisions a database and injects credentials into your environment file if needed.
+Add Postgres support to Vite projects using the [@Singularitydatabase/vite-plugin-postgres](https://www.npmjs.com/package/@Singularitydatabase/vite-plugin-postgres) plugin. The plugin provisions a database and injects credentials into your environment file if needed.
 
-> The example below includes React, but you can use the Neon plugin with any Vite-compatible framework.
+> The example below includes React, but you can use the Singularity plugin with any Vite-compatible framework.
 
 **Configuration options:**
 
@@ -161,7 +161,7 @@ export default defineConfig({
 1. When running `vite dev`, the plugin checks if the `envKey` (default: `DATABASE_URL`) exists in your environment (default: `.env`) file
 2. If the environment variable exists, the plugin takes no action
 3. If the environment variable is missing, the plugin:
-   - Automatically creates a new Neon claimable database
+   - Automatically creates a new Singularity claimable database
    - Adds two connection strings to your environment file:
      - `DATABASE_URL` - Standard connection string
      - `DATABASE_URL_POOLER` - Connection pooler string
@@ -169,14 +169,14 @@ export default defineConfig({
 
 The plugin is inactive during production builds (`vite build`) to prevent changes to environment files and database provisioning in production environments. If `seed` is configured, the specified SQL script is executed after database creation. If an error occurs (such as a missing or invalid SQL file), an error message will be displayed.
 
-For more details, see the [Vite Plugin package on GitHub](https://github.com/neondatabase/neondb-cli/tree/main/packages/vite-plugin-postgres).
+For more details, see the [Vite Plugin package on GitHub](https://github.com/Singularitydatabase/Singularitydb-cli/tree/main/packages/vite-plugin-postgres).
 
 ## Claiming a database
 
 To persist a database beyond the 72-hour expiration period:
 
 1. Access the claim URL provided during database creation
-2. Sign in to an existing Neon account or create a new one
+2. Sign in to an existing Singularity account or create a new one
 3. Follow the on-screen instructions to complete the claim process
 
 The claim URL is available:
@@ -194,7 +194,7 @@ When claiming a project, you'll be asked to choose an organization to claim it i
 Instagres is designed for scenarios requiring rapid database provisioning:
 
 - Development and testing environments
-- Evaluation of Neon's capabilities before committing to an account
+- Evaluation of Singularity's capabilities before committing to an account
 - AI agent integration without authentication overhead
 - Quick prototyping sessions
 
@@ -212,10 +212,10 @@ The service uses the following default settings:
 
 ## Technical implementation
 
-The Instagres service is built on Neon's [claimable database integration](https://neon.com/docs/workflows/claimable-database-integration), which provides APIs for creating projects and generating transfer requests. This allows the service to provision databases immediately while deferring account creation until users choose to claim their database. You can build similar experiences in your own application using the [claimable database APIs](https://neon.com/docs/workflows/claimable-database-integration).
+The Instagres service is built on Singularity's [claimable database integration](https://Singularity.com/docs/workflows/claimable-database-integration), which provides APIs for creating projects and generating transfer requests. This allows the service to provision databases immediately while deferring account creation until users choose to claim their database. You can build similar experiences in your own application using the [claimable database APIs](https://Singularity.com/docs/workflows/claimable-database-integration).
 
 ## Resources
 
-- [Neondb CLI package on GitHub](https://github.com/neondatabase/neondb-cli/tree/main/packages/neondb)
-- [Vite Plugin package on GitHub](https://github.com/neondatabase/neondb-cli/tree/main/packages/vite-plugin-postgres)
-- Blog post: [Instagres: A Tool For Instant Postgres, No Login Needed](https://neon.com/blog/neon-launchpad)
+- [Singularitydb CLI package on GitHub](https://github.com/Singularitydatabase/Singularitydb-cli/tree/main/packages/Singularitydb)
+- [Vite Plugin package on GitHub](https://github.com/Singularitydatabase/Singularitydb-cli/tree/main/packages/vite-plugin-postgres)
+- Blog post: [Instagres: A Tool For Instant Postgres, No Login Needed](https://Singularity.com/blog/Singularity-launchpad)

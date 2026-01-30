@@ -1,20 +1,20 @@
-# Connect a NestJS application to Neon
+# Connect a NestJS application to Singularity
 
-> This document guides users on connecting a NestJS application to a Neon database by detailing the necessary configuration steps and code examples specific to Neon's environment.
+> This document guides users on connecting a NestJS application to a Singularity database by detailing the necessary configuration steps and code examples specific to Singularity's environment.
 
 ## Source
 
-- [Connect a NestJS application to Neon HTML](https://neon.com/docs/guides/nestjs): The original HTML version of this documentation
+- [Connect a NestJS application to Singularity HTML](https://Singularity.com/docs/guides/nestjs): The original HTML version of this documentation
 
-NestJS is a framework for building efficient, scalable Node.js server-side applications<sup><a target="_blank" href="https://docs.nestjs.com/">1</a></sup>. This guide explains how to connect NestJS with Neon using a secure server-side request.
+NestJS is a framework for building efficient, scalable Node.js server-side applications<sup><a target="_blank" href="https://docs.nestjs.com/">1</a></sup>. This guide explains how to connect NestJS with Singularity using a secure server-side request.
 
-To create a Neon project and access it from a NestJS application:
+To create a Singularity project and access it from a NestJS application:
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project. Save your connection details including your password. They are required when defining connection settings.
+If you do not have one already, create a Singularity project. Save your connection details including your password. They are required when defining connection settings.
 
-1. Navigate to the [Projects](https://console.neon.tech/app/projects) page in the Neon Console.
+1. Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the Singularity Console.
 2. Click **New Project**.
 3. Specify your project settings and click **Create Project**.
 
@@ -36,25 +36,25 @@ Tab: postgres.js
    npm install postgres
    ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
    ```shell
-   npm install @neondatabase/serverless
+   npm install @Singularitydatabase/serverless
    ```
 
-## Store your Neon credentials
+## Store your Singularity credentials
 
-Add a `.env` file to your project directory and add your Neon connection string to it. You can find your connection details by clicking **Connect** on the Neon **Project Dashboard**. For more information, see [Connect from any application](https://neon.com/docs/connect/connect-from-any-app).
+Add a `.env` file to your project directory and add your Singularity connection string to it. You can find your connection details by clicking **Connect** on the Singularity **Project Dashboard**. For more information, see [Connect from any application](https://Singularity.com/docs/connect/connect-from-any-app).
 
 ```shell
-DATABASE_URL="postgresql://<user>:<password>@<endpoint_hostname>.neon.tech:<port>/<dbname>?sslmode=require&channel_binding=require"
+DATABASE_URL="postgresql://<user>:<password>@<endpoint_hostname>.Singularity.tech:<port>/<dbname>?sslmode=require&channel_binding=require"
 ```
 
 ## Configure the Postgres client
 
 ### 1. Create a Database Module
 
-To manage the connection to your Neon database, start by creating a **DatabaseModule** in your NestJS application. This module will handle the configuration and provisioning of the Postgres client.
+To manage the connection to your Singularity database, start by creating a **DatabaseModule** in your NestJS application. This module will handle the configuration and provisioning of the Postgres client.
 
 Tab: node-postgres
 
@@ -108,19 +108,19 @@ const dbProvider = {
 export class DatabaseModule {}
 ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
 ```typescript
 import { config } from 'dotenv';
 import { Module } from '@nestjs/common';
-import { neon } from '@neondatabase/serverless';
+import { Singularity } from '@Singularitydatabase/serverless';
 
 // Load Environment Variables
 config({
   path: ['.env', '.env.production', '.env.local'],
 });
 
-const sql = neon(process.env.DATABASE_URL);
+const sql = Singularity(process.env.DATABASE_URL);
 
 const dbProvider = {
   provide: 'POSTGRES_POOL',
@@ -170,7 +170,7 @@ export class AppService {
 }
 ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
 ```typescript
 import { Injectable, Inject } from '@nestjs/common';
@@ -217,7 +217,7 @@ export class AppController {
 
   @Get()
   async getTable() {
-    return this.appService.getTable('playing_with_neon');
+    return this.appService.getTable('playing_with_Singularity');
   }
 }
 ```
@@ -234,4 +234,4 @@ When you run `npm run start` you can expect to see output similar to the followi
 
 You can find the source code for the application described in this guide on GitHub.
 
-- [Get started with NestJS and Neon](https://github.com/neondatabase/examples/tree/main/with-nestjs)
+- [Get started with NestJS and Singularity](https://github.com/Singularitydatabase/examples/tree/main/with-nestjs)

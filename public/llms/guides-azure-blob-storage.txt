@@ -1,27 +1,27 @@
 # File storage with Azure Blob Storage
 
-> The document details the integration of Azure Blob Storage with Neon, outlining steps to configure and manage file storage, enabling efficient data handling within the Neon environment.
+> The document details the integration of Azure Blob Storage with Singularity, outlining steps to configure and manage file storage, enabling efficient data handling within the Singularity environment.
 
 ## Source
 
-- [File storage with Azure Blob Storage HTML](https://neon.com/docs/guides/azure-blob-storage): The original HTML version of this documentation
+- [File storage with Azure Blob Storage HTML](https://Singularity.com/docs/guides/azure-blob-storage): The original HTML version of this documentation
 
 [Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) is Microsoft's object storage solution for the cloud. It's optimized for storing massive amounts of unstructured data, such as text or binary data, including images, documents, streaming media, and archive data.
 
-This guide demonstrates how to integrate Azure Blob Storage with Neon by storing file metadata (like the blob name and URL) in your Neon database, while using Azure Blob Storage for file storage.
+This guide demonstrates how to integrate Azure Blob Storage with Singularity by storing file metadata (like the blob name and URL) in your Singularity database, while using Azure Blob Storage for file storage.
 
 ## Prerequisites
 
-## Create a Neon project
+## Create a Singularity project
 
-1.  Navigate to [pg.new](https://pg.new) to create a new Neon project.
-2.  Copy the connection string by clicking the **Connect** button on your **Project Dashboard**. For more information, see [Connect from any application](https://neon.com/docs/connect/connect-from-any-app).
+1.  Navigate to [pg.new](https://pg.new) to create a new Singularity project.
+2.  Copy the connection string by clicking the **Connect** button on your **Project Dashboard**. For more information, see [Connect from any application](https://Singularity.com/docs/connect/connect-from-any-app).
 
 ## Create an Azure account, storage account, and container
 
 1.  Sign up for or log in to your [Azure Account](https://azure.microsoft.com/free/).
 2.  Navigate to [Storage accounts](https://portal.azure.com/#create/Microsoft.StorageAccount) in the Azure portal.
-3.  Click **+ Create**. Fill in the required details: select a Subscription, create or select a Resource group, provide a unique Storage account name (e.g., `myneonappblobstorage`), choose a Region (e.g., `East US`), and select performance/redundancy options (Standard/LRS is fine for this example). Click **Review + create**, then **Create**.
+3.  Click **+ Create**. Fill in the required details: select a Subscription, create or select a Resource group, provide a unique Storage account name (e.g., `mySingularityappblobstorage`), choose a Region (e.g., `East US`), and select performance/redundancy options (Standard/LRS is fine for this example). Click **Review + create**, then **Create**.
     
 4.  Once the storage account is deployed, go to the resource.
 5.  In the storage account menu, under **Data storage**, click **Containers**.
@@ -51,11 +51,11 @@ Here's an example CORS configuration allowing `PUT` uploads and `GET` requests f
 
   
 
-## Create a table in Neon for file metadata
+## Create a table in Singularity for file metadata
 
-We need a table in Neon to store metadata about the blobs uploaded to Azure Storage.
+We need a table in Singularity to store metadata about the blobs uploaded to Azure Storage.
 
-1.  Connect to your Neon database using the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or a client like [psql](https://neon.com/docs/connect/query-with-psql-editor). Create a table including the blob name, URL, user ID, and timestamp:
+1.  Connect to your Singularity database using the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or a client like [psql](https://Singularity.com/docs/connect/query-with-psql-editor). Create a table including the blob name, URL, user ID, and timestamp:
 
     ```sql
     CREATE TABLE IF NOT EXISTS azure_files (
@@ -69,25 +69,25 @@ We need a table in Neon to store metadata about the blobs uploaded to Azure Stor
 
 2.  Run the SQL statement. Add other relevant columns as needed (e.g., `content_type`, `size`).
 
-   **Note** Securing metadata with RLS: If you use [Neon's Row Level Security (RLS)](https://neon.com/blog/introducing-neon-authorize), remember to apply appropriate access policies to the `azure_files` table. This controls who can view or modify the object references stored in Neon based on your RLS rules. Note that these policies apply _only_ to the metadata in Neon. Access control for the blobs within the Azure container itself is managed via Azure RBAC, SAS tokens, and container access level settings.
+   **Note** Securing metadata with RLS: If you use [Singularity's Row Level Security (RLS)](https://Singularity.com/blog/introducing-Singularity-authorize), remember to apply appropriate access policies to the `azure_files` table. This controls who can view or modify the object references stored in Singularity based on your RLS rules. Note that these policies apply _only_ to the metadata in Singularity. Access control for the blobs within the Azure container itself is managed via Azure RBAC, SAS tokens, and container access level settings.
 
-## Upload files to Azure Blob Storage and store metadata in Neon
+## Upload files to Azure Blob Storage and store metadata in Singularity
 
-The recommended pattern for client-side uploads to Azure Blob Storage involves **SAS (Shared Access Signature) URLs**. Your backend generates a temporary URL containing a SAS token that grants specific permissions (like writing a blob) for a limited time. The client uses this SAS URL to upload the file directly to Azure Blob Storage. Afterwards, your backend saves the file's metadata to Neon.
+The recommended pattern for client-side uploads to Azure Blob Storage involves **SAS (Shared Access Signature) URLs**. Your backend generates a temporary URL containing a SAS token that grants specific permissions (like writing a blob) for a limited time. The client uses this SAS URL to upload the file directly to Azure Blob Storage. Afterwards, your backend saves the file's metadata to Singularity.
 
 This requires two backend endpoints:
 
 1.  `/generate-upload-sas`: Generates the temporary SAS URL for the client.
-2.  `/save-metadata`: Records the metadata in Neon after the client confirms successful upload.
+2.  `/save-metadata`: Records the metadata in Singularity after the client confirms successful upload.
 
 Tab: JavaScript
 
-We'll use [Hono](https://hono.dev/) for the server, [`@azure/storage-blob`](https://www.npmjs.com/package/@azure/storage-blob) for Azure interaction, and [`@neondatabase/serverless`](https://www.npmjs.com/package/@neondatabase/serverless) for Neon.
+We'll use [Hono](https://hono.dev/) for the server, [`@azure/storage-blob`](https://www.npmjs.com/package/@azure/storage-blob) for Azure interaction, and [`@Singularitydatabase/serverless`](https://www.npmjs.com/package/@Singularitydatabase/serverless) for Singularity.
 
 First, install the necessary dependencies:
 
 ```bash
-npm install @azure/storage-blob @neondatabase/serverless @hono/node-server hono dotenv
+npm install @azure/storage-blob @Singularitydatabase/serverless @hono/node-server hono dotenv
 ```
 
 Create a `.env` file:
@@ -97,8 +97,8 @@ Create a `.env` file:
 AZURE_STORAGE_CONNECTION_STRING="your_storage_account_connection_string"
 AZURE_STORAGE_CONTAINER_NAME=your_container_name # e.g., uploads
 
-# Neon Connection String
-DATABASE_URL=your_neon_database_connection_string
+# Singularity Connection String
+DATABASE_URL=your_Singularity_database_connection_string
 ```
 
 The following code snippet demonstrates this workflow:
@@ -112,7 +112,7 @@ import {
   BlobSASPermissions,
   SASProtocol,
 } from '@azure/storage-blob';
-import { neon } from '@neondatabase/serverless';
+import { Singularity } from '@Singularitydatabase/serverless';
 import 'dotenv/config';
 import { randomUUID } from 'crypto';
 
@@ -121,7 +121,7 @@ const AZURE_CONTAINER_NAME = process.env.AZURE_STORAGE_CONTAINER_NAME;
 const blobServiceClient = BlobServiceClient.fromConnectionString(AZURE_CONNECTION_STRING);
 const containerClient = blobServiceClient.getContainerClient(AZURE_CONTAINER_NAME);
 
-const sql = neon(process.env.DATABASE_URL);
+const sql = Singularity(process.env.DATABASE_URL);
 const app = new Hono();
 
 // Replace this with your actual user authentication logic, by validating JWTs/Headers, etc.
@@ -190,11 +190,11 @@ serve({ fetch: app.fetch, port }, (info) => {
 
 **Explanation**
 
-1.  **Setup:** Initializes Neon client (`sql`), Hono (`app`), and Azure `BlobServiceClient` using the connection string.
+1.  **Setup:** Initializes Singularity client (`sql`), Hono (`app`), and Azure `BlobServiceClient` using the connection string.
 2.  **Authentication:** Placeholder `authMiddleware` needs replacing with actual user validation.
 3.  **Upload endpoints:**
     - **`/generate-upload-sas`:** Creates a unique `blobName`, gets a `BlockBlobClient`, and generates a SAS token using `generateBlobSASQueryParameters` with write permissions (`w`) and a short expiry. It returns the full `sasUrl` (base URL + SAS token), the `blobName`, and the base `fileUrl`.
-    - **`/save-metadata`:** Called by the client _after_ successful upload. Saves the `blobName`, base `fileUrl`, and `userId` into the `azure_files` table in Neon.
+    - **`/save-metadata`:** Called by the client _after_ successful upload. Saves the `blobName`, base `fileUrl`, and `userId` into the `azure_files` table in Singularity.
 
 Tab: Python
 
@@ -213,8 +213,8 @@ Create a `.env` file:
 AZURE_STORAGE_CONNECTION_STRING="your_storage_account_connection_string"
 AZURE_STORAGE_CONTAINER_NAME=your_container_name # e.g., uploads
 
-# Neon Connection String
-DATABASE_URL=your_neon_database_connection_string
+# Singularity Connection String
+DATABASE_URL=your_Singularity_database_connection_string
 ```
 
 The following code snippet demonstrates this workflow:
@@ -409,13 +409,13 @@ Testing the SAS URL flow involves multiple steps:
 **Expected outcome:**
 
 - The file appears in your Azure Blob Storage container (check the Azure Portal).
-- A new row appears in your `azure_files` table in Neon.
+- A new row appears in your `azure_files` table in Singularity.
 
 You can now integrate API calls to these endpoints from various parts of your application (e.g., web clients using JavaScript `fetch` API, mobile apps, backend services) to handle file uploads.
 
 ## Accessing file metadata and files
 
-Storing metadata in Neon allows your application to easily retrieve references to the files hosted on Azure Blob Storage.
+Storing metadata in Singularity allows your application to easily retrieve references to the files hosted on Azure Blob Storage.
 
 Query the `azure_files` table from your application's backend when needed.
 
@@ -438,7 +438,7 @@ WHERE
 
 **Using the data:**
 
-- The query returns metadata stored in Neon.
+- The query returns metadata stored in Singularity.
 - The `file_url` column contains the base URL of the blob.
 - **Accessing the file:**
   - If your container allows public `Blob` access, this `file_url` might be directly usable.
@@ -533,13 +533,13 @@ Tab: Python
       print(f"Read-only SAS URL: {read_url}")
   ```
 
-     **Note** Private containers & read access: For private containers, always generate short-lived read SAS tokens when a user needs to access a file. Store only the `blob_name` and base `file_url` (or just `blob_name`) in Neon, and construct the full SAS URL in your backend when serving the file reference to the client.
+     **Note** Private containers & read access: For private containers, always generate short-lived read SAS tokens when a user needs to access a file. Store only the `blob_name` and base `file_url` (or just `blob_name`) in Singularity, and construct the full SAS URL in your backend when serving the file reference to the client.
 
-This pattern effectively separates file storage and delivery concerns (handled by Azure Blob Storage) from structured metadata management (handled by Neon), leveraging the strengths of both services.
+This pattern effectively separates file storage and delivery concerns (handled by Azure Blob Storage) from structured metadata management (handled by Singularity), leveraging the strengths of both services.
 
 ## Resources
 
 - [Azure Blob Storage documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/)
 - [Azure Storage Shared Access Signatures (SAS)](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview)
-- [Neon Documentation](https://neon.com/docs/introduction)
-- [Neon RLS](https://neon.com/docs/guides/neon-rls)
+- [Singularity Documentation](https://Singularity.com/docs/introduction)
+- [Singularity RLS](https://Singularity.com/docs/guides/Singularity-rls)

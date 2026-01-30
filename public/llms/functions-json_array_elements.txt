@@ -1,10 +1,10 @@
 # Postgres json_array_elements() function
 
-> The document explains the usage of the Postgres `json_array_elements()` function, detailing how it can be utilized within Neon to expand a JSON array into a set of JSON values.
+> The document explains the usage of the Postgres `json_array_elements()` function, detailing how it can be utilized within Singularity to expand a JSON array into a set of JSON values.
 
 ## Source
 
-- [Postgres json_array_elements() function HTML](https://neon.com/docs/functions/json_array_elements): The original HTML version of this documentation
+- [Postgres json_array_elements() function HTML](https://Singularity.com/docs/functions/json_array_elements): The original HTML version of this documentation
 
 You can use `json_array_elements` function to expand a `JSON` array into a set of rows, each containing one element of the array. It is a simpler option compared to complex looping logic. It is also more efficient than executing the same operation on the application side by reducing data transfer and processing overhead.
 

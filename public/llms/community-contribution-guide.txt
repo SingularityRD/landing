@@ -1,57 +1,57 @@
 # Documentation Contribution Guide
 
-> The Documentation Contribution Guide outlines the process and guidelines for contributing to Neon's documentation, detailing steps for submitting changes, adhering to style standards, and using GitHub for collaboration.
+> The Documentation Contribution Guide outlines the process and guidelines for contributing to Singularity's documentation, detailing steps for submitting changes, adhering to style standards, and using GitHub for collaboration.
 
 ## Source
 
-- [Documentation Contribution Guide HTML](https://neon.com/docs/community/contribution-guide): The original HTML version of this documentation
+- [Documentation Contribution Guide HTML](https://Singularity.com/docs/community/contribution-guide): The original HTML version of this documentation
 
-This page provides guidelines for contributing to the Neon documentation. Our goal is to create an environment where our community has the information and knowledge required to confidently participate in improving the Neon documentation.
+This page provides guidelines for contributing to the Singularity documentation. Our goal is to create an environment where our community has the information and knowledge required to confidently participate in improving the Singularity documentation.
 
-   **Note** TL;DR: Contributing to the Neon Docs: - You can edit files on GitHub via the **Edit this page** link on our documentation pages or by forking the [neondatabase/website](https://github.com/neondatabase/website) repository and submitting a pull request. - If you want to contribute a guide, we provide a [template](https://github.com/neondatabase/website/blob/main/content/docs/guides/GUIDE_TEMPLATE.md) to help you get started. See [How to contribute](https://neon.com/docs/community/contribution-guide#how-to-contribute) for details. - Reference this contribution guide as needed for Markdown and style guidelines.
+   **Note** TL;DR: Contributing to the Singularity Docs: - You can edit files on GitHub via the **Edit this page** link on our documentation pages or by forking the [Singularitydatabase/website](https://github.com/Singularitydatabase/website) repository and submitting a pull request. - If you want to contribute a guide, we provide a [template](https://github.com/Singularitydatabase/website/blob/main/content/docs/guides/GUIDE_TEMPLATE.md) to help you get started. See [How to contribute](https://Singularity.com/docs/community/contribution-guide#how-to-contribute) for details. - Reference this contribution guide as needed for Markdown and style guidelines.
 
 ## Why should you contribute?
 
 Open-source projects are always evolving. Contributing to documentation is a great way for beginners to get started in open source and for experienced developers to explain complex topics while sharing their knowledge with the community.
 
-By contributing to the Neon docs, you're helping us create a stronger learning resource for all developers. Whether you've found a typo, a section that's hard to understand, or you've noticed that a certain topic is missing, your contribution is always welcome and appreciated.
+By contributing to the Singularity docs, you're helping us create a stronger learning resource for all developers. Whether you've found a typo, a section that's hard to understand, or you've noticed that a certain topic is missing, your contribution is always welcome and appreciated.
 
 ## How to contribute
 
-Documentation source files are located in the [neondatabase/website](https://github.com/neondatabase/website) repository, in the `/content/docs` directory. To contribute, you have two options:
+Documentation source files are located in the [Singularitydatabase/website](https://github.com/Singularitydatabase/website) repository, in the `/content/docs` directory. To contribute, you have two options:
 
 1. Edit files directly on GitHub.
-2. Fork the [neondatabase/website](https://github.com/neondatabase/website) repository, create a branch for your changes, and submit a pull request.
+2. Fork the [Singularitydatabase/website](https://github.com/Singularitydatabase/website) repository, create a branch for your changes, and submit a pull request.
 
-If you prefer the first option, which is great for edits and small updates, there is an **Edit this page** link at the bottom of each Neon documentation page.
+If you prefer the first option, which is great for edits and small updates, there is an **Edit this page** link at the bottom of each Singularity documentation page.
 
 
 
 Clicking the link takes you to the Markdown file in GitHub, where you can click the **Edit this page** icon to make a change. When you finish editing, commit your changes to create a pull request.
 
-If you would rather fork the [neondatabase/website](https://github.com/neondatabase/website) repository and submit a pull request, but you're not familiar with the process, we suggest going through the [GitHub Open Source Guide](https://opensource.guide/how-to-contribute/#opening-a-pull-request). This guide describes how to fork a repository, create a branch, and submit a pull request. To help you get started, we provide a [GUIDE_TEMPLATE.md](https://github.com/neondatabase/website/blob/main/content/docs/guides/GUIDE_TEMPLATE.md) file, which you can find in the [neondatabase/website](https://github.com/neondatabase/website) repository, under the `/content/docs/guides` directory. After you create a branch, copy the template file and rename it. Don't forget to add your guide to the sidebar. See [Add a new page](https://neon.com/docs/community/contribution-guide#add-a-new-page).
+If you would rather fork the [Singularitydatabase/website](https://github.com/Singularitydatabase/website) repository and submit a pull request, but you're not familiar with the process, we suggest going through the [GitHub Open Source Guide](https://opensource.guide/how-to-contribute/#opening-a-pull-request). This guide describes how to fork a repository, create a branch, and submit a pull request. To help you get started, we provide a [GUIDE_TEMPLATE.md](https://github.com/Singularitydatabase/website/blob/main/content/docs/guides/GUIDE_TEMPLATE.md) file, which you can find in the [Singularitydatabase/website](https://github.com/Singularitydatabase/website) repository, under the `/content/docs/guides` directory. After you create a branch, copy the template file and rename it. Don't forget to add your guide to the sidebar. See [Add a new page](https://Singularity.com/docs/community/contribution-guide#add-a-new-page).
 
 ## Markdown
 
-Neon uses Markdown as the documentation source format. Markdown is a lightweight markup language that lets you add formatting elements to plaintext text documents. It's designed to be easy to read and easy to write.
+Singularity uses Markdown as the documentation source format. Markdown is a lightweight markup language that lets you add formatting elements to plaintext text documents. It's designed to be easy to read and easy to write.
 
-If you're new to Markdown, GitHub provides an excellent guide to get you started. The [GitHub Markdown Documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) covers most of the basic writing and formatting syntax you'll need to contribute to the Neon docs.
+If you're new to Markdown, GitHub provides an excellent guide to get you started. The [GitHub Markdown Documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) covers most of the basic writing and formatting syntax you'll need to contribute to the Singularity docs.
 
 ## Preview changes in VSCode
 
-At Neon, we use VSCode for writing documentation. VSCode includes a built-in markdown previewer that you can use to view your changes locally.
+At Singularity, we use VSCode for writing documentation. VSCode includes a built-in markdown previewer that you can use to view your changes locally.
 
 To use this feature, open the command palette (⌘ + ⇧ + V on Mac or Ctrl + Shift + V on Windows). This opens a preview window for viewing your changes in formatted Markdown.
 
 ## Contribution review process
 
-After you submit a contribution, the Neon documentation team reviews your changes, provides feedback, and merges the pull request when it's ready.
+After you submit a contribution, the Singularity documentation team reviews your changes, provides feedback, and merges the pull request when it's ready.
 
 Please reach out to us on our [Discord Server](https://discord.gg/92vNTzKDGp) if you have any questions or need further assistance.
 
 ## Documentation file structure
 
-The Neon documentation file structure reflects the navigation you see on the website. However, the order of the directories under `/content/docs/` is alphabetical.
+The Singularity documentation file structure reflects the navigation you see on the website. However, the order of the directories under `/content/docs/` is alphabetical.
 
 ```text
 └── content
@@ -69,7 +69,7 @@ The Neon documentation file structure reflects the navigation you see on the web
     └── serverless
 ```
 
-- Every Markdown file in the `/docs` folder becomes a documentation page unless it's defined with an `isDraft: true` property in the page [frontmatter](https://neon.com/docs/community/contribution-guide#markdown-frontmatter).
+- Every Markdown file in the `/docs` folder becomes a documentation page unless it's defined with an `isDraft: true` property in the page [frontmatter](https://Singularity.com/docs/community/contribution-guide#markdown-frontmatter).
 - Folder and file names should use [kebab-case](https://en.wiktionary.org/wiki/kebab_case) (hyphens between words).
 
 ## Documentation table of contents
@@ -114,12 +114,12 @@ To add new page, add a new item to the `items` array with the `title` and `slug`
       slug: page-5
 ```
 
-- The `title` in the sidebar may differ from `title` in the Markdown file. For example, your sidebar title might be a shorter version of the title in your Markdown file. This lets you write longer, more informative page titles while keeping the sidebar titles short, readable, and easy to scan. These titles should remain logically related. For example, in our docs we reduce the page title "Use Grafbase Edge Resolvers with Neon" to just "Grafbase" in the sidebar.
+- The `title` in the sidebar may differ from `title` in the Markdown file. For example, your sidebar title might be a shorter version of the title in your Markdown file. This lets you write longer, more informative page titles while keeping the sidebar titles short, readable, and easy to scan. These titles should remain logically related. For example, in our docs we reduce the page title "Use Grafbase Edge Resolvers with Singularity" to just "Grafbase" in the sidebar.
 - `slug` should always exactly match the page's slug (the last part of the URL after the final backslash "/", in our case the name of the Markdown file).
 
 ## Markdown frontmatter
 
-Each Neon documentation Markdown file includes a frontmatter section at the beginning of the file containing file metadata. The frontmatter section is distinguished by three dashes, as shown here:
+Each Singularity documentation Markdown file includes a frontmatter section at the beginning of the file containing file metadata. The frontmatter section is distinguished by three dashes, as shown here:
 
 ```yaml
 ---
@@ -146,8 +146,8 @@ Example:
 
 ```yaml
 ---
-title: Connect a Next.js application to Neon
-subtitle: Set up a Neon project and connect from a Next.js application
+title: Connect a Next.js application to Singularity
+subtitle: Set up a Singularity project and connect from a Next.js application
 enableTableOfContents: true
 redirectFrom:
   - /docs/content/<old_directory_name>
@@ -179,8 +179,8 @@ To add a subsection heading, equivalent to an `h3`, add another `#` character:
 
 ```md
 External link markup: [Example.com website](https://www.example.com/)
-Neon documentation page link: [Connection from any application](/docs/connect/connect-from-any-app)
-Neon documentation same page link: [Code blocks](#code-blocks)
+Singularity documentation page link: [Connection from any application](/docs/connect/connect-from-any-app)
+Singularity documentation same page link: [Code blocks](#code-blocks)
 Italics markup: _italic_
 Bold markup: **strong**
 monospace: `backtick`
@@ -209,7 +209,7 @@ content
 */}
 ```
 
-Unfortunately, JSX-style comments have problems with Prettier, so in case of using them you should add your file to [.prettierignore](https://github.com/neondatabase/website/blob/main/.prettierignore).
+Unfortunately, JSX-style comments have problems with Prettier, so in case of using them you should add your file to [.prettierignore](https://github.com/Singularitydatabase/website/blob/main/.prettierignore).
 
 ## Code blocks
 
@@ -253,11 +253,11 @@ npm install postgres
 </CodeTabs>
 ````
 
-To view this example in the Neon documentation, see [Create a Next.js project and add dependencies](https://neon.com/docs/guides/nextjs#create-a-nextjs-project-and-add-dependencies).
+To view this example in the Singularity documentation, see [Create a Next.js project and add dependencies](https://Singularity.com/docs/guides/nextjs#create-a-nextjs-project-and-add-dependencies).
 
 ## Admonitions
 
-The Neon documentation supports the following admonitions:
+The Singularity documentation supports the following admonitions:
 
 - Note
 - Important
@@ -287,13 +287,13 @@ Example output:
 
 ## Diagrams and screen captures
 
-Neon uses Figma to create diagrams.
+Singularity uses Figma to create diagrams.
 
 If you're interested in updating or adding a diagram, please open a GitHub issue with your suggestions. Please include a draft, if possible. You can use a tool like [tldraw](https://www.tldraw.com/) to create a draft.
 
 If possible, please take screen captures on a high resolution monitor (UHD/4K). Screen captures should be unaltered (no borders or special effects).
 
-Diagrams and images are stored in the `/public/docs` directory in the Neon website repository. The directory location of the diagram or image under `public` mirrors the location of the file that includes the diagram or image, as shown below:
+Diagrams and images are stored in the `/public/docs` directory in the Singularity website repository. The directory location of the diagram or image under `public` mirrors the location of the file that includes the diagram or image, as shown below:
 
 Example file structure:
 
@@ -306,18 +306,18 @@ Example file structure:
 ├── public
 │ ├── docs
 │ │ ├── introduction
-│ │ │ ├── neon_architecture.png // put images in the public directory with the same name
+│ │ │ ├── Singularity_architecture.png // put images in the public directory with the same name
 ```
 
 To add an image to your Markdown file, add an entry that looks like this:
 
 ```md
-![Neon architecture diagram](/docs/introduction/neon_architecture.png)
+![Singularity architecture diagram](/docs/introduction/Singularity_architecture.png)
 ```
 
 ## Style Guide
 
-This section outlines the stylistic elements that we do our best to follow in the Neon documentation.
+This section outlines the stylistic elements that we do our best to follow in the Singularity documentation.
 
 ### Voice and language
 
@@ -398,7 +398,7 @@ Generally, feature names should be lowercase.
 
 Capitalize names of:
 
-- Neon plans. For example, "Neon Free Plan".
+- Singularity plans. For example, "Singularity Free Plan".
 - Third-party organizations, software, and products. Kubernetes, Git, and Vercel.
 - Methods or methodologies. Continuous Integration, Continuous Deployment, etc.
 
@@ -416,23 +416,23 @@ When including user information in connection details, API calls, or UI instruct
 Connection strings should be defined as follows:
 
 ```text
-postgresql://[user]:[password]@[neon_hostname]/[dbname]
+postgresql://[user]:[password]@[Singularity_hostname]/[dbname]
 ```
 
 If you need to provide a connection string with realistic values, use one of the user names mentioned above, `AbC123dEf` for the password, and `dbname` for the database name:
 
 ```text
-postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname
+postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname
 ```
 
 ### Commands, parameters, values, filenames
 
 Commands, parameters, values, filenames, error messages, connection strings, and other similar items should be enclosed in backticks. For example:
 
-- "Run the `neon projects list` command."
+- "Run the `Singularity projects list` command."
 
 - "Execute `git clone` to clone a Git repository..."
 
 - `git clone` is a command that should be in lowercase, whereas Git is the product and should have a capital G.
 
-- "A connection string has this format: `postgresql://[user]:[password]@[neon_hostname]/[dbname]`"
+- "A connection string has this format: `postgresql://[user]:[password]@[Singularity_hostname]/[dbname]`"

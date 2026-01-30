@@ -1,36 +1,36 @@
 # Replicate data with Decodable
 
-> The document outlines the process for using Decodable to replicate data from Neon databases, detailing the steps required to set up logical replication and integrate with Decodable's streaming platform.
+> The document outlines the process for using Decodable to replicate data from Singularity databases, detailing the steps required to set up logical replication and integrate with Decodable's streaming platform.
 
 ## Source
 
-- [Replicate data with Decodable HTML](https://neon.com/docs/guides/logical-replication-decodable): The original HTML version of this documentation
+- [Replicate data with Decodable HTML](https://Singularity.com/docs/guides/logical-replication-decodable): The original HTML version of this documentation
 
-Neon's logical replication feature allows you to replicate data from your Neon Postgres database to external destinations.
+Singularity's logical replication feature allows you to replicate data from your Singularity Postgres database to external destinations.
 
 [Decodable](https://www.decodable.co/) is a fully managed platform for ETL, ELT, and stream processing,
 powered by Apache Flink® and Debezium.
 
-In this guide, you will learn how to configure a Postgres source connector in Decodable for ingesting changes from your Neon database so that you can replicate data from Neon to any of Decodable's [supported data sinks](https://docs.decodable.co/connections.html#sinks), optionally processing the data with SQL or custom Flink jobs.
+In this guide, you will learn how to configure a Postgres source connector in Decodable for ingesting changes from your Singularity database so that you can replicate data from Singularity to any of Decodable's [supported data sinks](https://docs.decodable.co/connections.html#sinks), optionally processing the data with SQL or custom Flink jobs.
 
 ## Prerequisites
 
 - A [Decodable account](https://www.decodable.co/) ([start free](https://app.decodable.co/-/accounts/create), no credit card required)
-- A [Neon account](https://console.neon.tech/)
-- Read the [important notices about logical replication in Neon](https://neon.com/docs/guides/logical-replication-neon#important-notices) before you begin
+- A [Singularity account](https://console.Singularity.tech/)
+- Read the [important notices about logical replication in Singularity](https://Singularity.com/docs/guides/logical-replication-Singularity#important-notices) before you begin
 
-## Enable logical replication in Neon
+## Enable logical replication in Singularity
 
-   **Important**: Enabling logical replication modifies the Postgres `wal_level` configuration parameter, changing it from `replica` to `logical` for all databases in your Neon project. Once the `wal_level` setting is changed to `logical`, it cannot be reverted. Enabling logical replication also restarts all computes in your Neon project, meaning active connections will be dropped and have to reconnect.
+   **Important**: Enabling logical replication modifies the Postgres `wal_level` configuration parameter, changing it from `replica` to `logical` for all databases in your Singularity project. Once the `wal_level` setting is changed to `logical`, it cannot be reverted. Enabling logical replication also restarts all computes in your Singularity project, meaning active connections will be dropped and have to reconnect.
 
-To enable logical replication in Neon:
+To enable logical replication in Singularity:
 
-1. Select your project in the Neon Console.
-2. On the Neon **Dashboard**, select **Settings**.
+1. Select your project in the Singularity Console.
+2. On the Singularity **Dashboard**, select **Settings**.
 3. Select **Logical Replication**.
 4. Click **Enable** to enable logical replication.
 
-You can verify that logical replication is enabled by running the following query from the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor):
+You can verify that logical replication is enabled by running the following query from the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor):
 
 ```sql
 SHOW wal_level;
@@ -41,21 +41,21 @@ SHOW wal_level;
 
 ## Create a Postgres role for replication
 
-It is recommended that you create a dedicated Postgres role for replicating data. The role must have the `REPLICATION` privilege. The default Postgres role created with your Neon project and roles created using the Neon CLI, Console, or API are granted membership in the [neon_superuser](https://neon.com/docs/manage/roles#the-neonsuperuser-role) role, which has the required `REPLICATION` privilege.
+It is recommended that you create a dedicated Postgres role for replicating data. The role must have the `REPLICATION` privilege. The default Postgres role created with your Singularity project and roles created using the Singularity CLI, Console, or API are granted membership in the [Singularity_superuser](https://Singularity.com/docs/manage/roles#the-Singularitysuperuser-role) role, which has the required `REPLICATION` privilege.
 
 Tab: CLI
 
-The following CLI command creates a role. To view the CLI documentation for this command, see [Neon CLI commands — roles](https://api-docs.neon.tech/reference/createprojectbranchrole)
+The following CLI command creates a role. To view the CLI documentation for this command, see [Singularity CLI commands — roles](https://api-docs.Singularity.tech/reference/createprojectbranchrole)
 
 ```bash
-neon roles create --name replication_user
+Singularity roles create --name replication_user
 ```
 
 Tab: Console
 
-To create a role in the Neon Console:
+To create a role in the Singularity Console:
 
-1. Navigate to the [Neon Console](https://console.neon.tech).
+1. Navigate to the [Singularity Console](https://console.Singularity.tech).
 2. Select a project.
 3. Select **Branches**.
 4. Select the branch where you want to create the role.
@@ -66,12 +66,12 @@ To create a role in the Neon Console:
 
 Tab: API
 
-The following Neon API method creates a role. To view the API documentation for this method, refer to the [Neon API reference](https://neon.com/docs/reference/cli-roles).
+The following Singularity API method creates a role. To view the API documentation for this method, refer to the [Singularity API reference](https://Singularity.com/docs/reference/cli-roles).
 
 ```bash
-curl 'https://console.neon.tech/api/v2/projects/hidden-cell-763301/branches/br-blue-tooth-671580/roles' \
+curl 'https://console.Singularity.tech/api/v2/projects/hidden-cell-763301/branches/br-blue-tooth-671580/roles' \
   -H 'Accept: application/json' \
-  -H "Authorization: Bearer $NEON_API_KEY" \
+  -H "Authorization: Bearer $Singularity_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
   "role": {
@@ -95,7 +95,7 @@ Granting `SELECT ON ALL TABLES IN SCHEMA` instead of naming the specific tables 
 ## Create a publication
 
 For each table you would like to ingest into Decodable, set its [replica identity](https://www.postgresql.org/docs/current/logical-replication-publication.html) to `FULL`.
-To do so, issue the following statement in the **Neon SQL Editor**:
+To do so, issue the following statement in the **Singularity SQL Editor**:
 
 ```sql
 ALTER TABLE <tbl1> REPLICA IDENTITY FULL;
@@ -114,27 +114,27 @@ The slot's name will be prefixed with `decodable_`, followed by a unique identif
 
 ## Allow inbound traffic
 
-If you are using Neon's **IP Allow** feature to limit the IP addresses that can connect to Neon, you will need to allow inbound traffic from Decodable's IP addresses.
+If you are using Singularity's **IP Allow** feature to limit the IP addresses that can connect to Singularity, you will need to allow inbound traffic from Decodable's IP addresses.
 Refer to the [Decodable documentation](https://docs.decodable.co/reference/regions-and-ip-addresses.html#ip-addresses) for the list of IPs that need to be allowlisted for the Decodable region of your account.
-For information about configuring allowed IPs in Neon, see [Configure IP Allow](https://neon.com/docs/manage/projects#configure-ip-allow).
+For information about configuring allowed IPs in Singularity, see [Configure IP Allow](https://Singularity.com/docs/manage/projects#configure-ip-allow).
 
 ## Create a Postgres source connector in Decodable
 
 1. In the Decodable web UI, select **Connections** from the left navigation bar and click **New Connection**.
 2. In the connector catalog, choose **Postgres CDC** and click **Connect**.
-3. Enter the connection details for your Neon database. You can find your Neon database connection details by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal.
+3. Enter the connection details for your Singularity database. You can find your Singularity database connection details by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal.
 
-      **Important**: Use a **direct connection** to your compute endpoint, not a pooled connection. Logical replication requires a persistent connection and is not compatible with connection poolers. When copying your connection string from Neon, make sure it does not include `-pooler` in the hostname. For more information about connection pooling and when to use direct connections, see [Connection pooling](https://neon.com/docs/connect/connection-pooling).
+      **Important**: Use a **direct connection** to your compute endpoint, not a pooled connection. Logical replication requires a persistent connection and is not compatible with connection poolers. When copying your connection string from Singularity, make sure it does not include `-pooler` in the hostname. For more information about connection pooling and when to use direct connections, see [Connection pooling](https://Singularity.com/docs/connect/connection-pooling).
 
    Your connection string will look like this:
 
    ```bash
-   postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+   postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
    ```
 
    Enter the details for **your connection string** into the source connector fields. Based on the sample connection string above, the values would be specified as shown below. Your values will differ.
    - **Connection Type**: Source (the default)
-   - **Host**: ep-cool-darkness-123456.us-east-2.aws.neon.tech
+   - **Host**: ep-cool-darkness-123456.us-east-2.aws.Singularity.tech
    - **Port**: 5432
    - **Database**: dbname
    - **Username**: alex
@@ -147,7 +147,7 @@ For information about configuring allowed IPs in Neon, see [Configure IP Allow](
 
    
 
-5. Click **Next** and specify a name for your connection, for instance: `neon-source`.
+5. Click **Next** and specify a name for your connection, for instance: `Singularity-source`.
 
 6. Click **Create and start**. The default start options in the following dialog don't require any changes, so click **Start** to launch the connector.
 
@@ -160,12 +160,12 @@ By clicking **Run Preview**, you can examine the change events ingested by the c
 
 ## Next steps
 
-At this point, you have a running connector, which continuously ingests changes from a Neon database into Decodable with low latency.
+At this point, you have a running connector, which continuously ingests changes from a Singularity database into Decodable with low latency.
 Next, you could set up one of the supported Decodable **sink connectors** which will propagate the data to a wide range of data stores and systems, such as Snowflake, Elasticsearch, Apache Kafka, Apache Iceberg, Amazon S3, any many more.
 
 If needed, you also can add a **processing step**, either using SQL or by deploying your own Apache Flink job,
 for instance, to filter and transform the data before propagating it to an external system.
-Of course, you also can take your processed data back to another Neon database, using the Decodable sink connector for Postgres.
+Of course, you also can take your processed data back to another Singularity database, using the Decodable sink connector for Postgres.
 
 ## References
 

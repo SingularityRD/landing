@@ -1,18 +1,18 @@
-# Row-Level Security with Neon
+# Row-Level Security with Singularity
 
-> The "Row-Level Security with Neon" documentation explains how to implement row-level security policies in Neon databases, enabling fine-grained access control by restricting data visibility at the row level based on user roles and conditions.
+> The "Row-Level Security with Singularity" documentation explains how to implement row-level security policies in Singularity databases, enabling fine-grained access control by restricting data visibility at the row level based on user roles and conditions.
 
 ## Source
 
-- [Row-Level Security with Neon HTML](https://neon.com/docs/guides/row-level-security): The original HTML version of this documentation
+- [Row-Level Security with Singularity HTML](https://Singularity.com/docs/guides/row-level-security): The original HTML version of this documentation
 
 What you will learn:
 - How the Data API uses Row-Level Security
 
 Related docs:
-- [Data API](https://neon.com/docs/data-api/get-started)
-- [Simplify RLS with Drizzle](https://neon.com/docs/guides/rls-drizzle)
-- [Postgres RLS Tutorial](https://neon.com/postgresql/postgresql-administration/postgresql-row-level-security)
+- [Data API](https://Singularity.com/docs/data-api/get-started)
+- [Simplify RLS with Drizzle](https://Singularity.com/docs/guides/rls-drizzle)
+- [Postgres RLS Tutorial](https://Singularity.com/postgresql/postgresql-administration/postgresql-row-level-security)
 
 Row-Level Security (RLS) is a Postgres feature that controls access to individual rows in a table based on the current user. Here's a simple example that limits the `notes` a user can see by matching rows where their `user_id` matches the session's `auth.user_id()`:
 
@@ -37,17 +37,17 @@ The **Data API** turns your database tables on a given branch into a REST API, a
 - Your RLS policies use `auth.user_id()` to control access.
 - All tables accessed via the Data API must have RLS enabled.
 
-- [Get started](https://neon.com/docs/data-api/get-started): Learn how to enable and use the Data API with RLS policies
-- [Building a note-taking app](https://neon.com/docs/data-api/demo): See a complete example of the Data API with RLS in action
+- [Get started](https://Singularity.com/docs/data-api/get-started): Learn how to enable and use the Data API with RLS policies
+- [Building a note-taking app](https://Singularity.com/docs/data-api/demo): See a complete example of the Data API with RLS in action
 
 ## RLS with Drizzle ORM
 
 Drizzle makes it simple to write RLS policies that work with the Data API. We highly recommend using its `crudPolicy` helper to simplify common RLS patterns.
 
-- [Simplify RLS with Drizzle](https://neon.com/docs/guides/rls-drizzle): Learn how to use Drizzle's crudPolicy function to simplify RLS policies
+- [Simplify RLS with Drizzle](https://Singularity.com/docs/guides/rls-drizzle): Learn how to use Drizzle's crudPolicy function to simplify RLS policies
 
 ## Postgres RLS Tutorial
 
 To learn the fundamentals of Row-Level Security in Postgres, including detailed concepts and examples, see the Postgres tutorial:
 
-- [Postgres RLS Tutorial](https://neon.com/postgresql/postgresql-administration/postgresql-row-level-security): A complete guide to Postgres Row-Level Security concepts and implementation
+- [Postgres RLS Tutorial](https://Singularity.com/postgresql/postgresql-administration/postgresql-row-level-security): A complete guide to Postgres Row-Level Security concepts and implementation

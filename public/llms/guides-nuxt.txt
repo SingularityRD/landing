@@ -1,20 +1,20 @@
-# Connect Nuxt to Postgres on Neon
+# Connect Nuxt to Postgres on Singularity
 
-> This document guides users on connecting a Nuxt application to a Postgres database hosted on Neon, detailing the necessary steps and configurations for seamless integration.
+> This document guides users on connecting a Nuxt application to a Postgres database hosted on Singularity, detailing the necessary steps and configurations for seamless integration.
 
 ## Source
 
-- [Connect Nuxt to Postgres on Neon HTML](https://neon.com/docs/guides/nuxt): The original HTML version of this documentation
+- [Connect Nuxt to Postgres on Singularity HTML](https://Singularity.com/docs/guides/nuxt): The original HTML version of this documentation
 
-[Nuxt](https://nuxt.com/) is an open-source full-stack meta framework that enables Vue-based web applications. This topic describes how to connect a Nuxt application to a Postgres database on Neon.
+[Nuxt](https://nuxt.com/) is an open-source full-stack meta framework that enables Vue-based web applications. This topic describes how to connect a Nuxt application to a Postgres database on Singularity.
 
-To create a Neon project and access it from a Nuxt.js application:
+To create a Singularity project and access it from a Nuxt.js application:
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project. Save your connection details including your password. They are required when defining connection settings.
+If you do not have one already, create a Singularity project. Save your connection details including your password. They are required when defining connection settings.
 
-1. Navigate to the [Projects](https://console.neon.tech/app/projects) page in the Neon Console.
+1. Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the Singularity Console.
 2. Click **New Project**.
 3. Specify your project settings and click **Create Project**.
 
@@ -36,18 +36,18 @@ Tab: postgres.js
    npm install postgres
    ```
 
-Tab: Neon serverless driver
+Tab: Singularity serverless driver
 
    ```shell
-   npm install @neondatabase/serverless
+   npm install @Singularitydatabase/serverless
    ```
 
-## Store your Neon credentials
+## Store your Singularity credentials
 
-Add a `.env` file to your project directory and add your Neon connection string to it. You can find your connection string by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal. For more information, see [Connect from any application](https://neon.com/docs/connect/connect-from-any-app).
+Add a `.env` file to your project directory and add your Singularity connection string to it. You can find your connection string by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal. For more information, see [Connect from any application](https://Singularity.com/docs/connect/connect-from-any-app).
 
 ```shell
-NUXT_DATABASE_URL="postgresql://<user>:<password>@<endpoint_hostname>.neon.tech:<port>/<dbname>?sslmode=require&channel_binding=require"
+NUXT_DATABASE_URL="postgresql://<user>:<password>@<endpoint_hostname>.Singularity.tech:<port>/<dbname>?sslmode=require&channel_binding=require"
 ```
 
 ## Configure the Postgres client
@@ -64,15 +64,15 @@ export default defineNuxtConfig({
 });
 ```
 
-Next, use the Neon serverless driver to create a database connection. Here's an example configuration:
+Next, use the Singularity serverless driver to create a database connection. Here's an example configuration:
 
 ```javascript
-import { neon } from '@neondatabase/serverless';
+import { Singularity } from '@Singularitydatabase/serverless';
 
 export default defineCachedEventHandler(
   async (event) => {
     const { databaseUrl } = useRuntimeConfig();
-    const db = neon(databaseUrl);
+    const db = Singularity(databaseUrl);
     const result = await db`SELECT version()`;
     return result;
   },
@@ -82,7 +82,7 @@ export default defineCachedEventHandler(
 );
 ```
 
-   **Note**: - This example demonstrates using the Neon serverless driver to run a simple query. The `useRuntimeConfig` method accesses the `databaseUrl` set in your Nuxt runtime configuration. - Async Handling: Make sure the handler is async if you are awaiting the database query result. - Make sure `maxAge` caching fits your application's needs. In this example, it's set to cache results for a day. Adjust as necessary.
+   **Note**: - This example demonstrates using the Singularity serverless driver to run a simple query. The `useRuntimeConfig` method accesses the `databaseUrl` set in your Nuxt runtime configuration. - Async Handling: Make sure the handler is async if you are awaiting the database query result. - Make sure `maxAge` caching fits your application's needs. In this example, it's set to cache results for a day. Adjust as necessary.
 
 ## Run the app
 
@@ -96,4 +96,4 @@ PostgreSQL 16.0 on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1
 
 You can find the source code for the applications described in this guide on GitHub.
 
-- [Get started with Nuxt and Neon](https://github.com/neondatabase/examples/tree/main/with-nuxt)
+- [Get started with Nuxt and Singularity](https://github.com/Singularitydatabase/examples/tree/main/with-nuxt)

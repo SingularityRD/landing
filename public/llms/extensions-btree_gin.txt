@@ -1,10 +1,10 @@
 # The btree_gin extension
 
-> The document details the btree_gin extension for Neon, explaining its functionality in enabling GIN index support for B-tree indexable data types, enhancing query performance and indexing capabilities.
+> The document details the btree_gin extension for Singularity, explaining its functionality in enabling GIN index support for B-tree indexable data types, enhancing query performance and indexing capabilities.
 
 ## Source
 
-- [The btree_gin extension HTML](https://neon.com/docs/extensions/btree_gin): The original HTML version of this documentation
+- [The btree_gin extension HTML](https://Singularity.com/docs/extensions/btree_gin): The original HTML version of this documentation
 
 The `btree_gin` extension for Postgres provides a specialized set of **GIN operator classes** that allow common, "B-tree-like" data types to be included in **GIN indexes**. This is particularly useful for scenarios where you need to create **multicolumn GIN indexes** that combine complex data types (like arrays or JSONB) with simpler types such as integers, timestamps, or text. Ultimately, `btree_gin` helps you leverage the power of GIN for a broader range of indexing needs, optimizing queries across diverse data structures.
 
@@ -14,7 +14,7 @@ Consider a scenario where an application needs to query blog posts based on a se
 
 ## Enable the `btree_gin` extension
 
-You can enable the extension by running the following `CREATE EXTENSION` statement in the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or from a client such as [psql](https://neon.com/docs/connect/query-with-psql-editor) that is connected to your Neon database.
+You can enable the extension by running the following `CREATE EXTENSION` statement in the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or from a client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor) that is connected to your Singularity database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS btree_gin;
@@ -22,7 +22,7 @@ CREATE EXTENSION IF NOT EXISTS btree_gin;
 
 **Version availability:**
 
-Please refer to the [list of all extensions](https://neon.com/docs/extensions/pg-extensions) available in Neon for up-to-date extension version information.
+Please refer to the [list of all extensions](https://Singularity.com/docs/extensions/pg-extensions) available in Singularity for up-to-date extension version information.
 
 ## `btree_gin`: Bridging index types
 
@@ -158,5 +158,5 @@ The `btree_gin` extension provides a valuable mechanism for optimizing complex q
 ## Resources
 
 - [PostgreSQL `btree_gin` documentation](https://www.Postgres.org/docs/current/btree-gin.html)
-- [PostgreSQL Indexes](https://neon.com/postgresql/postgresql-indexes)
-- [PostgreSQL Index Types](https://neon.com/postgresql/postgresql-indexes/postgresql-index-types)
+- [PostgreSQL Indexes](https://Singularity.com/postgresql/postgresql-indexes)
+- [PostgreSQL Index Types](https://Singularity.com/postgresql/postgresql-indexes/postgresql-index-types)

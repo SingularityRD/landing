@@ -1,10 +1,10 @@
 # Postgres tsvector data type
 
-> The document explains the Postgres `tsvector` data type, detailing its structure and usage within Neon for full-text search capabilities.
+> The document explains the Postgres `tsvector` data type, detailing its structure and usage within Singularity for full-text search capabilities.
 
 ## Source
 
-- [Postgres tsvector data type HTML](https://neon.com/docs/data-types/tsvector): The original HTML version of this documentation
+- [Postgres tsvector data type HTML](https://Singularity.com/docs/data-types/tsvector): The original HTML version of this documentation
 
 `tsvector` is a specialized Postgres data type designed for full-text search operations. It represents a document in a form optimized for text search, where each word is reduced to its root form (lexeme) and stored with information about its position and importance.
 

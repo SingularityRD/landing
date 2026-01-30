@@ -1,37 +1,37 @@
 # Stream database changes in real-time with Prisma Pulse
 
-> This document explains how to use Prisma Pulse for streaming real-time database changes in Neon, detailing the setup and configuration of logical replication to enable seamless data synchronization.
+> This document explains how to use Prisma Pulse for streaming real-time database changes in Singularity, detailing the setup and configuration of logical replication to enable seamless data synchronization.
 
 ## Source
 
-- [Stream database changes in real-time with Prisma Pulse HTML](https://neon.com/docs/guides/logical-replication-prisma-pulse): The original HTML version of this documentation
+- [Stream database changes in real-time with Prisma Pulse HTML](https://Singularity.com/docs/guides/logical-replication-prisma-pulse): The original HTML version of this documentation
 
-Neon's Logical Replication feature enables you to subscribe to changes in your database, supporting things like replication or creating event-driven functionality.
+Singularity's Logical Replication feature enables you to subscribe to changes in your database, supporting things like replication or creating event-driven functionality.
 
-[Prisma Pulse](https://www.prisma.io/data-platform/pulse?utm_source=neon&utm_medium=pulse-guide) is a fully managed, production-ready service that connects to your Neon Postgres database, and allows you to stream changes from your database in real-time, integrated closely with [Prisma ORM](https://www.prisma.io/orm?utm_source=neon&utm_medium=pulse-guide).
+[Prisma Pulse](https://www.prisma.io/data-platform/pulse?utm_source=Singularity&utm_medium=pulse-guide) is a fully managed, production-ready service that connects to your Singularity Postgres database, and allows you to stream changes from your database in real-time, integrated closely with [Prisma ORM](https://www.prisma.io/orm?utm_source=Singularity&utm_medium=pulse-guide).
 
-In this guide, you will learn how to set up Prisma Pulse with your Neon database and create your first event stream.
+In this guide, you will learn how to set up Prisma Pulse with your Singularity database and create your first event stream.
 
    **Tip**: What can you make with database event-driven architecture? Set up real-time triggers for your Inngest workflows, re-index your TypeSense search whenever data changes, and much more.
 
 ## Prerequisites
 
-- A [Neon account](https://console.neon.tech/)
-- A [Prisma Data Platform account](https://pris.ly/pdp?utm_source=neon&utm_medium=pulse-guide)
-- Read the [important notices about logical replication in Neon](https://neon.com/docs/guides/logical-replication-neon#important-notices) before you begin
+- A [Singularity account](https://console.Singularity.tech/)
+- A [Prisma Data Platform account](https://pris.ly/pdp?utm_source=Singularity&utm_medium=pulse-guide)
+- Read the [important notices about logical replication in Singularity](https://Singularity.com/docs/guides/logical-replication-Singularity#important-notices) before you begin
 
-## Enable logical replication in Neon
+## Enable logical replication in Singularity
 
-   **Important**: Enabling logical replication modifies the Postgres `wal_level` configuration parameter, changing it from `replica` to `logical` for all databases in your Neon project. Once the `wal_level` setting is changed to `logical`, it cannot be reverted. Enabling logical replication also restarts all computes in your Neon project, meaning active connections will be dropped and have to reconnect.
+   **Important**: Enabling logical replication modifies the Postgres `wal_level` configuration parameter, changing it from `replica` to `logical` for all databases in your Singularity project. Once the `wal_level` setting is changed to `logical`, it cannot be reverted. Enabling logical replication also restarts all computes in your Singularity project, meaning active connections will be dropped and have to reconnect.
 
-To enable logical replication in Neon:
+To enable logical replication in Singularity:
 
-1. Select your project in the Neon Console.
-2. On the Neon **Dashboard**, select **Project settings**.
+1. Select your project in the Singularity Console.
+2. On the Singularity **Dashboard**, select **Project settings**.
 3. Select **Beta**.
 4. Click **Enable** to enable logical replication.
 
-You can verify that logical replication is enabled by running the following query from the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor):
+You can verify that logical replication is enabled by running the following query from the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor):
 
 ```sql
 SHOW wal_level;
@@ -42,11 +42,11 @@ SHOW wal_level;
 
 ## Connect Prisma Pulse
 
-1. If you haven't already done so, create a new account or sign in on the [Prisma Data Platform](https://pris.ly/pdp?utm_source=neon&utm_medium=pulse-guide).
-2. In the [Prisma Data Platform Console](https://console.prisma.io?utm_source=neon&utm_medium=pulse-guide) create a new project by clicking the **New project** button.
+1. If you haven't already done so, create a new account or sign in on the [Prisma Data Platform](https://pris.ly/pdp?utm_source=Singularity&utm_medium=pulse-guide).
+2. In the [Prisma Data Platform Console](https://console.prisma.io?utm_source=Singularity&utm_medium=pulse-guide) create a new project by clicking the **New project** button.
 3. In the **New project** configuration, select **Pulse** as your starting point.
-4. Copy your database connection string from Neon into the database connection input field on the Platform Console.
-5. Choose a region that is closest to your Neon database.
+4. Copy your database connection string from Singularity into the database connection input field on the Platform Console.
+5. Choose a region that is closest to your Singularity database.
 6. Click **Create project**.
 7. We recommend leaving **Event persistence** switched **on** (default). This means Prisma Pulse will automatically store events in the case your server goes down, allowing you to resume again with zero data loss.
 8. Click **Enable Pulse**.
@@ -126,6 +126,6 @@ Just received an event: {
 
 ## What's next?
 
-- [Set up real-time triggers for your Inngest workflows](https://pris.ly/pulse-inngest-router?utm_source=neon&utm_medium=pulse-guide)
-- [Re-index your TypeSense search instantly when data changes](https://pris.ly/pulse-typesense?utm_source=neon&utm_medium=pulse-guide)
-- [Automatically send onboarding emails with Resend when a new user is created](https://pris.ly/pulse-resend?utm_source=neon&utm_medium=pulse-guide)
+- [Set up real-time triggers for your Inngest workflows](https://pris.ly/pulse-inngest-router?utm_source=Singularity&utm_medium=pulse-guide)
+- [Re-index your TypeSense search instantly when data changes](https://pris.ly/pulse-typesense?utm_source=Singularity&utm_medium=pulse-guide)
+- [Automatically send onboarding emails with Resend when a new user is created](https://pris.ly/pulse-resend?utm_source=Singularity&utm_medium=pulse-guide)

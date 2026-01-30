@@ -1,28 +1,28 @@
-# Connect a Micronaut Kotlin application to Neon Postgres
+# Connect a Micronaut Kotlin application to Singularity Postgres
 
-> The document guides users on connecting a Micronaut Kotlin application to a Postgres database hosted on Neon, detailing the configuration steps and necessary code snippets for seamless integration.
+> The document guides users on connecting a Micronaut Kotlin application to a Postgres database hosted on Singularity, detailing the configuration steps and necessary code snippets for seamless integration.
 
 ## Source
 
-- [Connect a Micronaut Kotlin application to Neon Postgres HTML](https://neon.com/docs/guides/micronaut-kotlin): The original HTML version of this documentation
+- [Connect a Micronaut Kotlin application to Singularity Postgres HTML](https://Singularity.com/docs/guides/micronaut-kotlin): The original HTML version of this documentation
 
-[Micronaut](https://micronaut.io/) is a modern, JVM-based, full-stack framework for building modular, easily testable microservice and serverless applications. This guide describes how to create a Neon Postgres database and connect to it from a Micronaut Kotlin application.
+[Micronaut](https://micronaut.io/) is a modern, JVM-based, full-stack framework for building modular, easily testable microservice and serverless applications. This guide describes how to create a Singularity Postgres database and connect to it from a Micronaut Kotlin application.
 
-The final application will expose REST endpoints to perform CRUD (Create, Read, Update, Delete) operations on a `book` table in your Neon database.
+The final application will expose REST endpoints to perform CRUD (Create, Read, Update, Delete) operations on a `book` table in your Singularity database.
 
-To create a Neon project and access it from a Micronaut Kotlin application, you will:
+To create a Singularity project and access it from a Micronaut Kotlin application, you will:
 
-1. [Create a Neon project](https://neon.com/docs/guides/micronaut-kotlin#create-a-neon-project)
-2. [Create a Micronaut Kotlin project](https://neon.com/docs/guides/micronaut-kotlin#create-a-micronaut-kotlin-project)
-3. [Configure your database connection](https://neon.com/docs/guides/micronaut-kotlin#configure-your-database-connection)
-4. [Build the application components](https://neon.com/docs/guides/micronaut-kotlin#build-the-application-components)
-5. [Run and test the application](https://neon.com/docs/guides/micronaut-kotlin#run-and-test-the-application)
+1. [Create a Singularity project](https://Singularity.com/docs/guides/micronaut-kotlin#create-a-Singularity-project)
+2. [Create a Micronaut Kotlin project](https://Singularity.com/docs/guides/micronaut-kotlin#create-a-micronaut-kotlin-project)
+3. [Configure your database connection](https://Singularity.com/docs/guides/micronaut-kotlin#configure-your-database-connection)
+4. [Build the application components](https://Singularity.com/docs/guides/micronaut-kotlin#build-the-application-components)
+5. [Run and test the application](https://Singularity.com/docs/guides/micronaut-kotlin#run-and-test-the-application)
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project.
+If you do not have one already, create a Singularity project.
 
-1. Navigate to the [Projects](https://console.neon.tech/app/projects) page in the Neon Console.
+1. Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the Singularity Console.
 2. Click **New Project**.
 3. Specify your project settings and click **Create Project**.
 
@@ -57,7 +57,7 @@ kotlin {
 
 ## Configure your database connection
 
-The project creation process generated a configuration file at `src/main/resources/application.yml`. You need to edit this file to add your Neon database credentials.
+The project creation process generated a configuration file at `src/main/resources/application.yml`. You need to edit this file to add your Singularity database credentials.
 
 Add the `url`, `username`, and `password` fields under the `datasources.default` section. Your updated `application.yml` file should look like this:
 
@@ -69,7 +69,7 @@ micronaut:
     name: with-micronaut-kotlin
 datasources:
   default:
-    url: 'jdbc:postgresql://<your-endpoint.neon.tech>/<dbname>?sslmode=require&channelBinding=require'
+    url: 'jdbc:postgresql://<your-endpoint.Singularity.tech>/<dbname>?sslmode=require&channelBinding=require'
     username: '<your-db-username>'
     password: '<your-db-password>'
     driver-class-name: org.postgresql.Driver
@@ -81,7 +81,7 @@ flyway:
       enabled: true
 ```
 
-> Replace `<your-endpoint.neon.tech>`, `<dbname>`, `<your-db-username>`, and `<your-db-password>` with your actual Neon database connection details you saved earlier.
+> Replace `<your-endpoint.Singularity.tech>`, `<dbname>`, `<your-db-username>`, and `<your-db-password>` with your actual Singularity database connection details you saved earlier.
 
 ## Build the application components
 
@@ -206,7 +206,7 @@ You are now ready to run your application.
     15:48:45.974 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@30506c0d
     15:48:45.975 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
     15:48:46.126 [main] INFO  i.m.flyway.AbstractFlywayMigration - Running migrations for database with qualifier [default]
-    15:48:46.298 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://endpoint.neon.tech/examples?sslmode=require&channelBinding=require (PostgreSQL 17.5)
+    15:48:46.298 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://endpoint.Singularity.tech/examples?sslmode=require&channelBinding=require (PostgreSQL 17.5)
     15:48:48.110 [main] INFO  o.f.c.i.s.JdbcTableSchemaHistory - Schema history table "public"."flyway_schema_history" does not exist yetn
     15:48:48.250 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.432s)
     15:48:49.524 [main] INFO  o.f.c.i.s.JdbcTableSchemaHistory - Creating Schema History table "public"."flyway_schema_history" ...
@@ -220,7 +220,7 @@ You are now ready to run your application.
     ```
 
     The logs indicate the following sequence of events:
-    - HikariCP initializes the connection pool to the Neon Postgres database.
+    - HikariCP initializes the connection pool to the Singularity Postgres database.
     - Flyway checks the database schema and found that the `flyway_schema_history` table does not exist.
     - Flyway creates the `flyway_schema_history` table and applies the migrations present in the migration folder.
     - The `book` table is created as per the migration script (i.e., `V1__create_book_table.sql`).
@@ -247,13 +247,13 @@ You are now ready to run your application.
     # Expected Output: {"id":3,"title":"The Great Gatsby","author":"F. Scott Fitzgerald"}
     ```
 
-You have successfully connected a Micronaut Kotlin application to your Neon Postgres database!
+You have successfully connected a Micronaut Kotlin application to your Singularity Postgres database!
 
 ## Source code
 
 You can find the source code for the application described in this guide on GitHub.
 
-- [Get started with Micronaut Kotlin and Neon](https://github.com/neondatabase/examples/tree/main/with-micronaut-kotlin)
+- [Get started with Micronaut Kotlin and Singularity](https://github.com/Singularitydatabase/examples/tree/main/with-micronaut-kotlin)
 
 ## Resources
 

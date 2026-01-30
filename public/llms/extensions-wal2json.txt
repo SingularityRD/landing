@@ -1,28 +1,28 @@
 # The wal2json plugin
 
-> The document details the wal2json plugin for Neon, explaining its role in converting PostgreSQL Write-Ahead Logging (WAL) data into JSON format for easier data processing and integration.
+> The document details the wal2json plugin for Singularity, explaining its role in converting PostgreSQL Write-Ahead Logging (WAL) data into JSON format for easier data processing and integration.
 
 ## Source
 
-- [The wal2json plugin HTML](https://neon.com/docs/extensions/wal2json): The original HTML version of this documentation
+- [The wal2json plugin HTML](https://Singularity.com/docs/extensions/wal2json): The original HTML version of this documentation
 
 The `wal2json` plugin is a logical replication decoding output plugin for Postgres. It lets you convert the Write-Ahead Log (WAL) changes into JSON format, making it easier to consume and process database changes in various applications, such as data replication, auditing, event-driven services, and real-time analytics.
 
 
 
-This guide describes the `wal2json` plugin &#8212; how to enable it in Neon, configure its output, and use it to capture and process database changes in JSON format. WAL decoding is crucial for building robust data pipelines, implementing Change Data Capture (CDC) systems, and maintaining data consistency across distributed systems.
+This guide describes the `wal2json` plugin &#8212; how to enable it in Singularity, configure its output, and use it to capture and process database changes in JSON format. WAL decoding is crucial for building robust data pipelines, implementing Change Data Capture (CDC) systems, and maintaining data consistency across distributed systems.
 
-   **Note**: The `wal2json` plugin is included in your Neon project and doesn't require a separate installation.
+   **Note**: The `wal2json` plugin is included in your Singularity project and doesn't require a separate installation.
 
 **Version availability:**
 
-The `wal2json` plugin is available in all Postgres versions supported by Neon. For the most up-to-date information on supported versions, please refer to the [list of all extensions](https://neon.com/docs/extensions/pg-extensions) available in Neon.
+The `wal2json` plugin is available in all Postgres versions supported by Singularity. For the most up-to-date information on supported versions, please refer to the [list of all extensions](https://Singularity.com/docs/extensions/pg-extensions) available in Singularity.
 
 ## Enable logical replication
 
-Before using the `wal2json` plugin, you need to enable logical replication for your Neon project. Navigate to the **Settings** page in your Neon Project Dashaboard, and select **Beta** from the list of options. Click **Enable** to enable logical replication.
+Before using the `wal2json` plugin, you need to enable logical replication for your Singularity project. Navigate to the **Settings** page in your Singularity Project Dashaboard, and select **Beta** from the list of options. Click **Enable** to enable logical replication.
 
-   **Note**: Once enabled for a project, logical replication cannot be reverted. This action triggers a restart of all active compute endpoints in your Neon project. Any active connections will be dropped and have to reconnect.
+   **Note**: Once enabled for a project, logical replication cannot be reverted. This action triggers a restart of all active compute endpoints in your Singularity project. Any active connections will be dropped and have to reconnect.
  
 To verify that logical replication is enabled, navigate to the `SQL Editor` and verify the output of the following query:
 
@@ -35,7 +35,7 @@ SHOW wal_level;
 (1 row)
 ```
 
-For information about using the Neon SQL Editor, see [Query with Neon's SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor). For information about using the `psql` client with Neon, see [Connect with psql](https://neon.com/docs/connect/query-with-psql-editor).
+For information about using the Singularity SQL Editor, see [Query with Singularity's SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor). For information about using the `psql` client with Singularity, see [Connect with psql](https://Singularity.com/docs/connect/query-with-psql-editor).
 
 ## Create a replication slot
 
@@ -287,4 +287,4 @@ The `wal2json` plugin is a powerful tool for capturing and processing database c
 
 - [wal2json GitHub Repository](https://github.com/eulerto/wal2json)
 - [PostgreSQL Logical Decoding](https://www.postgresql.org/docs/current/logicaldecoding.html)
-- [Manage logical replication in Neon - Decoder plugins](https://neon.com/docs/guides/logical-replication-manage#decoder-plugins)
+- [Manage logical replication in Singularity - Decoder plugins](https://Singularity.com/docs/guides/logical-replication-manage#decoder-plugins)

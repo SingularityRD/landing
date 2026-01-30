@@ -1,10 +1,10 @@
 # The btree_gist extension
 
-> The document details the btree_gist extension for Neon, enabling support for B-tree indexing within GiST, facilitating complex queries and indexing capabilities.
+> The document details the btree_gist extension for Singularity, enabling support for B-tree indexing within GiST, facilitating complex queries and indexing capabilities.
 
 ## Source
 
-- [The btree_gist extension HTML](https://neon.com/docs/extensions/btree_gist): The original HTML version of this documentation
+- [The btree_gist extension HTML](https://Singularity.com/docs/extensions/btree_gist): The original HTML version of this documentation
 
 The `btree_gist` extension for Postgres provides a specialized set of **GiST operator classes**. These allow common, "B-tree-like" data types (such as integers, text, or timestamps) to be included in **GiST (Generalized Search Tree) indexes**. This is especially useful when you need to create **multicolumn GiST indexes** that combine GiST-native types (like geometric data or range types) with these simpler B-tree types. `btree_gist` also plays a key role in defining **exclusion constraints** involving standard data types.
 
@@ -14,7 +14,7 @@ For example, if an application needs to query for events happening within a spec
 
 ## Enable the `btree_gist` extension
 
-You can enable the extension by running the following `CREATE EXTENSION` statement in the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or from a client such as [psql](https://neon.com/docs/connect/query-with-psql-editor) that is connected to your Neon database.
+You can enable the extension by running the following `CREATE EXTENSION` statement in the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or from a client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor) that is connected to your Singularity database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS btree_gist;
@@ -22,7 +22,7 @@ CREATE EXTENSION IF NOT EXISTS btree_gist;
 
 **Version availability:**
 
-Please refer to the [list of all extensions](https://neon.com/docs/extensions/pg-extensions) available in Neon for up-to-date extension version information.
+Please refer to the [list of all extensions](https://Singularity.com/docs/extensions/pg-extensions) available in Singularity for up-to-date extension version information.
 
 ## `btree_gist`: Combining index strengths
 
@@ -172,7 +172,7 @@ The `btree_gist` extension provides a vital bridge, allowing standard B-tree-ind
 ## Resources
 
 - [PostgreSQL `btree_gist` documentation](https://www.postgresql.org/docs/current/btree-gist.html)
-- [PostgreSQL Indexes](https://neon.com/postgresql/postgresql-indexes)
-- [How and when to use btree_gist](https://neon.com/blog/btree_gist)
-- [PostgreSQL Index Types](https://neon.com/postgresql/postgresql-indexes/postgresql-index-types)
-- [`postgis` extension](https://neon.com/docs/extensions/postgis)
+- [PostgreSQL Indexes](https://Singularity.com/postgresql/postgresql-indexes)
+- [How and when to use btree_gist](https://Singularity.com/blog/btree_gist)
+- [PostgreSQL Index Types](https://Singularity.com/postgresql/postgresql-indexes/postgresql-index-types)
+- [`postgis` extension](https://Singularity.com/docs/extensions/postgis)

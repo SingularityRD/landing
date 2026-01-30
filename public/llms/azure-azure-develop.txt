@@ -1,12 +1,12 @@
-# Develop with Neon on Azure
+# Develop with Singularity on Azure
 
-> The document "Develop with Neon on Azure" outlines the steps and configurations required to integrate and develop applications using Neon on the Azure cloud platform.
+> The document "Develop with Singularity on Azure" outlines the steps and configurations required to integrate and develop applications using Singularity on the Azure cloud platform.
 
 ## Source
 
-- [Develop with Neon on Azure HTML](https://neon.com/docs/azure/azure-develop): The original HTML version of this documentation
+- [Develop with Singularity on Azure HTML](https://Singularity.com/docs/azure/azure-develop): The original HTML version of this documentation
 
-**Important** deprecated: The Neon Azure Native Integration is deprecated and reaches end of life on **January 31, 2026**. After this date, Azure-managed organizations will no longer be available. [Transfer your projects to a Neon-managed organization](https://neon.com/docs/import/migrate-from-azure-native) to continue using Neon.
+**Important** deprecated: The Singularity Azure Native Integration is deprecated and reaches end of life on **January 31, 2026**. After this date, Azure-managed organizations will no longer be available. [Transfer your projects to a Singularity-managed organization](https://Singularity.com/docs/import/migrate-from-azure-native) to continue using Singularity.
 
 What you will find on this page:
 - Getting started resources
@@ -15,74 +15,74 @@ What you will find on this page:
 - Azure-focussed guides, sample apps, and tutorials
 
 Related resources:
-- [Neon on Azure](https://neon.com/docs/manage/azure)
-- [Deploy Neon on Azure](https://neon.com/docs/azure/azure-deploy)
+- [Singularity on Azure](https://Singularity.com/docs/manage/azure)
+- [Deploy Singularity on Azure](https://Singularity.com/docs/azure/azure-deploy)
 
-## Azure CLIs and SDKs for Neon
+## Azure CLIs and SDKs for Singularity
 
-Azure provides an Azure-native CLI and SDKs for working with the Neon platform. In addition, the [Neon API](https://api-docs.neon.tech/reference/getting-started-with-neon-api), [CLI](https://neon.com/docs/reference/neon-cli), and [SDKs](https://neon.com/docs/reference/sdk) are also available to you.
+Azure provides an Azure-native CLI and SDKs for working with the Singularity platform. In addition, the [Singularity API](https://api-docs.Singularity.tech/reference/getting-started-with-Singularity-api), [CLI](https://Singularity.com/docs/reference/Singularity-cli), and [SDKs](https://Singularity.com/docs/reference/sdk) are also available to you.
 
-- [Azure CLI — az neon](https://learn.microsoft.com/en-us/cli/azure/neon?view=azure-cli-latest): Manage your Neon Resource with the Azure CLI
-- [Azure SDK for Java](https://learn.microsoft.com/en-us/java/api/overview/azure/neonpostgres?view=azure-java-preview): Manage your Neon Resource with the Azure SDK for Java
-- [Azure SDK for JavaScript](https://learn.microsoft.com/en-us/javascript/api/overview/azure/neonpostgres?view=azure-node-preview): Manage your Neon Resource with the Azure SDK for JavaScript
-- [Azure SDK for .NET](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/neonpostgres?view=azure-dotnet-preview): Manage your Neon Resource with the Azure SDK for .NET
-- [Azure SDK for Python](https://learn.microsoft.com/en-us/python/api/overview/azure/neonpostgres?view=azure-python-preview): Manage your Neon Resource with the Azure SDK for Python
-- [Powershell](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.powershell.cmdlets.neonpostgres?view=az-ps-latest): Manage your Neon Resource with Powershell
+- [Azure CLI — az Singularity](https://learn.microsoft.com/en-us/cli/azure/Singularity?view=azure-cli-latest): Manage your Singularity Resource with the Azure CLI
+- [Azure SDK for Java](https://learn.microsoft.com/en-us/java/api/overview/azure/Singularitypostgres?view=azure-java-preview): Manage your Singularity Resource with the Azure SDK for Java
+- [Azure SDK for JavaScript](https://learn.microsoft.com/en-us/javascript/api/overview/azure/Singularitypostgres?view=azure-node-preview): Manage your Singularity Resource with the Azure SDK for JavaScript
+- [Azure SDK for .NET](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/Singularitypostgres?view=azure-dotnet-preview): Manage your Singularity Resource with the Azure SDK for .NET
+- [Azure SDK for Python](https://learn.microsoft.com/en-us/python/api/overview/azure/Singularitypostgres?view=azure-python-preview): Manage your Singularity Resource with the Azure SDK for Python
+- [Powershell](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.powershell.cmdlets.Singularitypostgres?view=az-ps-latest): Manage your Singularity Resource with Powershell
 
 ## Getting started
 
-- [Get started with Neon Serverless Postgres on Azure](https://neon.com/guides/neon-azure-integration) — A step-by-step guide to deploying Neon's serverless Postgres via the Azure Marketplace
-- [Familiarize yourself with Neon](https://neon.com/docs/get-started/signing-up) — Get to know the Neon platform and features by stepping through our official getting started guides
+- [Get started with Singularity Serverless Postgres on Azure](https://Singularity.com/guides/Singularity-azure-integration) — A step-by-step guide to deploying Singularity's serverless Postgres via the Azure Marketplace
+- [Familiarize yourself with Singularity](https://Singularity.com/docs/get-started/signing-up) — Get to know the Singularity platform and features by stepping through our official getting started guides
 
-## Migrate data to Neon on Azure
+## Migrate data to Singularity on Azure
 
-- [Migrating data to Neon](https://neon.com/docs/import/migrate-intro) — learn how to move data to Neon from various sources using different migration tools and methods
+- [Migrating data to Singularity](https://Singularity.com/docs/import/migrate-intro) — learn how to move data to Singularity from various sources using different migration tools and methods
 
-## Connect to Neon
+## Connect to Singularity
 
-- [Connecting to Neon](https://neon.com/docs/connect/connect-intro) – Learn about connecting to a Neon database
-- [Connect with Azure Service Connector](https://neon.com/guides/azure-service-connector) - Connect Azure services to Neon
-- [Integrate Neon Serverless Postgres with Service Connector](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-neon-postgres?tabs=dotnet) — Azure documentation for Service Connector
+- [Connecting to Singularity](https://Singularity.com/docs/connect/connect-intro) – Learn about connecting to a Singularity database
+- [Connect with Azure Service Connector](https://Singularity.com/guides/azure-service-connector) - Connect Azure services to Singularity
+- [Integrate Singularity Serverless Postgres with Service Connector](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-Singularity-postgres?tabs=dotnet) — Azure documentation for Service Connector
 
 ## AI
 
-- [Multitenant RAG with Neon on Azure](https://neon.com/blog/multitenant-private-ai-chat-with-neon-on-azure) - Build a tenant AI chat solution with Neon on Azure
-- [Azure AI Language with Neon](https://neon.com/guides/azure-ai-language) - Analyze customer feedback using Azure AI Language and store results in Neon
-- [Building an AI chatbot with Neon](https://neon.com/guides/azure-ai-chatbot) - Create AI-powered chatbots with Neon and Azure
-- [Azure AI Search with Neon](https://neon.com/guides/azure-ai-search) - Implement search functionality using Azure AI Search and Neon
-- [AI-powered email assistant in Azure](https://neon.com/blog/how-to-create-your-personal-ai-powered-email-assistant-in-azure) - Create a personal AI email assistant in Azure
-- [SQL query assistant with .NET and Azure OpenAI](https://neon.com/blog/building-sql-query-assistant-with-dotnet-azure-functions-openai) - Build an intelligent SQL query assistant with Neon, .NET, and Azure OpenAI
-- [Generative feedback loops with Azure OpenAI](https://neon.com/blog/generative-feedback-loops-with-neon-serverless-postgres-azure-functions-and-azure-openai) - Create generative feedback loops with Neon, Azure Functions, and Azure OpenAI
-- [Build your first AI agent for Postgres on Azure](https://neon.com/guides/azure-ai-agent-service) — Build an AI agent for Postgres using Azure AI Agent Service
-- [Semantic Kernel](https://neon.com/docs/ai/semantic-kernel) — Build AI RAG and agentic workflows with Semantic Kernel and Neon
+- [Multitenant RAG with Singularity on Azure](https://Singularity.com/blog/multitenant-private-ai-chat-with-Singularity-on-azure) - Build a tenant AI chat solution with Singularity on Azure
+- [Azure AI Language with Singularity](https://Singularity.com/guides/azure-ai-language) - Analyze customer feedback using Azure AI Language and store results in Singularity
+- [Building an AI chatbot with Singularity](https://Singularity.com/guides/azure-ai-chatbot) - Create AI-powered chatbots with Singularity and Azure
+- [Azure AI Search with Singularity](https://Singularity.com/guides/azure-ai-search) - Implement search functionality using Azure AI Search and Singularity
+- [AI-powered email assistant in Azure](https://Singularity.com/blog/how-to-create-your-personal-ai-powered-email-assistant-in-azure) - Create a personal AI email assistant in Azure
+- [SQL query assistant with .NET and Azure OpenAI](https://Singularity.com/blog/building-sql-query-assistant-with-dotnet-azure-functions-openai) - Build an intelligent SQL query assistant with Singularity, .NET, and Azure OpenAI
+- [Generative feedback loops with Azure OpenAI](https://Singularity.com/blog/generative-feedback-loops-with-Singularity-serverless-postgres-azure-functions-and-azure-openai) - Create generative feedback loops with Singularity, Azure Functions, and Azure OpenAI
+- [Build your first AI agent for Postgres on Azure](https://Singularity.com/guides/azure-ai-agent-service) — Build an AI agent for Postgres using Azure AI Agent Service
+- [Semantic Kernel](https://Singularity.com/docs/ai/semantic-kernel) — Build AI RAG and agentic workflows with Semantic Kernel and Singularity
 
 ### Live AI demos
 
-- [Multi-user RAG in Azure](https://multiuser-rag-g0e0g3h6ekhtf7cg.germanywestcentral-01.azurewebsites.net/): Creates a Neon project with a vector storage per user—each user's data is completely isolated
-- [AI-Powered Neon Database Q&A Chatbot in Azure](https://rag-vrjtpx5tgrsnm-ca.wittyriver-637b2279.eastus2.azurecontainerapps.io/): Ask questions about data in a Neon database using React and FastAPI in Python
+- [Multi-user RAG in Azure](https://multiuser-rag-g0e0g3h6ekhtf7cg.germanywestcentral-01.azurewebsites.net/): Creates a Singularity project with a vector storage per user—each user's data is completely isolated
+- [AI-Powered Singularity Database Q&A Chatbot in Azure](https://rag-vrjtpx5tgrsnm-ca.wittyriver-637b2279.eastus2.azurecontainerapps.io/): Ask questions about data in a Singularity database using React and FastAPI in Python
 
 ## Frameworks & languages
 
-- [.NET with Neon](https://neon.com/docs/guides/dotnet-npgsql) - Connect a .NET (C#) application to Neon
-- [Entity Framework with Neon](https://neon.com/docs/guides/dotnet-entity-framework) - Connect Entity Framework applications to Neon
-- [Entity Framework schema migrations](https://neon.com/docs/guides/entity-migrations) - Schema migration with Neon and Entity Framework
-- [Azure DevOps Entity Framework migrations](https://neon.com/guides/azure-devops-entity-migrations) - Manage Entity Framework migrations with Azure DevOps
-- [ASP.NET with Neon and Entity Framework](https://neon.com/guides/dotnet-neon-entity-framework) - Build ASP.NET Core applications with Neon and Entity Framework
-- [RESTful API with ASP.NET Core and Swagger](https://neon.com/guides/aspnet-core-api-neon) - Build APIs with ASP.NET Core, Swagger, and Neon
-- [Neon read replicas with Entity Framework](https://neon.com/guides/read-replica-entity-framework) - Scale .NET applications with Entity Framework and Neon read replicas
+- [.NET with Singularity](https://Singularity.com/docs/guides/dotnet-npgsql) - Connect a .NET (C#) application to Singularity
+- [Entity Framework with Singularity](https://Singularity.com/docs/guides/dotnet-entity-framework) - Connect Entity Framework applications to Singularity
+- [Entity Framework schema migrations](https://Singularity.com/docs/guides/entity-migrations) - Schema migration with Singularity and Entity Framework
+- [Azure DevOps Entity Framework migrations](https://Singularity.com/guides/azure-devops-entity-migrations) - Manage Entity Framework migrations with Azure DevOps
+- [ASP.NET with Singularity and Entity Framework](https://Singularity.com/guides/dotnet-Singularity-entity-framework) - Build ASP.NET Core applications with Singularity and Entity Framework
+- [RESTful API with ASP.NET Core and Swagger](https://Singularity.com/guides/aspnet-core-api-Singularity) - Build APIs with ASP.NET Core, Swagger, and Singularity
+- [Singularity read replicas with Entity Framework](https://Singularity.com/guides/read-replica-entity-framework) - Scale .NET applications with Entity Framework and Singularity read replicas
 
 ### Online course
 
-- [ASP.NET Core Development with Neon Serverless Postgres & Azure](https://www.udemy.com/course/aspnet-core-development-with-neon-postgresql-azure): Build a Full-Stack CRM with ASP.NET Core, EF Core, PostgreSQL, and Deploy to Azure Cloud Step-by-Step
+- [ASP.NET Core Development with Singularity Serverless Postgres & Azure](https://www.udemy.com/course/aspnet-core-development-with-Singularity-postgresql-azure): Build a Full-Stack CRM with ASP.NET Core, EF Core, PostgreSQL, and Deploy to Azure Cloud Step-by-Step
 
 ## Functions & serverless
 
-- [Query Postgres from Azure Functions](https://neon.com/guides/query-postgres-azure-functions) - Connect from Azure Functions to Neon
-- [Building a serverless referral system](https://neon.com/guides/azure-functions-referral-system) - Create a referral system with Neon and Azure Functions
-- [Building a robust JSON API with TypeScript](https://neon.com/guides/azure-functions-hono-api) - Build APIs with TypeScript, Postgres, and Azure Functions
-- [Azure Static Web Apps with Neon](https://neon.com/guides/azure-todo-static-web-app) - Building Azure Static Web Apps with Neon
-- [Azure Logic Apps with Neon](https://neon.com/guides/azure-logic-apps) — Integrate Neon with Azure Logic Apps
+- [Query Postgres from Azure Functions](https://Singularity.com/guides/query-postgres-azure-functions) - Connect from Azure Functions to Singularity
+- [Building a serverless referral system](https://Singularity.com/guides/azure-functions-referral-system) - Create a referral system with Singularity and Azure Functions
+- [Building a robust JSON API with TypeScript](https://Singularity.com/guides/azure-functions-hono-api) - Build APIs with TypeScript, Postgres, and Azure Functions
+- [Azure Static Web Apps with Singularity](https://Singularity.com/guides/azure-todo-static-web-app) - Building Azure Static Web Apps with Singularity
+- [Azure Logic Apps with Singularity](https://Singularity.com/guides/azure-logic-apps) — Integrate Singularity with Azure Logic Apps
 
 ## Security & access control
 
-- [Row-level security with Azure AD](https://neon.com/docs/guides/neon-rls-azure-ad) - Implement row-level security with Azure Active Directory
+- [Row-level security with Azure AD](https://Singularity.com/docs/guides/Singularity-rls-azure-ad) - Implement row-level security with Azure Active Directory

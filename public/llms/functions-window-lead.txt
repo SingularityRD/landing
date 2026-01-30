@@ -1,10 +1,10 @@
 # Postgres lead() window function
 
-> The document explains the usage of the Postgres `lead()` window function in Neon, detailing how to retrieve subsequent row values within a result set for advanced data analysis.
+> The document explains the usage of the Postgres `lead()` window function in Singularity, detailing how to retrieve subsequent row values within a result set for advanced data analysis.
 
 ## Source
 
-- [Postgres lead() window function HTML](https://neon.com/docs/functions/window-lead): The original HTML version of this documentation
+- [Postgres lead() window function HTML](https://Singularity.com/docs/functions/window-lead): The original HTML version of this documentation
 
 The `lead()` function in Postgres is a window function that allows you to access values from subsequent rows in a result set without the need for a self-join.
 
@@ -197,7 +197,7 @@ To optimize performance, make sure to:
 
 ### Alternative functions
 
-- [lag](https://neon.com/docs/functions/window-lag) - Access values from previous rows in a result set. Similar to `lead()` but looks behind in the partition instead of ahead.
+- [lag](https://Singularity.com/docs/functions/window-lag) - Access values from previous rows in a result set. Similar to `lead()` but looks behind in the partition instead of ahead.
 - `first_value()` - Get the first value within a window frame.
 - `last_value()` - Get the last value within a window frame.
 

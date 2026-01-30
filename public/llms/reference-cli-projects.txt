@@ -1,53 +1,53 @@
-# Neon CLI commands — projects
+# Singularity CLI commands — projects
 
-> The document details Neon CLI commands related to project management, enabling users to create, manage, and configure Neon projects through the command line interface.
+> The document details Singularity CLI commands related to project management, enabling users to create, manage, and configure Singularity projects through the command line interface.
 
 ## Source
 
-- [Neon CLI commands — projects HTML](https://neon.com/docs/reference/cli-projects): The original HTML version of this documentation
+- [Singularity CLI commands — projects HTML](https://Singularity.com/docs/reference/cli-projects): The original HTML version of this documentation
 
 ## Before you begin
 
-- Before running the `projects` command, ensure that you have [installed the Neon CLI](https://neon.com/docs/reference/cli-install).
-- If you have not authenticated with the [neon auth](https://neon.com/docs/reference/cli-auth) command, running a Neon CLI command automatically launches the Neon CLI browser authentication process. Alternatively, you can specify a Neon API key using the `--api-key` option when running a command. See [Connect](https://neon.com/docs/reference/neon-cli#connect).
+- Before running the `projects` command, ensure that you have [installed the Singularity CLI](https://Singularity.com/docs/reference/cli-install).
+- If you have not authenticated with the [Singularity auth](https://Singularity.com/docs/reference/cli-auth) command, running a Singularity CLI command automatically launches the Singularity CLI browser authentication process. Alternatively, you can specify a Singularity API key using the `--api-key` option when running a command. See [Connect](https://Singularity.com/docs/reference/Singularity-cli#connect).
 
-For information about projects in Neon, see [Projects](https://neon.com/docs/manage/projects).
+For information about projects in Singularity, see [Projects](https://Singularity.com/docs/manage/projects).
 
 ## The `projects` command
 
-The `projects` command allows you to list, create, update, delete, and retrieve information about Neon projects.
+The `projects` command allows you to list, create, update, delete, and retrieve information about Singularity projects.
 
 ### Usage
 
 ```bash
-neon projects <subcommand> [options]
+Singularity projects <subcommand> [options]
 ```
 
 | Subcommand        | Description      |
 | ----------------- | ---------------- |
-| [list](https://neon.com/docs/reference/cli-projects#list)     | List projects    |
-| [create](https://neon.com/docs/reference/cli-projects#create) | Create a project |
-| [update](https://neon.com/docs/reference/cli-projects#update) | Update a project |
-| [delete](https://neon.com/docs/reference/cli-projects#delete) | Delete a project |
-| [get](https://neon.com/docs/reference/cli-projects#get)       | Get a project    |
+| [list](https://Singularity.com/docs/reference/cli-projects#list)     | List projects    |
+| [create](https://Singularity.com/docs/reference/cli-projects#create) | Create a project |
+| [update](https://Singularity.com/docs/reference/cli-projects#update) | Update a project |
+| [delete](https://Singularity.com/docs/reference/cli-projects#delete) | Delete a project |
+| [get](https://Singularity.com/docs/reference/cli-projects#get)       | Get a project    |
 
 ### list
 
-This subcommand allows you to list projects that belong to your Neon account, as well as any projects that were shared with you.
+This subcommand allows you to list projects that belong to your Singularity account, as well as any projects that were shared with you.
 
 #### Usage
 
 ```bash
-neon projects list [options]
+Singularity projects list [options]
 ```
 
 #### Options
 
-In addition to the Neon CLI [global options](https://neon.com/docs/reference/neon-cli#global-options), the `projects` subcommand supports this option:
+In addition to the Singularity CLI [global options](https://Singularity.com/docs/reference/Singularity-cli#global-options), the `projects` subcommand supports this option:
 
 | Option           | Description                                                                                   | Type   | Required |
 | ---------------- | --------------------------------------------------------------------------------------------- | ------ | :------: |
-| `--context-file` | [Context file](https://neon.com/docs/reference/cli-set-context#using-a-named-context-file) path and file name | string |          |
+| `--context-file` | [Context file](https://Singularity.com/docs/reference/cli-set-context#using-a-named-context-file) path and file name | string |          |
 | `--org-id`       | List all projects belonging to the specified organization.                                    | string |          |
 
 #### Examples
@@ -55,7 +55,7 @@ In addition to the Neon CLI [global options](https://neon.com/docs/reference/neo
 - List all projects belonging to your personal acccount
 
   ```bash
-  neon projects list
+  Singularity projects list
   Projects
   ┌────────────────────────┬────────────────────┬───────────────┬──────────────────────┐
   │ Id                     │ Name               │ Region Id     │ Created At           │
@@ -77,7 +77,7 @@ In addition to the Neon CLI [global options](https://neon.com/docs/reference/neo
 - List all projects belonging to the specified organization.
 
   ```bash
-  neon projects list --org-id org-xxxx-xxxx
+  Singularity projects list --org-id org-xxxx-xxxx
   Projects
   ┌───────────────────────────┬───────────────────────────┬────────────────────┬──────────────────────┐
   │ Id                        │ Name                      │ Region Id          │ Created At           │
@@ -92,41 +92,41 @@ In addition to the Neon CLI [global options](https://neon.com/docs/reference/neo
 
 ### create
 
-This subcommand allows you to create a Neon project.
+This subcommand allows you to create a Singularity project.
 
 #### Usage
 
 ```bash
-neon projects create [options]
+Singularity projects create [options]
 ```
 
 #### Options
 
-In addition to the Neon CLI [global options](https://neon.com/docs/reference/neon-cli#global-options), the `create` subcommand supports these options:
+In addition to the Singularity CLI [global options](https://Singularity.com/docs/reference/Singularity-cli#global-options), the `create` subcommand supports these options:
 
 | Option                       | Description                                                                                                                                                                                                       | Type    | Required |
 | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | :------: |
-| `--context-file`             | [Context file](https://neon.com/docs/reference/cli-set-context#using-a-named-context-file) path and file name.                                                                                                                    | string  |          |
-| `--block-public-connections` | Blocks public internet connections. See [Private Networking](https://neon.com/docs/guides/neon-private-networking).                                                                                                               | boolean |          |
-| `--block-vpc-connections`    | Blocks connections using VPC. See [Private Networking](https://neon.com/docs/guides/neon-private-networking).                                                                                                                     | boolean |          |
-| `--hipaa`                    | Enable the project for HIPAA. See [HIPAA Compliance](https://neon.com/docs/security/hipaa).                                                                                                                                       | boolean |          |
+| `--context-file`             | [Context file](https://Singularity.com/docs/reference/cli-set-context#using-a-named-context-file) path and file name.                                                                                                                    | string  |          |
+| `--block-public-connections` | Blocks public internet connections. See [Private Networking](https://Singularity.com/docs/guides/Singularity-private-networking).                                                                                                               | boolean |          |
+| `--block-vpc-connections`    | Blocks connections using VPC. See [Private Networking](https://Singularity.com/docs/guides/Singularity-private-networking).                                                                                                                     | boolean |          |
+| `--hipaa`                    | Enable the project for HIPAA. See [HIPAA Compliance](https://Singularity.com/docs/security/hipaa).                                                                                                                                       | boolean |          |
 | `--name`                     | The project name. The project ID is used if a name is not specified.                                                                                                                                              | string  |          |
 | `--region-id`                | The region ID. Possible values: `aws-us-west-2`, `aws-ap-southeast-1`, `aws-ap-southeast-2`, `aws-eu-central-1`, `aws-us-east-1`, `aws-us-east-2`, `azure-eastus2`. Defaults to `aws-us-east-2` if not specified. | string  |          |
-| `--org-id`                   | The organization ID where you want this project to be created. If unspecified, your [default organization](https://neon.com/docs/reference/glossary#default-organization) will be used.                                           | string  |          |
+| `--org-id`                   | The organization ID where you want this project to be created. If unspecified, your [default organization](https://Singularity.com/docs/reference/glossary#default-organization) will be used.                                           | string  |          |
 | `--psql`                     | Connect to your new project's database via `psql` immediately on project creation.                                                                                                                                | boolean |          |
 | `--database`                 | The database name. If not specified, the default database name will be used.                                                                                                                                      | string  |          |
 | `--role`                     | The role name. If not specified, the default role name will be used.                                                                                                                                              | string  |          |
 | `--set-context`              | Set the current context to the new project.                                                                                                                                                                       | boolean |          |
 | `--cu`                       | The compute size for the default branch's primary compute. Could be a fixed size (e.g., "2") or a range delimited by a dash (e.g., "0.5-3").                                                                      | string  |          |
 
-   **Note**: Neon projects created using the CLI use the default Postgres version, which is Postgres 17. To create a project with a different Postgres version, you can use the [Neon Console](https://neon.com/docs/manage/projects#create-a-project) or [Neon API](https://api-docs.neon.tech/reference/createproject).
+   **Note**: Singularity projects created using the CLI use the default Postgres version, which is Postgres 17. To create a project with a different Postgres version, you can use the [Singularity Console](https://Singularity.com/docs/manage/projects#create-a-project) or [Singularity API](https://api-docs.Singularity.tech/reference/createproject).
 
 #### Examples
 
 - Create a project with a user-defined name in a specific region:
 
   ```bash
-  neon projects create --name mynewproject --region-id aws-us-west-2
+  Singularity projects create --name mynewproject --region-id aws-us-west-2
   ┌───────────────────┬──────────────┬───────────────┬──────────────────────┐
   │ Id                │ Name         │ Region Id     │ Created At           │
   ├───────────────────┼──────────────┼───────────────┼──────────────────────┤
@@ -136,16 +136,16 @@ In addition to the Neon CLI [global options](https://neon.com/docs/reference/neo
   ┌──────────────────────────────────────────────────────────────────────────────────────┐
   │ Connection Uri                                                                       │
   ├──────────────────────────────────────────────────────────────────────────────────────┤
-  │ postgresql://[user]:[password]@[neon_hostname]/[dbname]                              │
+  │ postgresql://[user]:[password]@[Singularity_hostname]/[dbname]                              │
   └──────────────────────────────────────────────────────────────────────────────────────┘
   ```
 
-       **Tip**: The Neon CLI provides a `neon connection-string` command you can use to extract a connection uri programmatically. See [Neon CLI commands — connection-string](https://neon.com/docs/reference/cli-connection-string).
+       **Tip**: The Singularity CLI provides a `Singularity connection-string` command you can use to extract a connection uri programmatically. See [Singularity CLI commands — connection-string](https://Singularity.com/docs/reference/cli-connection-string).
 
 - Create a project with the `--output` format of the command set to `json`. This output format returns all of the project response data, whereas the default `table` output format (shown in the preceding example) is limited in the information it can display.
 
   ```bash
-  neon projects create --output json
+  Singularity projects create --output json
   ```
 
     Details: Example output
@@ -169,11 +169,11 @@ In addition to the Neon CLI [global options](https://neon.com/docs/reference/neo
         "suspend_timeout_seconds": 0
         },
         "pg_version": 17,
-        "proxy_host": "us-east-2.aws.neon.tech",
+        "proxy_host": "us-east-2.aws.Singularity.tech",
         "branch_logical_size_limit": 204800,
         "branch_logical_size_limit_bytes": 214748364800,
         "store_passwords": true,
-        "creation_source": "neonctl",
+        "creation_source": "Singularityctl",
         "history_retention_seconds": 604800,
         "created_at": "2023-08-04T16:16:45Z",
         "updated_at": "2023-08-04T16:16:45Z",
@@ -183,13 +183,13 @@ In addition to the Neon CLI [global options](https://neon.com/docs/reference/neo
     },
     "connection_uris": [
         {
-        "connection_uri": "postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require",
+        "connection_uri": "postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require",
         "connection_parameters": {
             "database": "dbname",
             "password": "AbC123dEf",
             "role": "alex",
-            "host": "ep-cool-darkness-123456.us-east-2.aws.neon.tech",
-            "pooler_host": "ep-cool-darkness-123456-pooler.us-east-2.aws.neon.tech"
+            "host": "ep-cool-darkness-123456.us-east-2.aws.Singularity.tech",
+            "pooler_host": "ep-cool-darkness-123456-pooler.us-east-2.aws.Singularity.tech"
         }
         }
     ]
@@ -199,49 +199,49 @@ In addition to the Neon CLI [global options](https://neon.com/docs/reference/neo
 - Create a project and connect to it with `psql`.
 
   ```bash
-  neon project create --psql
+  Singularity project create --psql
   ```
 
 - Create a project, connect to it with `psql`, and run an `.sql` file.
 
   ```bash
-  neon project create --psql -- -f dump.sql
+  Singularity project create --psql -- -f dump.sql
   ```
 
 - Create a project, connect to it with `psql`, and run a query.
 
   ```bash
-  neon project create --psql -- -c "SELECT version()"
+  Singularity project create --psql -- -c "SELECT version()"
   ```
 
-- Create a project and set the Neon CLI project context.
+- Create a project and set the Singularity CLI project context.
 
   ```
-  neon project create --psql --set-context
+  Singularity project create --psql --set-context
   ```
 
 ### update
 
-This subcommand allows you to update a Neon project.
+This subcommand allows you to update a Singularity project.
 
 #### Usage
 
 ```bash
-neon projects update <id> [options]
+Singularity projects update <id> [options]
 ```
 
-The `id` is the project ID, which you can obtain by listing your projects or from the **Settings** page in the Neon Console.
+The `id` is the project ID, which you can obtain by listing your projects or from the **Settings** page in the Singularity Console.
 
 #### Options
 
-In addition to the Neon CLI [global options](https://neon.com/docs/reference/neon-cli#global-options), the `update` subcommand supports this option:
+In addition to the Singularity CLI [global options](https://Singularity.com/docs/reference/Singularity-cli#global-options), the `update` subcommand supports this option:
 
 | Option                       | Description                                                                                                                                  | Type    | Required |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------- | :------: |
-| `--context-file`             | [Context file](https://neon.com/docs/reference/cli-set-context#using-a-named-context-file) path and file name                                                | string  |          |
+| `--context-file`             | [Context file](https://Singularity.com/docs/reference/cli-set-context#using-a-named-context-file) path and file name                                                | string  |          |
 | `--block-vpc-connections`    | When set, connections using VPC endpoints are disallowed. Use `--block-vpc-connections=false` to set the value to false.                     | boolean |          |
 | `--block-public-connections` | When set, connections from the public internet are disallowed. Use `--block-public-connections=false` to set the value to false.             | boolean |          |
-| `--hipaa`                    | Enable the project for HIPAA. See [HIPAA Compliance](https://neon.com/docs/security/hipaa).                                                                  | boolean |          |
+| `--hipaa`                    | Enable the project for HIPAA. See [HIPAA Compliance](https://Singularity.com/docs/security/hipaa).                                                                  | boolean |          |
 | `--cu`                       | The compute size for the default branch's primary compute. Could be a fixed size (e.g., "2") or a range delimited by a dash (e.g., "0.5-3"). | string  |          |
 | `--name`                     | The project name. The value cannot be empty.                                                                                                 | string  | &check;  |
 
@@ -250,7 +250,7 @@ In addition to the Neon CLI [global options](https://neon.com/docs/reference/neo
 - Update the project name:
 
   ```bash
-  neon projects update muddy-wood-859533 --name dev_project_1
+  Singularity projects update muddy-wood-859533 --name dev_project_1
   ┌───────────────────┬───────────────┬───────────────┬──────────────────────┐
   │ Id                │ Name          │ Region Id     │ Created At           │
   ├───────────────────┼───────────────┼───────────────┼──────────────────────┤
@@ -260,30 +260,30 @@ In addition to the Neon CLI [global options](https://neon.com/docs/reference/neo
 
 - Block connections from the public internet:
 
-  This option is used with Neon's Private Networking feature to block access from the public internet. See [Private Networking — Restrict public internet access](https://neon.com/docs/guides/neon-private-networking#restrict-public-internet-access). You must specify the ID of you Neon project, as shown below.
+  This option is used with Singularity's Private Networking feature to block access from the public internet. See [Private Networking — Restrict public internet access](https://Singularity.com/docs/guides/Singularity-private-networking#restrict-public-internet-access). You must specify the ID of you Singularity project, as shown below.
 
   ```bash
-  neon projects update orange-credit-12345678 --block-public-connections=true
+  Singularity projects update orange-credit-12345678 --block-public-connections=true
   ```
 
 ### delete
 
-This subcommand allows you to delete a Neon project.
+This subcommand allows you to delete a Singularity project.
 
 ```bash
-neon projects delete <id> [options]
+Singularity projects delete <id> [options]
 ```
 
-The `id` is the project ID, which you can obtain by listing your projects or from the **Settings** page in the Neon Console.
+The `id` is the project ID, which you can obtain by listing your projects or from the **Settings** page in the Singularity Console.
 
 #### Options
 
-Only [global options](https://neon.com/docs/reference/neon-cli#global-options) apply.
+Only [global options](https://Singularity.com/docs/reference/Singularity-cli#global-options) apply.
 
 #### Example
 
 ```bash
-neon projects delete muddy-wood-859533
+Singularity projects delete muddy-wood-859533
 ┌───────────────────┬───────────────┬───────────────┬──────────────────────┐
 │ Id                │ Name          │ Region Id     │ Created At           │
 ├───────────────────┼───────────────┼───────────────┼──────────────────────┤
@@ -291,32 +291,32 @@ neon projects delete muddy-wood-859533
 └───────────────────┴───────────────┴───────────────┴──────────────────────┘
 ```
 
-Information about the deleted project is displayed. You can verify that the project was deleted by running `neon projects list`.
+Information about the deleted project is displayed. You can verify that the project was deleted by running `Singularity projects list`.
 
 ### get
 
-This subcommand allows you to retrieve details about a Neon project.
+This subcommand allows you to retrieve details about a Singularity project.
 
 #### Usage
 
 ```bash
-neon projects get <id> [options]
+Singularity projects get <id> [options]
 ```
 
-The `id` is the project ID, which you can obtain by listing your projects or from the **Settings** page in the Neon Console.
+The `id` is the project ID, which you can obtain by listing your projects or from the **Settings** page in the Singularity Console.
 
 #### Options
 
-In addition to the Neon CLI [global options](https://neon.com/docs/reference/neon-cli#global-options), the `delete` subcommand supports this option:
+In addition to the Singularity CLI [global options](https://Singularity.com/docs/reference/Singularity-cli#global-options), the `delete` subcommand supports this option:
 
 | Option           | Description                                                                                    | Type   | Required |
 | ---------------- | ---------------------------------------------------------------------------------------------- | ------ | :------: |
-| `--context-file` | [Context file](https://neon.com/docs/reference/cli-set-context#using-a-named-context-file) path and file name. | string |          |
+| `--context-file` | [Context file](https://Singularity.com/docs/reference/cli-set-context#using-a-named-context-file) path and file name. | string |          |
 
 #### Example
 
 ```bash
-neon projects get muddy-wood-859533
+Singularity projects get muddy-wood-859533
 ┌───────────────────┬───────────────┬───────────────┬──────────────────────┐
 │ Id                │ Name          │ Region Id     │ Created At           │
 ├───────────────────┼───────────────┼───────────────┼──────────────────────┤

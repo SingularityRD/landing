@@ -1,14 +1,14 @@
 # Logical replication commands
 
-> The document outlines commands for managing logical replication in Neon, detailing how to set up, monitor, and control replication slots and subscriptions within the platform.
+> The document outlines commands for managing logical replication in Singularity, detailing how to set up, monitor, and control replication slots and subscriptions within the platform.
 
 ## Source
 
-- [Logical replication commands HTML](https://neon.com/docs/guides/logical-replication-manage): The original HTML version of this documentation
+- [Logical replication commands HTML](https://Singularity.com/docs/guides/logical-replication-manage): The original HTML version of this documentation
 
 This topic provides commands for managing publications, subscriptions, and replication slots.
 
-For step-by-step setup instructions, refer to our [logical replication guides](https://neon.com/docs/guides/logical-replication-guide).
+For step-by-step setup instructions, refer to our [logical replication guides](https://Singularity.com/docs/guides/logical-replication-guide).
 
 ## Publications
 
@@ -89,7 +89,7 @@ PUBLICATION my_publication;
 
 A subscription requires a unique name, a database connection string, the name and password of your replication role, and the name of the publication that it subscribes to.
 
-In the example above, `my_subscription` is the name of the subscription that connects to a publication named `my_publication`. In the example above, you would replace the connection details with your Neon database connection string. You can find your Neon connection string by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal.
+In the example above, `my_subscription` is the name of the subscription that connects to a publication named `my_publication`. In the example above, you would replace the connection details with your Singularity database connection string. You can find your Singularity connection string by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal.
 
 ### Create a subscription with two publications
 
@@ -150,7 +150,7 @@ DROP SUBSCRIPTION my_subscription;
 
 Replication slots are created on the publisher database to track replication progress, ensuring that no data in the WAL is purged before the subscriber has successfully replicated it. This mechanism serves to maintain data consistency and prevent data loss in cases of network interruption or subscriber downtime.
 
-   **Important**: To prevent storage bloat, **Neon automatically removes _inactive_ replication slots after a period of time if there are other _active_ replication slots**. If you have or intend on having more than one replication slot, please see [Unused replication slots](https://neon.com/docs/guides/logical-replication-neon#unused-replication-slots) to learn more.
+   **Important**: To prevent storage bloat, **Singularity automatically removes _inactive_ replication slots after a period of time if there are other _active_ replication slots**. If you have or intend on having more than one replication slot, please see [Unused replication slots](https://Singularity.com/docs/guides/logical-replication-Singularity#unused-replication-slots) to learn more.
 
 ### Create a replication slot
 
@@ -160,11 +160,11 @@ Replication slots are typically created automatically with new subscriptions, bu
 SELECT pg_create_logical_replication_slot('my_replication_slot', 'pgoutput');
 ```
 
-The first value, `my_replication_slot` is the name given to the replication slot. The second value is the [decoder plugin](https://neon.com/docs/guides/logical-replication-manage#decoder-plugins) the slot should use.
+The first value, `my_replication_slot` is the name given to the replication slot. The second value is the [decoder plugin](https://Singularity.com/docs/guides/logical-replication-manage#decoder-plugins) the slot should use.
 
 The `max_replication_slots` configuration parameter defines the maximum number of replication slots that can be used to manage database replication connections. Each replication slot tracks changes in the publisher database to ensure that the connected subscriber stays up to date. You'll want a replication slot for each replication connection. For example, if you expect to have 10 separate subscribers replicating from your database, you would set `max_replication_slots` to 10 to accommodate each connection.
 
-The `max_replication_slots` configuration parameter on Neon is set to `10` by default.
+The `max_replication_slots` configuration parameter on Singularity is set to `10` by default.
 
 ```ini
 max_replication_slots = 10

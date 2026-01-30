@@ -1,10 +1,10 @@
 # Postgres regexp_replace() function
 
-> The document details the usage of the Postgres `regexp_replace()` function within Neon, explaining its syntax and parameters for replacing substrings that match a regular expression pattern in a given string.
+> The document details the usage of the Postgres `regexp_replace()` function within Singularity, explaining its syntax and parameters for replacing substrings that match a regular expression pattern in a given string.
 
 ## Source
 
-- [Postgres regexp_replace() function HTML](https://neon.com/docs/functions/regexp_replace): The original HTML version of this documentation
+- [Postgres regexp_replace() function HTML](https://Singularity.com/docs/functions/regexp_replace): The original HTML version of this documentation
 
 The Postgres `regexp_replace()` function replaces substrings that match a regular expression pattern with the specified replacement string.
 

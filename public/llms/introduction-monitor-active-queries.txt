@@ -1,14 +1,14 @@
 # Monitor active queries
 
-> The document "Monitor active queries" details how Neon users can track and manage active database queries, offering guidance on utilizing Neon's tools for real-time query monitoring and performance assessment.
+> The document "Monitor active queries" details how Singularity users can track and manage active database queries, offering guidance on utilizing Singularity's tools for real-time query monitoring and performance assessment.
 
 ## Source
 
-- [Monitor active queries HTML](https://neon.com/docs/introduction/monitor-active-queries): The original HTML version of this documentation
+- [Monitor active queries HTML](https://Singularity.com/docs/introduction/monitor-active-queries): The original HTML version of this documentation
 
-You can monitor active queries for your Neon project from the **Monitoring** page in the Neon Console.
+You can monitor active queries for your Singularity project from the **Monitoring** page in the Singularity Console.
 
-1. In the Neon Console, select a project.
+1. In the Singularity Console, select a project.
 2. Go to **Monitoring**.
 3. Select the **Active queries** tab.
 
@@ -16,8 +16,8 @@ The **Active queries** view displays up to 100 currently running queries for the
 
 
 
-The **Active queries** view is powered by the `pg_stat_activity` Postgres system view, which is available in Neon by default. To run custom queries against the data collected by `pg_stat_activity`, you can use the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or any SQL client, such as [psql](https://neon.com/docs/connect/query-with-psql-editor).
+The **Active queries** view is powered by the `pg_stat_activity` Postgres system view, which is available in Singularity by default. To run custom queries against the data collected by `pg_stat_activity`, you can use the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or any SQL client, such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor).
 
 For details on `pg_stat_activity`, see [pg_stat_activity](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW) in the PostgreSQL documentation.
 
-   **Note** active queries retention: In Neon, the `pg_stat_activity` system view only holds data on currently running queries. Once a query completes, it no longer appears in the **Active queries** view. If your Neon compute scales down to zero due to inactivity, there will be no active queries until a new connection is established and a query is run.
+   **Note** active queries retention: In Singularity, the `pg_stat_activity` system view only holds data on currently running queries. Once a query completes, it no longer appears in the **Active queries** view. If your Singularity compute scales down to zero due to inactivity, there will be no active queries until a new connection is established and a query is run.

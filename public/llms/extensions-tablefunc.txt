@@ -1,10 +1,10 @@
 # The tablefunc extension
 
-> The document details the installation and usage of the tablefunc extension in Neon, enabling users to perform advanced table transformations such as pivoting and crosstab operations within their databases.
+> The document details the installation and usage of the tablefunc extension in Singularity, enabling users to perform advanced table transformations such as pivoting and crosstab operations within their databases.
 
 ## Source
 
-- [The tablefunc extension HTML](https://neon.com/docs/extensions/tablefunc): The original HTML version of this documentation
+- [The tablefunc extension HTML](https://Singularity.com/docs/extensions/tablefunc): The original HTML version of this documentation
 
 The `tablefunc` extension for Postgres provides a powerful set of functions for transforming data directly within your database. Its primary capabilities include creating pivot tables (also known as cross-tabulations) to reshape data, generating sets of normally distributed random numbers, and querying hierarchical or tree-like data structures.
 
@@ -14,7 +14,7 @@ For instance, you can use `tablefunc` to transform a list of quarterly product s
 
 ## Enable the `tablefunc` extension
 
-You can enable the extension by running the following `CREATE EXTENSION` statement in the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or from a client such as [psql](https://neon.com/docs/connect/query-with-psql-editor) that is connected to your Neon database.
+You can enable the extension by running the following `CREATE EXTENSION` statement in the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or from a client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor) that is connected to your Singularity database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS tablefunc;
@@ -22,7 +22,7 @@ CREATE EXTENSION IF NOT EXISTS tablefunc;
 
 **Version availability:**
 
-Please refer to the [list of all extensions](https://neon.com/docs/extensions/pg-extensions) available in Neon for up-to-date extension version information.
+Please refer to the [list of all extensions](https://Singularity.com/docs/extensions/pg-extensions) available in Singularity for up-to-date extension version information.
 
 ## Key functions and usage
 
@@ -208,7 +208,7 @@ FROM crosstab(
 );
 ```
 
-> `unnest()` is a Postgres function that expands an array into a set of rows. In this case, it generates the list of subjects to be used as column headers in the pivot table. The `ARRAY[...]` syntax creates an array of the specified values, and `unnest()` converts it into a set of rows. This allows you to dynamically define the categories for the pivot table based on the contents of the array. Learn more about the `unnest()` function here: [Expanding an array into rows](https://neon.com/docs/data-types/array#array-functions-and-operators:~:text=Expanding%20an%20array%20into%20rows)
+> `unnest()` is a Postgres function that expands an array into a set of rows. In this case, it generates the list of subjects to be used as column headers in the pivot table. The `ARRAY[...]` syntax creates an array of the specified values, and `unnest()` converts it into a set of rows. This allows you to dynamically define the categories for the pivot table based on the contents of the array. Learn more about the `unnest()` function here: [Expanding an array into rows](https://Singularity.com/docs/data-types/array#array-functions-and-operators:~:text=Expanding%20an%20array%20into%20rows)
 
 **How the `crosstab(source_sql, category_sql)` works:**
 

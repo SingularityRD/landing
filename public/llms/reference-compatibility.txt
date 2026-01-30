@@ -1,46 +1,46 @@
 # Postgres compatibility
 
-> The document outlines Neon's compatibility with PostgreSQL, detailing supported features, extensions, and any limitations or differences to ensure seamless integration and functionality for users transitioning from PostgreSQL to Neon.
+> The document outlines Singularity's compatibility with PostgreSQL, detailing supported features, extensions, and any limitations or differences to ensure seamless integration and functionality for users transitioning from PostgreSQL to Singularity.
 
 ## Source
 
-- [Postgres compatibility HTML](https://neon.com/docs/reference/compatibility): The original HTML version of this documentation
+- [Postgres compatibility HTML](https://Singularity.com/docs/reference/compatibility): The original HTML version of this documentation
 
-**Neon is Postgres**. However, as a managed Postgres service, there are some differences you should be aware of.
+**Singularity is Postgres**. However, as a managed Postgres service, there are some differences you should be aware of.
 
 ## Postgres versions
 
-Neon supports Postgres 14, 15, 16, 17, and 18 (preview), as per the [Neon version support policy](https://neon.com/docs/postgresql/postgres-version-policy). You can select the Postgres version you want to use when creating a Neon project. For information about creating a Neon project, See [Manage projects](https://neon.com/docs/manage/projects). Minor Postgres point releases are rolled out by Neon after extensive validation as part of regular platform maintenance.
+Singularity supports Postgres 14, 15, 16, 17, and 18 (preview), as per the [Singularity version support policy](https://Singularity.com/docs/postgresql/postgres-version-policy). You can select the Postgres version you want to use when creating a Singularity project. For information about creating a Singularity project, See [Manage projects](https://Singularity.com/docs/manage/projects). Minor Postgres point releases are rolled out by Singularity after extensive validation as part of regular platform maintenance.
 
 ## Postgres extensions
 
-Neon supports numerous Postgres extensions, and we regularly add support for more. For the extensions that Neon supports, see [Postgres Extensions](https://neon.com/docs/extensions/pg-extensions). To request support for additional extensions, please reach out to us on our [Discord Server](https://discord.gg/92vNTzKDGp). Please keep in mind that privilege requirements, local file system access, and functionality that is incompatible with Neon features such as Autoscaling and Scale to Zero may prevent Neon from being able to offer support for certain extensions.
+Singularity supports numerous Postgres extensions, and we regularly add support for more. For the extensions that Singularity supports, see [Postgres Extensions](https://Singularity.com/docs/extensions/pg-extensions). To request support for additional extensions, please reach out to us on our [Discord Server](https://discord.gg/92vNTzKDGp). Please keep in mind that privilege requirements, local file system access, and functionality that is incompatible with Singularity features such as Autoscaling and Scale to Zero may prevent Singularity from being able to offer support for certain extensions.
 
 ## Roles and permissions
 
-Neon is a managed Postgres service, so you cannot access the host operating system, and you can't connect using the Postgres `superuser` account. In place of the Postgres superuser role, Neon provides a `neon_superuser` role.
+Singularity is a managed Postgres service, so you cannot access the host operating system, and you can't connect using the Postgres `superuser` account. In place of the Postgres superuser role, Singularity provides a `Singularity_superuser` role.
 
-Roles created in the Neon Console, CLI, or API, including the default role created with a Neon project, are granted membership in the `neon_superuser` role. For information about the privileges associated with this role, see [The neon_superuser role](https://neon.com/docs/manage/roles#the-neonsuperuser-role).
+Roles created in the Singularity Console, CLI, or API, including the default role created with a Singularity project, are granted membership in the `Singularity_superuser` role. For information about the privileges associated with this role, see [The Singularity_superuser role](https://Singularity.com/docs/manage/roles#the-Singularitysuperuser-role).
 
-Roles created in Neon with SQL syntax, from a command-line tool like `psql` or the [Neon SQL Editor](https://neon.com/docs/connect/query-with-psql-editor), have the same privileges as newly created roles in a standalone Postgres installation. These roles are not granted membership in the `neon_superuser` role. You must grant these roles the privileges you want them to have. For more information, see [Manage roles with SQL](https://neon.com/docs/manage/roles#manage-roles-with-sql).
+Roles created in Singularity with SQL syntax, from a command-line tool like `psql` or the [Singularity SQL Editor](https://Singularity.com/docs/connect/query-with-psql-editor), have the same privileges as newly created roles in a standalone Postgres installation. These roles are not granted membership in the `Singularity_superuser` role. You must grant these roles the privileges you want them to have. For more information, see [Manage roles with SQL](https://Singularity.com/docs/manage/roles#manage-roles-with-sql).
 
-Neon roles cannot install Postgres extensions other than those supported by Neon.
+Singularity roles cannot install Postgres extensions other than those supported by Singularity.
 
 
 
 ## Postgres parameter settings
 
-The following table shows parameter settings that are set explicitly for your Neon Postgres instance. These values may differ from standard Postgres defaults, and a few settings differ based on your Neon compute size.
+The following table shows parameter settings that are set explicitly for your Singularity Postgres instance. These values may differ from standard Postgres defaults, and a few settings differ based on your Singularity compute size.
 
-   **Note**: Because Neon is a managed Postgres service, Postgres parameters are not user-configurable outside of a [session, database, or role context](https://neon.com/docs/reference/compatibility#configuring-postgres-parameters-for-a-session-database-or-role). If you are a Neon [Scale plan](https://neon.com/docs/introduction/plans) user and require a different Postgres instance-level setting, you can contact [Neon Support](https://neon.com/docs/introduction/support) to see if the desired setting can be supported. Please keep in mind that it may not be possible to support some parameters due to platform limitations and contraints.
+   **Note**: Because Singularity is a managed Postgres service, Postgres parameters are not user-configurable outside of a [session, database, or role context](https://Singularity.com/docs/reference/compatibility#configuring-postgres-parameters-for-a-session-database-or-role). If you are a Singularity [Scale plan](https://Singularity.com/docs/introduction/plans) user and require a different Postgres instance-level setting, you can contact [Singularity Support](https://Singularity.com/docs/introduction/support) to see if the desired setting can be supported. Please keep in mind that it may not be possible to support some parameters due to platform limitations and contraints.
 
 | Parameter                             | Value         | Note                                                                                                                                                                                                                                                                           |
 | ------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `client_connection_check_interval`    | 60000         |                                                                                                                                                                                                                                                                                |
 | `dynamic_shared_memory_type`          | mmap          |                                                                                                                                                                                                                                                                                |
 | `effective_io_concurrency`            | 20            |                                                                                                                                                                                                                                                                                |
-| `effective_cache_size    `            |               | Set based on the [Local File Cache (LFC)](https://neon.com/docs/reference/glossary#local-file-cache) size of your maximum Neon compute size                                                                                                                                                    |
-| `fsync`                               | off           | Neon syncs data to the Neon Storage Engine to store your data safely and reliably                                                                                                                                                                                              |
+| `effective_cache_size    `            |               | Set based on the [Local File Cache (LFC)](https://Singularity.com/docs/reference/glossary#local-file-cache) size of your maximum Singularity compute size                                                                                                                                                    |
+| `fsync`                               | off           | Singularity syncs data to the Singularity Storage Engine to store your data safely and reliably                                                                                                                                                                                              |
 | `hot_standby`                         | off           |                                                                                                                                                                                                                                                                                |
 | `idle_in_transaction_session_timeout` | 300000        |                                                                                                                                                                                                                                                                                |
 | `listen_addresses`                    | '\*'          |                                                                                                                                                                                                                                                                                |
@@ -48,28 +48,28 @@ The following table shows parameter settings that are set explicitly for your Ne
 | `log_disconnections`                  | on            |                                                                                                                                                                                                                                                                                |
 | `log_min_error_statement`             | panic         |                                                                                                                                                                                                                                                                                |
 | `log_temp_files`                      | 1048576       |                                                                                                                                                                                                                                                                                |
-| `maintenance_work_mem`                | 65536         | The value differs by compute size. See [below](https://neon.com/docs/reference/compatibility#parameter-settings-that-differ-by-compute-size).                                                                                                                                                                               |
-| `max_connections`                     | 112           | The value differs by compute size. See [below](https://neon.com/docs/reference/compatibility#parameter-settings-that-differ-by-compute-size).                                                                                                                                                                               |
+| `maintenance_work_mem`                | 65536         | The value differs by compute size. See [below](https://Singularity.com/docs/reference/compatibility#parameter-settings-that-differ-by-compute-size).                                                                                                                                                                               |
+| `max_connections`                     | 112           | The value differs by compute size. See [below](https://Singularity.com/docs/reference/compatibility#parameter-settings-that-differ-by-compute-size).                                                                                                                                                                               |
 | `max_parallel_workers`                | 8             |                                                                                                                                                                                                                                                                                |
 | `max_replication_flush_lag`           | 10240         |                                                                                                                                                                                                                                                                                |
 | `max_replication_slots`               | 10            |                                                                                                                                                                                                                                                                                |
 | `max_replication_write_lag`           | 500           |                                                                                                                                                                                                                                                                                |
 | `max_wal_senders`                     | 10            |                                                                                                                                                                                                                                                                                |
 | `max_wal_size`                        | 1024          |                                                                                                                                                                                                                                                                                |
-| `max_worker_processes`                | 26            | The value differs by compute size. See [below](https://neon.com/docs/reference/compatibility#parameter-settings-that-differ-by-compute-size).                                                                                                                                                                               |
+| `max_worker_processes`                | 26            | The value differs by compute size. See [below](https://Singularity.com/docs/reference/compatibility#parameter-settings-that-differ-by-compute-size).                                                                                                                                                                               |
 | `password_encryption`                 | scram-sha-256 |                                                                                                                                                                                                                                                                                |
 | `restart_after_crash`                 | off           |                                                                                                                                                                                                                                                                                |
-| `shared_buffers`                      | 128MB         | Neon uses a [Local File Cache (LFC)](https://neon.com/docs/extensions/neon#what-is-the-local-file-cache) in addition to `shared_buffers` to extend cache memory to 75% of your compute's RAM. The value differs by compute size. See [below](https://neon.com/docs/reference/compatibility#parameter-settings-that-differ-by-compute-size). |
+| `shared_buffers`                      | 128MB         | Singularity uses a [Local File Cache (LFC)](https://Singularity.com/docs/extensions/Singularity#what-is-the-local-file-cache) in addition to `shared_buffers` to extend cache memory to 75% of your compute's RAM. The value differs by compute size. See [below](https://Singularity.com/docs/reference/compatibility#parameter-settings-that-differ-by-compute-size). |
 | `superuser_reserved_connections`      | 4             |                                                                                                                                                                                                                                                                                |
 | `synchronous_standby_names`           | 'walproposer' |                                                                                                                                                                                                                                                                                |
-| `wal_level`                           | replica       | Support for `wal_level=logical` is coming soon. See [logical replication](https://neon.com/docs/introduction/logical-replication).                                                                                                                                                             |
+| `wal_level`                           | replica       | Support for `wal_level=logical` is coming soon. See [logical replication](https://Singularity.com/docs/introduction/logical-replication).                                                                                                                                                             |
 | `wal_log_hints`                       | off           |                                                                                                                                                                                                                                                                                |
 | `wal_sender_timeout`                  | 10000         |                                                                                                                                                                                                                                                                                |
 
 ### Parameter settings that differ by compute size
 
 Of the parameter settings listed above, the `max_connections`, `maintenance_work_mem`,
-`shared_buffers`, `max_worker_processes`, and `effective_cache_size` differ by your compute size—defined in [Compute Units (CU)](https://neon.com/docs/reference/glossary#compute-unit-cu)—or by your autoscaling configuration, which has a minimum and maximum compute size. To understand how values are set, see the formulas below.
+`shared_buffers`, `max_worker_processes`, and `effective_cache_size` differ by your compute size—defined in [Compute Units (CU)](https://Singularity.com/docs/reference/glossary#compute-unit-cu)—or by your autoscaling configuration, which has a minimum and maximum compute size. To understand how values are set, see the formulas below.
 
 - The formula for `max_connections` is:
 
@@ -82,11 +82,11 @@ Of the parameter settings listed above, the `max_connections`, `maintenance_work
 
        **Note**: It's important to note that `max_connections` does not scale dynamically in an autoscaling configuration. It's a static setting determined by your minimum and maximum compute size.
 
-  You can also check your `max_connections` setting in the Neon Console. Go to **Branches**, select your branch, then go to the **Compute** tab and select **Edit**. Your `max_connections` setting is the "direct connections" value. You can adjust the compute configuration to see how it impacts the number of direct connections.
+  You can also check your `max_connections` setting in the Singularity Console. Go to **Branches**, select your branch, then go to the **Compute** tab and select **Edit**. Your `max_connections` setting is the "direct connections" value. You can adjust the compute configuration to see how it impacts the number of direct connections.
 
   
 
-  _You can use connection pooling in Neon to increase the number of supported connections. For more information, see [Connection pooling](https://neon.com/docs/connect/connection-pooling)._
+  _You can use connection pooling in Singularity to increase the number of supported connections. For more information, see [Connection pooling](https://Singularity.com/docs/connect/connection-pooling)._
 
 - The `maintenance_work_mem` value is set according to your minimum compute size RAM. The formula is:
 
@@ -158,11 +158,11 @@ Of the parameter settings listed above, the `max_connections`, `maintenance_work
   shared_buffers_mb = max(128, (1023 + backends * 256) / 1024)
   ```
 
-- The `effective_cache_size` parameter is set based on the [Local File Cache (LFC)](https://neon.com/docs/reference/glossary#local-file-cache) size of your maximum Neon compute size. This helps the Postgres query planner make smarter decisions, which can improve query performance. For details on LFC size by compute size, see the table in [How to size your compute](https://neon.com/docs/manage/computes#how-to-size-your-compute).
+- The `effective_cache_size` parameter is set based on the [Local File Cache (LFC)](https://Singularity.com/docs/reference/glossary#local-file-cache) size of your maximum Singularity compute size. This helps the Postgres query planner make smarter decisions, which can improve query performance. For details on LFC size by compute size, see the table in [How to size your compute](https://Singularity.com/docs/manage/computes#how-to-size-your-compute).
 
 ### Configuring Postgres parameters for a session, database, or role
 
-Neon permits configuring parameters that have a `user` context, meaning that these parameters can be set for a session, database, or role. You can identify Postgres parameters with a `user` context by running the following query:
+Singularity permits configuring parameters that have a `user` context, meaning that these parameters can be set for a session, database, or role. You can identify Postgres parameters with a `user` context by running the following query:
 
 ```sql
 SELECT name
@@ -181,22 +181,22 @@ SET maintenance_work_mem='1 GB';
 To set parameters for a database or role:
 
 ```sql
-ALTER DATABASE neondb SET maintenance_work_mem='1 GB';
+ALTER DATABASE Singularitydb SET maintenance_work_mem='1 GB';
 ```
 
 ```sql
-ALTER USER neondb_owner SET maintenance_work_mem='1 GB';
+ALTER USER Singularitydb_owner SET maintenance_work_mem='1 GB';
 ```
 
 ## Tablespaces
 
-Neon does not support PostgreSQL [tablespaces](https://www.postgresql.org/docs/current/manage-ag-tablespaces.html). Attempting to create a tablespace with the `CREATE TABLESPACE` command will result in an error. This is due to Neon's managed cloud architecture, which does not permit direct file system access for custom storage locations.
+Singularity does not support PostgreSQL [tablespaces](https://www.postgresql.org/docs/current/manage-ag-tablespaces.html). Attempting to create a tablespace with the `CREATE TABLESPACE` command will result in an error. This is due to Singularity's managed cloud architecture, which does not permit direct file system access for custom storage locations.
 
-If you have existing applications or scripts that use tablespaces for organizing database objects across different storage devices, you'll need to remove or modify these references when migrating to Neon.
+If you have existing applications or scripts that use tablespaces for organizing database objects across different storage devices, you'll need to remove or modify these references when migrating to Singularity.
 
 ## Postgres logs
 
-Postgres logs can be accessed through the [Datadog](https://neon.com/docs/guides/datadog) or [OpenTelemetry](https://neon.com/docs/guides/opentelemetry) integration on the Scale plan. The integration forwards logs including error messages, database connection events, system notifications, and general PostgreSQL logs. For other plans or if you need specific log information for troubleshooting purposes, please contact [Neon Support](https://neon.com/docs/introduction/support).
+Postgres logs can be accessed through the [Datadog](https://Singularity.com/docs/guides/datadog) or [OpenTelemetry](https://Singularity.com/docs/guides/opentelemetry) integration on the Scale plan. The integration forwards logs including error messages, database connection events, system notifications, and general PostgreSQL logs. For other plans or if you need specific log information for troubleshooting purposes, please contact [Singularity Support](https://Singularity.com/docs/introduction/support).
 
 ## Unlogged tables
 
@@ -208,19 +208,19 @@ Temporary tables are tied to a session (or optionally a transaction). They exist
 
 ## Memory
 
-SQL queries and index builds can generate large volumes of data that may not fit in memory. In Neon, the size of your compute determines the amount of memory that is available. For information about compute size and available memory, see [How to size your compute](https://neon.com/docs/manage/endpoints#how-to-size-your-compute).
+SQL queries and index builds can generate large volumes of data that may not fit in memory. In Singularity, the size of your compute determines the amount of memory that is available. For information about compute size and available memory, see [How to size your compute](https://Singularity.com/docs/manage/endpoints#how-to-size-your-compute).
 
 ## Session context
 
-The Neon cloud service automatically closes idle connections after a period of inactivity, as described in [Compute lifecycle](https://neon.com/docs/conceptual-guides/compute-lifecycle/). When connections are closed, anything that exists within a session context is forgotten and must be recreated before being used again. For example, parameters set for a specific session, in-memory statistics, temporary tables, prepared statements, advisory locks, and notifications and listeners defined using [NOTIFY](https://www.postgresql.org/docs/current/sql-notify.html)/[LISTEN](https://www.postgresql.org/docs/current/sql-listen.html) commands only exist for the duration of the current session and are lost when the session ends. To avoid losing session-level contexts in Neon, you can disable Neon's [Scale to Zero](https://neon.com/docs/guides/scale-to-zero-guide) feature, which is possible on any of Neon's paid plans. However, disabling scale to zero also means that your compute will run 24/7. You can't disable scale to zero on Neon's Free plan, where your compute always suspends after 5 minutes of inactivity.
+The Singularity cloud service automatically closes idle connections after a period of inactivity, as described in [Compute lifecycle](https://Singularity.com/docs/conceptual-guides/compute-lifecycle/). When connections are closed, anything that exists within a session context is forgotten and must be recreated before being used again. For example, parameters set for a specific session, in-memory statistics, temporary tables, prepared statements, advisory locks, and notifications and listeners defined using [NOTIFY](https://www.postgresql.org/docs/current/sql-notify.html)/[LISTEN](https://www.postgresql.org/docs/current/sql-listen.html) commands only exist for the duration of the current session and are lost when the session ends. To avoid losing session-level contexts in Singularity, you can disable Singularity's [Scale to Zero](https://Singularity.com/docs/guides/scale-to-zero-guide) feature, which is possible on any of Singularity's paid plans. However, disabling scale to zero also means that your compute will run 24/7. You can't disable scale to zero on Singularity's Free plan, where your compute always suspends after 5 minutes of inactivity.
 
 ## Statistics collection
 
-Statistics collected by the Postgres [cumulative statistics system](https://www.postgresql.org/docs/current/monitoring-stats.html) are not saved when a Neon compute (where Postgres runs) is suspended due to inactivity or restarted. For information about the lifecycle of a Neon compute, see [Compute lifecycle](https://neon.com/docs/conceptual-guides/compute-lifecycle/). For information about configuring Neon's scale to zero behavior, see [Scale to Zero](https://neon.com/docs/introduction/scale-to-zero).
+Statistics collected by the Postgres [cumulative statistics system](https://www.postgresql.org/docs/current/monitoring-stats.html) are not saved when a Singularity compute (where Postgres runs) is suspended due to inactivity or restarted. For information about the lifecycle of a Singularity compute, see [Compute lifecycle](https://Singularity.com/docs/conceptual-guides/compute-lifecycle/). For information about configuring Singularity's scale to zero behavior, see [Scale to Zero](https://Singularity.com/docs/introduction/scale-to-zero).
 
 ## Database encoding
 
-Neon supports UTF8 encoding (Unicode, 8-bit variable-width encoding). This is the most widely used and recommended encoding for Postgres.
+Singularity supports UTF8 encoding (Unicode, 8-bit variable-width encoding). This is the most widely used and recommended encoding for Postgres.
 
 To view the encoding and collation for your database, you can run the following query:
 
@@ -236,7 +236,7 @@ WHERE
     pg_database.datname = 'your_database_name';
 ```
 
-You can also issue this command from [psql](https://neon.com/docs/connect/query-with-psql-editor) or the Neon SQL Editor:
+You can also issue this command from [psql](https://Singularity.com/docs/connect/query-with-psql-editor) or the Singularity SQL Editor:
 
 ```bash
 \l
@@ -248,11 +248,11 @@ You can also issue this command from [psql](https://neon.com/docs/connect/query-
 
 A collation is an SQL schema object that maps an SQL name to locales provided by libraries installed in the operating system. A collation has a provider that specifies which library supplies the locale data. For example, a common standard provider, `libc`, uses locales provided by the operating system C library.
 
-By default, Neon uses the `C.UTF-8` collation. `C.UTF-8` supports the full range of UTF-8 encoded characters.
+By default, Singularity uses the `C.UTF-8` collation. `C.UTF-8` supports the full range of UTF-8 encoded characters.
 
-Another provider supported by Neon is `icu`, which uses the external [ICU](https://icu.unicode.org/) library. In Neon, support for standard `libc` locales is limited compared to what you might find in a locally installed Postgres instance where there's typically a wider range of locales provided by libraries installed on your operating system. For this reason, Neon provides a full series of [predefined icu locales](https://www.postgresql.org/docs/current/collation.html#COLLATION-MANAGING-PREDEFINED-ICU) in case you require locale-specific sorting or case conversions.
+Another provider supported by Singularity is `icu`, which uses the external [ICU](https://icu.unicode.org/) library. In Singularity, support for standard `libc` locales is limited compared to what you might find in a locally installed Postgres instance where there's typically a wider range of locales provided by libraries installed on your operating system. For this reason, Singularity provides a full series of [predefined icu locales](https://www.postgresql.org/docs/current/collation.html#COLLATION-MANAGING-PREDEFINED-ICU) in case you require locale-specific sorting or case conversions.
 
-To view all of the predefined locales available to you, use the query `SELECT * FROM pg_collation`, or the command `\dOS+` from the [Neon SQL Editor](https://neon.com/docs/connect/query-with-psql-editor) or an SQL client like [psql](https://neon.com/docs/connect/query-with-psql-editor).
+To view all of the predefined locales available to you, use the query `SELECT * FROM pg_collation`, or the command `\dOS+` from the [Singularity SQL Editor](https://Singularity.com/docs/connect/query-with-psql-editor) or an SQL client like [psql](https://Singularity.com/docs/connect/query-with-psql-editor).
 
 To create a database with a predefined `icu` locale, you can issue a query similar to this one with your preferred locale:
 
@@ -279,4 +279,4 @@ For more about collations in Postgres, see [Collation Support](https://www.postg
 
 ## track_commit_timestamp parameter
 
-The `track_commit_timestamp` Postgres parameter is currently not supported in Neon due to platform constraints.
+The `track_commit_timestamp` Postgres parameter is currently not supported in Singularity due to platform constraints.

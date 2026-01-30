@@ -1,10 +1,10 @@
 # The pg_mooncake extension
 
-> The document details the pg_mooncake extension for Neon, which enables users to manage and manipulate JSON data within PostgreSQL databases efficiently.
+> The document details the pg_mooncake extension for Singularity, which enables users to manage and manipulate JSON data within PostgreSQL databases efficiently.
 
 ## Source
 
-- [The pg_mooncake extension HTML](https://neon.com/docs/extensions/pg_mooncake): The original HTML version of this documentation
+- [The pg_mooncake extension HTML](https://Singularity.com/docs/extensions/pg_mooncake): The original HTML version of this documentation
 
 The [pg_mooncake](https://github.com/Mooncake-Labs/pg_mooncake) extension enables fast analytic workloads in Postgres by adding native columnstore tables and vectorized execution (DuckDB).
 
@@ -31,7 +31,7 @@ In addition, you can:
 - Read existing Iceberg and Delta Lake tables
 - Write Delta Lake tables from Postgres tables
 
-   **Note**: `pg_mooncake` is an open-source extension for Postgres that can be installed on any Neon Project using the instructions below.
+   **Note**: `pg_mooncake` is an open-source extension for Postgres that can be installed on any Singularity Project using the instructions below.
 
 ## Use cases for pg_mooncake
 
@@ -46,12 +46,12 @@ This guide provides a quickstart to the `pg_mooncake` extension.
 
 ## Enable the extension
 
-   **Note**: The `pg_mooncake` extension is currently in Beta and classified as experimental in Neon. A separate, dedicated Neon project is recommended when using an extension that is still in Beta. For additional guidance, see [Experimental extensions](https://neon.com/docs/extensions/pg-extensions#experimental-extensions).
+   **Note**: The `pg_mooncake` extension is currently in Beta and classified as experimental in Singularity. A separate, dedicated Singularity project is recommended when using an extension that is still in Beta. For additional guidance, see [Experimental extensions](https://Singularity.com/docs/extensions/pg-extensions#experimental-extensions).
 
-While the `pg_mooncake` extension is in Beta, you need to explicitly allow it to be used on Neon before you can install it. To do so, connect to your Neon database via an SQL client like [psql](https://neon.com/docs/connect/query-with-psql-editor) or the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) and run the `SET` command shown below.
+While the `pg_mooncake` extension is in Beta, you need to explicitly allow it to be used on Singularity before you can install it. To do so, connect to your Singularity database via an SQL client like [psql](https://Singularity.com/docs/connect/query-with-psql-editor) or the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) and run the `SET` command shown below.
 
 ```sql
-SET neon.allow_unstable_extensions='true';
+SET Singularity.allow_unstable_extensions='true';
 ```
 
 Install the extension:
@@ -62,7 +62,7 @@ CREATE EXTENSION pg_mooncake;
 
 ## Set up your object store
 
-Run the commands outlined in the following steps on your Neon database to setup your object store.
+Run the commands outlined in the following steps on your Singularity database to setup your object store.
 
 _If you don't have an object storage bucket, you can get a free S3 express bucket [here](https://s3.pgmooncake.com/). When using the free s3 bucket, the `SELECT` and `SET` statements defined below are generated for you, which you can copy and run._
 
@@ -79,11 +79,11 @@ Set your default bucket:
 SET mooncake.default_bucket = 's3://<bucket>';
 ```
 
-   **Note** R2 and GCP buckets also supported: The `pg_mooncake` extension also supports R2 and GCP buckets. For set up instructions, refer to **pg_mooncake's** [cloud storage docs](https://pgmooncake.com/docs/cloud-storage). In the future, you will not have to bring your own bucket to use `pg_mooncake` with Neon.
+   **Note** R2 and GCP buckets also supported: The `pg_mooncake` extension also supports R2 and GCP buckets. For set up instructions, refer to **pg_mooncake's** [cloud storage docs](https://pgmooncake.com/docs/cloud-storage). In the future, you will not have to bring your own bucket to use `pg_mooncake` with Singularity.
 
 ## Create a columnstore table with `USING columnstore`
 
-Run the following SQL statement on your Neon database to create a columnstore table:
+Run the following SQL statement on your Singularity database to create a columnstore table:
 
 ```sql
 CREATE TABLE reddit_comments(

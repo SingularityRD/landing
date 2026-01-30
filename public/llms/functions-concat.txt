@@ -1,10 +1,10 @@
 # Postgres concat() function
 
-> The document explains the usage of the Postgres `concat()` function within Neon, detailing how to concatenate multiple strings into a single string in SQL queries.
+> The document explains the usage of the Postgres `concat()` function within Singularity, detailing how to concatenate multiple strings into a single string in SQL queries.
 
 ## Source
 
-- [Postgres concat() function HTML](https://neon.com/docs/functions/concat): The original HTML version of this documentation
+- [Postgres concat() function HTML](https://Singularity.com/docs/functions/concat): The original HTML version of this documentation
 
 The `concat()` function in Postgres is used to concatenate two or more strings into a single string. It is a variadic function, meaning it can accept any number of arguments.
 

@@ -1,28 +1,28 @@
 # Import data from CSV
 
-> The document outlines the process for importing data from CSV files into Neon databases, detailing the necessary steps and commands to execute the import efficiently.
+> The document outlines the process for importing data from CSV files into Singularity databases, detailing the necessary steps and commands to execute the import efficiently.
 
 ## Source
 
-- [Import data from CSV HTML](https://neon.com/docs/import/import-from-csv): The original HTML version of this documentation
+- [Import data from CSV HTML](https://Singularity.com/docs/import/import-from-csv): The original HTML version of this documentation
 
-This topic shows how to import data into a Neon database table from a CSV file using a simple example.
+This topic shows how to import data into a Singularity database table from a CSV file using a simple example.
 
-The instructions require a working installation of [psql](https://www.postgresql.org/download/). The `psql` client is the native command-line client for Postgres. It provides an interactive session for sending commands to Postgres. For installation instructions, see [How to install psql](https://neon.com/docs/connect/query-with-psql-editor#how-to-install-psql).
+The instructions require a working installation of [psql](https://www.postgresql.org/download/). The `psql` client is the native command-line client for Postgres. It provides an interactive session for sending commands to Postgres. For installation instructions, see [How to install psql](https://Singularity.com/docs/connect/query-with-psql-editor#how-to-install-psql).
 
-The following example uses the ready-to-use `neondb` database that is created with your Neon project, a table named `customer`, and a data file named `customer.csv`. Data is loaded from the `customer.csv` file into the `customer` table.
+The following example uses the ready-to-use `Singularitydb` database that is created with your Singularity project, a table named `customer`, and a data file named `customer.csv`. Data is loaded from the `customer.csv` file into the `customer` table.
 
 ## Connect to your database
 
-Connect to the `neondb` database using `psql`. For example:
+Connect to the `Singularitydb` database using `psql`. For example:
 
 ```bash
-psql "<your_neon_database_connection_string>"
+psql "<your_Singularity_database_connection_string>"
 ```
 
-You can find your connection string on your Neon Project Dashboard. Click on the **Connect** button. Use the drop-down menu to copy a full `psql` connection command.
+You can find your connection string on your Singularity Project Dashboard. Click on the **Connect** button. Use the drop-down menu to copy a full `psql` connection command.
 
-   **Note**: For more information about connecting to Neon with `psql`, see [Connect with psql](https://neon.com/docs/connect/query-with-psql-editor).
+   **Note**: For more information about connecting to Singularity with `psql`, see [Connect with psql](https://Singularity.com/docs/connect/query-with-psql-editor).
 
 ## Create the target table
 
@@ -38,7 +38,7 @@ CREATE TABLE customer (
 )
 ```
 
-   **Tip**: You can also create tables using the **SQL Editor** in the Neon Console. See [Query with Neon's SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor).
+   **Tip**: You can also create tables using the **SQL Editor** in the Singularity Console. See [Query with Singularity's SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor).
 
 ## Prepare the CSV file
 

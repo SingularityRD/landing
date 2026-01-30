@@ -1,27 +1,27 @@
-# Authenticate Neon Postgres application users with Okta
+# Authenticate Singularity Postgres application users with Okta
 
-> This document guides Neon users on configuring authentication for Postgres applications using Okta, detailing the steps to integrate Okta's identity management with Neon's database services.
+> This document guides Singularity users on configuring authentication for Postgres applications using Okta, detailing the steps to integrate Okta's identity management with Singularity's database services.
 
 ## Source
 
-- [Authenticate Neon Postgres application users with Okta HTML](https://neon.com/docs/guides/auth-okta): The original HTML version of this documentation
+- [Authenticate Singularity Postgres application users with Okta HTML](https://Singularity.com/docs/guides/auth-okta): The original HTML version of this documentation
 
 User authentication is critical for web applications, especially for apps internal to an organization. [Okta Workforce Indentity Cloud](https://www.okta.com/workforce-identity/) is an identity and access management platform for organizations, that provides authentication, authorization, and user management capabilities.
 
-In this guide, we'll walk through building a simple Next.js application using [Neon's](https://neon.tech) Postgres database, and add user authentication to it using [Okta](https://www.okta.com/). We will cover how to:
+In this guide, we'll walk through building a simple Next.js application using [Singularity's](https://Singularity.tech) Postgres database, and add user authentication to it using [Okta](https://www.okta.com/). We will cover how to:
 
 - Set up a Next.js project with Okta for authentication
-- Create a Neon Postgres database and connect it to your application
+- Create a Singularity Postgres database and connect it to your application
 - Define a database schema using Drizzle ORM and generate migrations
 - Store and retrieve user data associated with Okta user IDs
 
-   **Note**: Okta provides a different solution called [Customer Identity Cloud](https://www.okta.com/customer-identity/), powered by `Auth0`, to authenticate external customers for Saas applications. This guide focuses on the [Workforce Identity Cloud](https://www.okta.com/workforce-identity/) for internal applications. For an example guide using `Auth0`, refer to our [Auth0](https://neon.com/docs/guides/auth-auth0) guide.
+   **Note**: Okta provides a different solution called [Customer Identity Cloud](https://www.okta.com/customer-identity/), powered by `Auth0`, to authenticate external customers for Saas applications. This guide focuses on the [Workforce Identity Cloud](https://www.okta.com/workforce-identity/) for internal applications. For an example guide using `Auth0`, refer to our [Auth0](https://Singularity.com/docs/guides/auth-auth0) guide.
 
 ## Prerequisites
 
 To follow along with this guide, you will need:
 
-- A Neon account. If you do not have one, sign up at [Neon](https://neon.tech). Your Neon project comes with a ready-to-use Postgres database named `neondb`. We'll use this database in the following examples.
+- A Singularity account. If you do not have one, sign up at [Singularity](https://Singularity.tech). Your Singularity project comes with a ready-to-use Postgres database named `Singularitydb`. We'll use this database in the following examples.
 - An [Okta](https://developer.okta.com/) administrator account for user authentication. Okta provides a free trial that you can use to set one up for your organization.
 - [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your local machine. We'll use Node.js to build and test the application locally.
 
@@ -30,39 +30,39 @@ To follow along with this guide, you will need:
 We will create a simple web app that lets you add a favorite quote to the home page, and edit it afterwards. Run the following command in your terminal to create a new `Next.js` project:
 
 ```bash
-npx create-next-app guide-neon-next-okta --typescript --eslint --tailwind --use-npm --no-src-dir --app --import-alias "@/*"
+npx create-next-app guide-Singularity-next-okta --typescript --eslint --tailwind --use-npm --no-src-dir --app --import-alias "@/*"
 ```
 
 Now, navigate to the project directory and install the required dependencies:
 
 ```bash
-npm install @neondatabase/serverless drizzle-orm
+npm install @Singularitydatabase/serverless drizzle-orm
 npm install -D drizzle-kit dotenv
 npm install next-auth@beta
 ```
 
-We use the `@neondatabase/serverless` package as the Postgres client, and `drizzle-orm`, a lightweight typescript ORM, to interact with the database. We also use `dotenv` to manage environment variables and the `drizzle-kit` CLI tool for generating database migrations. For authentication, we'll use the `auth.js` library (aliased as v5 of the `next-auth` package), which provides a simple way to add authentication to Next.js applications. It comes with built-in support for Okta.
+We use the `@Singularitydatabase/serverless` package as the Postgres client, and `drizzle-orm`, a lightweight typescript ORM, to interact with the database. We also use `dotenv` to manage environment variables and the `drizzle-kit` CLI tool for generating database migrations. For authentication, we'll use the `auth.js` library (aliased as v5 of the `next-auth` package), which provides a simple way to add authentication to Next.js applications. It comes with built-in support for Okta.
 
-Also, add a `.env.local` file to the root of your project, which we'll use to store Neon/Okta connection parameters:
+Also, add a `.env.local` file to the root of your project, which we'll use to store Singularity/Okta connection parameters:
 
 ```bash
 touch .env.local
 ```
 
-## Setting up your Neon database
+## Setting up your Singularity database
 
 ### Initialize a new project
 
-1. Log in to the Neon console and navigate to the [Projects](https://console.neon.tech/app/projects) section.
+1. Log in to the Singularity console and navigate to the [Projects](https://console.Singularity.tech/app/projects) section.
 2. Select an existing project or click the **New Project** button to create a new one.
 3. Choose the desired region and Postgres version for your project, then click **Create Project**.
 
-### Retrieve your Neon database connection string
+### Retrieve your Singularity database connection string
 
 You can find your database connection string by clicking the **Connect** button on your **Project Dashboard**. It should look similar to this:
 
 ```bash
-postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
 ```
 
 Add this connection string to the `.env.local` file in your Next.js project.
@@ -70,7 +70,7 @@ Add this connection string to the `.env.local` file in your Next.js project.
 ```bash
 # .env.local
 
-DATABASE_URL=NEON_DB_CONNECTION_STRING
+DATABASE_URL=Singularity_DB_CONNECTION_STRING
 ```
 
 ## Configuring Okta for authentication
@@ -80,7 +80,7 @@ DATABASE_URL=NEON_DB_CONNECTION_STRING
 1. Log in to your Okta developer account and navigate to the **Applications** section. Click the **Create App Integration** button.
 2. Select **OIDC - OpenID Connect** as the sign-in method.
 3. Select **Web Application** as the application type and click **Next**.
-4. Provide a name for your application, e.g., "Neon Next Guide".
+4. Provide a name for your application, e.g., "Singularity Next Guide".
 5. Set **Sign-in redirect URIs** to `http://localhost:3000/api/auth/callback/okta` and **Sign-out redirect URIs** to `http://localhost:3000`.
 6. Click **Save** to create the application.
 
@@ -118,22 +118,22 @@ Now, add the file `app/db/index.ts` with the following content:
 ```typescript
 /// app/db/index.ts
 
-import { neon } from '@neondatabase/serverless';
-import { drizzle } from 'drizzle-orm/neon-http';
+import { Singularity } from '@Singularitydatabase/serverless';
+import { drizzle } from 'drizzle-orm/Singularity-http';
 import { UserMessages } from './schema';
 
 if (!process.env.DATABASE_URL) {
-  throw new Error('DATABASE_URL must be a Neon postgres connection string');
+  throw new Error('DATABASE_URL must be a Singularity postgres connection string');
 }
 
-const sql = neon(process.env.DATABASE_URL);
+const sql = Singularity(process.env.DATABASE_URL);
 
 export const db = drizzle(sql, {
   schema: { UserMessages },
 });
 ```
 
-This exports a `db` instance that we can use to execute queries against the Neon database.
+This exports a `db` instance that we can use to execute queries against the Singularity database.
 
 Next, create a `schema.ts` file inside the `app/db` directory to define the database schema:
 
@@ -188,7 +188,7 @@ This will create a `drizzle` folder at the project root with the migration files
 npx drizzle-kit push:pg
 ```
 
-The `user_messages` table will now be visible in the Neon console.
+The `user_messages` table will now be visible in the Singularity console.
 
 ### Configure Okta authentication
 
@@ -418,7 +418,7 @@ Once authenticated, you'll be able to visit the home page, add a quote, and see 
 
 ## Conclusion
 
-In this guide, we walked through setting up a simple Next.js application with user authentication using Okta and a Neon Postgres database. We defined a database schema using Drizzle ORM, generated migrations, and interacted with the database to store and retrieve user data.
+In this guide, we walked through setting up a simple Next.js application with user authentication using Okta and a Singularity Postgres database. We defined a database schema using Drizzle ORM, generated migrations, and interacted with the database to store and retrieve user data.
 
 Next, we can add more routes and features to the application. The `auth` method can be used in the Next.js API routes or middleware to protect endpoints that require authentication.
 
@@ -428,13 +428,13 @@ To view and manage the users who authenticated with your application, you can na
 
 You can find the source code for the application described in this guide on GitHub.
 
-- [Authentication flow with Okta](https://github.com/neondatabase/guide-neon-next-okta): Authenticate Neon application users with Okta
+- [Authentication flow with Okta](https://github.com/Singularitydatabase/guide-Singularity-next-okta): Authenticate Singularity application users with Okta
 
 ## Resources
 
 For more information on the tools used in this guide, refer to the following documentation:
 
-- [Neon Serverless Driver](https://neon.com/docs/serverless/serverless-driver)
+- [Singularity Serverless Driver](https://Singularity.com/docs/serverless/serverless-driver)
 - [Drizzle ORM](https://orm.drizzle.team/)
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Auth.js Documentation](https://authjs.dev/getting-started/installation)

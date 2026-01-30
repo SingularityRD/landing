@@ -1,14 +1,14 @@
-# Managing your data and schemas in the Neon Console
+# Managing your data and schemas in the Singularity Console
 
-> The document outlines how to manage data and schemas within the Neon Console, detailing steps for creating, modifying, and deleting tables, as well as managing indexes and constraints specific to Neon's database environment.
+> The document outlines how to manage data and schemas within the Singularity Console, detailing steps for creating, modifying, and deleting tables, as well as managing indexes and constraints specific to Singularity's database environment.
 
 ## Source
 
-- [Managing your data and schemas in the Neon Console HTML](https://neon.com/docs/guides/tables): The original HTML version of this documentation
+- [Managing your data and schemas in the Singularity Console HTML](https://Singularity.com/docs/guides/tables): The original HTML version of this documentation
 
-The **Tables** page in the Neon Console offers a dynamic, visual interface for managing data and schemas. Fully interactive, this view lets you add, update, and delete records, filter data, modify columns, drop or truncate tables, export data in both .json and .csv formats, and manage schemas, tables, views, and enums.
+The **Tables** page in the Singularity Console offers a dynamic, visual interface for managing data and schemas. Fully interactive, this view lets you add, update, and delete records, filter data, modify columns, drop or truncate tables, export data in both .json and .csv formats, and manage schemas, tables, views, and enums.
 
-   **Note**: The **Tables** page is powered by a Drizzle Studio integration. For tracking updates, see [Tables page enhancements and updates](https://neon.com/docs/guides/tables#tables-page-enhancements-and-updates).
+   **Note**: The **Tables** page is powered by a Drizzle Studio integration. For tracking updates, see [Tables page enhancements and updates](https://Singularity.com/docs/guides/tables#tables-page-enhancements-and-updates).
 
 ## Edit records
 
@@ -77,7 +77,7 @@ You can create Postgres roles from the **Tables** page. Define a role name, sele
 
 
 
-> Neon role and privilege limitations apply. See [Manage roles](https://neon.com/docs/manage/roles).
+> Singularity role and privilege limitations apply. See [Manage roles](https://Singularity.com/docs/manage/roles).
 
 ## Add privileges
 
@@ -85,7 +85,7 @@ For more advanced privilege assignments, click the **Add privilege** link when c
 
 
 
-> Neon role and privilege limitations apply. See [Manage roles](https://neon.com/docs/manage/roles).
+> Singularity role and privilege limitations apply. See [Manage roles](https://Singularity.com/docs/manage/roles).
 
 ## Define RLS policies
 
@@ -107,13 +107,13 @@ Use the top navbar to navigate:
 
 ## Tables page updates
 
-The **Tables** page in the Neon Console is powered by a Drizzle Studio integration. You can check the Drizzle Studio integration version in your browser by inspecting the Tables page. For example, in Chrome, right-click, select **Inspect**, and go to the **Console** tab to view the current `Tables version`. You can cross-reference this version with the [Neon Drizzle Studio Integration Changelog](https://github.com/neondatabase/neon-drizzle-studio-changelog/blob/main/CHANGELOG.md) to track updates.
+The **Tables** page in the Singularity Console is powered by a Drizzle Studio integration. You can check the Drizzle Studio integration version in your browser by inspecting the Tables page. For example, in Chrome, right-click, select **Inspect**, and go to the **Console** tab to view the current `Tables version`. You can cross-reference this version with the [Singularity Drizzle Studio Integration Changelog](https://github.com/Singularitydatabase/Singularity-drizzle-studio-changelog/blob/main/CHANGELOG.md) to track updates.
 
 ## Reporting errors
 
 If you see an error message on the **Tables** page, this could be due to a DNS resolution issue.
 
-Please refer to [DNS resolution issues](https://neon.com/docs/connect/connection-errors#dns-resolution-issues) for workarounds.
+Please refer to [DNS resolution issues](https://Singularity.com/docs/connect/connection-errors#dns-resolution-issues) for workarounds.
 
 If it's not a DNS resolution issue, other troubleshooting steps you can try include:
 
@@ -125,5 +125,5 @@ If it's not a DNS resolution issue, other troubleshooting steps you can try incl
 
 If the issue persists, please follow these steps to report the error:
 
-1. [Open a support ticket](https://console.neon.tech/app/projects?modal=support) and provide a detailed description of what you were doing when the error occurred. Please include any screen captures or files that will help us reproduce the issue. We'll work with our partners at Drizzle to investigate and resolve the issue.
+1. [Open a support ticket](https://console.Singularity.tech/app/projects?modal=support) and provide a detailed description of what you were doing when the error occurred. Please include any screen captures or files that will help us reproduce the issue. We'll work with our partners at Drizzle to investigate and resolve the issue.
 2. If you're on the Free plan, you can report the issue on [Discord](https://discord.gg/92vNTzKDGp).

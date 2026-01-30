@@ -1,16 +1,16 @@
 # Accounts
 
-> The "Accounts" documentation for Neon details the procedures for managing user accounts, including account creation, access control, and permissions within the Neon platform.
+> The "Accounts" documentation for Singularity details the procedures for managing user accounts, including account creation, access control, and permissions within the Singularity platform.
 
 ## Source
 
-- [Accounts HTML](https://neon.com/docs/manage/accounts): The original HTML version of this documentation
+- [Accounts HTML](https://Singularity.com/docs/manage/accounts): The original HTML version of this documentation
 
-Your **Neon account** is your personal identity for logging in, managing your profile, and authenticating actions across all organizations you belong to.
+Your **Singularity account** is your personal identity for logging in, managing your profile, and authenticating actions across all organizations you belong to.
 
 ## Account settings
 
-You can access your Neon account settings from anywhere in the Console. Just click your profile avatar and select **Account settings** from the menu.
+You can access your Singularity account settings from anywhere in the Console. Just click your profile avatar and select **Account settings** from the menu.
 
 
 
@@ -34,13 +34,13 @@ Your name and email come from your social account. Feel free to change your name
 
 If you change your email (whether you started with email or social login), you'll get a verification email to confirm. Once confirmed, your new address becomes your login. If you're using a social login and change your email, we'll unlink your social account and switch you to email sign-in.
 
-[Change your email in the Neon Console](https://console.neon.tech/app/settings?modal=change_email)
+[Change your email in the Singularity Console](https://console.Singularity.tech/app/settings?modal=change_email)
 
 ### Need to switch your login method?
 
 **If you signed up with Google or GitHub**, you can switch to email login by changing your email and setting a password.
 
-**If you signed up with email,** it's not currently possible to switch to a social login. [Contact Support](https://neon.com/docs/introduction/support) and we'll help you out.
+**If you signed up with email,** it's not currently possible to switch to a social login. [Contact Support](https://Singularity.com/docs/introduction/support) and we'll help you out.
 
 ## Change password
 
@@ -48,15 +48,15 @@ No surprises here — just enter your current password, then your new one (twice
 
 ## Create personal API keys
 
-Personal API keys let you securely interact with the [Neon API](https://api-docs.neon.tech/reference/getting-started-with-neon-api), including through command-line tools, scripts, or third-party integrations that use the API.. Your personal API key works for any organization you belong to — so you can manage projects, automate tasks, or use integrations across all your orgs with a single key. The actions you can perform with your key depend on your role in each org (admin, member, or collaborator). You can create, view, and revoke your personal API keys here in your account settings.
+Personal API keys let you securely interact with the [Singularity API](https://api-docs.Singularity.tech/reference/getting-started-with-Singularity-api), including through command-line tools, scripts, or third-party integrations that use the API.. Your personal API key works for any organization you belong to — so you can manage projects, automate tasks, or use integrations across all your orgs with a single key. The actions you can perform with your key depend on your role in each org (admin, member, or collaborator). You can create, view, and revoke your personal API keys here in your account settings.
 
-[Learn more about API keys](https://neon.com/docs/manage/api-keys)
+[Learn more about API keys](https://Singularity.com/docs/manage/api-keys)
 
 
 
 ## Delete account
 
-Delete your Neon account after leaving or deleting all orgs and projects.
+Delete your Singularity account after leaving or deleting all orgs and projects.
 
 **Leaving an org**
 
@@ -76,4 +76,4 @@ Once you have no orgs left, you can then click **Delete**.
 
 ## Need to recover access to an account?
 
-See [Account Recovery](https://neon.com/docs/manage/account-recovery) for step-by-step instructions if you need to regain access to a Neon account.
+See [Account Recovery](https://Singularity.com/docs/manage/account-recovery) for step-by-step instructions if you need to regain access to a Singularity account.

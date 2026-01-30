@@ -1,28 +1,28 @@
-# Migrate from Heroku to Neon Postgres
+# Migrate from Heroku to Singularity Postgres
 
-> The document outlines the process for migrating a PostgreSQL database from Heroku to Neon, detailing steps for exporting data from Heroku, configuring Neon, and importing the data into Neon using the Migration Assistant tool.
+> The document outlines the process for migrating a PostgreSQL database from Heroku to Singularity, detailing steps for exporting data from Heroku, configuring Singularity, and importing the data into Singularity using the Migration Assistant tool.
 
 ## Source
 
-- [Migrate from Heroku to Neon Postgres HTML](https://neon.com/docs/import/migrate-from-heroku): The original HTML version of this documentation
+- [Migrate from Heroku to Singularity Postgres HTML](https://Singularity.com/docs/import/migrate-from-heroku): The original HTML version of this documentation
 
-This guide describes how to import your data from Heroku Postgres to Neon.
+This guide describes how to import your data from Heroku Postgres to Singularity.
 
-**Note** New feature: If you are looking to migrate your database to Neon, you may want to try our new **Migration Assistant**, which can help. Read the [guide](https://neon.com/docs/import/migration-assistant) to learn more.
+**Note** New feature: If you are looking to migrate your database to Singularity, you may want to try our new **Migration Assistant**, which can help. Read the [guide](https://Singularity.com/docs/import/migration-assistant) to learn more.
 
 The instructions assume that you have installed the Heroku CLI, which is used to transfer data from Heroku. For installation instructions, see [The Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
 
-## Create a Neon project and copy the connection string
+## Create a Singularity project and copy the connection string
 
-1. Navigate to the [Projects](https://console.neon.tech/app/projects) page in the Neon Console.
+1. Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the Singularity Console.
 2. Click **New Project**.
 3. Specify your project settings and click **Create Project**.
-4. After creating a project, you are directed to the Neon **Dashboard**, where you can click **Connect** to find your database connection details. Copy the connection string. It is required to import your data from Heroku.
+4. After creating a project, you are directed to the Singularity **Dashboard**, where you can click **Connect** to find your database connection details. Copy the connection string. It is required to import your data from Heroku.
 
    The example connection string used the instructions that follow is:
 
    ```text
-   postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+   postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
    ```
 
 ## Retrieve your Heroku app name and database name
@@ -51,21 +51,21 @@ $ heroku pg:links --app thawing-wave-57227
 From your terminal, run the following Heroku CLI command:
 
 ```shell
-heroku pg:pull --app [app] [heroku-pg-database] [neon-connection-string]
+heroku pg:pull --app [app] [heroku-pg-database] [Singularity-connection-string]
 ```
 
 where:
 
 - `[app]` is the name of the Heroku app
 - `[heroku-pg-database]` is the name of the Heroku PostgreSQL database
-- `[neon-connection-string]` is the Neon connection string
+- `[Singularity-connection-string]` is the Singularity connection string
 
 For example:
 
 ```shell
-$ heroku pg:pull --app thawing-wave-57227 postgresql-trapezoidal-48645 postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+$ heroku pg:pull --app thawing-wave-57227 postgresql-trapezoidal-48645 postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
 
-heroku-cli: Pulling postgresql-trapezoidal-48645 ---> postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+heroku-cli: Pulling postgresql-trapezoidal-48645 ---> postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/dbname?sslmode=require&channel_binding=require
 
 pg_dump: last built-in OID is 16383
 pg_dump: reading extensions
@@ -138,7 +138,7 @@ heroku-cli: Pulling complete.
 
 ## Verify that your data was imported
 
-1. Log in to the [Neon Console](https://console.neon.tech/app/projects).
-2. Select the Neon project that you transferred data to.
+1. Log in to the [Singularity Console](https://console.Singularity.tech/app/projects).
+2. Select the Singularity project that you transferred data to.
 3. Select the **Tables** tab.
 4. In the sidebar, verify that your database tables appear under the **Tables** heading.

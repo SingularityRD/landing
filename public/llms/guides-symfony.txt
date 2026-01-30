@@ -1,29 +1,29 @@
-# Connect from Symfony with Doctrine to Neon
+# Connect from Symfony with Doctrine to Singularity
 
-> This document guides users on configuring Symfony with Doctrine to connect to a Neon database, detailing the necessary steps and configurations for seamless integration.
+> This document guides users on configuring Symfony with Doctrine to connect to a Singularity database, detailing the necessary steps and configurations for seamless integration.
 
 ## Source
 
-- [Connect from Symfony with Doctrine to Neon HTML](https://neon.com/docs/guides/symfony): The original HTML version of this documentation
+- [Connect from Symfony with Doctrine to Singularity HTML](https://Singularity.com/docs/guides/symfony): The original HTML version of this documentation
 
-Symfony is a free and open-source PHP web application framework. Symfony uses the Doctrine library for database access. Connecting to Neon from Symfony with Doctrine is the same as connecting to a standalone Postgres installation from Symfony with Doctrine. Only the connection details differ.
+Symfony is a free and open-source PHP web application framework. Symfony uses the Doctrine library for database access. Connecting to Singularity from Symfony with Doctrine is the same as connecting to a standalone Postgres installation from Symfony with Doctrine. Only the connection details differ.
 
-To connect to Neon from Symfony with Doctrine:
+To connect to Singularity from Symfony with Doctrine:
 
-## Create a Neon project
+## Create a Singularity project
 
-If you do not have one already, create a Neon project. Save your connection details including your password. They are required when defining connection settings.
+If you do not have one already, create a Singularity project. Save your connection details including your password. They are required when defining connection settings.
 
-1. Navigate to the [Projects](https://console.neon.tech/app/projects) page in the Neon Console.
+1. Navigate to the [Projects](https://console.Singularity.tech/app/projects) page in the Singularity Console.
 2. Click **New Project**.
 3. Specify your project settings and click **Create Project**.
 
 ## Configure the connection
 
-In your `.env` file, set the `DATABASE_URL` to the Neon project connection string that you copied in the previous step.
+In your `.env` file, set the `DATABASE_URL` to the Singularity project connection string that you copied in the previous step.
 
 ```shell
-DATABASE_URL="postgresql://[user]:[password]@[neon_hostname]/[dbname]?charset=utf8&sslmode=require&channel_binding=require"
+DATABASE_URL="postgresql://[user]:[password]@[Singularity_hostname]/[dbname]?charset=utf8&sslmode=require&channel_binding=require"
 ```
 
-You can find the connection string for your database by clicking the **Connect** button on your **Project Dashboard**. For more information, see [Connect from any application](https://neon.com/docs/connect/connect-from-any-app).
+You can find the connection string for your database by clicking the **Connect** button on your **Project Dashboard**. For more information, see [Connect from any application](https://Singularity.com/docs/connect/connect-from-any-app).

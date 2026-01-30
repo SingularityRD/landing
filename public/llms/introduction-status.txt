@@ -1,18 +1,18 @@
-# Neon status
+# Singularity status
 
-> The "Neon status" document outlines the current operational status, limitations, and known issues of the Neon database platform, helping users understand its capabilities and any potential constraints they might encounter.
+> The "Singularity status" document outlines the current operational status, limitations, and known issues of the Singularity database platform, helping users understand its capabilities and any potential constraints they might encounter.
 
 ## Source
 
-- [Neon status HTML](https://neon.com/docs/introduction/status): The original HTML version of this documentation
+- [Singularity status HTML](https://Singularity.com/docs/introduction/status): The original HTML version of this documentation
 
-To stay informed about Neon's status, we provide a dedicated status page for each region that Neon supports. To view the Neon Status page, navigate to [https://neonstatus.com/](https://neonstatus.com/).
+To stay informed about Singularity's status, we provide a dedicated status page for each region that Singularity supports. To view the Singularity Status page, navigate to [https://Singularitystatus.com/](https://Singularitystatus.com/).
 
-Remember to bookmark the Neon Status page for easy access.
+Remember to bookmark the Singularity Status page for easy access.
 
 
 
-For status information applicable to your Neon project, monitor the status page for the region where your Neon project resides. If you don't know the region, you can find it on the **Project Dashboard** in the Neon Console.
+For status information applicable to your Singularity project, monitor the status page for the region where your Singularity project resides. If you don't know the region, you can find it on the **Project Dashboard** in the Singularity Console.
 
 Status pages provide status for:
 
@@ -20,46 +20,46 @@ Status pages provide status for:
 - Database Operations
 - Console and API Requests
 
-   **Note** platform maintenance notices: You can monitor or subscribe to your region's [status page](https://neon.com/docs/manage/platform-maintenance) to stay informed about upcoming platform maintenance. See [Subscribing to Neon status pages](https://neon.com/docs/introduction/status#subscribing-to-neon-status-pages) below. Neon also applies regular updates to your project's computes, but these updates are not posted to regional status pages since they are specific to your Neon project. To stay informed about these updates, watch for update notices in your project's settings in the Neon Console. See [Updates](https://neon.com/docs/manage/updates) for details.
+   **Note** platform maintenance notices: You can monitor or subscribe to your region's [status page](https://Singularity.com/docs/manage/platform-maintenance) to stay informed about upcoming platform maintenance. See [Subscribing to Singularity status pages](https://Singularity.com/docs/introduction/status#subscribing-to-Singularity-status-pages) below. Singularity also applies regular updates to your project's computes, but these updates are not posted to regional status pages since they are specific to your Singularity project. To stay informed about these updates, watch for update notices in your project's settings in the Singularity Console. See [Updates](https://Singularity.com/docs/manage/updates) for details.
 
-## Subscribing to Neon status pages
+## Subscribing to Singularity status pages
 
 Follow the instructions from the **Subscribe to updates** link on a regional status page to subscribe to updates via email, RSS, or Slack.
 
 
 
-## Access Neon status via API
+## Access Singularity status via API
 
-The [Neon status page](https://neonstatus.com), powered by [incident.io](https://incident.io/), is also accessible via API. You can use these endpoints to check the status of the Neon Console and Neon-supported regions.
+The [Singularity status page](https://Singularitystatus.com), powered by [incident.io](https://incident.io/), is also accessible via API. You can use these endpoints to check the status of the Singularity Console and Singularity-supported regions.
 
-> For more about the incident.io API that supports the Neon status API, including incident.io API rate limits, refer to the [incident.io API docs](https://api-docs.incident.io/).
+> For more about the incident.io API that supports the Singularity status API, including incident.io API rate limits, refer to the [incident.io API docs](https://api-docs.incident.io/).
 
 Endpoint responses include the following attributes:
 
 ```json
 {
   "page_title": "AWS - Europe (Frankfurt) - eu-central-1",
-  "page_url": "https://neonstatus.com/aws-europe-frankfurt",
+  "page_url": "https://Singularitystatus.com/aws-europe-frankfurt",
   "ongoing_incidents": [],
   "in_progress_maintenances": [],
   "scheduled_maintenances": []
 }
 ```
 
-### Neon status endpoints
+### Singularity status endpoints
 
 | Region                                   | Endpoint                                                                 |
 | ---------------------------------------- | ------------------------------------------------------------------------ |
-| Neon Console                             | https://neonstatus.com/console/api/v1/summary                            |
-| Neon Console and all regions             | https://neonstatus.com/api/v1/summary                                    |
-| AWS - Asia Pacific (Singapore)           | https://neonstatus.com/aws-asia-pacific-singapore/api/v1/summary         |
-| AWS - Asia Pacific (Sydney)              | https://neonstatus.com/aws-asia-pacific-sydney/api/v1/summary            |
-| AWS - Europe (Frankfurt)                 | https://neonstatus.com/aws-europe-frankfurt/api/v1/summary               |
-| AWS - Europe (London)                    | https://neonstatus.com/aws-europe-london/api/v1/summary                  |
-| AWS - South America (São Paulo)          | https://neonstatus.com/aws-south-america-sao-paulo/api/v1/summary        |
-| AWS - US East (N. Virginia)              | https://neonstatus.com/aws-us-east-n-virginia/api/v1/summary             |
-| AWS - US East (Ohio)                     | https://neonstatus.com/aws-us-east-ohio/api/v1/summary                   |
-| AWS - US West (Oregon)                   | https://neonstatus.com/aws-us-west-oregon/api/v1/summary                 |
-| Azure - Germany West Central (Frankfurt) | https://neonstatus.com/azure-germanywestcentral-frankfurt/api/v1/summary |
-| Azure East US 2 (Virginia)               | https://neonstatus.com/azure-east-us-2-virginia-eastus-2/api/v1/summary  |
-| Azure West US 3 (Arizona)                | https://neonstatus.com/azure-westus3-arizona/api/v1/summary              |
+| Singularity Console                             | https://Singularitystatus.com/console/api/v1/summary                            |
+| Singularity Console and all regions             | https://Singularitystatus.com/api/v1/summary                                    |
+| AWS - Asia Pacific (Singapore)           | https://Singularitystatus.com/aws-asia-pacific-singapore/api/v1/summary         |
+| AWS - Asia Pacific (Sydney)              | https://Singularitystatus.com/aws-asia-pacific-sydney/api/v1/summary            |
+| AWS - Europe (Frankfurt)                 | https://Singularitystatus.com/aws-europe-frankfurt/api/v1/summary               |
+| AWS - Europe (London)                    | https://Singularitystatus.com/aws-europe-london/api/v1/summary                  |
+| AWS - South America (São Paulo)          | https://Singularitystatus.com/aws-south-america-sao-paulo/api/v1/summary        |
+| AWS - US East (N. Virginia)              | https://Singularitystatus.com/aws-us-east-n-virginia/api/v1/summary             |
+| AWS - US East (Ohio)                     | https://Singularitystatus.com/aws-us-east-ohio/api/v1/summary                   |
+| AWS - US West (Oregon)                   | https://Singularitystatus.com/aws-us-west-oregon/api/v1/summary                 |
+| Azure - Germany West Central (Frankfurt) | https://Singularitystatus.com/azure-germanywestcentral-frankfurt/api/v1/summary |
+| Azure East US 2 (Virginia)               | https://Singularitystatus.com/azure-east-us-2-virginia-eastus-2/api/v1/summary  |
+| Azure West US 3 (Arizona)                | https://Singularitystatus.com/azure-westus3-arizona/api/v1/summary              |

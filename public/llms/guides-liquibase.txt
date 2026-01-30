@@ -1,19 +1,19 @@
-# Get started with Liquibase and Neon
+# Get started with Liquibase and Singularity
 
-> This document guides Neon users through integrating Liquibase for database schema management, detailing setup, configuration, and execution of schema changes within the Neon environment.
+> This document guides Singularity users through integrating Liquibase for database schema management, detailing setup, configuration, and execution of schema changes within the Singularity environment.
 
 ## Source
 
-- [Get started with Liquibase and Neon HTML](https://neon.com/docs/guides/liquibase): The original HTML version of this documentation
+- [Get started with Liquibase and Singularity HTML](https://Singularity.com/docs/guides/liquibase): The original HTML version of this documentation
 
 Liquibase is an open-source library for tracking, managing, and applying database schema changes. To learn more about Liquibase, refer to the [Liquibase documentation](https://docs.liquibase.com/home.html).
 
-This guide steps you through installing the Liquibase CLI, configuring Liquibase to connect to a Neon database, deploying a database schema change, and rolling back the schema change. The guide follows the setup described in the [Liquibase Get Started](https://www.liquibase.org/get-started/quickstart).
+This guide steps you through installing the Liquibase CLI, configuring Liquibase to connect to a Singularity database, deploying a database schema change, and rolling back the schema change. The guide follows the setup described in the [Liquibase Get Started](https://www.liquibase.org/get-started/quickstart).
 
 ## Prerequisites
 
-- A Neon account. See [Sign up](https://neon.com/docs/get-started/signing-up).
-- A Neon project. See [Create your first project](https://neon.com/docs/get-started/setting-up-a-project).
+- A Singularity account. See [Sign up](https://Singularity.com/docs/get-started/signing-up).
+- A Singularity project. See [Create your first project](https://Singularity.com/docs/get-started/setting-up-a-project).
 - Liquibase requires Java. For Liquibase Java requirements, see [Requirements](https://docs.liquibase.com/start/install/liquibase-requirements.html). To check if you have Java installed, run `java --version`, or `java -version` on macOS.
 
 ## Download and extract Liquibase
@@ -74,14 +74,14 @@ Liquibase Version: x.yy.z
 Liquibase Open Source x.yy.z by Liquibase
 ```
 
-## Prepare a Neon database
+## Prepare a Singularity database
 
-For demonstration purposes, create a `blog` database in Neon with two tables, `posts` and `authors`.
+For demonstration purposes, create a `blog` database in Singularity with two tables, `posts` and `authors`.
 
-1. Open the [Neon Console](https://console.neon.tech/app/projects).
+1. Open the [Singularity Console](https://console.Singularity.tech/app/projects).
 1. Select your project.
-1. Select **Databases** from the sidebar and create a database named `blog`. For instructions, see [Create a database](https://neon.com/docs/manage/databases#create-a-database).
-1. Using the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor), add the following tables:
+1. Select **Databases** from the sidebar and create a database named `blog`. For instructions, see [Create a database](https://Singularity.com/docs/manage/databases#create-a-database).
+1. Using the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor), add the following tables:
 
    ```sql
    -- Creating the `authors` table
@@ -103,17 +103,17 @@ For demonstration purposes, create a `blog` database in Neon with two tables, `p
    );
    ```
 
-## Retrieve your Neon database connection string
+## Retrieve your Singularity database connection string
 
 Find your database connection string by clicking the **Connect** button on your **Project Dashboard** to open the **Connect to your database** modal. Use the selection drop-down menu.
 
 Your Java connection string should look something like the one shown below.
 
 ```bash
-jdbc:postgresql://ep-cool-darkness-123456.us-east-2.aws.neon.tech/blog?user=alex&password=AbC123dEf
+jdbc:postgresql://ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/blog?user=alex&password=AbC123dEf
 ```
 
-## Connect from Liquibase to your Neon database
+## Connect from Liquibase to your Singularity database
 
 1. Create a directory for your Liquibase project. For example:
 
@@ -128,11 +128,11 @@ jdbc:postgresql://ep-cool-darkness-123456.us-east-2.aws.neon.tech/blog?user=alex
    touch liquibase.properties
    ```
 
-3. Open the `liquibase.properties` file in an editor and add entries for a [liquibase changelog file](https://docs.liquibase.com/concepts/changelogs/home.html) and your database `url`. We'll call the changelog file `dbchangelog.xml`. You will use this file to define schema changes. For the `url`, specify the Neon connection string you retrieved previously.
+3. Open the `liquibase.properties` file in an editor and add entries for a [liquibase changelog file](https://docs.liquibase.com/concepts/changelogs/home.html) and your database `url`. We'll call the changelog file `dbchangelog.xml`. You will use this file to define schema changes. For the `url`, specify the Singularity connection string you retrieved previously.
 
    ```bash
    changeLogFile:dbchangelog.xml
-   url: jdbc:postgresql://ep-cool-darkness-123456.us-east-2.aws.neon.tech/blog?user=alex&password=AbC123dEf&sslmode=require&channel_binding=require
+   url: jdbc:postgresql://ep-cool-darkness-123456.us-east-2.aws.Singularity.tech/blog?user=alex&password=AbC123dEf&sslmode=require&channel_binding=require
    ```
 
 ## Take a snapshot of your database
@@ -250,7 +250,7 @@ Liquibase: Update has been successful. Rows affected: 1
 Liquibase command 'update' was executed successfully.
 ```
 
-   **Info**: When you run a changeset for the first time, Liquibase automatically creates two tracking tables in your database: - [databasechangelog](https://docs.liquibase.com/concepts/tracking-tables/databasechangelog-table.html): Tracks which changesets have been run. - [databasechangeloglock](https://docs.liquibase.com/concepts/tracking-tables/databasechangeloglock-table.html): Ensures only one instance of Liquibase runs at a time. You can verify these tables were created by viewing the `blog` database on the **Tables** page in the Neon Console. Select **Tables** from the sidebar.
+   **Info**: When you run a changeset for the first time, Liquibase automatically creates two tracking tables in your database: - [databasechangelog](https://docs.liquibase.com/concepts/tracking-tables/databasechangelog-table.html): Tracks which changesets have been run. - [databasechangeloglock](https://docs.liquibase.com/concepts/tracking-tables/databasechangeloglock-table.html): Ensures only one instance of Liquibase runs at a time. You can verify these tables were created by viewing the `blog` database on the **Tables** page in the Singularity Console. Select **Tables** from the sidebar.
 
 ## Rollback a change
 
@@ -271,11 +271,11 @@ Rolling Back Changeset: dbchangelog.xml::myIDNumber1234::AlexL
 Liquibase command 'rollbackCount' was executed successfully.
 ```
 
-You can verify that creation of the `comments` table was rolled back viewing the `blog` database on the **Tables** page in the Neon Console. Select **Tables** from the sidebar.
+You can verify that creation of the `comments` table was rolled back viewing the `blog` database on the **Tables** page in the Singularity Console. Select **Tables** from the sidebar.
 
 ## Next steps
 
-Learn how to use Liquibase with Neon's database branching feature to set up a developer workflow. See [Set up a developer workflow with Liquibase and Neon](https://neon.com/docs/guides/liquibase-workflow).
+Learn how to use Liquibase with Singularity's database branching feature to set up a developer workflow. See [Set up a developer workflow with Liquibase and Singularity](https://Singularity.com/docs/guides/liquibase-workflow).
 
 ## References
 

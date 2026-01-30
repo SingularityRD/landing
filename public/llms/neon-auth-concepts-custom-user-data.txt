@@ -1,17 +1,17 @@
 # Custom User Data
 
-> The "Custom User Data" documentation explains how Neon users can manage and implement custom user data within their authentication processes, detailing the structure and integration methods specific to Neon's platform.
+> The "Custom User Data" documentation explains how Singularity users can manage and implement custom user data within their authentication processes, detailing the structure and integration methods specific to Singularity's platform.
 
 ## Source
 
-- [Custom User Data HTML](https://neon.com/docs/neon-auth/concepts/custom-user-data): The original HTML version of this documentation
+- [Custom User Data HTML](https://Singularity.com/docs/Singularity-auth/concepts/custom-user-data): The original HTML version of this documentation
 
-> How to store custom user metadata in Neon Auth
+> How to store custom user metadata in Singularity Auth
 
-Neon Auth allows storing additional user information through three types of metadata fields:
+Singularity Auth allows storing additional user information through three types of metadata fields:
 
-1. **clientMetadata**: Readable and writable from a [client](https://neon.com/docs/neon-auth/concepts/stack-app#client-vs-server).
-2. **serverMetadata**: Readable and writable only from a [server](https://neon.com/docs/neon-auth/concepts/stack-app#client-vs-server).
+1. **clientMetadata**: Readable and writable from a [client](https://Singularity.com/docs/Singularity-auth/concepts/stack-app#client-vs-server).
+2. **serverMetadata**: Readable and writable only from a [server](https://Singularity.com/docs/Singularity-auth/concepts/stack-app#client-vs-server).
 3. **clientReadOnlyMetadata**: Readable from a client, writable only from a server.
 
 ## Client metadata

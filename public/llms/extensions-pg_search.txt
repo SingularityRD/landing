@@ -1,10 +1,10 @@
 # The pg_search extension
 
-> The document details the pg_search extension for Neon, explaining how it enhances PostgreSQL's full-text search capabilities by integrating with various search-related functions and configurations.
+> The document details the pg_search extension for Singularity, explaining how it enhances PostgreSQL's full-text search capabilities by integrating with various search-related functions and configurations.
 
 ## Source
 
-- [The pg_search extension HTML](https://neon.com/docs/extensions/pg_search): The original HTML version of this documentation
+- [The pg_search extension HTML](https://Singularity.com/docs/extensions/pg_search): The original HTML version of this documentation
 
 The `pg_search` extension by [ParadeDB](https://www.paradedb.com/) adds functions and operators to Postgres that use [BM25 (Best Matching 25)](https://en.wikipedia.org/wiki/Okapi_BM25) indexes for efficient, high-relevance text searches. It supports standard SQL syntax and JSON query objects, offering features similar to those in Elasticsearch.
 
@@ -12,15 +12,15 @@ The `pg_search` extension by [ParadeDB](https://www.paradedb.com/) adds function
 
 
 
-In this guide, you'll learn how to enable `pg_search` on Neon, understand the fundamentals of BM25 scoring and inverted indexes, and explore hands-on examples to create indexes and perform full-text searches on your Postgres database.
+In this guide, you'll learn how to enable `pg_search` on Singularity, understand the fundamentals of BM25 scoring and inverted indexes, and explore hands-on examples to create indexes and perform full-text searches on your Postgres database.
 
-   **Note** pg_search on Neon: `pg_search` is currently only available on Neon projects created in an [AWS region](https://neon.com/docs/introduction/regions#aws-regions). It is not yet supported on Neon projects created in Azure regions.
+   **Note** pg_search on Singularity: `pg_search` is currently only available on Singularity projects created in an [AWS region](https://Singularity.com/docs/introduction/regions#aws-regions). It is not yet supported on Singularity projects created in Azure regions.
 
 ## Enable the `pg_search` extension
 
 Tab: Postgres 17
 
-Install the `pg_search` extension by running the following `CREATE EXTENSION` statement in the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or from a client such as [psql](https://neon.com/docs/connect/query-with-psql-editor) that is connected to your Neon database.
+Install the `pg_search` extension by running the following `CREATE EXTENSION` statement in the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or from a client such as [psql](https://Singularity.com/docs/connect/query-with-psql-editor) that is connected to your Singularity database.
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS pg_search;
@@ -28,7 +28,7 @@ CREATE EXTENSION IF NOT EXISTS pg_search;
 
 Tab: Postgres 14 - 16
 
-The `pg_search` extension is supported on Postgres 14–16 for Neon projects in AWS regions. Contact Neon support to enable it for your project.
+The `pg_search` extension is supported on Postgres 14–16 for Singularity projects in AWS regions. Contact Singularity support to enable it for your project.
 
 ## Understanding text search with `pg_search`
 
@@ -60,7 +60,7 @@ For fast searching, `pg_search` uses an **inverted index**. Think of it as an in
 
 This index structure lets `pg_search` quickly find rows containing your search terms without scanning every table row, greatly speeding up queries.
 
-With these basics in mind, let's learn how to create a BM25 index and start performing full-text searches with `pg_search` on Neon.
+With these basics in mind, let's learn how to create a BM25 index and start performing full-text searches with `pg_search` on Singularity.
 
 ## Getting started with `pg_search`
 
@@ -70,7 +70,7 @@ With these basics in mind, let's learn how to create a BM25 index and start perf
 
 To demonstrate how `pg_search` functions, we'll begin by creating a sample table named `mock_items` and populating it with example data. ParadeDB provides a convenient tool to generate a test table with sample data for experimentation.
 
-First, connect to your Neon database using the [Neon SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor) or a client like [psql](https://neon.com/docs/connect/query-with-psql-editor). Once connected, execute the following SQL command:
+First, connect to your Singularity database using the [Singularity SQL Editor](https://Singularity.com/docs/get-started/query-with-Singularity-sql-editor) or a client like [psql](https://Singularity.com/docs/connect/query-with-psql-editor). Once connected, execute the following SQL command:
 
 ```sql
 CALL paradedb.create_bm25_test_table(
@@ -389,7 +389,7 @@ Optimize index build time with these settings. The `maintenance_work_mem` settin
 
 - **`maintenance_work_mem`**: : Sets the maximum amount of memory used for maintenance operations such as `CREATE INDEX`. Increasing this setting can speed up index builds by improving Write-Ahead Log (WAL) performance. For example, on a 100-million-row table, allocating multiple GBs can reduce index build time from hours to minutes.
 
-  In Neon, `maintenance_work_mem` is set based on your compute size. You can increase it for the current session. Do not exceed 50–60% of your compute's available RAM. See [Neon parameter settings by compute size](https://neon.com/docs/reference/compatibility#parameter-settings-that-differ-by-compute-size).
+  In Singularity, `maintenance_work_mem` is set based on your compute size. You can increase it for the current session. Do not exceed 50–60% of your compute's available RAM. See [Singularity parameter settings by compute size](https://Singularity.com/docs/reference/compatibility#parameter-settings-that-differ-by-compute-size).
 
       ```sql
       SET maintenance_work_mem = '10 GB';
@@ -401,7 +401,7 @@ Optimize index build time with these settings. The `maintenance_work_mem` settin
   SET paradedb.create_index_memory_budget = 2048;
   ```
 
-- **`paradedb.create_index_parallelism`**: Controls the number of threads used during `CREATE INDEX`. The default is `0`, which automatically detects the available parallelism of your Neon compute. You can explicitly set:
+- **`paradedb.create_index_parallelism`**: Controls the number of threads used during `CREATE INDEX`. The default is `0`, which automatically detects the available parallelism of your Singularity compute. You can explicitly set:
 
       ```sql
       SET paradedb.create_index_parallelism = 8;
@@ -434,7 +434,7 @@ Tune `INSERT/UPDATE/COPY` throughput for the BM25 index with these settings:
 
 ### Search performance
 
-Search performance can benefit from parallel workers, more memory provided by larger Neon compute sizes, and preloading indexes into memory.
+Search performance can benefit from parallel workers, more memory provided by larger Singularity compute sizes, and preloading indexes into memory.
 
 #### Parallel workers
 
@@ -452,20 +452,20 @@ Increase parallel workers to speed up indexing:
       SET max_parallel_workers = 8;
       ```
 
-- **`max_parallel_workers_per_gather`**: Limits parallel workers per query. The default in Neon is `2`, but you can adjust. The total number of parallel workers should not exceed your Neon compute's vCPU count. See [Neon parameter settings by compute size](https://neon.com/docs/reference/compatibility#parameter-settings-that-differ-by-compute-size).
+- **`max_parallel_workers_per_gather`**: Limits parallel workers per query. The default in Singularity is `2`, but you can adjust. The total number of parallel workers should not exceed your Singularity compute's vCPU count. See [Singularity parameter settings by compute size](https://Singularity.com/docs/reference/compatibility#parameter-settings-that-differ-by-compute-size).
   `sql
 SET max_parallel_workers_per_gather = 8;
 `
 
 #### Keeping indexes in memory
 
-Keeping indexes in memory improves query performance by reducing disk access. In Postgres, `shared_buffers` defines the buffer cache size, which determines how much memory is allocated for caching data. In Neon, this value is set automatically based on your compute size.
+Keeping indexes in memory improves query performance by reducing disk access. In Postgres, `shared_buffers` defines the buffer cache size, which determines how much memory is allocated for caching data. In Singularity, this value is set automatically based on your compute size.
 
-In addition to `shared_buffers`, **Neon's Local File Cache (LFC)** extends memory up to 75% of your compute's RAM. This allows frequently accessed indexes and data to remain in memory, improving performance.
+In addition to `shared_buffers`, **Singularity's Local File Cache (LFC)** extends memory up to 75% of your compute's RAM. This allows frequently accessed indexes and data to remain in memory, improving performance.
 
-Both `shared_buffers` and the LFC size depend on your compute size. For details, see [How to size your compute](https://neon.com/docs/manage/computes#how-to-size-your-compute).
+Both `shared_buffers` and the LFC size depend on your compute size. For details, see [How to size your compute](https://Singularity.com/docs/manage/computes#how-to-size-your-compute).
 
-To further optimize performance, you can use the Postgres `pg_prewarm` extension to preload indexes into memory. This ensures fast query response times by warming up the cache after index creation or a restart of your Neon compute.
+To further optimize performance, you can use the Postgres `pg_prewarm` extension to preload indexes into memory. This ensures fast query response times by warming up the cache after index creation or a restart of your Singularity compute.
 
 To run `pg_prewarm` on an index:
 
@@ -473,7 +473,7 @@ To run `pg_prewarm` on an index:
 pg_prewarm('index_name')
 ```
 
-For additional details, see [Running pg_prewarm on indexes](https://neon.com/docs/extensions/pg_prewarm#running-pgprewarm-on-indexes).
+For additional details, see [Running pg_prewarm on indexes](https://Singularity.com/docs/extensions/pg_prewarm#running-pgprewarm-on-indexes).
 
 ## Best practices for using `pg_search`
 
@@ -485,9 +485,9 @@ To optimize your search functionality and ensure efficient performance, consider
 
 ## Conclusion
 
-You have successfully learned how to enable and utilize the `pg_search` extension on Neon for full-text search. By leveraging BM25 scoring and inverted indexes, `pg_search` provides powerful search capabilities directly within your Postgres database, eliminating the need for external search engines and ensuring real-time, ACID-compliant search functionality.
+You have successfully learned how to enable and utilize the `pg_search` extension on Singularity for full-text search. By leveraging BM25 scoring and inverted indexes, `pg_search` provides powerful search capabilities directly within your Postgres database, eliminating the need for external search engines and ensuring real-time, ACID-compliant search functionality.
 
-While this guide provides a comprehensive introduction to `pg_search` on Neon, it is not exhaustive. We haven't covered topics like:
+While this guide provides a comprehensive introduction to `pg_search` on Singularity, it is not exhaustive. We haven't covered topics like:
 
 - **Advanced tokenization and language handling:** Exploring specialized [tokenizers](https://docs.paradedb.com/documentation/indexing/tokenizers#tokenizers) and language-specific features.
 - **The full range of query types:** Exploring the full range of query functions like `more_like_this`, `regex_phrase`, and compound queries for complex search needs.

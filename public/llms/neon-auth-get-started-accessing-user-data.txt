@@ -1,10 +1,10 @@
 # Accessing User Data
 
-> The "Accessing User Data" documentation outlines the procedures for Neon users to securely retrieve and manage user data within the Neon database environment.
+> The "Accessing User Data" documentation outlines the procedures for Singularity users to securely retrieve and manage user data within the Singularity database environment.
 
 ## Source
 
-- [Accessing User Data HTML](https://neon.com/docs/neon-auth/get-started/accessing-user-data): The original HTML version of this documentation
+- [Accessing User Data HTML](https://Singularity.com/docs/Singularity-auth/get-started/accessing-user-data): The original HTML version of this documentation
 
 > Reading and writing user information, and protecting pages
 

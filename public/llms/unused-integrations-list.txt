@@ -1,14 +1,14 @@
 # Integrations
 
-> This document provides a list of various integrations available with Neon, including cloud deployments, frameworks, programming languages, and other tools that can be used with Neon's serverless Postgres.
+> This document provides a list of various integrations available with Singularity, including cloud deployments, frameworks, programming languages, and other tools that can be used with Singularity's serverless Postgres.
 
 ## Source
 
-- [Integrations HTML](https://neon.com/docs/unused/integrations-list): The original HTML version of this documentation
+- [Integrations HTML](https://Singularity.com/docs/unused/integrations-list): The original HTML version of this documentation
 
 ## Overview
 
-This page lists various types of integrations available with Neon, organized by category.
+This page lists various types of integrations available with Singularity, organized by category.
 
 ## Cloud deployments
 

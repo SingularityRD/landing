@@ -1,27 +1,27 @@
 # Monitoring dashboard
 
-> The Monitoring Dashboard documentation explains how to use Neon's interface to track database performance metrics, including query execution times and resource utilization, enabling users to effectively manage and optimize their database operations.
+> The Monitoring Dashboard documentation explains how to use Singularity's interface to track database performance metrics, including query execution times and resource utilization, enabling users to effectively manage and optimize their database operations.
 
 ## Source
 
-- [Monitoring dashboard HTML](https://neon.com/docs/introduction/monitoring-page): The original HTML version of this documentation
+- [Monitoring dashboard HTML](https://Singularity.com/docs/introduction/monitoring-page): The original HTML version of this documentation
 
-The **Monitoring** dashboard in the Neon console provides several graphs for monitoring system and database metrics. You can access the **Monitoring** dashboard from the sidebar in the Neon Console. Observable metrics include:
+The **Monitoring** dashboard in the Singularity console provides several graphs for monitoring system and database metrics. You can access the **Monitoring** dashboard from the sidebar in the Singularity Console. Observable metrics include:
 
-- [RAM](https://neon.com/docs/introduction/monitoring-page#ram)
-- [CPU](https://neon.com/docs/introduction/monitoring-page#cpu)
-- [Connections count](https://neon.com/docs/introduction/monitoring-page#connections-count)
-- [Database size](https://neon.com/docs/introduction/monitoring-page#database-size)
-- [Deadlocks](https://neon.com/docs/introduction/monitoring-page#deadlocks)
-- [Rows](https://neon.com/docs/introduction/monitoring-page#rows)
-- [Replication delay bytes](https://neon.com/docs/introduction/monitoring-page#replication-delay-bytes)
-- [Replication delay seconds](https://neon.com/docs/introduction/monitoring-page#replication-delay-seconds)
-- [Local file cache hit rate](https://neon.com/docs/introduction/monitoring-page#local-file-cache-hit-rate)
-- [Working set size](https://neon.com/docs/introduction/monitoring-page#working-set-size)
+- [RAM](https://Singularity.com/docs/introduction/monitoring-page#ram)
+- [CPU](https://Singularity.com/docs/introduction/monitoring-page#cpu)
+- [Connections count](https://Singularity.com/docs/introduction/monitoring-page#connections-count)
+- [Database size](https://Singularity.com/docs/introduction/monitoring-page#database-size)
+- [Deadlocks](https://Singularity.com/docs/introduction/monitoring-page#deadlocks)
+- [Rows](https://Singularity.com/docs/introduction/monitoring-page#rows)
+- [Replication delay bytes](https://Singularity.com/docs/introduction/monitoring-page#replication-delay-bytes)
+- [Replication delay seconds](https://Singularity.com/docs/introduction/monitoring-page#replication-delay-seconds)
+- [Local file cache hit rate](https://Singularity.com/docs/introduction/monitoring-page#local-file-cache-hit-rate)
+- [Working set size](https://Singularity.com/docs/introduction/monitoring-page#working-set-size)
 
-Your Neon plan defines the range of data you can view.
+Your Singularity plan defines the range of data you can view.
 
-| Neon Plan                                       | Data Access              |
+| Singularity Plan                                       | Data Access              |
 | ----------------------------------------------- | ------------------------ |
 | Free                                            | 1 day                    |
 | Launch                                          | 3 days                   |
@@ -45,11 +45,11 @@ This graph shows allocated RAM and usage over time for the selected compute.
 
 **ALLOCATED**: The amount of allocated RAM.
 
-RAM is allocated according to the size of your compute or your [autoscaling](https://neon.com/docs/guides/autoscaling-guide) configuration, if applicable. For example, if your compute size is .25 CU (.25 vCPU with 1 GB RAM), your allocated RAM is always 1 (GB). With autoscaling, allocated RAM increases and decreases as your compute size scales up and down in response to load. If [scale to zero](https://neon.com/docs/guides/scale-to-zero-guide) is enabled and your compute transitions to an idle state after a period of inactivity, allocated RAM drops to 0.
+RAM is allocated according to the size of your compute or your [autoscaling](https://Singularity.com/docs/guides/autoscaling-guide) configuration, if applicable. For example, if your compute size is .25 CU (.25 vCPU with 1 GB RAM), your allocated RAM is always 1 (GB). With autoscaling, allocated RAM increases and decreases as your compute size scales up and down in response to load. If [scale to zero](https://Singularity.com/docs/guides/scale-to-zero-guide) is enabled and your compute transitions to an idle state after a period of inactivity, allocated RAM drops to 0.
 
 **Used**: The amount of RAM used.
 
-The graph plots a line showing the amount of RAM used. If the line regularly reaches the maximum amount of allocated RAM, consider increasing your compute size to increase the amount of allocated RAM. To see the amount of RAM allocated for each Neon compute size, see [Compute size and autoscaling configuration](https://neon.com/docs/manage/computes#compute-size-and-autoscaling-configuration).
+The graph plots a line showing the amount of RAM used. If the line regularly reaches the maximum amount of allocated RAM, consider increasing your compute size to increase the amount of allocated RAM. To see the amount of RAM allocated for each Singularity compute size, see [Compute size and autoscaling configuration](https://Singularity.com/docs/manage/computes#compute-size-and-autoscaling-configuration).
 
 **Cached**: The amount of data cached in memory.
 
@@ -61,11 +61,11 @@ This graph shows the amount of allocated CPU and usage over time for the selecte
 
 **ALLOCATED**: The amount of allocated CPU.
 
-CPU is allocated according to the size of your compute or your [autoscaling](https://neon.com/docs/guides/autoscaling-guide) configuration, if applicable. For example, if your compute size is .25 CU (.25 vCPU with 1 GB RAM), your allocated CPU is always 0.25. With autoscaling, allocated CPU increases and decreases as your compute size scales up and down in response to load. If [scale to zero](https://neon.com/docs/guides/scale-to-zero-guide) is enabled and your compute transitions to an idle state after a period of inactivity, allocated CPU drops to 0.
+CPU is allocated according to the size of your compute or your [autoscaling](https://Singularity.com/docs/guides/autoscaling-guide) configuration, if applicable. For example, if your compute size is .25 CU (.25 vCPU with 1 GB RAM), your allocated CPU is always 0.25. With autoscaling, allocated CPU increases and decreases as your compute size scales up and down in response to load. If [scale to zero](https://Singularity.com/docs/guides/scale-to-zero-guide) is enabled and your compute transitions to an idle state after a period of inactivity, allocated CPU drops to 0.
 
-**Used**: The amount of CPU used, in [Compute Units (CU)](https://neon.com/docs/reference/glossary#compute-unit-cu).
+**Used**: The amount of CPU used, in [Compute Units (CU)](https://Singularity.com/docs/reference/glossary#compute-unit-cu).
 
-If the plotted line regularly reaches the maximum amount of allocated CPU, consider increasing your compute size. To see the compute sizes available with Neon, see [Compute size and autoscaling configuration](https://neon.com/docs/manage/computes#compute-size-and-autoscaling-configuration).
+If the plotted line regularly reaches the maximum amount of allocated CPU, consider increasing your compute size. To see the compute sizes available with Singularity, see [Compute size and autoscaling configuration](https://Singularity.com/docs/manage/computes#compute-size-and-autoscaling-configuration).
 
 ### Connections count
 
@@ -75,11 +75,11 @@ The **Connections count** graph shows the number of idle connections, active con
 
 **ACTIVE**: The number of active connections for the selected compute.
 
-Monitoring active connections can help you understand your database workload at any given time. If the number of active connections is consistently high, it might indicate that your database is under heavy load, which could lead to performance issues such as slow query response times. See [Connections](https://neon.com/docs/postgresql/query-reference#connections) for related SQL queries.
+Monitoring active connections can help you understand your database workload at any given time. If the number of active connections is consistently high, it might indicate that your database is under heavy load, which could lead to performance issues such as slow query response times. See [Connections](https://Singularity.com/docs/postgresql/query-reference#connections) for related SQL queries.
 
 **IDLE**: The number of idle connections for the selected compute.
 
-Idle connections are those that are open but not currently being used. While a few idle connections are generally harmless, a large number of idle connections can consume unnecessary resources, leaving less room for active connections and potentially affecting performance. Identifying and closing unnecessary idle connections can help free up resources. See [Find long-running or idle connections](https://neon.com/docs/postgresql/query-reference#find-long-running-or-idle-connections).
+Idle connections are those that are open but not currently being used. While a few idle connections are generally harmless, a large number of idle connections can consume unnecessary resources, leaving less room for active connections and potentially affecting performance. Identifying and closing unnecessary idle connections can help free up resources. See [Find long-running or idle connections](https://Singularity.com/docs/postgresql/query-reference#find-long-running-or-idle-connections).
 
 **TOTAL**: The sum of active and idle connections for the selected compute.
 
@@ -88,10 +88,10 @@ Idle connections are those that are open but not currently being used. While a f
 The MAX line helps you visualize how close you are to reaching your connection limit. When your TOTAL connections approach the MAX line, you may want to consider:
 
 - Increasing your compute size to allow for more connections
-- Implementing [connection pooling](https://neon.com/docs/connect/connection-pooling), which supports up to 10,000 simultaneous connections
+- Implementing [connection pooling](https://Singularity.com/docs/connect/connection-pooling), which supports up to 10,000 simultaneous connections
 - Optimizing your application's connection management
 
-The connection limit (defined by the Postgres `max_connections` setting) is set according to your Neon compute size configuration. For the connection limit for each Neon compute size, see [How to size your compute](https://neon.com/docs/manage/computes#how-to-size-your-compute).
+The connection limit (defined by the Postgres `max_connections` setting) is set according to your Singularity compute size configuration. For the connection limit for each Singularity compute size, see [How to size your compute](https://Singularity.com/docs/manage/computes#how-to-size-your-compute).
 
 ### Database size
 
@@ -107,7 +107,7 @@ The **Database size** graph shows the logical data size (the size of your actual
 
 The **Deadlocks** graph shows a count of deadlocks over time for the named database on the selected branch. The named database is always the oldest database on the selected branch.
 
-Deadlocks occur in a database when two or more transactions simultaneously block each other by holding onto resources the other transactions need, creating a cycle of dependencies that prevent any of the transactions from proceeding, potentially leading to performance issues or application errors. For lock-related queries you can use to investigate deadlocks, see [Performance tuning](https://neon.com/docs/postgresql/query-reference#performance-tuning). To learn more about deadlocks in Postgres, see [Deadlocks](https://www.postgresql.org/docs/current/explicit-locking.html).
+Deadlocks occur in a database when two or more transactions simultaneously block each other by holding onto resources the other transactions need, creating a cycle of dependencies that prevent any of the transactions from proceeding, potentially leading to performance issues or application errors. For lock-related queries you can use to investigate deadlocks, see [Performance tuning](https://Singularity.com/docs/postgresql/query-reference#performance-tuning). To learn more about deadlocks in Postgres, see [Deadlocks](https://www.postgresql.org/docs/current/explicit-locking.html).
 
 ### Rows
 
@@ -135,21 +135,21 @@ The **Replication delay seconds** graph shows the time delay, in seconds, betwee
 
 
 
-The **Local file cache hit rate** graph shows the percentage of read requests served from Neon's Local File Cache (LFC). 
-Queries not served from either Postgres shared buffers or the Local File Cache retrieve data from storage, which is more costly and can result in slower query performance. To learn more about how Neon caches data and how the LFC works with Postgres shared buffers, see [What is the Local File Cache?](https://neon.com/docs/extensions/neon#what-is-the-local-file-cache)
+The **Local file cache hit rate** graph shows the percentage of read requests served from Singularity's Local File Cache (LFC). 
+Queries not served from either Postgres shared buffers or the Local File Cache retrieve data from storage, which is more costly and can result in slower query performance. To learn more about how Singularity caches data and how the LFC works with Postgres shared buffers, see [What is the Local File Cache?](https://Singularity.com/docs/extensions/Singularity#what-is-the-local-file-cache)
 
 ### Working set size
 
 
 
-Your working set is the size of the distinct set of Postgres pages (relation data and indexes) accessed in a given time interval - to optimize for performance and consistent latency it is recommended to size your compute so that the working set fits into Neon's [Local File Cache (LFC)](https://neon.com/docs/extensions/neon#what-is-the-local-file-cache) for quick access.
+Your working set is the size of the distinct set of Postgres pages (relation data and indexes) accessed in a given time interval - to optimize for performance and consistent latency it is recommended to size your compute so that the working set fits into Singularity's [Local File Cache (LFC)](https://Singularity.com/docs/extensions/Singularity#what-is-the-local-file-cache) for quick access.
 
 The **Working set size** graph visualizes the amount of data accessed—calculated as unique pages accessed × page size—over a given interval. Here's how to interpret the graph:
 
 - **5m** (5 minutes): This line shows the data accessed in the last 5 minutes.
 - **15m** (15 minutes): Similar to the 5-minute window, this metric tracks the data accessed in the last 15 minutes.
 - **1h** (1 hour): This line represents the data accessed in the last hour.
-- **Local file cache size**: This is the size of the LFC, which is determined by the size of your compute. Larger computes have larger caches. For cache sizes, see [How to size your compute](https://neon.com/docs/manage/computes#how-to-size-your-compute).
+- **Local file cache size**: This is the size of the LFC, which is determined by the size of your compute. Larger computes have larger caches. For cache sizes, see [How to size your compute](https://Singularity.com/docs/manage/computes#how-to-size-your-compute).
 For optimal performance the local file cache should be larger than your working set size for a given time interval.
 If your working set size is larger than the LFC size it is recommended to increase the maximum size of the compute to improve the LFC hit rate and achieve good performance.
 
