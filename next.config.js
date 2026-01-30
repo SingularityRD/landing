@@ -205,7 +205,7 @@ const defaultConfig = {
         destination: '/docs/changelog/:path*',
         permanent: true,
       },
-      // Proxy has an error message, that suggests to read `https://neon.com/sni` for more details.
+      // Proxy has an error message, that suggests to read `https://singularityrd.com/sni` for more details.
       {
         source: '/sni',
         destination: '/docs/connect/connection-errors',
@@ -263,12 +263,12 @@ const defaultConfig = {
       },
       {
         source: '/api-reference',
-        destination: 'https://api-docs.neon.tech',
+        destination: 'https://api-docs.singularityrd.com',
         permanent: true,
       },
       {
         source: '/api-reference/v2',
-        destination: 'https://api-docs.neon.tech/v2',
+        destination: 'https://api-docs.singularityrd.com/v2',
         permanent: true,
       },
       {
@@ -278,7 +278,7 @@ const defaultConfig = {
       },
       {
         source: '/trust',
-        destination: 'https://trust.neon.com',
+        destination: 'https://trust.singularityrd.com',
         permanent: true,
       },
       {
@@ -288,7 +288,7 @@ const defaultConfig = {
       },
       {
         source: '/developer-days',
-        destination: 'https://devdays.neon.tech',
+        destination: 'https://devdays.singularityrd.com',
         permanent: true,
       },
       {
@@ -309,7 +309,7 @@ const defaultConfig = {
       },
       {
         source: '/sign_in',
-        destination: 'https://console.neon.tech/signup',
+        destination: 'https://console.singularityrd.com/signup',
         permanent: true,
       },
       // {
@@ -389,12 +389,12 @@ const defaultConfig = {
       },
       {
         source: '/launchpad',
-        destination: 'https://neon.new',
+        destination: 'https://singularityrd.com',
         permanent: false,
       },
       {
         source: '/instagres',
-        destination: 'https://neon.new',
+        destination: 'https://singularityrd.com',
         permanent: false,
       },
       {
