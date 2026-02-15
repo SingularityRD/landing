@@ -1,0 +1,37 @@
+
+> singularity-landing@0.1.0 prebuild
+> node src/scripts/generate-docs-icons-config.js
+
+
+> singularity-landing@0.1.0 build
+> next build
+
+  Ôû▓ Next.js 14.2.35
+
+   Creating an optimized production build ...
+Failed to compile.
+
+node:module
+Module build failed: UnhandledSchemeError: Reading from "node:module" is not handled by plugins (Unhandled scheme).
+Webpack supports "data:" and "file:" URIs by default.
+You may need an additional plugin to handle "node:" URIs.
+    at C:\Users\an─▒l\Desktop\landing\node_modules\next\dist\compiled\webpack\bundle5.js:28:401757
+    at Hook.eval [as callAsync] (eval at create (C:\Users\an─▒l\Desktop\landing\node_modules\next\dist\compiled\webpack\bundle5.js:13:28858), <anonymous>:6:1)
+    at Hook.CALL_ASYNC_DELEGATE [as _callAsync] (C:\Users\an─▒l\Desktop\landing\node_modules\next\dist\compiled\webpack\bundle5.js:13:26012)
+    at Object.processResource (C:\Users\an─▒l\Desktop\landing\node_modules\next\dist\compiled\webpack\bundle5.js:28:401682)
+    at processResource (C:\Users\an─▒l\Desktop\landing\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js:1:5308)
+    at iteratePitchingLoaders (C:\Users\an─▒l\Desktop\landing\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js:1:4667)
+    at runLoaders (C:\Users\an─▒l\Desktop\landing\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js:1:8590)
+    at NormalModule._doBuild (C:\Users\an─▒l\Desktop\landing\node_modules\next\dist\compiled\webpack\bundle5.js:28:401544)
+    at NormalModule.build (C:\Users\an─▒l\Desktop\landing\node_modules\next\dist\compiled\webpack\bundle5.js:28:403572)
+    at C:\Users\an─▒l\Desktop\landing\node_modules\next\dist\compiled\webpack\bundle5.js:28:82055
+
+Import trace for requested module:
+node:module
+./node_modules/@supabase/pg-parser/wasm/17/pg-parser.js
+./node_modules/@supabase/pg-parser/dist/index.js
+./node_modules/@supabase/sql-to-rest/dist/index.js
+./src/components/shared/sql-to-rest-converter/sql-to-rest-converter.jsx
+
+
+> Build failed because of webpack errors

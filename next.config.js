@@ -537,7 +537,7 @@ const defaultConfig = {
       },
     ];
   },
-  webpack(config) {
+  webpack(config, { webpack }) {
     const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'));
 
     config.module.rules.push(
@@ -586,13 +586,25 @@ const defaultConfig = {
       }
     );
 
+    config.plugins.push(
+      new webpack.NormalModuleReplacementPlugin(/^node:/, (resource) => {
+        resource.request = resource.request.replace(/^node:/, '');
+      })
+    );
+
     // Modify the file loader rule to ignore *.svg, since we have it handled now.
     fileLoaderRule.exclude = /\.svg$/i;
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'node:module': false,
+    };
 
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,
       module: false,
+      'node:module': false,
       path: false,
       crypto: false,
       stream: false,
