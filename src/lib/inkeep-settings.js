@@ -4,7 +4,7 @@ const baseSettings = {
   apiKey: process.env.INKEEP_INTEGRATION_API_KEY,
   integrationId: process.env.INKEEP_INTEGRATION_ID,
   organizationId: process.env.INKEEP_ORGANIZATION_ID,
-  primaryBrandColor: '#00E599',
+  primaryBrandColor: '#FFFFFF',
   organizationDisplayName: 'Singularity',
   customIcons: {
     close: { custom: closeIcon },

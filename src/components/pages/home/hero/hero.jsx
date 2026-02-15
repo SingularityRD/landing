@@ -2,40 +2,21 @@
 
 import clsx from 'clsx';
 import Image from 'next/image';
-import { useState, useRef, createRef, useEffect, useCallback } from 'react';
-import useWindowSize from 'react-use/lib/useWindowSize';
+import { useState } from 'react';
 
 import Button from 'components/shared/button';
 import Container from 'components/shared/container';
+import Link from 'components/shared/link';
 import LINKS from 'constants/links';
-import useIsSafari from 'hooks/use-is-safari';
 import branchingIcon from 'icons/home/hero/branching.svg';
 import scalingIcon from 'icons/home/hero/scaling.svg';
 import bg from 'images/pages/home/hero/bg.jpg';
 
-import Video from './video';
-
-const Hls = require('hls.js/dist/hls.light.min.js');
-
-const IS_MOBILE_SCREEN_WIDTH = 639;
-
-/* 
-  Video optimization parameters:
-    -mp4: -pix_fmt yuv420p -vf "scale=-2:932" -movflags faststart -vcodec libx264 -crf 20
-    Scaling
-      -m3u8: -codec: copy -start_number 0 -hls_time 2 -hls_list_size 0 -f hls scaling.m3u8
-    Branching
-      -m3u8: -codec: copy -start_number 0 -hls_time 3 -hls_list_size 0 -f hls branching.m3u8
-*/
 const ITEMS = [
   {
-    video: {
-      icon: scalingIcon,
-      title: 'AutoSecOps',
-      mp4: '/videos/pages/home/hero/scaling.mp4?updated=20240514120633',
-      m3u8: '/videos/pages/home/hero/scaling.m3u8?updated=20240514120633',
-      bgImage: '/videos/pages/home/hero/scaling.jpg',
-    },
+    icon: scalingIcon,
+    image: '/images/autosecops.png',
+    imageTitle: 'AutoSecOps',
     title: 'AutoSecOps',
     description:
       'Unified device management + predictive maintenance + autonomous security. ML predicts failures before they happen. Threats neutralized in 100ms. Zero manual intervention.',
@@ -43,13 +24,9 @@ const ITEMS = [
     linkUrl: LINKS.autoscaling,
   },
   {
-    video: {
-      icon: branchingIcon,
-      title: 'Threat Intelligence',
-      mp4: '/videos/pages/home/hero/branching.mp4?updated=20240508184252',
-      m3u8: '/videos/pages/home/hero/branching.m3u8?updated=20240508184252',
-      bgImage: '/videos/pages/home/hero/branching.jpg',
-    },
+    icon: branchingIcon,
+    image: '/images/cti.png',
+    imageTitle: 'Threat Intelligence',
     title: 'Threat Intelligence',
     description:
       '50+ global CTI feeds. Dark web hunting. Proprietary research. We see attacks before they happen—and we stop them before they start.',
@@ -59,49 +36,7 @@ const ITEMS = [
 ];
 
 const Hero = () => {
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-
-  const { width: windowWidth } = useWindowSize();
-  const [isMobile, setIsMobile] = useState(false);
-  const [initialVideoPlayback, setInitialVideoPlayback] = useState(true);
-
-  const videoRefs = useRef(ITEMS.map(() => createRef()));
-
-  const isSafari = useIsSafari();
-
-  useEffect(() => {
-    setIsMobile(windowWidth <= IS_MOBILE_SCREEN_WIDTH);
-  }, [windowWidth]);
-
-  useEffect(() => {
-    videoRefs.current.forEach((ref, index) => {
-      const videoElement = ref.current;
-      const videoSrc = isSafari ? ITEMS[index].video.mp4 : ITEMS[index].video.m3u8;
-
-      if (!videoElement) return;
-
-      // Using HLS.js for browsers that support it, except for Safari which has native HLS support.
-      if (Hls.isSupported() && !isSafari) {
-        const hls = new Hls();
-        hls.loadSource(videoSrc);
-        hls.attachMedia(videoElement);
-      } else {
-        const source = document.createElement('source');
-        source.src = videoSrc;
-        source.type = 'video/mp4';
-        videoElement.appendChild(source);
-      }
-    });
-  }, [videoRefs, isSafari]);
-
-  const switchVideo = useCallback(
-    (index) => {
-      videoRefs.current[currentVideoIndex].current.pause();
-      videoRefs.current[currentVideoIndex].current.currentTime = 0;
-      setCurrentVideoIndex(index);
-    },
-    [currentVideoIndex]
-  );
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section className="hero safe-paddings relative pt-[168px] xl:pt-[152px] lg:pt-32 md:pt-[88px]">
@@ -140,25 +75,80 @@ const Hero = () => {
 
         <div className="mt-[74px] flex gap-x-2.5 xl:mt-16 lg:mt-14 sm:mt-9 sm:flex-col sm:gap-y-9">
           {ITEMS.map((item, index) => (
-            <Video
+            <div
               className={clsx(
-                'transition-all duration-700',
-                currentVideoIndex === index
+                'transition-all duration-700 cursor-pointer',
+                activeIndex === index
                   ? 'w-[64.7273%] flex-shrink-0 xl:w-[61.863%] lg:w-[62.746%] sm:w-full'
                   : 'w-full'
               )}
-              videoClassName={clsx(index === 1 && 'left-[-172px]')}
-              {...item}
-              isActive={currentVideoIndex === index}
-              isMobile={isMobile}
-              switchVideo={() => switchVideo((currentVideoIndex + 1) % ITEMS.length)}
-              setActiveVideoIndex={() => setCurrentVideoIndex(index)}
-              initialVideoPlayback={initialVideoPlayback}
-              setInitialVideoPlayback={setInitialVideoPlayback}
-              ref={videoRefs.current[index]}
-              index={index}
+              onClick={() => setActiveIndex(index)}
               key={index}
-            />
+            >
+              <div
+                className={clsx(
+                  'group relative rounded-2xl bg-[linear-gradient(180deg,#111313_51.48%,#050505_100%)] p-1.5 shadow-[-2px_0px_2px_0px_rgba(0,0,0,0.25)_inset,2px_0px_2px_0px_rgba(0,0,0,0.25)_inset,0px_2px_2px_0px_rgba(0,0,0,0.30)_inset,0px_1.4px_0px_0px_rgba(255,255,255,0.03)]'
+                )}
+              >
+                <div
+                  className={clsx(
+                    'relative h-[466px] overflow-hidden rounded-[10px] 2xl:h-[430px] xl:h-[403px] lg:h-[340px] md:h-[317px] sm:aspect-[1.51] sm:h-auto',
+                    'after:pointer-events-none after:absolute after:-inset-px after:z-10 after:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(12,13,13,.3)_0%,#0C0D0D_100%)] after:transition-opacity after:duration-300',
+                    activeIndex !== index ? 'after:opacity-70' : 'after:opacity-0'
+                  )}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+                    src={item.image}
+                    alt={item.imageTitle}
+                  />
+                  <div className="absolute left-10 top-11 lt:left-8 lt:top-10 md:left-4 md:top-6">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      className="ml-auto w-auto md:h-6 xs:h-4"
+                      height={32}
+                      width={32}
+                      src={item.icon}
+                      alt=""
+                      loading="eager"
+                    />
+                    <h2 className="font-title text-[64px] font-medium leading-none tracking-tighter text-white lt:text-[48px] md:text-[42px] xs:text-[30px]">
+                      {item.imageTitle}
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-5 px-1 md:min-h-[209px] sm:min-h-0">
+                <h3 className="text-xl leading-dense tracking-tighter text-white lg:text-lg sm:text-[20px]">
+                  {item.title}
+                </h3>
+                <div className="mt-3.5 h-px w-full overflow-hidden bg-gray-new-15 sm:hidden" aria-hidden>
+                  <div
+                    className={clsx(
+                      'h-full w-full origin-left bg-[linear-gradient(90deg,rgba(228,229,231,0.10)_0%,#E4E5E7_100%)] transition-[transform,opacity] duration-[400ms] ease-linear',
+                      activeIndex === index ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+                    )}
+                  />
+                </div>
+                <p
+                  className={clsx(
+                    'mt-3.5 max-w-[366px] font-light tracking-extra-tight transition-colors duration-200 xl:max-w-[350px] lg:max-w-[245px] lg:text-[15px] md:mt-2.5 sm:max-w-none',
+                    activeIndex === index ? 'text-gray-new-80' : 'text-gray-new-40'
+                  )}
+                >
+                  {item.description}
+                </p>
+                <Link
+                  className="mt-2.5 flex w-fit items-center text-[15px] font-medium leading-none tracking-[-0.03em]"
+                  to={item.linkUrl}
+                  theme="white"
+                  withArrow
+                >
+                  {item.linkLabel}
+                </Link>
+              </div>
+            </div>
           ))}
         </div>
       </Container>

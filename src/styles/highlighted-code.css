@@ -50,7 +50,7 @@
   pre .line {
     &.highlighted,
     &[data-highlighted-line] {
-      @apply bg-[rgba(0,85,255,0.08)] shadow-[inset_3px_0px_0px_0px_#0055ff] dark:bg-[rgba(0,229,153,0.08)] dark:shadow-[inset_3px_0px_0px_0px_#00E599];
+      @apply bg-[rgba(0,85,255,0.08)] shadow-[inset_3px_0px_0px_0px_#0055ff] dark:bg-[rgba(255,255,255,0.08)] dark:shadow-[inset_3px_0px_0px_0px_#FFFFFF];
     }
   }
 
@@ -115,7 +115,7 @@
 
     &.diff {
       &.add {
-        @apply bg-[#00E599]/10 before:absolute before:left-2 before:text-code-green-1 before:content-['+'];
+        @apply bg-[#FFFFFF]/10 before:absolute before:left-2 before:text-code-green-1 before:content-['+'];
       }
       &.remove {
         @apply bg-[#FF275D]/10 before:absolute before:left-2 before:text-code-red-1/50 before:content-['—'];

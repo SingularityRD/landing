@@ -3,8 +3,6 @@ import Link from 'components/shared/link';
 import PauseableVideo from 'components/shared/pauseable-video';
 import LINKS from 'constants/links';
 
-import RiveCard from './rive-card';
-
 const Bento = () => (
   <section className="bento safe-paddings mt-11 xl:mt-[38px] lg:mt-[74px]">
     <Container className="xl:max-w-[704px] lg:max-w-full" size="960">
@@ -38,7 +36,15 @@ const Bento = () => (
             aria-hidden
           />
         </div>
-        <RiveCard animation="api">
+        <div className="relative grid min-h-[491px] w-full grid-cols-1 grid-rows-1 overflow-hidden rounded-[10px] xl:min-h-[360px] xl:rounded-lg lg:aspect-[0.9572] md:min-h-min sm:col-span-full sm:aspect-[1.2] sm:min-h-[250px]">
+          <div className="relative z-10 col-span-full row-span-full">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/cti.png"
+              alt="CTI - Cyber Threat Intelligence"
+              className="absolute inset-0 h-full w-full object-cover rounded-[inherit]"
+            />
+          </div>
           <div className="pointer-events-none relative z-20 col-span-full row-span-full flex items-end px-6 pb-7 xl:px-5 xl:pb-6 sm:p-4">
             <p className="pointer-events-auto text-lg font-light leading-snug tracking-extra-tight text-white/60 xl:text-base sm:text-[15px] sm:leading-tight">
               <strong className="font-normal text-white">
@@ -51,8 +57,16 @@ const Bento = () => (
             className="border-linear pointer-events-none absolute inset-0 z-10 rounded-[inherit] border-image-home-bento-api-and-cli-border"
             aria-hidden
           />
-        </RiveCard>
-        <RiveCard animation="clock">
+        </div>
+        <div className="relative grid min-h-[491px] w-full grid-cols-1 grid-rows-1 overflow-hidden rounded-[10px] xl:min-h-[360px] xl:rounded-lg lg:aspect-[0.9572] md:min-h-min sm:col-span-full sm:aspect-[1.2] sm:min-h-[250px]">
+          <div className="relative z-10 col-span-full row-span-full">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/autosecops.png"
+              alt="AutoSecOps - Autonomous Security Operations"
+              className="absolute inset-0 h-full w-full object-cover rounded-[inherit]"
+            />
+          </div>
           <div className="pointer-events-none relative z-20 col-span-full row-span-full flex items-end px-6 pb-7 xl:px-5 xl:pb-6 sm:p-4">
             <p className="pointer-events-auto text-lg font-light leading-snug tracking-extra-tight text-white/60 xl:text-base sm:text-[15px] sm:leading-tight">
               <strong className="font-normal text-white">
@@ -65,7 +79,7 @@ const Bento = () => (
             className="border-linear pointer-events-none absolute inset-0 z-10 rounded-[inherit] border-image-home-bento-timer-border"
             aria-hidden
           />
-        </RiveCard>
+        </div>
       </div>
     </Container>
   </section>

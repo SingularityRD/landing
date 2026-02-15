@@ -119,7 +119,12 @@ const ClockAnimation = ({
 
   const resetAnimation = (resetTime) => {
     if (!resetCountDownInput) return;
-    resetCountDownInput.fire();
+    try {
+      resetCountDownInput.fire();
+    } catch (e) {
+      // Rive input may be disposed during cleanup
+      return;
+    }
     if (animationFrameId) {
       cancelAnimationFrame(animationFrameId);
     }

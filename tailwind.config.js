@@ -28,8 +28,8 @@ module.exports = {
       },
       white: '#ffffff',
       primary: {
-        1: '#00E599',
-        2: '#00cc88',
+        1: '#FFFFFF',
+        2: '#E5E5E5',
       },
       secondary: {
         1: '#ff4c79',
@@ -73,7 +73,7 @@ module.exports = {
         70: '#F0F075',
       },
       green: {
-        45: '#00E599',
+        45: '#FFFFFF',
       },
       blue: {
         80: '#ADE0EB',
@@ -227,7 +227,7 @@ module.exports = {
           'radial-gradient(111.21% 103.81% at 1.9% 0%, rgba(19, 20, 21, 0.60) 0%, rgba(19, 20, 21, 0.00) 100%),' +
           'linear-gradient(0deg, #0C0C0D, #0C0C0D)',
         'security-slide-icon-bg':
-          'radial-gradient(50% 50% at 50% 100%, rgba(0, 229, 153, 0.15) 0%, rgba(0, 229, 153, 0.00) 100%),' +
+          'radial-gradient(50% 50% at 50% 100%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.00) 100%),' +
           'radial-gradient(78.12% 78.13% at 50% 0%, rgba(226, 230, 235, 0.06) 0%, rgba(226, 230, 235, 0.00) 100%),' +
           'linear-gradient(0deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02)),' +
           'linear-gradient(0deg, #0C0C0D, #0C0C0D)',
