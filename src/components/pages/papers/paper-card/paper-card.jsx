@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import Link from 'components/shared/link';
-import DocumentIcon from 'icons/header/document.inline.svg';
-import ExternalIcon from 'icons/external-link.inline.svg';
+import DocumentIcon from 'icons/docs-icon.inline.svg';
+import ExternalIcon from 'icons/external.inline.svg';
 import CopyIcon from 'icons/copy.inline.svg';
 import CheckIcon from 'icons/check.inline.svg';
-import DownloadIcon from 'icons/download.inline.svg';
+import DownloadIcon from 'icons/arrow-right.inline.svg';
 
 const CATEGORY_COLORS = {
   blue: 'bg-blue-500/20 text-blue-400',
@@ -76,7 +76,7 @@ const PaperCard = ({ paper }) => {
             to={paper.pdfUrl}
             className="inline-flex items-center gap-2 rounded-lg bg-gray-new-15 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-green-45 hover:text-black"
           >
-            <DownloadIcon className="h-4 w-4" />
+            <DownloadIcon className="h-4 w-4 rotate-90" />
             PDF
           </Link>
         )}
