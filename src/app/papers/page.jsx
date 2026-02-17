@@ -20,8 +20,8 @@ const PapersPage = () => {
   const filteredPapers = useMemo(() => {
     return PAPERS_LIST.filter((paper) => {
       const matchesCategory = selectedCategory === 'all' || paper.category === selectedCategory;
-      const matchesSearch = 
-        searchQuery === '' || 
+      const matchesSearch =
+        searchQuery === '' ||
         paper.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         paper.abstract.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
@@ -30,7 +30,7 @@ const PapersPage = () => {
 
   const stats = {
     total: PAPERS_LIST.length,
-    categories: [...new Set(PAPERS_LIST.map(p => p.category))].length,
+    categories: [...new Set(PAPERS_LIST.map((p) => p.category))].length,
   };
 
   return (
@@ -40,7 +40,7 @@ const PapersPage = () => {
         {/* Background decoration */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute -left-1/4 -top-1/4 h-[600px] w-[600px] rounded-full bg-green-45/5 blur-3xl" />
-          <div className="absolute -right-1/4 top-1/4 h-[400px] w-[400px] rounded-full bg-blue-500/5 blur-3xl" />
+          <div className="bg-blue-500/5 absolute -right-1/4 top-1/4 h-[400px] w-[400px] rounded-full blur-3xl" />
         </div>
 
         <div className="container relative z-10 mx-auto px-4">
@@ -56,15 +56,15 @@ const PapersPage = () => {
             {/* Title */}
             <h1 className="mb-6 font-title text-5xl font-medium tracking-tight text-white md:text-6xl">
               Research Papers &
-              <span className="block bg-gradient-to-r from-green-45 to-emerald-400 bg-clip-text text-transparent">
+              <span className="to-emerald-400 block bg-gradient-to-r from-green-45 bg-clip-text text-transparent">
                 Reports
               </span>
             </h1>
 
             {/* Description */}
             <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-new-70">
-              Explore our latest research on AI, cybersecurity, and autonomous systems. 
-              Each paper includes comprehensive abstracts, proper citations, and downloadable resources.
+              Explore our latest research on AI, cybersecurity, and autonomous systems. Each paper
+              includes comprehensive abstracts, proper citations, and downloadable resources.
             </p>
 
             {/* Search Bar */}
@@ -112,7 +112,7 @@ const PapersPage = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           {filteredPapers.length > 0 ? (
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid grid-cols-1 gap-8 xl:grid-cols-3 md:grid-cols-2">
               {filteredPapers.map((paper) => (
                 <PaperCard key={paper.id} paper={paper} />
               ))}
@@ -133,16 +133,14 @@ const PapersPage = () => {
       <section className="border-t border-gray-new-15 py-20">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-2xl rounded-2xl border border-gray-new-15 bg-gradient-to-br from-gray-new-8 to-gray-new-10 p-10 text-center">
-            <h2 className="mb-4 font-title text-3xl font-medium text-white">
-              Want to contribute?
-            </h2>
+            <h2 className="mb-4 font-title text-3xl font-medium text-white">Want to contribute?</h2>
             <p className="mb-6 text-gray-new-70">
-              We&apos;re always looking for new research and insights. If you have a paper 
+              We&apos;re always looking for new research and insights. If you have a paper
               you&apos;d like to share, get in touch with our research team.
             </p>
             <a
-              href="mailto:research@singularityrd.com"
-              className="inline-flex items-center gap-2 rounded-lg bg-green-45 px-6 py-3 font-medium text-black transition-all hover:bg-green-400"
+              href="mailto:info@singularityrd.com"
+              className="hover:bg-green-400 inline-flex items-center gap-2 rounded-lg bg-green-45 px-6 py-3 font-medium text-black transition-all"
             >
               Contact Research Team
             </a>
