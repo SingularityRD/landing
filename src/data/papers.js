@@ -1,0 +1,108 @@
+const PAPERS_LIST = [
+  {
+    id: 'ssrn-6253079',
+    title: 'Advanced Research in AI and Cybersecurity',
+    slug: 'ssrn-6253079',
+    abstract:
+      'Comprehensive research on the intersection of artificial intelligence and modern cybersecurity practices, exploring novel approaches to threat detection and autonomous defense systems.',
+    authors: ['Muhammet Anıl Yağız'],
+    date: '2026-02-17',
+    category: 'SSRN',
+    categoryColor: 'blue',
+    type: 'external',
+    externalUrl: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6253079',
+    pdfUrl: null,
+    institution: 'Singularity Research and Development',
+    citations: {
+      apa: 'Yağız, M. A. (2026). Advanced research in AI and cybersecurity. Singularity Research and Development. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6253079',
+      bibtex: `@techreport{yagiz2026advanced,
+  title={Advanced Research in AI and Cybersecurity},
+  author={Yağız, Muhammet Anıl},
+  institution={Singularity Research and Development},
+  year={2026},
+  month={feb},
+  url={https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6253079}
+}`,
+    },
+  },
+  {
+    id: 'silent-breach',
+    title: 'Silent Breach: Advanced Cybersecurity Threats',
+    slug: 'silent-breach',
+    abstract:
+      'An in-depth analysis of silent breach techniques in modern cybersecurity landscapes. This paper examines advanced persistent threats (APTs), zero-day exploitation methods, detection evasion strategies, and proactive defense mechanisms for enterprise environments.',
+    authors: ['Muhammet Anıl Yağız'],
+    date: '2026-02-15',
+    category: 'Cybersecurity',
+    categoryColor: 'red',
+    type: 'pdf',
+    externalUrl: null,
+    pdfUrl: '/papers/silent%20breach.pdf',
+    institution: 'Singularity Research and Development',
+    citations: {
+      apa: 'Yağız, M. A. (2026). Silent breach: Advanced cybersecurity threats. Singularity Research and Development.',
+      bibtex: `@techreport{yagiz2026silentbreach,
+  title={Silent Breach: Advanced Cybersecurity Threats},
+  author={Yağız, Muhammet Anıl},
+  institution={Singularity Research and Development},
+  year={2026},
+  month={feb},
+  url={https://yourdomain.com/papers/silent%20breach.pdf}
+}`,
+    },
+  },
+  {
+    id: 'autonomous-ai-agents',
+    title: 'Autonomous AI Agents: Architecture and Implementation',
+    slug: 'autonomous-ai-agents',
+    abstract:
+      'A comprehensive guide to designing and implementing autonomous AI agents, covering multi-agent systems, decision-making frameworks, reinforcement learning integration, and real-world deployment strategies for enterprise applications.',
+    authors: ['Muhammet Anıl Yağız'],
+    date: '2026-02-10',
+    category: 'AI & Machine Learning',
+    categoryColor: 'green',
+    type: 'pdf',
+    externalUrl: null,
+    pdfUrl: '/papers/autonomous%20ai%20agents.pdf',
+    institution: 'Singularity Research and Development',
+    citations: {
+      apa: 'Yağız, M. A. (2026). Autonomous AI agents: Architecture and implementation. Singularity Research and Development.',
+      bibtex: `@techreport{yagiz2026aiagents,
+  title={Autonomous AI Agents: Architecture and Implementation},
+  author={Yağız, Muhammet Anıl},
+  institution={Singularity Research and Development},
+  year={2026},
+  month={feb},
+  url={https://yourdomain.com/papers/autonomous%20ai%20agents.pdf}
+}`,
+    },
+  },
+  {
+    id: 'recursive-language-models',
+    title: 'Recursive Language Models: Self-Improving AI Systems',
+    slug: 'recursive-language-models',
+    abstract:
+      'An exploration of recursive language models and their ability to self-improve through iterative training cycles. This paper examines the theoretical foundations, practical implementations, and applications in code generation, complex reasoning tasks, and automated knowledge synthesis.',
+    authors: ['Muhammet Anıl Yağız'],
+    date: '2026-02-05',
+    category: 'AI & Machine Learning',
+    categoryColor: 'green',
+    type: 'pdf',
+    externalUrl: null,
+    pdfUrl: '/papers/recursive%20language%20models.pdf',
+    institution: 'Singularity Research and Development',
+    citations: {
+      apa: 'Yağız, M. A. (2026). Recursive language models: Self-improving AI systems. Singularity Research and Development.',
+      bibtex: `@techreport{yagiz2026recursive,
+  title={Recursive Language Models: Self-Improving AI Systems},
+  author={Yağız, Muhammet Anıl},
+  institution={Singularity Research and Development},
+  year={2026},
+  month={feb},
+  url={https://yourdomain.com/papers/recursive%20language%20models.pdf}
+}`,
+    },
+  },
+];
+
+export default PAPERS_LIST;
