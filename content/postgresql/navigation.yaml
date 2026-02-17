@@ -767,27 +767,6 @@
           title: RANK
         - slug: postgresql-window-function/postgresql-row_number
           title: ROW_NUMBER
-- nav: Research
-  title: Papers & Reports
-  slug: postgresql-papers
-  icon: document
-  items:
-    - section: Research Papers
-      items:
-        - slug: postgresql-papers/
-          title: All Papers
-        - slug: postgresql-papers/think-tank-reports
-          title: Think Tank Reports
-        - slug: postgresql-papers/academic-papers
-          title: Academic Papers
-    - section: Categories
-      items:
-        - slug: postgresql-papers/performance-studies
-          title: Performance Studies
-        - slug: postgresql-papers/security-research
-          title: Security Research
-        - slug: postgresql-papers/scalability-analysis
-          title: Scalability Analysis
 
 - nav: API
   title: API
