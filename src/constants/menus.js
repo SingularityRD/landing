@@ -112,6 +112,36 @@ export default {
       to: LINKS.pricing,
     },
     {
+      text: 'Research',
+      sections: [
+        {
+          items: [
+            {
+              icon: BlogIcon,
+              title: 'All Papers',
+              to: '/postgresql/postgresql-papers/',
+            },
+            {
+              icon: BlogIcon,
+              title: 'SSRN Publication',
+              to: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6253079',
+              isExternal: true,
+            },
+            {
+              icon: PeopleIcon,
+              title: 'AI & Machine Learning',
+              to: '/postgresql/postgresql-papers/academic-papers/',
+            },
+            {
+              icon: SecurityIcon,
+              title: 'Cybersecurity',
+              to: '/postgresql/postgresql-papers/security-research/',
+            },
+          ],
+        },
+      ],
+    },
+    {
       text: 'Company',
       sections: [
         {
@@ -178,6 +208,5 @@ export default {
         },
       ],
     },
-
   ],
 };

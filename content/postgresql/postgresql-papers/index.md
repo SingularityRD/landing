@@ -14,6 +14,39 @@ This section contains curated research papers and technical reports. These resou
 
 ## Featured Papers
 
+### SSRN Publication
+
+#### [View on SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6253079)
+
+**Authors:** Muhammet Anıl Yağız  
+**Institution:** Singularity Research and Development  
+**Published:** February 2026  
+**Platform:** SSRN (Social Science Research Network)
+
+**Abstract:** Research paper available on SSRN covering advanced topics in artificial intelligence and cybersecurity.
+
+**Citation (APA):**
+
+```
+Yağız, M. A. (2026). [Paper Title]. Singularity Research and Development. 
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6253079
+```
+
+**Citation (BibTeX):**
+
+```bibtex
+@techreport{yagiz2026ssrn,
+  title={[Paper Title]},
+  author={Yağız, Muhammet Anıl},
+  institution={Singularity Research and Development},
+  year={2026},
+  month={feb},
+  url={https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6253079}
+}
+```
+
+---
+
 ### February 2026
 
 #### [Silent Breach: Advanced Cybersecurity Threats](/papers/silent%20breach.pdf)
